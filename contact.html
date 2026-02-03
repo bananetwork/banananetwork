@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us | BananaNetwork</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f6f8;
+            margin:0;
+            padding:20px;
+            line-height:1.7;
+        }
+        .container{
+            max-width:900px;
+            margin:auto;
+            background:#fff;
+            padding:25px;
+            border-radius:8px;
+            text-align:center;
+        }
+        h1{
+            color:#2e7d32;
+        }
+        .box{
+            margin-top:25px;
+            padding:20px;
+            background:#f1f8e9;
+            border-radius:8px;
+        }
+        a.whatsapp{
+            display:inline-block;
+            margin-top:15px;
+            padding:12px 20px;
+            background:#25D366;
+            color:#fff;
+            text-decoration:none;
+            font-weight:bold;
+            border-radius:6px;
+        }
+        a.whatsapp:hover{
+            background:#1da851;
+        }
+        .email{
+            margin-top:15px;
+            font-size:16px;
+            color:#333;
+        }
+
+        /* Enquiry Form */
+        form{
+            margin-top:15px;
+            text-align:left;
+        }
+        input, textarea{
+            width:100%;
+            padding:10px;
+            margin-top:8px;
+            border-radius:6px;
+            border:1px solid #ccc;
+            font-size:15px;
+        }
+        textarea{
+            resize:vertical;
+        }
+        button{
+            margin-top:12px;
+            padding:12px;
+            width:100%;
+            background:#2e7d32;
+            color:#fff;
+            border:none;
+            border-radius:6px;
+            font-size:16px;
+            cursor:pointer;
+        }
+        button:hover{
+            background:#256b29;
+        }
+        .note{
+            font-size:13px;
+            color:#555;
+            margin-top:8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Contact Us</h1>
+
+<p>
+दररोज <strong>केळी बाजार भाव</strong> पाहण्यासाठी,  
+केळी संबंधित <strong>बातम्या व अपडेट्स</strong> मिळवण्यासाठी  
+आणि आमच्या WhatsApp ग्रुपला जॉईन होण्यासाठी  
+खालील लिंकवर क्लिक करा.
+</p>
+
+<!-- WhatsApp -->
+<div class="box">
+    <h2>📢 WhatsApp Group</h2>
+    <p>
+        केळी बाजारभाव, मंडी अपडेट्स आणि शेतीविषयक माहिती
+        थेट WhatsApp वर मिळवण्यासाठी आमच्या ग्रुपला जॉईन व्हा.
+    </p>
+
+    <a class="whatsapp" 
+       href="https://chat.whatsapp.com/GGtDZDLQiw4BlXGVyrni2u" 
+       target="_blank">
+        👉 WhatsApp Group Join करा
+    </a>
+</div>
+
+<!-- Email -->
+<div class="box">
+    <h2>📧 Email संपर्क</h2>
+    <p class="email">
+        काही सूचना, प्रश्न किंवा माहिती पाठवायची असल्यास:
+        <br>
+        <strong>contact@bananetwork.in</strong>
+    </p>
+    <p class="note">
+        (सध्या demo email address आहे)
+    </p>
+</div>
+
+<!-- Enquiry Box -->
+<div class="box">
+    <h2>📝 Enquiry / समस्या / सूचना</h2>
+    <p>
+        तुम्हाला काही प्रश्न, अडचण किंवा सूचना असल्यास
+        खाली लिहा. हा संदेश थेट admin कडे पाठवला जाईल.
+    </p>
+
+    <!-- 🔴 Formspree Form -->
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="text" name="name" placeholder="तुमचं नाव" required>
+        <input type="email" name="email" placeholder="Email (ऐच्छिक)">
+        <textarea name="message" rows="5" placeholder="तुमचा संदेश / समस्या" required></textarea>
+
+        <button type="submit">📨 संदेश पाठवा</button>
+    </form>
+
+    <p class="note">
+        🔒 हा फॉर्म सुरक्षित आहे. संदेश फक्त BananaNetwork admin ला दिसेल.
+    </p>
+</div>
+
+</div>
+
+</body>
+</html>
