@@ -2,237 +2,235 @@
 <html lang="mr">
 <head>
 <meta charset="UTF-8">
-<title>केळी बाजार भाव – Demo</title>
+<title>🍌 BananaNetwork | केळी बाजार भाव</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-body{
-    margin:0;
-    font-family:Segoe UI, sans-serif;
-    background:#f4f6f8;
-}
+body{font-family:Arial;background:#f4f6f8;margin:0}
+
+/* HEADER */
 header{
-    background:#2e7d32;
-    color:#fff;
-    padding:15px;
-    text-align:center;
+ background:#2e7d32;
+ color:#fff;
+ padding:15px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ position:relative;
 }
-.tabs{
-    display:flex;
-    gap:10px;
-    justify-content:center;
-    margin:15px;
+header img{max-width:160px}
+
+/* 3 DOT MENU */
+.menu-btn{font-size:26px;cursor:pointer}
+.menu{
+ position:absolute;top:60px;right:15px;
+ background:#fff;border-radius:10px;
+ box-shadow:0 8px 25px rgba(0,0,0,.25);
+ display:none;min-width:180px;z-index:20
 }
-.tab{
-    padding:10px 16px;
-    background:#e0e0e0;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
+.menu a{display:block;padding:12px 16px;text-decoration:none;color:#333}
+.menu a:hover{background:#f1f8e9}
+
+/* COMMON */
+.box,.card{background:#fff;margin:15px;padding:15px;border-radius:8px}
+.tabs{display:flex;overflow-x:auto;margin:15px}
+.tab{padding:10px 15px;margin-right:8px;background:#e0e0e0;border-radius:6px;cursor:pointer;font-weight:bold}
+.tab.active{background:#2e7d32;color:#fff}
+.date-bar{margin:15px;background:#2e7d32;color:#fff;text-align:center;padding:12px;border-radius:6px;font-weight:bold}
+.rate-up{color:green;font-weight:bold}
+.rate-down{color:red;font-weight:bold}
+.pavti-img{width:100%;border-radius:6px}
+
+.whatsapp-join{text-align:center;margin:10px 0}
+.whatsapp-join a{
+ display:inline-flex;align-items:center;gap:8px;
+ background:#25D366;color:#fff;
+ padding:8px 16px;border-radius:30px;
+ text-decoration:none;font-weight:bold;font-size:14px
 }
-.tab.active{
-    background:#2e7d32;
-    color:#fff;
-}
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:15px;
-}
-.card{
-    background:#fff;
-    border-radius:10px;
-    padding:15px;
-    margin-bottom:20px;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-}
-h2{
-    margin-top:0;
-    color:#2e7d32;
-}
-.video{
-    position:relative;
-    padding-top:56.25%;
-}
-.video iframe{
-    position:absolute;
-    top:0;left:0;
-    width:100%;
-    height:100%;
-    border-radius:8px;
-}
-img{
-    width:100%;
-    border-radius:8px;
-    margin-top:10px;
-}
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
-}
-canvas{
-    max-height:260px;
-}
-.bad-up{color:green;font-weight:bold}
-.bad-down{color:red;font-weight:bold}
+.whatsapp-join img{width:22px;height:22px}
+
+canvas{margin-top:20px}
+h2{color:#2e7d32}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>🍌 केळी बाजार भाव (Demo)</h1>
-<div>दि. 26/01/2026 (सोमवार)</div>
+  <img src="logo_1.png">
+  <div class="menu-btn" onclick="toggleMenu()">⋮</div>
+  <div class="menu" id="menu">
+    <a href="index.html">🏠 Home</a>
+    <a href="about.html">ℹ️ About Us</a>
+    <a href="contact.html">📞 Contact</a>
+    <a href="privacy.html">🔒 Privacy Policy</a>
+  </div>
 </header>
 
-<div class="tabs">
-<div class="tab active" onclick="showMarket('burhanpur')">बुरहानपूर</div>
-<div class="tab" onclick="showMarket('jalgaon')">जळगाव</div>
-<div class="tab" onclick="showMarket('chopda')">चोपडा</div>
-<div class="tab" onclick="showMarket('raver')">रावेर</div>
+<div class="whatsapp-join">
+  <a href="https://chat.whatsapp.com/GGtDZDLQiw4BlXGVyrni2u" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+    WhatsApp Group Join करा
+  </a>
 </div>
 
-<div class="container" id="content"></div>
+<div class="box">
+  <h3>📸 बुराहनपूर मंडी प्रमाणित पावती</h3>
+  <img class="pavti-img" src="burhanpur_pavti.jpg">
+</div>
+
+<div class="tabs">
+  <div class="tab active" data-market="burhanpur">बुराहनपूर</div>
+  <div class="tab" data-market="jalgaon">जळगाव</div>
+  <div class="tab" data-market="chopda">चोपडा</div>
+  <div class="tab" data-market="raver">रावेर</div>
+</div>
+
+<div class="date-bar" id="dateBar"></div>
+<div class="box" id="marketData"></div>
+
+<div class="card">
+  <h2 id="graphTitle"></h2>
+  <canvas id="priceChart"></canvas>
+  <canvas id="arrivalChart"></canvas>
+  <canvas id="saleChart"></canvas>
+</div>
 
 <script>
-// ================= DEMO DATA =================
-const data = {
-burhanpur:{
-    video:"https://www.youtube.com/embed/VIDEO_ID",
-    today:{navti:[1301,1601,1475], arrival:7, sale:7},
-    yesterday:{navti:[1101,1501,1451], arrival:9, sale:9},
-    pavti:"https://via.placeholder.com/900x500?text=Burhanpur+Pavti"
-},
-jalgaon:{
-    today:{navti:0, kande:1560},
-    yesterday:{navti:0, kande:1535}
-},
-chopda:{
-    today:{navti:0, kande:1550},
-    yesterday:{navti:0, kande:1525}
-},
-raver:{
-    today:{n1:1650,n2:1550},
-    yesterday:{n1:1625,n2:1525}
+function toggleMenu(){
+ const m=document.getElementById("menu");
+ m.style.display=(m.style.display==="block")?"none":"block";
 }
+
+/* DATE */
+const weekdays={Sunday:"रविवार",Monday:"सोमवार",Tuesday:"मंगळवार",
+Wednesday:"बुधवार",Thursday:"गुरुवार",Friday:"शुक्रवार",Saturday:"शनिवार"};
+const now=new Date();
+dateBar.innerText=`दि. ${now.toLocaleDateString('en-GB')} (${weekdays[now.toLocaleString('en',{weekday:'long'})]})`;
+
+const days=["सोम","मंगळ","बुध","गुरु","शुक्र"];
+
+/* DATA */
+const data={
+ burhanpur:{
+  title:"📍 बुराहनपूर मंडी",
+  price:{labels:days,datasets:[
+   {label:"नवती (Min)",data:[1200,1250,1300,1400,1301],borderColor:"green"},
+   {label:"नवती (Max)",data:[1500,1550,1580,1620,1601],borderColor:"red"},
+   {label:"प्रचलित",data:[1350,1400,1450,1480,1475],borderColor:"orange"}
+  ]},
+  arrival:[6,7,8,7,7],
+  sale:[5,6,7,7,7],
+  text:`
+  <b>आजचा भाव</b><br>
+  नवती : 1301 / 1601 / 1475<br>
+  गाडी आवक : 7<br>
+  गाडी विक्री : 7<br><br>
+
+  <b>कालचा भाव</b><br>
+  नवती : 1101 / 1501 / 1451<br>
+  गाडी आवक : 9<br>
+  गाडी विक्री : 9<br><br>
+
+  <b>फरक</b><br>
+  नवती : <span class="rate-up">+200 / +100 / +24</span><br>
+  गाडी आवक : <span class="rate-down">2 घट</span><br>
+  गाडी विक्री : <span class="rate-down">2 घट</span>
+  `
+ },
+
+ jalgaon:{
+  title:"📍 जळगाव मंडी",
+  price:{labels:days,datasets:[{label:"कांदे बाग",data:[1500,1520,1530,1550,1560],borderColor:"green"}]},
+  arrival:[8,9,10,9,8],sale:[7,8,9,8,7],
+  text:`
+  <b>आजचा भाव</b><br>
+  नवती : 0000<br>
+  कांदे बाग : 1560<br><br>
+
+  <b>कालचा भाव</b><br>
+  नवती : 0000<br>
+  कांदे बाग : 1535<br><br>
+
+  <b>फरक</b><br>
+  कांदे बाग : <span class="rate-up">25 वाढ</span>
+  `
+ },
+
+ chopda:{
+  title:"📍 चोपडा मंडी",
+  price:{labels:days,datasets:[{label:"कांदे बाग",data:[1500,1520,1530,1550,1550],borderColor:"green"}]},
+  arrival:[6,7,7,6,6],sale:[5,6,6,5,5],
+  text:`
+  <b>आजचा भाव</b><br>
+  नवती : 0000<br>
+  कांदे बाग : 1550<br><br>
+
+  <b>कालचा भाव</b><br>
+  नवती : 0000<br>
+  कांदे बाग : 1525<br><br>
+
+  <b>फरक</b><br>
+  कांदे बाग : <span class="rate-up">25 वाढ</span>
+  `
+ },
+
+ raver:{
+  title:"📍 रावेर मंडी",
+  price:{labels:days,datasets:[
+   {label:"नवती 1",data:[1600,1620,1630,1650,1650],borderColor:"green"},
+   {label:"नवती 2",data:[1500,1520,1530,1550,1550],borderColor:"orange"}
+  ]},
+  arrival:[7,8,9,8,7],sale:[6,7,8,7,6],
+  text:`
+  <b>आजचा भाव</b><br>
+  नवती 1 : 1650<br>
+  नवती 2 : 1550<br><br>
+
+  <b>कालचा भाव</b><br>
+  नवती 1 : 1625<br>
+  नवती 2 : 1525<br><br>
+
+  <b>फरक</b><br>
+  नवती 1 : <span class="rate-up">25 वाढ</span><br>
+  नवती 2 : <span class="rate-up">25 वाढ</span>
+  `
+ }
 };
 
-// ================= LOAD MARKET =================
-function showMarket(m){
-    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-    event.target.classList.add('active');
+/* CHART */
+let priceChart,arrivalChart,saleChart;
+const priceChartCanvas=document.getElementById("priceChart");
+const arrivalChartCanvas=document.getElementById("arrivalChart");
+const saleChartCanvas=document.getElementById("saleChart");
 
-    let html = ``;
+function drawCharts(m){
+ if(priceChart)priceChart.destroy();
+ if(arrivalChart)arrivalChart.destroy();
+ if(saleChart)saleChart.destroy();
 
-    // -------- BURHANPUR --------
-    if(m==="burhanpur"){
-        const t=data.burhanpur.today;
-        const y=data.burhanpur.yesterday;
+ graphTitle.innerText=data[m].title;
+ marketData.innerHTML=data[m].text;
 
-        html+=`
-        <div class="card">
-            <h2>🎥 आजचा बाजार विश्लेषण</h2>
-            <div class="video">
-                <iframe src="${data.burhanpur.video}" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>बुरहानपूर – भाव माहिती</h2>
-            <b>आजचा भाव:</b> ${t.navti.join(" / ")}<br>
-            गाडी आवक: ${t.arrival}<br>
-            गाडी विक्री: ${t.sale}<br><br>
-
-            <b>कालचा भाव:</b> ${y.navti.join(" / ")}<br><br>
-
-            <b>फरक:</b>
-            <span class="bad-up">+200 / +100 / +24</span><br>
-            गाडी विक्री: <span class="bad-down">-2</span>
-            <img src="${data.burhanpur.pavti}">
-        </div>
-
-        <div class="grid">
-            <div class="card"><canvas id="price"></canvas></div>
-            <div class="card"><canvas id="arrival"></canvas></div>
-            <div class="card"><canvas id="sale"></canvas></div>
-        </div>
-        `;
-        document.getElementById("content").innerHTML=html;
-        drawBurhanpurCharts();
-        return;
-    }
-
-    // -------- OTHER MANDI --------
-    let t=data[m].today, y=data[m].yesterday;
-
-    html+=`
-    <div class="card">
-        <h2>${m.toUpperCase()} मंडी</h2>
-        <b>आजचा भाव:</b><br>
-        ${JSON.stringify(t)}<br><br>
-        <b>कालचा भाव:</b><br>
-        ${JSON.stringify(y)}
-    </div>
-
-    <div class="card">
-        <h2>📊 भाव Graph</h2>
-        <canvas id="simpleChart"></canvas>
-    </div>
-    `;
-    document.getElementById("content").innerHTML=html;
-    drawSimpleChart();
+ priceChart=new Chart(priceChartCanvas,{type:"line",data:data[m].price});
+ arrivalChart=new Chart(arrivalChartCanvas,{type:"bar",
+  data:{labels:days,datasets:[{label:"गाडी आवक",data:data[m].arrival,backgroundColor:"#42a5f5"}]}});
+ saleChart=new Chart(saleChartCanvas,{type:"bar",
+  data:{labels:days,datasets:[{label:"गाडी विक्री",data:data[m].sale,backgroundColor:"#ab47bc"}]}});
 }
 
-// ================= CHARTS =================
-function drawBurhanpurCharts(){
-    new Chart(price,{
-        type:'line',
-        data:{
-            labels:["सोम","मंगळ","बुध","गुरु","शुक्र"],
-            datasets:[{
-                label:"भाव",
-                data:[1100,1200,1180,1250,1475],
-                borderColor:"#2e7d32",
-                backgroundColor:"rgba(46,125,50,.15)",
-                fill:true,
-                tension:.4
-            }]
-        }
-    });
+document.querySelectorAll(".tab").forEach(t=>{
+ t.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+  t.classList.add("active");
+  drawCharts(t.dataset.market);
+ };
+});
 
-    new Chart(arrival,{
-        type:'bar',
-        data:{labels:["सोम","मंगळ","बुध","गुरु","शुक्र"],
-        datasets:[{data:[7,8,9,7,7],backgroundColor:"#ffb300"}]}
-    });
-
-    new Chart(sale,{
-        type:'bar',
-        data:{labels:["सोम","मंगळ","बुध","गुरु","शुक्र"],
-        datasets:[{data:[9,8,9,7,7],backgroundColor:"#1e88e5"}]}
-    });
-}
-
-function drawSimpleChart(){
-    new Chart(simpleChart,{
-        type:'line',
-        data:{
-            labels:["सोम","मंगळ","बुध","गुरु","शुक्र"],
-            datasets:[{
-                data:[1500,1520,1530,1550,1560],
-                borderColor:"#2e7d32",
-                tension:.4
-            }]
-        }
-    });
-}
-
-// default
-showMarket('burhanpur');
+drawCharts("burhanpur");
 </script>
 
 </body>
