@@ -10,15 +10,17 @@
 <style>
 body{font-family:Arial;background:#f4f6f8;margin:0}
 
-/* HEADER */
 header{
- background:#2e7d32;color:#fff;padding:15px;
- display:flex;justify-content:space-between;align-items:center;
- position:relative
+ background:#2e7d32;
+ color:#fff;
+ padding:15px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ position:relative;
 }
 header img{max-width:160px}
 
-/* MENU */
 .menu-btn{font-size:26px;cursor:pointer}
 .menu{
  position:absolute;top:60px;right:15px;
@@ -29,7 +31,6 @@ header img{max-width:160px}
 .menu a{display:block;padding:12px 16px;text-decoration:none;color:#333}
 .menu a:hover{background:#f1f8e9}
 
-/* COMMON */
 .box,.card{background:#fff;margin:15px;padding:15px;border-radius:8px}
 .tabs{display:flex;overflow-x:auto;margin:15px}
 .tab{padding:10px 15px;margin-right:8px;background:#e0e0e0;border-radius:6px;cursor:pointer;font-weight:bold}
@@ -47,9 +48,6 @@ header img{max-width:160px}
  text-decoration:none;font-weight:bold;font-size:14px
 }
 .whatsapp-join img{width:22px;height:22px}
-
-canvas{margin-top:20px}
-h2{color:#2e7d32}
 </style>
 </head>
 
@@ -88,15 +86,10 @@ h2{color:#2e7d32}
 <div class="date-bar" id="dateBar"></div>
 <div class="box" id="marketData">लोड होत आहे...</div>
 
-<div class="card">
-  <h2 id="graphTitle"></h2>
-  <canvas id="priceChart"></canvas>
-</div>
-
 <script>
 function toggleMenu(){
- document.getElementById("menu").style.display =
- document.getElementById("menu").style.display==="block"?"none":"block";
+ const m=document.getElementById("menu");
+ m.style.display=(m.style.display==="block")?"none":"block";
 }
 
 /* DATE */
@@ -105,76 +98,63 @@ Wednesday:"बुधवार",Thursday:"गुरुवार",Friday:"शु�
 const now=new Date();
 dateBar.innerText=`दि. ${now.toLocaleDateString('en-GB')} (${weekdays[now.toLocaleString('en',{weekday:'long'})]})`;
 
-/* ===== GOOGLE SHEET FETCH ===== */
-const SHEET_URL =
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vRQVPMpzbhSLbwfmd4rEU2pS5Qap-up2Z4c706FG2lTyMNANqNqtzJXTYJlT9EzL-WipOMqetmDoD78/gviz/tq?tqx=out:json";
+/* GOOGLE SHEET CSV LINK */
+const sheetURL="https://docs.google.com/spreadsheets/d/e/2PACX-1vRQVPMpzbhSLbwfmd4rEU2pS5Qap-up2Z4c706FG2lTyMNANqNqtzJXTYJlT9EzL-WipOMqetmDoD78/pub?output=csv";
 
-let sheetData=[];
+let rows=[];
 
-fetch(SHEET_URL)
-.then(res=>res.text())
-.then(txt=>{
- const json=JSON.parse(txt.substring(47).slice(0,-2));
- sheetData=json.table.rows;
- loadMarket("बुराहनपूर");
+/* LOAD SHEET DATA */
+fetch(sheetURL)
+.then(r=>r.text())
+.then(t=>{
+ const data=t.split("\n").map(r=>r.split(","));
+ rows=data;
+ showMarket("बुराहनपूर");
 });
 
-/* ===== RENDER FUNCTION ===== */
-function loadMarket(mandi){
- const row=sheetData.find(r=>r.c[1]?.v===mandi);
- if(!row){marketData.innerHTML="डेटा उपलब्ध नाही";return;}
+/* SHOW DATA */
+function showMarket(market){
+ const today=rows.filter(r=>r[1]===market)[0];
+ const yesterday=rows.filter(r=>r[1]===market)[1];
 
- const n=row.c;
-
- let html=`<b>${mandi}</b><br><br><b>आजचा भाव</b><br>`;
-
- if(mandi==="बुराहनपूर"){
-  html+=`
-  नवती : ${n[2].v}/${n[3].v}/${n[4].v}<br>
-  गाडी आवक : ${n[8].v}<br>
-  गाडी विक्री : ${n[9].v}
-  `;
+ if(!today){ 
+   marketData.innerHTML="डेटा उपलब्ध नाही";
+   return;
  }
- else if(mandi==="रावेर"){
-  html+=`
-  नवती 1 : ${n[5].v}<br>
-  नवती 2 : ${n[6].v}
-  `;
- }
- else{
-  html+=`
-  नवती : ${n[2].v}<br>
-  कांदे बाग : ${n[7].v}
+
+ if(market==="बुराहनपूर"){
+  marketData.innerHTML=`
+  <b>आजचा भाव</b><br>
+  नवती : ${today[2]} / ${today[3]} / ${today[4]}<br><br>
+
+  <b>कालचा भाव</b><br>
+  नवती : ${yesterday?yesterday[2]+" / "+yesterday[3]+" / "+yesterday[4]:"--"}
   `;
  }
 
- marketData.innerHTML=html;
+ if(market==="जळगाव"||market==="चोपडा"){
+  marketData.innerHTML=`
+  <b>आजचा भाव</b><br>
+  नवती : ${today[2]}<br>
+  कांदे बाग : ${today[4]}
+  `;
+ }
 
- drawGraph(mandi,n);
+ if(market==="रावेर"){
+  marketData.innerHTML=`
+  <b>आजचा भाव</b><br>
+  नवती 1 : ${today[5]}<br>
+  नवती 2 : ${today[6]}
+  `;
+ }
 }
 
-/* ===== GRAPH ===== */
-let priceChart;
-function drawGraph(m,n){
- if(priceChart)priceChart.destroy();
-
- let labels=["न्यूनतम","उच्चतम","प्रचलित"];
- let values=[n[2]?.v,n[3]?.v,n[4]?.v];
-
- if(m!=="बुराहनपूर"){labels=["भाव"];values=[n[7]?.v||n[5]?.v];}
-
- priceChart=new Chart(priceChartCanvas,{
-  type:"bar",
-  data:{labels,datasets:[{label:"भाव",data:values,backgroundColor:"#66bb6a"}]}
- });
-}
-
-/* TABS */
+/* TAB CLICK */
 document.querySelectorAll(".tab").forEach(t=>{
  t.onclick=()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
   t.classList.add("active");
-  loadMarket(t.dataset.market);
+  showMarket(t.dataset.market);
  };
 });
 </script>
