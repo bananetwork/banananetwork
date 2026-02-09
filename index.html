@@ -111,9 +111,10 @@ function showMarket(market){
   return;
  }
 
- // फोटो link column I
- if(today[8]){
-   document.getElementById("pavtiImg").src=today[8];
+ // 🔥 SMART PHOTO DETECTION (final fix)
+ const photoLink = today.find(c => c && c.includes("http"));
+ if(photoLink){
+   document.getElementById("pavtiImg").src = photoLink;
  }
 
  if(market==="बुरहानपूर"){
