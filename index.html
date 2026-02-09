@@ -97,7 +97,6 @@ header img{max-width:160px}
 <div class="date-bar" id="dateBar"></div>
 <div class="box" id="marketData">लोड होत आहे...</div>
 
-<!-- 📊 GRAPH SECTION -->
 <div class="box">
 <h3>📊 भाव विश्लेषण</h3>
 
@@ -108,6 +107,8 @@ header img{max-width:160px}
 </div>
 
 <canvas id="rateChart"></canvas>
+<canvas id="aavakChart"></canvas>
+<canvas id="vikriChart"></canvas>
 </div>
 
 <script>
@@ -149,11 +150,6 @@ function showMarket(market){
  currentMarket=market;
 
  const filtered = rows.filter(r => r[1] && r[1].trim()===market);
- if(filtered.length===0){
-  marketData.innerHTML="डेटा उपलब्ध नाही";
-  return;
- }
-
  const today = filtered[filtered.length-1];
  const yesterday = filtered[filtered.length-2];
 
@@ -161,22 +157,17 @@ function showMarket(market){
 
  let photoLink="";
  today.forEach(cell=>{
-   if(cell && cell.includes("http")){
-     photoLink = cell.trim();
-   }
+   if(cell && cell.includes("http")) photoLink=cell.trim();
  });
- if(photoLink){
-   document.getElementById("pavtiImg").src = photoLink;
- }
+ if(photoLink) pavtiImg.src=photoLink;
 
- // SAME OLD OUTPUT (UNCHANGED)
  if(market==="बुरहानपूर"){
   const aajRates = today[2].split("/");
-  const kalRates = yesterday ? yesterday[2].split("/") : [0,0,0];
+  const kalRates = yesterday?yesterday[2].split("/"):[0,0,0];
   const aavak = parseInt(today[6]||0);
-  const kalAavak = yesterday ? parseInt(yesterday[6]||0):0;
+  const kalAavak = yesterday?parseInt(yesterday[6]||0):0;
   const vikri = parseInt(today[7]||0);
-  const kalVikri = yesterday ? parseInt(yesterday[7]||0):0;
+  const kalVikri = yesterday?parseInt(yesterday[7]||0):0;
 
   marketData.innerHTML=`
   <h3>बुरहानपूर</h3>
@@ -198,50 +189,10 @@ function showMarket(market){
   `;
  }
 
- if(market==="जळगाव"||market==="चोपडा"){
-  const navtiAaj=parseInt(today[2]||0);
-  const navtiKal=yesterday?parseInt(yesterday[2]||0):0;
-  const bagAaj=parseInt(today[3]||0);
-  const bagKal=yesterday?parseInt(yesterday[3]||0):0;
-
-  marketData.innerHTML=`
-  <h3>${market}</h3>
-  <b>आजचा भाव</b><br>
-  नवती : ${navtiAaj}<br>
-  कांदे बाग : ${bagAaj}<br><br>
-  <b>कालचा भाव</b><br>
-  नवती : ${navtiKal}<br>
-  कांदे बाग : ${bagKal}<br><br>
-  <b>फरक</b><br>
-  नवती : ${diffText(navtiAaj-navtiKal)}<br>
-  कांदे बाग : ${diffText(bagAaj-bagKal)}
-  `;
- }
-
- if(market==="रावेर"){
-  const a1=parseInt(today[4]||0);
-  const a2=parseInt(today[5]||0);
-  const k1=yesterday?parseInt(yesterday[4]||0):0;
-  const k2=yesterday?parseInt(yesterday[5]||0):0;
-
-  marketData.innerHTML=`
-  <h3>रावेर</h3>
-  <b>आजचा भाव</b><br>
-  नवती 1 : ${a1}<br>
-  नवती 2 : ${a2}<br><br>
-  <b>कालचा भाव</b><br>
-  नवती 1 : ${k1}<br>
-  नवती 2 : ${k2}<br><br>
-  <b>फरक</b><br>
-  नवती 1 : ${diffText(a1-k1)}<br>
-  नवती 2 : ${diffText(a2-k2)}
-  `;
- }
-
  loadGraph(30);
 }
 
-let chart;
+let chart,aavakChart,vikriChart;
 
 function loadGraph(days){
  const data = rows.filter(r=>r[1]===currentMarket).slice(-days);
@@ -252,22 +203,63 @@ function loadGraph(days){
    return d[0]+" "+m[parseInt(d[1])-1];
  });
 
- const navti=data.map(r=>parseInt((r[2]||"0").split("/")[0]));
-
  if(chart) chart.destroy();
+ if(aavakChart) aavakChart.destroy();
+ if(vikriChart) vikriChart.destroy();
 
- chart=new Chart(document.getElementById("rateChart"),{
+ if(currentMarket==="बुरहानपूर"){
+  const low=data.map(r=>parseInt((r[2]||"0/0/0").split("/")[0]));
+  const high=data.map(r=>parseInt((r[2]||"0/0/0").split("/")[1]));
+  const avg=data.map(r=>parseInt((r[2]||"0/0/0").split("/")[2]));
+
+  chart=new Chart(rateChart,{
    type:'line',
    data:{labels,
-     datasets:[{label:'भाव',data:navti,borderWidth:2}]
-   },
-   options:{
-     plugins:{zoom:{
-       pan:{enabled:true,mode:'x'},
-       zoom:{wheel:{enabled:true},pinch:{enabled:true},mode:'x'}
-     }}
+    datasets:[
+     {label:'न्यूनतम',data:low},
+     {label:'उच्चतम',data:high},
+     {label:'प्रचलित',data:avg}
+    ]
    }
- });
+  });
+
+  const aavak=data.map(r=>parseInt(r[6]||0));
+  const vikri=data.map(r=>parseInt(r[7]||0));
+
+  aavakChart=new Chart(aavakChart,{
+   type:'line',
+   data:{labels,datasets:[{label:'गाडी आवक',data:aavak}]}
+  });
+
+  vikriChart=new Chart(vikriChart,{
+   type:'line',
+   data:{labels,datasets:[{label:'गाडी विक्री',data:vikri}]}
+  });
+
+ } else if(currentMarket==="जळगाव"||currentMarket==="चोपडा"){
+  const navti=data.map(r=>parseInt(r[2]||0));
+  const bag=data.map(r=>parseInt(r[3]||0));
+
+  chart=new Chart(rateChart,{
+   type:'line',
+   data:{labels,datasets:[
+     {label:'नवती',data:navti},
+     {label:'कांदे बाग',data:bag}
+   ]}
+  });
+
+ } else if(currentMarket==="रावेर"){
+  const n1=data.map(r=>parseInt(r[4]||0));
+  const n2=data.map(r=>parseInt(r[5]||0));
+
+  chart=new Chart(rateChart,{
+   type:'line',
+   data:{labels,datasets:[
+     {label:'नवती1',data:n1},
+     {label:'नवती2',data:n2}
+   ]}
+  });
+ }
 }
 
 document.querySelectorAll(".tab").forEach(t=>{
