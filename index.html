@@ -173,19 +173,30 @@ function showMarket(market){
 
  // ===== जळगाव / चोपडा =====
  if(market==="जळगाव"||market==="चोपडा"){
-  const aaj=parseInt(today[3]||0);
-  const kal=yesterday?parseInt(yesterday[3]||0):0;
+
+  const navtiAaj=parseInt(today[2]||0);
+  const navtiKal=yesterday?parseInt(yesterday[2]||0):0;
+
+  const bagAaj=parseInt(today[3]||0);
+  const bagKal=yesterday?parseInt(yesterday[3]||0):0;
 
   marketData.innerHTML=`
   <h3>${market}</h3>
+
   <b>आजचा भाव</b><br>
-  कांदे बाग : ${aaj}<br><br>
+  नवती : ${navtiAaj}<br>
+  कांदे बाग : ${bagAaj}<br><br>
+
   <b>कालचा भाव</b><br>
-  कांदे बाग : ${kal}<br><br>
+  नवती : ${navtiKal}<br>
+  कांदे बाग : ${bagKal}<br><br>
+
   <b>फरक</b><br>
-  कांदे बाग : ${diffText(aaj-kal)}
+  नवती : ${diffText(navtiAaj-navtiKal)}<br>
+  कांदे बाग : ${diffText(bagAaj-bagKal)}
   `;
- }
+}
+
 
  // ===== रावेर =====
  if(market==="रावेर"){
