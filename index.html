@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="mr">
 <head>
 <meta charset="UTF-8">
@@ -105,48 +105,62 @@ fetch(sheetURL)
 });
 
 function showMarket(market){
- const today=rows.find(r=>r[1] && r[1].trim()===market);
- if(!today){
+
+ const filtered = rows.filter(r => r[1] && r[1].trim()===market);
+
+ if(filtered.length===0){
   marketData.innerHTML="डेटा उपलब्ध नाही";
   return;
  }
 
- // 🔥 STRONG PHOTO SEARCH FIX
+ const today = filtered[filtered.length-1];
+ const yesterday = filtered[filtered.length-2];
+
+ // PHOTO AUTO DETECT
  let photoLink="";
  today.forEach(cell=>{
    if(cell && cell.includes("http")){
      photoLink = cell.trim();
    }
  });
-
  if(photoLink){
    document.getElementById("pavtiImg").src = photoLink;
  }
 
- if(market==="बुरहानपूर"){
-  marketData.innerHTML=`
-  <b>आजचा भाव</b><br>
-  नवती : ${today[2]}<br>
-  गाडी आवक : ${today[6]}<br>
-  गाडी विक्री : ${today[7]}
-  `;
+ const aajBhav = today[2];
+ const aajAavak = parseInt(today[6]||0);
+ const aajVikri = parseInt(today[7]||0);
+
+ let kalBhav="डेटा नाही";
+ let kalAavak=0;
+ let kalVikri=0;
+
+ if(yesterday){
+   kalBhav = yesterday[2];
+   kalAavak = parseInt(yesterday[6]||0);
+   kalVikri = parseInt(yesterday[7]||0);
  }
 
- if(market==="जळगाव"||market==="चोपडा"){
-  marketData.innerHTML=`
-  <b>आजचा भाव</b><br>
-  नवती : ${today[2]}<br>
-  कांदे बाग : ${today[3]}
-  `;
- }
+ const farkAavak = aajAavak - kalAavak;
+ const farkVikri = aajVikri - kalVikri;
 
- if(market==="रावेर"){
-  marketData.innerHTML=`
-  <b>आजचा भाव</b><br>
-  नवती 1 : ${today[4]}<br>
-  नवती 2 : ${today[5]}
-  `;
- }
+ marketData.innerHTML=`
+ <h3>${market}</h3>
+
+ <b>आजचा भाव</b><br>
+ नवती : ${aajBhav}<br>
+ गाडी आवक : ${aajAavak}<br>
+ गाडी विक्री : ${aajVikri}<br><br>
+
+ <b>कालचा भाव</b><br>
+ नवती : ${kalBhav}<br>
+ गाडी आवक : ${kalAavak}<br>
+ गाडी विक्री : ${kalVikri}<br><br>
+
+ <b>फरक</b><br>
+ गाडी आवक : ${farkAavak>0?"▲ "+farkAavak+" वाढ":"▼ "+Math.abs(farkAavak)+" घट"}<br>
+ गाडी विक्री : ${farkVikri>0?"▲ "+farkVikri+" वाढ":"▼ "+Math.abs(farkVikri)+" घट"}
+ `;
 }
 
 document.querySelectorAll(".tab").forEach(t=>{
@@ -157,3 +171,6 @@ document.querySelectorAll(".tab").forEach(t=>{
  };
 });
 </script>
+
+</body>
+</html>
