@@ -192,7 +192,7 @@ function showMarket(market){
  loadGraph(30);
 }
 
-let chart,aavakChart,vikriChart;
+let chart,aavakGraph,vikriGraph;
 
 function loadGraph(days){
  const data = rows.filter(r=>r[1]===currentMarket).slice(-days);
@@ -204,8 +204,8 @@ function loadGraph(days){
  });
 
  if(chart) chart.destroy();
- if(aavakChart) aavakChart.destroy();
- if(vikriChart) vikriChart.destroy();
+ if(aavakGraph) aavakGraph.destroy();
+ if(vikriGraph) vikriGraph.destroy();
 
  if(currentMarket==="बुरहानपूर"){
   const low=data.map(r=>parseInt((r[2]||"0/0/0").split("/")[0]));
@@ -214,26 +214,48 @@ function loadGraph(days){
 
   chart=new Chart(document.getElementById("rateChart"),{
    type:'line',
-   data:{labels,
-    datasets:[
+   data:{labels,datasets:[
      {label:'न्यूनतम',data:low},
      {label:'उच्चतम',data:high},
      {label:'प्रचलित',data:avg}
-    ]
-   }
+   ]}
   });
 
   const aavak=data.map(r=>parseInt(r[6]||0));
   const vikri=data.map(r=>parseInt(r[7]||0));
 
-  aavakChart=new Chart(document.getElementById("aavakChart"),{
+  aavakGraph=new Chart(document.getElementById("aavakChart"),{
    type:'bar',
    data:{labels,datasets:[{label:'गाडी आवक',data:aavak}]}
   });
 
-  vikriChart=new Chart(document.getElementById("vikriChart"),{
+  vikriGraph=new Chart(document.getElementById("vikriChart"),{
    type:'bar',
    data:{labels,datasets:[{label:'गाडी विक्री',data:vikri}]}
+  });
+
+ } else if(currentMarket==="जळगाव"||currentMarket==="चोपडा"){
+  const navti=data.map(r=>parseInt(r[2]||0));
+  const bag=data.map(r=>parseInt(r[3]||0));
+
+  chart=new Chart(document.getElementById("rateChart"),{
+   type:'line',
+   data:{labels,datasets:[
+     {label:'नवती',data:navti},
+     {label:'कांदे बाग',data:bag}
+   ]}
+  });
+
+ } else if(currentMarket==="रावेर"){
+  const n1=data.map(r=>parseInt(r[4]||0));
+  const n2=data.map(r=>parseInt(r[5]||0));
+
+  chart=new Chart(document.getElementById("rateChart"),{
+   type:'line',
+   data:{labels,datasets:[
+     {label:'नवती1',data:n1},
+     {label:'नवती2',data:n2}
+   ]}
   });
  }
 }
