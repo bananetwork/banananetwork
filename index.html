@@ -227,39 +227,13 @@ function loadGraph(days){
   const vikri=data.map(r=>parseInt(r[7]||0));
 
   aavakChart=new Chart(document.getElementById("aavakChart"),{
-   type:'line',
+   type:'bar',
    data:{labels,datasets:[{label:'गाडी आवक',data:aavak}]}
   });
 
   vikriChart=new Chart(document.getElementById("vikriChart"),{
-   type:'line',
+   type:'bar',
    data:{labels,datasets:[{label:'गाडी विक्री',data:vikri}]}
-  });
-
- } 
- else if(currentMarket==="जळगाव"||currentMarket==="चोपडा"){
-  const navti=data.map(r=>parseInt(r[2]||0));
-  const bag=data.map(r=>parseInt(r[3]||0));
-
-  chart=new Chart(document.getElementById("rateChart"),{
-   type:'line',
-   data:{labels,datasets:[
-     {label:'नवती',data:navti},
-     {label:'कांदे बाग',data:bag}
-   ]}
-  });
-
- } 
- else if(currentMarket==="रावेर"){
-  const n1=data.map(r=>parseInt(r[4]||0));
-  const n2=data.map(r=>parseInt(r[5]||0));
-
-  chart=new Chart(document.getElementById("rateChart"),{
-   type:'line',
-   data:{labels,datasets:[
-     {label:'नवती1',data:n1},
-     {label:'नवती2',data:n2}
-   ]}
   });
  }
 }
