@@ -105,14 +105,20 @@ fetch(sheetURL)
 });
 
 function showMarket(market){
- const today=rows.find(r=>r[1]===market);
+ const today=rows.find(r=>r[1] && r[1].trim()===market);
  if(!today){
   marketData.innerHTML="डेटा उपलब्ध नाही";
   return;
  }
 
- // 🔥 SMART PHOTO DETECTION (final fix)
- const photoLink = today.find(c => c && c.includes("http"));
+ // 🔥 STRONG PHOTO SEARCH FIX
+ let photoLink="";
+ today.forEach(cell=>{
+   if(cell && cell.includes("http")){
+     photoLink = cell.trim();
+   }
+ });
+
  if(photoLink){
    document.getElementById("pavtiImg").src = photoLink;
  }
@@ -151,6 +157,3 @@ document.querySelectorAll(".tab").forEach(t=>{
  };
 });
 </script>
-
-</body>
-</html>
