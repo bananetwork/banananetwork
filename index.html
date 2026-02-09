@@ -116,7 +116,7 @@ function showMarket(market){
  const today = filtered[filtered.length-1];
  const yesterday = filtered[filtered.length-2];
 
- // PHOTO AUTO DETECT
+ // फोटो
  let photoLink="";
  today.forEach(cell=>{
    if(cell && cell.includes("http")){
@@ -127,41 +127,95 @@ function showMarket(market){
    document.getElementById("pavtiImg").src = photoLink;
  }
 
- const aajBhav = today[2];
- const aajAavak = parseInt(today[6]||0);
- const aajVikri = parseInt(today[7]||0);
+ // ========== बुरहानपूर ==========
+ if(market==="बुरहानपूर"){
 
- let kalBhav="डेटा नाही";
- let kalAavak=0;
- let kalVikri=0;
+  const aajBhav = today[2];
+  const kalBhav = yesterday ? yesterday[2] : "-";
 
- if(yesterday){
-   kalBhav = yesterday[2];
-   kalAavak = parseInt(yesterday[6]||0);
-   kalVikri = parseInt(yesterday[7]||0);
+  const aavak = parseInt(today[6]||0);
+  const kalAavak = yesterday ? parseInt(yesterday[6]||0):0;
+
+  const vikri = parseInt(today[7]||0);
+  const kalVikri = yesterday ? parseInt(yesterday[7]||0):0;
+
+  // भाव split
+  const aajRates = aajBhav.split("/");
+  const kalRates = kalBhav.split("/");
+
+  let bhavFark = [];
+  for(let i=0;i<3;i++){
+    let diff = (aajRates[i]||0) - (kalRates[i]||0);
+    bhavFark.push(diff);
+  }
+
+  marketData.innerHTML=`
+  <h3>बुरहानपूर</h3>
+
+  <b>आजचा भाव</b><br>
+  नवती : ${aajBhav}<br>
+  गाडी आवक : ${aavak}<br>
+  गाडी विक्री : ${vikri}<br><br>
+
+  <b>कालचा भाव</b><br>
+  नवती : ${kalBhav}<br>
+  गाडी आवक : ${kalAavak}<br>
+  गाडी विक्री : ${kalVikri}<br><br>
+
+  <b>फरक</b><br>
+  नवती : ${bhavFark[0]} वाढ / ${bhavFark[1]} वाढ / ${bhavFark[2]} वाढ<br>
+  गाडी आवक : ${aavak-kalAavak}<br>
+  गाडी विक्री : ${vikri-kalVikri}
+  `;
  }
 
- const farkAavak = aajAavak - kalAavak;
- const farkVikri = aajVikri - kalVikri;
+ // ========== जळगाव + चोपडा ==========
+ if(market==="जळगाव" || market==="चोपडा"){
 
- marketData.innerHTML=`
- <h3>${market}</h3>
+  const aaj = parseInt(today[3]||0);
+  const kal = yesterday ? parseInt(yesterday[3]||0):0;
 
- <b>आजचा भाव</b><br>
- नवती : ${aajBhav}<br>
- गाडी आवक : ${aajAavak}<br>
- गाडी विक्री : ${aajVikri}<br><br>
+  marketData.innerHTML=`
+  <h3>${market}</h3>
 
- <b>कालचा भाव</b><br>
- नवती : ${kalBhav}<br>
- गाडी आवक : ${kalAavak}<br>
- गाडी विक्री : ${kalVikri}<br><br>
+  <b>आजचा भाव</b><br>
+  कांदे बाग : ${aaj}<br><br>
 
- <b>फरक</b><br>
- गाडी आवक : ${farkAavak>0?"▲ "+farkAavak+" वाढ":"▼ "+Math.abs(farkAavak)+" घट"}<br>
- गाडी विक्री : ${farkVikri>0?"▲ "+farkVikri+" वाढ":"▼ "+Math.abs(farkVikri)+" घट"}
- `;
+  <b>कालचा भाव</b><br>
+  कांदे बाग : ${kal}<br><br>
+
+  <b>फरक</b><br>
+  कांदे बाग : ${aaj-kal} वाढ
+  `;
+ }
+
+ // ========== रावेर ==========
+ if(market==="रावेर"){
+
+  const a1 = parseInt(today[4]||0);
+  const a2 = parseInt(today[5]||0);
+
+  const k1 = yesterday ? parseInt(yesterday[4]||0):0;
+  const k2 = yesterday ? parseInt(yesterday[5]||0):0;
+
+  marketData.innerHTML=`
+  <h3>रावेर</h3>
+
+  <b>आजचा भाव</b><br>
+  नवती 1 : ${a1}<br>
+  नवती 2 : ${a2}<br><br>
+
+  <b>कालचा भाव</b><br>
+  नवती 1 : ${k1}<br>
+  नवती 2 : ${k2}<br><br>
+
+  <b>फरक</b><br>
+  नवती 1 : ${a1-k1} वाढ<br>
+  नवती 2 : ${a2-k2} वाढ
+  `;
+ }
 }
+
 
 document.querySelectorAll(".tab").forEach(t=>{
  t.onclick=()=>{
