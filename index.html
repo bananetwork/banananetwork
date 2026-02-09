@@ -212,7 +212,7 @@ function loadGraph(days){
   const high=data.map(r=>parseInt((r[2]||"0/0/0").split("/")[1]));
   const avg=data.map(r=>parseInt((r[2]||"0/0/0").split("/")[2]));
 
-  chart=new Chart(rateChart,{
+  chart=new Chart(document.getElementById("rateChart"),{
    type:'line',
    data:{labels,
     datasets:[
@@ -226,21 +226,22 @@ function loadGraph(days){
   const aavak=data.map(r=>parseInt(r[6]||0));
   const vikri=data.map(r=>parseInt(r[7]||0));
 
-  aavakChart=new Chart(aavakChart,{
+  aavakChart=new Chart(document.getElementById("aavakChart"),{
    type:'line',
    data:{labels,datasets:[{label:'गाडी आवक',data:aavak}]}
   });
 
-  vikriChart=new Chart(vikriChart,{
+  vikriChart=new Chart(document.getElementById("vikriChart"),{
    type:'line',
    data:{labels,datasets:[{label:'गाडी विक्री',data:vikri}]}
   });
 
- } else if(currentMarket==="जळगाव"||currentMarket==="चोपडा"){
+ } 
+ else if(currentMarket==="जळगाव"||currentMarket==="चोपडा"){
   const navti=data.map(r=>parseInt(r[2]||0));
   const bag=data.map(r=>parseInt(r[3]||0));
 
-  chart=new Chart(rateChart,{
+  chart=new Chart(document.getElementById("rateChart"),{
    type:'line',
    data:{labels,datasets:[
      {label:'नवती',data:navti},
@@ -248,11 +249,12 @@ function loadGraph(days){
    ]}
   });
 
- } else if(currentMarket==="रावेर"){
+ } 
+ else if(currentMarket==="रावेर"){
   const n1=data.map(r=>parseInt(r[4]||0));
   const n2=data.map(r=>parseInt(r[5]||0));
 
-  chart=new Chart(rateChart,{
+  chart=new Chart(document.getElementById("rateChart"),{
    type:'line',
    data:{labels,datasets:[
      {label:'नवती1',data:n1},
