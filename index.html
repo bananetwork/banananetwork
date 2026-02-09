@@ -5,6 +5,9 @@
 <title>🍌 BananaNetwork | केळी बाजार भाव</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+
 <style>
 body{font-family:Arial;background:#f4f6f8;margin:0}
 
@@ -47,6 +50,15 @@ header img{max-width:160px}
 
 .up{color:green;font-weight:bold}
 .down{color:red;font-weight:bold}
+
+.graph-buttons button{
+ padding:6px 12px;
+ margin:4px;
+ background:#2e7d32;
+ color:white;
+ border:none;
+ border-radius:5px;
+}
 </style>
 </head>
 
@@ -85,6 +97,19 @@ header img{max-width:160px}
 <div class="date-bar" id="dateBar"></div>
 <div class="box" id="marketData">लोड होत आहे...</div>
 
+<!-- 📊 GRAPH SECTION -->
+<div class="box">
+<h3>📊 भाव विश्लेषण</h3>
+
+<div class="graph-buttons">
+<button onclick="loadGraph(7)">7 दिवस</button>
+<button onclick="loadGraph(30)">30 दिवस</button>
+<button onclick="loadGraph(365)">365 दिवस</button>
+</div>
+
+<canvas id="rateChart"></canvas>
+</div>
+
 <script>
 function toggleMenu(){
  const m=document.getElementById("menu");
@@ -94,7 +119,6 @@ function toggleMenu(){
 const weekdays={Sunday:"रविवार",Monday:"सोमवार",Tuesday:"मंगळवार",
 Wednesday:"बुधवार",Thursday:"गुरुवार",Friday:"शुक्रवार",Saturday:"शनिवार"};
 
-// DATE FROM SHEET FUNCTION
 function setDateFromSheet(dateStr){
  const parts = dateStr.split("/");
  const d = new Date(parts[2], parts[1]-1, parts[0]);
@@ -105,12 +129,14 @@ function setDateFromSheet(dateStr){
 const sheetURL="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3B4g7toMMWKrRoUl282tnA2E5AY-vWIPETz7RRmKRpTNnvVkN-PuRk4S7YoERbTPa2-TuOGDJAAkR/pub?output=csv";
 
 let rows=[];
+let currentMarket="बुरहानपूर";
 
 fetch(sheetURL)
 .then(r=>r.text())
 .then(t=>{
  rows=t.split("\n").map(r=>r.split(","));
  showMarket("बुरहानपूर");
+ loadGraph(30);
 });
 
 function diffText(diff){
@@ -120,6 +146,7 @@ function diffText(diff){
 }
 
 function showMarket(market){
+ currentMarket=market;
 
  const filtered = rows.filter(r => r[1] && r[1].trim()===market);
  if(filtered.length===0){
@@ -130,10 +157,8 @@ function showMarket(market){
  const today = filtered[filtered.length-1];
  const yesterday = filtered[filtered.length-2];
 
- // SET DATE FROM SHEET
  setDateFromSheet(today[0]);
 
- // फोटो
  let photoLink="";
  today.forEach(cell=>{
    if(cell && cell.includes("http")){
@@ -144,31 +169,25 @@ function showMarket(market){
    document.getElementById("pavtiImg").src = photoLink;
  }
 
- // ===== बुरहानपूर =====
+ // SAME OLD OUTPUT (UNCHANGED)
  if(market==="बुरहानपूर"){
-
   const aajRates = today[2].split("/");
   const kalRates = yesterday ? yesterday[2].split("/") : [0,0,0];
-
   const aavak = parseInt(today[6]||0);
   const kalAavak = yesterday ? parseInt(yesterday[6]||0):0;
-
   const vikri = parseInt(today[7]||0);
   const kalVikri = yesterday ? parseInt(yesterday[7]||0):0;
 
   marketData.innerHTML=`
   <h3>बुरहानपूर</h3>
-
   <b>आजचा भाव</b><br>
   नवती : ${today[2]}<br>
   गाडी आवक : ${aavak}<br>
   गाडी विक्री : ${vikri}<br><br>
-
   <b>कालचा भाव</b><br>
   नवती : ${yesterday?yesterday[2]:"-"}<br>
   गाडी आवक : ${kalAavak}<br>
   गाडी विक्री : ${kalVikri}<br><br>
-
   <b>फरक</b><br>
   नवती :
   ${diffText(aajRates[0]-kalRates[0])} /
@@ -179,33 +198,26 @@ function showMarket(market){
   `;
  }
 
- // ===== जळगाव / चोपडा =====
  if(market==="जळगाव"||market==="चोपडा"){
-
   const navtiAaj=parseInt(today[2]||0);
   const navtiKal=yesterday?parseInt(yesterday[2]||0):0;
-
   const bagAaj=parseInt(today[3]||0);
   const bagKal=yesterday?parseInt(yesterday[3]||0):0;
 
   marketData.innerHTML=`
   <h3>${market}</h3>
-
   <b>आजचा भाव</b><br>
   नवती : ${navtiAaj}<br>
   कांदे बाग : ${bagAaj}<br><br>
-
   <b>कालचा भाव</b><br>
   नवती : ${navtiKal}<br>
   कांदे बाग : ${bagKal}<br><br>
-
   <b>फरक</b><br>
   नवती : ${diffText(navtiAaj-navtiKal)}<br>
   कांदे बाग : ${diffText(bagAaj-bagKal)}
   `;
  }
 
- // ===== रावेर =====
  if(market==="रावेर"){
   const a1=parseInt(today[4]||0);
   const a2=parseInt(today[5]||0);
@@ -225,6 +237,37 @@ function showMarket(market){
   नवती 2 : ${diffText(a2-k2)}
   `;
  }
+
+ loadGraph(30);
+}
+
+let chart;
+
+function loadGraph(days){
+ const data = rows.filter(r=>r[1]===currentMarket).slice(-days);
+
+ const labels = data.map(r=>{
+   const d=r[0].split("/");
+   const m=["जाने","फेब","मार्च","एप्रिल","मे","जून","जुलै","ऑग","सप्टें","ऑक्टो","नोव्हे","डिसे"];
+   return d[0]+" "+m[parseInt(d[1])-1];
+ });
+
+ const navti=data.map(r=>parseInt((r[2]||"0").split("/")[0]));
+
+ if(chart) chart.destroy();
+
+ chart=new Chart(document.getElementById("rateChart"),{
+   type:'line',
+   data:{labels,
+     datasets:[{label:'भाव',data:navti,borderWidth:2}]
+   },
+   options:{
+     plugins:{zoom:{
+       pan:{enabled:true,mode:'x'},
+       zoom:{wheel:{enabled:true},pinch:{enabled:true},mode:'x'}
+     }}
+   }
+ });
 }
 
 document.querySelectorAll(".tab").forEach(t=>{
