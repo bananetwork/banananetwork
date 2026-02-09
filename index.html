@@ -5,8 +5,6 @@
 <title>🍌 BananaNetwork | केळी बाजार भाव</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <style>
 body{font-family:Arial;background:#f4f6f8;margin:0}
 
@@ -31,13 +29,11 @@ header img{max-width:160px}
 .menu a{display:block;padding:12px 16px;text-decoration:none;color:#333}
 .menu a:hover{background:#f1f8e9}
 
-.box,.card{background:#fff;margin:15px;padding:15px;border-radius:8px}
+.box{background:#fff;margin:15px;padding:15px;border-radius:8px}
 .tabs{display:flex;overflow-x:auto;margin:15px}
 .tab{padding:10px 15px;margin-right:8px;background:#e0e0e0;border-radius:6px;cursor:pointer;font-weight:bold}
 .tab.active{background:#2e7d32;color:#fff}
 .date-bar{margin:15px;background:#2e7d32;color:#fff;text-align:center;padding:12px;border-radius:6px;font-weight:bold}
-.rate-up{color:green;font-weight:bold}
-.rate-down{color:red;font-weight:bold}
 .pavti-img{width:100%;border-radius:6px}
 
 .whatsapp-join{text-align:center;margin:10px 0}
@@ -73,8 +69,7 @@ header img{max-width:160px}
 
 <div class="box">
   <h3>📸 बुराहनपूर मंडी प्रमाणित पावती</h3>
-  <!-- फक्त इथे फोटो link बदलली आहे -->
-  <img class="pavti-img" src="https://drive.google.com/uc?export=view&id=1Xram5y5Bc7z9vP9RWtZftxNhAYgBVj-N">
+  <img class="pavti-img" id="pavtiImg">
 </div>
 
 <div class="tabs">
@@ -93,43 +88,40 @@ function toggleMenu(){
  m.style.display=(m.style.display==="block")?"none":"block";
 }
 
-/* DATE */
 const weekdays={Sunday:"रविवार",Monday:"सोमवार",Tuesday:"मंगळवार",
 Wednesday:"बुधवार",Thursday:"गुरुवार",Friday:"शुक्रवार",Saturday:"शनिवार"};
 const now=new Date();
 dateBar.innerText=`दि. ${now.toLocaleDateString('en-GB')} (${weekdays[now.toLocaleString('en',{weekday:'long'})]})`;
 
-/* GOOGLE SHEET CSV LINK */
 const sheetURL="https://docs.google.com/spreadsheets/d/e/2PACX-1vRQVPMpzbhSLbwfmd4rEU2pS5Qap-up2Z4c706FG2lTyMNANqNqtzJXTYJlT9EzL-WipOMqetmDoD78/pub?output=csv";
 
 let rows=[];
 
-/* LOAD SHEET DATA */
 fetch(sheetURL)
 .then(r=>r.text())
 .then(t=>{
- const data=t.split("\n").map(r=>r.split(","));
- rows=data;
+ rows=t.split("\n").map(r=>r.split(","));
  showMarket("बुराहनपूर");
 });
 
-/* SHOW DATA */
 function showMarket(market){
- const today=rows.filter(r=>r[1]===market)[0];
- const yesterday=rows.filter(r=>r[1]===market)[1];
+ const today=rows.find(r=>r[1]===market);
+ if(!today){
+  marketData.innerHTML="डेटा उपलब्ध नाही";
+  return;
+ }
 
- if(!today){ 
-   marketData.innerHTML="डेटा उपलब्ध नाही";
-   return;
+ // फोटो link column I
+ if(today[8]){
+   document.getElementById("pavtiImg").src=today[8];
  }
 
  if(market==="बुराहनपूर"){
   marketData.innerHTML=`
   <b>आजचा भाव</b><br>
-  नवती : ${today[2]} / ${today[3]} / ${today[4]}<br><br>
-
-  <b>कालचा भाव</b><br>
-  नवती : ${yesterday?yesterday[2]+" / "+yesterday[3]+" / "+yesterday[4]:"--"}
+  नवती : ${today[2]}<br>
+  गाडी आवक : ${today[6]}<br>
+  गाडी विक्री : ${today[7]}
   `;
  }
 
@@ -137,20 +129,19 @@ function showMarket(market){
   marketData.innerHTML=`
   <b>आजचा भाव</b><br>
   नवती : ${today[2]}<br>
-  कांदे बाग : ${today[4]}
+  कांदे बाग : ${today[3]}
   `;
  }
 
  if(market==="रावेर"){
   marketData.innerHTML=`
   <b>आजचा भाव</b><br>
-  नवती 1 : ${today[5]}<br>
-  नवती 2 : ${today[6]}
+  नवती 1 : ${today[4]}<br>
+  नवती 2 : ${today[5]}
   `;
  }
 }
 
-/* TAB CLICK */
 document.querySelectorAll(".tab").forEach(t=>{
  t.onclick=()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
