@@ -45,7 +45,6 @@ header img{max-width:160px}
 }
 .whatsapp-join img{width:22px;height:22px}
 
-/* NEW COLOR STYLE */
 .up{color:green;font-weight:bold}
 .down{color:red;font-weight:bold}
 </style>
@@ -94,8 +93,14 @@ function toggleMenu(){
 
 const weekdays={Sunday:"रविवार",Monday:"सोमवार",Tuesday:"मंगळवार",
 Wednesday:"बुधवार",Thursday:"गुरुवार",Friday:"शुक्रवार",Saturday:"शनिवार"};
-const now=new Date();
-dateBar.innerText=`दि. ${now.toLocaleDateString('en-GB')} (${weekdays[now.toLocaleString('en',{weekday:'long'})]})`;
+
+// DATE FROM SHEET FUNCTION
+function setDateFromSheet(dateStr){
+ const parts = dateStr.split("/");
+ const d = new Date(parts[2], parts[1]-1, parts[0]);
+ const dayName = d.toLocaleString('en',{weekday:'long'});
+ dateBar.innerText = `दि. ${dateStr} (${weekdays[dayName]})`;
+}
 
 const sheetURL="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3B4g7toMMWKrRoUl282tnA2E5AY-vWIPETz7RRmKRpTNnvVkN-PuRk4S7YoERbTPa2-TuOGDJAAkR/pub?output=csv";
 
@@ -124,6 +129,9 @@ function showMarket(market){
 
  const today = filtered[filtered.length-1];
  const yesterday = filtered[filtered.length-2];
+
+ // SET DATE FROM SHEET
+ setDateFromSheet(today[0]);
 
  // फोटो
  let photoLink="";
@@ -195,8 +203,7 @@ function showMarket(market){
   नवती : ${diffText(navtiAaj-navtiKal)}<br>
   कांदे बाग : ${diffText(bagAaj-bagKal)}
   `;
-}
-
+ }
 
  // ===== रावेर =====
  if(market==="रावेर"){
