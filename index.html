@@ -161,6 +161,7 @@ function showMarket(market){
  });
  if(photoLink) pavtiImg.src=photoLink;
 
+ // 🔵 BURHANPUR
  if(market==="बुरहानपूर"){
   const aajRates = today[2].split("/");
   const kalRates = yesterday?yesterday[2].split("/"):[0,0,0];
@@ -189,13 +190,55 @@ function showMarket(market){
   `;
  }
 
+ // 🔵 JALGAON / CHOPDA
+ if(market==="जळगाव" || market==="चोपडा"){
+  const navtiAaj=parseInt(today[2]||0);
+  const navtiKal=yesterday?parseInt(yesterday[2]||0):0;
+  const bagAaj=parseInt(today[3]||0);
+  const bagKal=yesterday?parseInt(yesterday[3]||0):0;
+
+  marketData.innerHTML=`
+  <h3>${market}</h3>
+  <b>आजचा भाव</b><br>
+  नवती : ${navtiAaj}<br>
+  कांदे बाग : ${bagAaj}<br><br>
+  <b>कालचा भाव</b><br>
+  नवती : ${navtiKal}<br>
+  कांदे बाग : ${bagKal}<br><br>
+  <b>फरक</b><br>
+  नवती : ${diffText(navtiAaj-navtiKal)}<br>
+  कांदे बाग : ${diffText(bagAaj-bagKal)}
+  `;
+ }
+
+ // 🔵 RAVER
+ if(market==="रावेर"){
+  const a1=parseInt(today[4]||0);
+  const a2=parseInt(today[5]||0);
+  const k1=yesterday?parseInt(yesterday[4]||0):0;
+  const k2=yesterday?parseInt(yesterday[5]||0):0;
+
+  marketData.innerHTML=`
+  <h3>रावेर</h3>
+  <b>आजचा भाव</b><br>
+  नवती 1 : ${a1}<br>
+  नवती 2 : ${a2}<br><br>
+  <b>कालचा भाव</b><br>
+  नवती 1 : ${k1}<br>
+  नवती 2 : ${k2}<br><br>
+  <b>फरक</b><br>
+  नवती 1 : ${diffText(a1-k1)}<br>
+  नवती 2 : ${diffText(a2-k2)}
+  `;
+ }
+
  loadGraph(30);
 }
 
 let chart,aavakGraph,vikriGraph;
 
 function loadGraph(days){
- const data = rows.filter(r=>r[1]===currentMarket).slice(-days);
+ const data = rows.filter(r=>r[1] && r[1].trim()===currentMarket).slice(-days);
 
  const labels = data.map(r=>{
    const d=r[0].split("/");
@@ -212,8 +255,7 @@ function loadGraph(days){
   const high=data.map(r=>parseInt((r[2]||"0/0/0").split("/")[1]));
   const avg=data.map(r=>parseInt((r[2]||"0/0/0").split("/")[2]));
 
-  chart=new Chart(document.getElementById("rateChart"),{
-   type:'line',
+  chart=new Chart(rateChart,{type:'line',
    data:{labels,datasets:[
      {label:'न्यूनतम',data:low},
      {label:'उच्चतम',data:high},
@@ -224,13 +266,11 @@ function loadGraph(days){
   const aavak=data.map(r=>parseInt(r[6]||0));
   const vikri=data.map(r=>parseInt(r[7]||0));
 
-  aavakGraph=new Chart(document.getElementById("aavakChart"),{
-   type:'bar',
+  aavakGraph=new Chart(aavakChart,{type:'bar',
    data:{labels,datasets:[{label:'गाडी आवक',data:aavak}]}
   });
 
-  vikriGraph=new Chart(document.getElementById("vikriChart"),{
-   type:'bar',
+  vikriGraph=new Chart(vikriChart,{type:'bar',
    data:{labels,datasets:[{label:'गाडी विक्री',data:vikri}]}
   });
 
@@ -238,8 +278,7 @@ function loadGraph(days){
   const navti=data.map(r=>parseInt(r[2]||0));
   const bag=data.map(r=>parseInt(r[3]||0));
 
-  chart=new Chart(document.getElementById("rateChart"),{
-   type:'line',
+  chart=new Chart(rateChart,{type:'line',
    data:{labels,datasets:[
      {label:'नवती',data:navti},
      {label:'कांदे बाग',data:bag}
@@ -250,8 +289,7 @@ function loadGraph(days){
   const n1=data.map(r=>parseInt(r[4]||0));
   const n2=data.map(r=>parseInt(r[5]||0));
 
-  chart=new Chart(document.getElementById("rateChart"),{
-   type:'line',
+  chart=new Chart(rateChart,{type:'line',
    data:{labels,datasets:[
      {label:'नवती1',data:n1},
      {label:'नवती2',data:n2}
