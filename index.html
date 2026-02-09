@@ -73,7 +73,7 @@ header img{max-width:160px}
 </div>
 
 <div class="tabs">
-  <div class="tab active" data-market="बुराहनपूर">बुराहनपूर</div>
+  <div class="tab active" data-market="बुरहानपूर">बुरहानपूर</div>
   <div class="tab" data-market="जळगाव">जळगाव</div>
   <div class="tab" data-market="चोपडा">चोपडा</div>
   <div class="tab" data-market="रावेर">रावेर</div>
@@ -101,7 +101,7 @@ fetch(sheetURL)
 .then(r=>r.text())
 .then(t=>{
  rows=t.split("\n").map(r=>r.split(","));
- showMarket("बुराहनपूर");
+ showMarket("बुरहानपूर");
 });
 
 function showMarket(market){
@@ -116,7 +116,7 @@ function showMarket(market){
    document.getElementById("pavtiImg").src=today[8];
  }
 
- if(market==="बुराहनपूर"){
+ if(market==="बुरहानपूर"){
   marketData.innerHTML=`
   <b>आजचा भाव</b><br>
   नवती : ${today[2]}<br>
