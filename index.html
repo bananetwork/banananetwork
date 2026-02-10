@@ -33,17 +33,19 @@ body{font-family:Arial;background:#f4f6f8;margin:0}
 header{
  background:#2e7d32;
  color:#fff;
- padding:15px;
+ padding:30px 15px;   /* header height increased */
  display:flex;
- justify-content:center;   /* changed for center logo */
+ justify-content:center;
  align-items:center;
  position:relative;
+ min-height:110px;    /* extra space for logo */
 }
 header img{
  max-width:160px;
  position:absolute;
  left:50%;
- transform:translateX(-50%);
+ top:50%;
+ transform:translate(-50%,-50%);
 }
 
 .menu-btn{
@@ -51,9 +53,11 @@ header img{
  cursor:pointer;
  position:absolute;
  right:15px;
+ top:50%;
+ transform:translateY(-50%);
 }
 .menu{
- position:absolute;top:60px;right:15px;
+ position:absolute;top:110px;right:15px;
  background:#fff;border-radius:10px;
  box-shadow:0 8px 25px rgba(0,0,0,.25);
  display:none;min-width:180px;z-index:20
@@ -68,7 +72,7 @@ header img{
 .date-bar{margin:15px;background:#2e7d32;color:#fff;text-align:center;padding:12px;border-radius:6px;font-weight:bold}
 .pavti-img{width:100%;border-radius:6px}
 
-.whatsapp-join{text-align:center;margin:10px 0}
+.whatsapp-join{text-align:center;margin:15px 0}
 .whatsapp-join a{
  display:inline-flex;align-items:center;gap:8px;
  background:#25D366;color:#fff;
