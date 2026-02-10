@@ -35,13 +35,23 @@ header{
  color:#fff;
  padding:15px;
  display:flex;
- justify-content:space-between;
+ justify-content:center;   /* changed for center logo */
  align-items:center;
  position:relative;
 }
-header img{max-width:160px}
+header img{
+ max-width:160px;
+ position:absolute;
+ left:50%;
+ transform:translateX(-50%);
+}
 
-.menu-btn{font-size:26px;cursor:pointer}
+.menu-btn{
+ font-size:26px;
+ cursor:pointer;
+ position:absolute;
+ right:15px;
+}
 .menu{
  position:absolute;top:60px;right:15px;
  background:#fff;border-radius:10px;
@@ -180,7 +190,6 @@ function showMarket(market){
  });
  if(photoLink) pavtiImg.src=photoLink;
 
- // 🔵 BURHANPUR
  if(market==="बुरहानपूर"){
   const aajRates = today[2].split("/");
   const kalRates = yesterday?yesterday[2].split("/"):[0,0,0];
@@ -209,7 +218,6 @@ function showMarket(market){
   `;
  }
 
- // 🔵 JALGAON / CHOPDA
  if(market==="जळगाव" || market==="चोपडा"){
   const navtiAaj=parseInt(today[2]||0);
   const navtiKal=yesterday?parseInt(yesterday[2]||0):0;
@@ -230,7 +238,6 @@ function showMarket(market){
   `;
  }
 
- // 🔵 RAVER
  if(market==="रावेर"){
   const a1=parseInt(today[4]||0);
   const a2=parseInt(today[5]||0);
