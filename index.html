@@ -58,7 +58,7 @@ header img{max-width:160px}
 .date-bar{margin:15px;background:#2e7d32;color:#fff;text-align:center;padding:12px;border-radius:6px;font-weight:bold}
 .pavti-img{width:100%;border-radius:6px}
 
-.whatsapp-join{text-align:center;margin:10px 0}
+.whatsapp-join{text-align:center;margin:0 15px}
 .whatsapp-join a{
  display:inline-flex;align-items:center;gap:8px;
  background:#25D366;color:#fff;
@@ -85,6 +85,15 @@ header img{max-width:160px}
 
 <header>
   <img src="logo_1.png">
+
+  <!-- WhatsApp Button moved into header -->
+  <div class="whatsapp-join">
+    <a href="https://chat.whatsapp.com/GGtDZDLQiw4BlXGVyrni2u" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+      WhatsApp Group Join करा
+    </a>
+  </div>
+
   <div class="menu-btn" onclick="toggleMenu()">⋮</div>
   <div class="menu" id="menu">
     <a href="index.html">🏠 Home</a>
@@ -93,13 +102,6 @@ header img{max-width:160px}
     <a href="privacy.html">🔒 Privacy Policy</a>
   </div>
 </header>
-
-<div class="whatsapp-join">
-  <a href="https://chat.whatsapp.com/GGtDZDLQiw4BlXGVyrni2u" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-    WhatsApp Group Join करा
-  </a>
-</div>
 
 <div class="box">
   <h3>📸 बुरहानपूर मंडी प्रमाणित पावती</h3>
@@ -180,7 +182,6 @@ function showMarket(market){
  });
  if(photoLink) pavtiImg.src=photoLink;
 
- // 🔵 BURHANPUR
  if(market==="बुरहानपूर"){
   const aajRates = today[2].split("/");
   const kalRates = yesterday?yesterday[2].split("/"):[0,0,0];
@@ -209,7 +210,6 @@ function showMarket(market){
   `;
  }
 
- // 🔵 JALGAON / CHOPDA
  if(market==="जळगाव" || market==="चोपडा"){
   const navtiAaj=parseInt(today[2]||0);
   const navtiKal=yesterday?parseInt(yesterday[2]||0):0;
@@ -230,7 +230,6 @@ function showMarket(market){
   `;
  }
 
- // 🔵 RAVER
  if(market==="रावेर"){
   const a1=parseInt(today[4]||0);
   const a2=parseInt(today[5]||0);
