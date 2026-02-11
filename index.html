@@ -33,12 +33,12 @@ body{font-family:Arial;background:#f4f6f8;margin:0}
 header{
  background:#2e7d32;
  color:#fff;
- padding:18px 15px;
+ padding:18px 15px;   /* header height increased */
  display:flex;
  justify-content:center;
  align-items:center;
  position:relative;
- min-height:85px;
+ min-height:85px;    /* extra space for logo */
 }
 header img{
  max-width:130px;
@@ -92,21 +92,6 @@ header img{
  border:none;
  border-radius:5px;
 }
-
-/* 🔵 SKELETON */
-.skeleton{
- background:linear-gradient(90deg,#eee,#ddd,#eee);
- background-size:200% 100%;
- animation:shine 1.2s infinite;
- border-radius:6px;
-}
-@keyframes shine{
- 0%{background-position:200% 0}
- 100%{background-position:-200% 0}
-}
-.skeleton-img{height:180px;width:100%}
-.skeleton-text{height:16px;margin:10px 0}
-.skeleton-chart{height:220px}
 </style>
 </head>
 
@@ -132,8 +117,7 @@ header img{
 
 <div class="box">
   <h3>📸 बुरहानपूर मंडी प्रमाणित पावती</h3>
-  <div id="imgSkeleton" class="skeleton skeleton-img"></div>
-  <img class="pavti-img" id="pavtiImg" style="display:none">
+  <img class="pavti-img" id="pavtiImg">
 </div>
 
 <div class="tabs">
@@ -144,12 +128,7 @@ header img{
 </div>
 
 <div class="date-bar" id="dateBar"></div>
-
-<div class="box" id="marketData">
-<div class="skeleton skeleton-text"></div>
-<div class="skeleton skeleton-text"></div>
-<div class="skeleton skeleton-text"></div>
-</div>
+<div class="box" id="marketData">लोड होत आहे...</div>
 
 <div class="box">
 <h3>📊 भाव विश्लेषण</h3>
@@ -160,7 +139,6 @@ header img{
 <button onclick="loadGraph(365)">365 दिवस</button>
 </div>
 
-<div id="graphSkeleton" class="skeleton skeleton-chart"></div>
 <canvas id="rateChart"></canvas>
 <canvas id="aavakChart"></canvas>
 <canvas id="vikriChart"></canvas>
@@ -214,11 +192,7 @@ function showMarket(market){
  today.forEach(cell=>{
    if(cell && cell.includes("http")) photoLink=cell.trim();
  });
- if(photoLink){
-   pavtiImg.src=photoLink;
-   pavtiImg.style.display="block";
-   imgSkeleton.style.display="none";
- }
+ if(photoLink) pavtiImg.src=photoLink;
 
  if(market==="बुरहानपूर"){
   const aajRates = today[2].split("/");
@@ -294,8 +268,6 @@ function showMarket(market){
 let chart,aavakGraph,vikriGraph;
 
 function loadGraph(days){
- document.getElementById("graphSkeleton").style.display="block";
-
  const data = rows.filter(r=>r[1] && r[1].trim()===currentMarket).slice(-days);
 
  const labels = data.map(r=>{
@@ -354,8 +326,6 @@ function loadGraph(days){
    ]}
   });
  }
-
- document.getElementById("graphSkeleton").style.display="none";
 }
 
 document.querySelectorAll(".tab").forEach(t=>{
