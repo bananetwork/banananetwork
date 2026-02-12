@@ -57,41 +57,10 @@
             font-size:16px;
             color:#333;
         }
-
-        /* Enquiry Form */
-        form{
-            margin-top:15px;
-            text-align:left;
-        }
-        input, textarea{
-            width:100%;
-            padding:10px;
-            margin-top:8px;
-            border-radius:6px;
-            border:1px solid #ccc;
-            font-size:15px;
-        }
-        textarea{
-            resize:vertical;
-        }
-        button{
-            margin-top:12px;
-            padding:12px;
-            width:100%;
-            background:#2e7d32;
-            color:#fff;
+        iframe{
             border:none;
-            border-radius:6px;
-            font-size:16px;
-            cursor:pointer;
-        }
-        button:hover{
-            background:#256b29;
-        }
-        .note{
-            font-size:13px;
-            color:#555;
-            margin-top:8px;
+            width:100%;
+            height:650px;
         }
     </style>
 </head>
@@ -132,35 +101,22 @@
         <br>
         <strong>contact@bananetwork.in</strong>
     </p>
-    <p class="note">
-        (सध्या demo email address आहे)
-    </p>
 </div>
 
-<!-- Enquiry Box -->
+<!-- Google Form Enquiry -->
 <div class="box">
     <h2>📝 Enquiry / समस्या / सूचना</h2>
     <p>
-        तुम्हाला काही प्रश्न, अडचण किंवा सूचना असल्यास
-        खाली लिहा. हा संदेश थेट admin कडे पाठवला जाईल.
+        खाली फॉर्म भरून तुमचा प्रश्न किंवा सूचना पाठवा.
     </p>
 
-    <!-- 🔴 Formspree Form -->
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <input type="text" name="name" placeholder="तुमचं नाव" required>
-        <input type="email" name="email" placeholder="Email (ऐच्छिक)">
-        <textarea name="message" rows="5" placeholder="तुमचा संदेश / समस्या" required></textarea>
-
-        <button type="submit">📨 संदेश पाठवा</button>
-    </form>
-
-    <p class="note">
-        🔒 हा फॉर्म सुरक्षित आहे. संदेश फक्त BananaNetwork admin ला दिसेल.
-    </p>
+    <iframe 
+    src="https://docs.google.com/forms/d/e/1FAIpQLSdRdpTd6I0U7rxCbgJoz9CIXGVe-_Vu3bGp8Wf7vbTSVGjkdw/viewform?embedded=true">
+    Loading…
+    </iframe>
 </div>
 
 </div>
 
 </body>
 </html>
-
