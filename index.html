@@ -5,17 +5,14 @@
 <title>🍌 BananaNetwork | केळी बाजार भाव</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="favicon.png">
 
-<!-- Share Preview Logo -->
-<meta property="og:title" content="BananaNetwork">
+<meta property="og:title" content="BanaNetwork">
 <meta property="og:description" content="केळी बाजार भाव, मंडी अपडेट्स, शेती माहिती">
 <meta property="og:image" content="https://bananetwork.in/share.png">
 <meta property="og:url" content="https://bananetwork.in">
 <meta property="og:type" content="website">
 
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJ69GK381P"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -30,40 +27,83 @@ gtag('config', 'G-FJ69GK381P');
 <style>
 body{font-family:Arial;background:#f4f6f8;margin:0}
 
+/* ===== NEW PRO HEADER START ===== */
 header{
- background:#2e7d32;
- color:#fff;
- padding:18px 15px;
- display:flex;
- justify-content:center;
- align-items:center;
- position:relative;
- min-height:85px;
-}
-header img{
- max-width:130px;
- position:absolute;
- left:50%;
- top:50%;
- transform:translate(-50%,-50%);
+  background:linear-gradient(135deg,#2e7d32,#1b5e20);
+  color:#fff;
+  padding:12px 15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
 }
 
-.menu-btn{
- font-size:26px;
- cursor:pointer;
- position:absolute;
- right:15px;
- top:50%;
- transform:translateY(-50%);
+.left{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
+.logo{
+  width:50px;height:50px;border-radius:12px;background:#fff;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.logo img{width:100%}
+.brand{display:flex;flex-direction:column}
+.brand b{font-size:20px}
+.brand span{font-size:12px;opacity:.8}
+
+.live{
+  background:#ffeb3b;color:#000;font-weight:bold;
+  padding:6px 12px;border-radius:20px;font-size:13px;
+}
+
+.right{display:flex;align-items:center;gap:12px}
+
+.join{
+  background:#25D366;
+  padding:6px 12px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  font-weight:bold;
+  color:#fff;
+  text-decoration:none;
+}
+
+.menu-btn{font-size:24px;cursor:pointer}
+
 .menu{
- position:absolute;top:110px;right:15px;
- background:#fff;border-radius:10px;
- box-shadow:0 8px 25px rgba(0,0,0,.25);
- display:none;min-width:180px;z-index:20
+ position:absolute;top:70px;right:10px;
+ background:#fff;border-radius:12px;
+ box-shadow:0 10px 30px rgba(0,0,0,.25);
+ display:none;width:200px;overflow:hidden
 }
-.menu a{display:block;padding:12px 16px;text-decoration:none;color:#333}
+.menu a{display:block;padding:12px;text-decoration:none;color:#333}
 .menu a:hover{background:#f1f8e9}
+/* ===== NEW PRO HEADER END ===== */
+
+/* ===== HEADLINE TICKER ===== */
+.ticker-wrap{
+ background:#fff8e1;
+ border-top:2px solid #fbc02d;
+ border-bottom:2px solid #fbc02d;
+ overflow:hidden;
+ white-space:nowrap;
+ padding:10px 0;
+ margin:10px 0;
+}
+.ticker{
+ display:inline-block;
+ padding-left:100%;
+ animation: ticker 18s linear infinite;
+ font-weight:bold;
+ color:#333;
+}
+@keyframes ticker{
+ 0%{transform:translateX(0)}
+ 100%{transform:translateX(-100%)}
+}
 
 .box{background:#fff;margin:15px;padding:15px;border-radius:8px}
 .tabs{display:flex;overflow-x:auto;margin:15px}
@@ -72,28 +112,14 @@ header img{
 .date-bar{margin:15px;background:#2e7d32;color:#fff;text-align:center;padding:12px;border-radius:6px;font-weight:bold}
 .pavti-img{width:100%;border-radius:6px}
 
-.whatsapp-join{text-align:center;margin:15px 0}
-.whatsapp-join a{
- display:inline-flex;align-items:center;gap:8px;
- background:#25D366;color:#fff;
- padding:8px 16px;border-radius:30px;
- text-decoration:none;font-weight:bold;font-size:14px
-}
-.whatsapp-join img{width:22px;height:22px}
-
 .up{color:green;font-weight:bold}
 .down{color:red;font-weight:bold}
 
 .graph-buttons button{
- padding:6px 12px;
- margin:4px;
- background:#2e7d32;
- color:white;
- border:none;
- border-radius:5px;
+ padding:6px 12px;margin:4px;background:#2e7d32;
+ color:white;border:none;border-radius:5px;
 }
 
-/* ===== SKELETON UI ADD START ===== */
 .skeleton{
   background: linear-gradient(90deg,#eeeeee 25%,#dddddd 37%,#eeeeee 63%);
   background-size:400% 100%;
@@ -108,56 +134,56 @@ header img{
 .skel-text{height:14px;margin:8px 0}
 .skel-title{height:22px;width:60%;margin-bottom:10px}
 .skel-graph{height:200px;width:100%;margin-top:10px}
-/* ===== SKELETON UI ADD END ===== */
 
-/* ===== FOOTER STYLE ADD ===== */
 .footer{
- background:#1b5e20;
- color:#fff;
- text-align:center;
- padding:18px 10px;
- margin-top:25px;
- font-size:14px;
+ background:#1b5e20;color:#fff;text-align:center;
+ padding:18px 10px;margin-top:25px;font-size:14px;
 }
-.footer a{
- color:#fff;
- text-decoration:none;
- margin:0 10px;
- font-weight:bold;
-}
-.footer a:hover{
- text-decoration:underline;
-}
-/* ===== FOOTER STYLE END ===== */
+.footer a{color:#fff;text-decoration:none;margin:0 10px;font-weight:bold}
+.footer a:hover{text-decoration:underline}
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="logo_1.png">
-  <div class="menu-btn" onclick="toggleMenu()">⋮</div>
+  <div class="left">
+    <div class="logo"><img src="logo_1.png"></div>
+    <div class="brand">
+      <b>BanaNetwork</b>
+      <span>केळी बाजार भाव Live Updates</span>
+    </div>
+  </div>
+
+  <div class="live">LIVE RATES</div>
+
+  <div class="right">
+    <a class="join" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="16">
+      Join
+    </a>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </div>
+
   <div class="menu" id="menu">
     <a href="index.html">🏠 Home</a>
     <a href="about.html">ℹ️ About Us</a>
     <a href="contact.html">📞 Contact</a>
-    <a href="privacy.html">🔒 Privacy Policy</a>
+    <a href="privacy.html">🔒 Privacy</a>
   </div>
 </header>
 
-<div class="whatsapp-join">
-  <a href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-    WhatsApp Group Join करा
-  </a>
+<!-- AUTO SCROLL HEADLINE -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    🚨 आजचे केळी भाव Live अपडेट | 📈 भाव वाढ-घट माहिती | ⚠️ व्यापाऱ्यांपेक्षा आधी भाव जाणून घ्या | 🍌 BananaNetwork – शेतकऱ्यांसाठी विश्वासार्ह माहिती
+  </div>
 </div>
 
 <div class="box">
   <h3>📸 बुरहानपूर मंडी प्रमाणित पावती</h3>
 
-  <!-- Skeleton for Image -->
   <div id="imgSkeleton" class="skeleton skel-img"></div>
-
   <img class="pavti-img" id="pavtiImg" style="display:none">
 </div>
 
@@ -187,7 +213,6 @@ header img{
 <button onclick="loadGraph(365)">365 दिवस</button>
 </div>
 
-<!-- Graph Skeleton -->
 <div id="graphSkeleton" class="skeleton skel-graph"></div>
 
 <canvas id="rateChart"></canvas>
@@ -195,7 +220,6 @@ header img{
 <canvas id="vikriChart"></canvas>
 </div>
 
-<!-- ===== FOOTER ADD START ===== -->
 <div class="footer">
   <div>© 2026 BanaNetwork</div>
   <div>Made for Banana Farmers 🍌</div>
@@ -205,13 +229,22 @@ header img{
     <a href="about.html">About</a>
   </div>
 </div>
-<!-- ===== FOOTER ADD END ===== -->
 
 <script>
 function toggleMenu(){
  const m=document.getElementById("menu");
  m.style.display=(m.style.display==="block")?"none":"block";
 }
+
+document.addEventListener("click",function(e){
+ const menu=document.getElementById("menu");
+ const btn=document.querySelector(".menu-btn");
+ if(menu && btn){
+   if(!menu.contains(e.target) && !btn.contains(e.target)){
+     menu.style.display="none";
+   }
+ }
+});
 
 const weekdays={Sunday:"रविवार",Monday:"सोमवार",Tuesday:"मंगळवार",
 Wednesday:"बुधवार",Thursday:"गुरुवार",Friday:"शुक्रवार",Saturday:"शनिवार"};
