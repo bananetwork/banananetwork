@@ -1,0 +1,450 @@
+<!DOCTYPE html> 
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<title>रावेर आजचा केळी भाव | केळी बाजार भाव | BanaNetwork</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+<meta property="og:title" content="BanaNetwork">
+<meta property="og:description" content="केळी बाजार भाव, मंडी अपडेट्स, शेती माहिती">
+<meta property="og:image" content="https://bananetwork.in/share.png">
+<meta property="og:url" content="https://bananetwork.in">
+<meta property="og:type" content="website">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJ69GK381P"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FJ69GK381P');
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+
+<style>
+body{font-family:Arial;background:#f4f6f8;margin:0}
+
+/* ===== NEW PRO HEADER START ===== */
+header{
+  background:linear-gradient(135deg,#2e7d32,#1b5e20);
+  color:#fff;
+  padding:12px 15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+}
+
+.left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.logo{
+  width:50px;height:50px;border-radius:12px;background:#fff;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.logo img{width:100%}
+.brand{display:flex;flex-direction:column}
+.brand b{font-size:20px}
+.brand span{font-size:12px;opacity:.8}
+
+.live{
+  background:#ffeb3b;color:#000;font-weight:bold;
+  padding:6px 12px;border-radius:20px;font-size:13px;
+}
+
+.right{display:flex;align-items:center;gap:12px}
+
+.join{
+  background:#25D366;
+  padding:6px 12px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  font-weight:bold;
+  color:#fff;
+  text-decoration:none;
+}
+
+.menu-btn{font-size:24px;cursor:pointer}
+
+.menu{
+ position:absolute;top:70px;right:10px;
+ background:#fff;border-radius:12px;
+ box-shadow:0 10px 30px rgba(0,0,0,.25);
+ display:none;width:200px;overflow:hidden
+}
+.menu a{display:block;padding:12px;text-decoration:none;color:#333}
+.menu a:hover{background:#f1f8e9}
+/* ===== NEW PRO HEADER END ===== */
+
+/* ===== HEADLINE TICKER ===== */
+.ticker-wrap{
+ background:#fff8e1;
+ border-top:2px solid #fbc02d;
+ border-bottom:2px solid #fbc02d;
+ overflow:hidden;
+ white-space:nowrap;
+ padding:10px 0;
+ margin:10px 0;
+}
+.ticker{
+ display:inline-block;
+ padding-left:100%;
+ animation: ticker 18s linear infinite;
+ font-weight:bold;
+ color:#333;
+}
+@keyframes ticker{
+ 0%{transform:translateX(0)}
+ 100%{transform:translateX(-100%)}
+}
+
+.box{background:#fff;margin:15px;padding:15px;border-radius:8px}
+.tabs{display:flex;overflow-x:auto;margin:15px}
+.tab{
+ padding:10px 15px;
+ margin-right:8px;
+ background:#e0e0e0;
+ border-radius:6px;
+ font-weight:bold;
+ text-decoration:none;
+ color:black;
+ display:inline-block;
+}
+.tab.active{background:#2e7d32;color:#fff}
+.date-bar{margin:15px;background:#2e7d32;color:#fff;text-align:center;padding:12px;border-radius:6px;font-weight:bold}
+.pavti-img{width:100%;border-radius:6px}
+
+.up{color:green;font-weight:bold}
+.down{color:red;font-weight:bold}
+
+.graph-buttons button{
+ padding:6px 12px;margin:4px;background:#2e7d32;
+ color:white;border:none;border-radius:5px;
+}
+
+.skeleton{
+  background: linear-gradient(90deg,#eeeeee 25%,#dddddd 37%,#eeeeee 63%);
+  background-size:400% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius:8px;
+}
+@keyframes shimmer{
+  0%{background-position:100% 0}
+  100%{background-position:-100% 0}
+}
+.skel-img{height:220px;width:100%;margin-bottom:10px}
+.skel-text{height:14px;margin:8px 0}
+.skel-title{height:22px;width:60%;margin-bottom:10px}
+.skel-graph{height:200px;width:100%;margin-top:10px}
+
+.footer{
+ background:#1b5e20;color:#fff;text-align:center;
+ padding:18px 10px;margin-top:25px;font-size:14px;
+}
+.footer a{color:#fff;text-decoration:none;margin:0 10px;font-weight:bold}
+.footer a:hover{text-decoration:underline}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="left">
+    <div class="logo"><img src="logo_1.png"></div>
+    <div class="brand">
+      <b>BanaNetwork</b>
+      <span>केळी बाजार भाव Live Updates</span>
+    </div>
+  </div>
+
+  <div class="live">LIVE</div>
+
+  <div class="right">
+    <a class="join" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="16">
+      Join
+    </a>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </div>
+
+  <div class="menu" id="menu">
+    <a href="index.html">🏠 Home</a>
+    <a href="about.html">ℹ️ About Us</a>
+    <a href="contact.html">📞 Contact</a>
+    <a href="privacy.html">🔒 Privacy</a>
+  </div>
+</header>
+
+<!-- AUTO SCROLL HEADLINE -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    🚨 आजचे केळी भाव Live अपडेट | 📍 बुरहानपूर - जळगाव - रावेर - चोपडा आजचे केळी बाजार भाव | 📈 भाव वाढ-घट माहिती | ⚡ दररोज संध्याकाळी जलद भाव पाहा | 🏬 मंडीबद्दल संपूर्ण माहिती व इतिहास | 🟢📱 दररोज केळीचे भाव पाहण्यासाठी वरील WhatsApp ग्रुपला जॉइन व्हा
+  </div>
+</div>
+
+<div class="box">
+  <h3>📸 बुरहानपूर मंडी प्रमाणित पावती</h3>
+
+  <div id="imgSkeleton" class="skeleton skel-img"></div>
+  <img class="pavti-img" id="pavtiImg" style="display:none">
+</div>
+
+<div class="tabs">
+  <a class="tab" href="index.html">बुरहानपूर</a>
+  <a class="tab" href="jalgaon.html">जळगाव</a>
+  <a class="tab" href="chopda.html">चोपडा</a>
+  <a class="tab active" href="raver.html">रावेर</a>
+</div>
+
+
+<div class="date-bar" id="dateBar"></div>
+
+<div class="box" id="marketData">
+  <div class="skeleton skel-title"></div>
+  <div class="skeleton skel-text"></div>
+  <div class="skeleton skel-text"></div>
+  <div class="skeleton skel-text"></div>
+  <div class="skeleton skel-text"></div>
+</div>
+
+<div class="box">
+<h3>📊 भाव विश्लेषण</h3>
+
+<div class="graph-buttons">
+<button onclick="loadGraph(7)">7 दिवस</button>
+<button onclick="loadGraph(30)">30 दिवस</button>
+<button onclick="loadGraph(365)">365 दिवस</button>
+</div>
+
+<div id="graphSkeleton" class="skeleton skel-graph"></div>
+
+<canvas id="rateChart"></canvas>
+<canvas id="aavakChart"></canvas>
+<canvas id="vikriChart"></canvas>
+</div>
+
+<div class="footer">
+  <div>© 2026 BanaNetwork</div>
+  <div>Made for Banana Farmers 🍌</div>
+  <div style="margin-top:8px;">
+    <a href="privacy.html">Privacy</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="about.html">About</a>
+  </div>
+</div>
+
+<script>
+function toggleMenu(){
+ const m=document.getElementById("menu");
+ m.style.display=(m.style.display==="block")?"none":"block";
+}
+
+document.addEventListener("click",function(e){
+ const menu=document.getElementById("menu");
+ const btn=document.querySelector(".menu-btn");
+ if(menu && btn){
+   if(!menu.contains(e.target) && !btn.contains(e.target)){
+     menu.style.display="none";
+   }
+ }
+});
+
+const weekdays={Sunday:"रविवार",Monday:"सोमवार",Tuesday:"मंगळवार",
+Wednesday:"बुधवार",Thursday:"गुरुवार",Friday:"शुक्रवार",Saturday:"शनिवार"};
+
+function setDateFromSheet(dateStr){
+ const parts = dateStr.split("/");
+ const d = new Date(parts[2], parts[1]-1, parts[0]);
+ const dayName = d.toLocaleString('en',{weekday:'long'});
+ dateBar.innerText = `दि. ${dateStr} (${weekdays[dayName]})`;
+}
+
+const sheetURL="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3B4g7toMMWKrRoUl282tnA2E5AY-vWIPETz7RRmKRpTNnvVkN-PuRk4S7YoERbTPa2-TuOGDJAAkR/pub?output=csv";
+
+let rows=[];
+let currentMarket="रावेर";
+
+
+fetch(sheetURL)
+.then(r=>r.text())
+.then(t=>{
+ rows=t.split("\n").map(r=>r.split(","));
+ showMarket("रावेर");
+ loadGraph(30);
+});
+
+function diffText(diff){
+ if(diff>0) return `<span class="up">${diff} वाढ</span>`;
+ if(diff<0) return `<span class="down">${Math.abs(diff)} घट</span>`;
+ return "फरक नाही";
+}
+
+function showMarket(market){
+ currentMarket=market;
+
+ const filtered = rows.filter(r => r[1] && r[1].trim()===market);
+ const today = filtered[filtered.length-1];
+ const yesterday = filtered[filtered.length-2];
+
+ setDateFromSheet(today[0]);
+
+ let photoLink="";
+ today.forEach(cell=>{
+   if(cell && cell.includes("http")) photoLink=cell.trim();
+ });
+
+ if(photoLink){
+   pavtiImg.onload=function(){
+     document.getElementById("imgSkeleton").style.display="none";
+     pavtiImg.style.display="block";
+   }
+   pavtiImg.src=photoLink;
+ }
+
+ if(market==="बुरहानपूर"){
+  const aajRates = today[2].split("/");
+  const kalRates = yesterday?yesterday[2].split("/"):[0,0,0];
+  const aavak = parseInt(today[6]||0);
+  const kalAavak = yesterday?parseInt(yesterday[6]||0):0;
+  const vikri = parseInt(today[7]||0);
+  const kalVikri = yesterday?parseInt(yesterday[7]||0):0;
+
+  marketData.innerHTML=`
+  <h3>बुरहानपूर</h3>
+  <b>आजचा भाव</b><br>
+  नवती : ${today[2]}<br>
+  गाडी आवक : ${aavak}<br>
+  गाडी विक्री : ${vikri}<br><br>
+  <b>कालचा भाव</b><br>
+  नवती : ${yesterday?yesterday[2]:"-"}<br>
+  गाडी आवक : ${kalAavak}<br>
+  गाडी विक्री : ${kalVikri}<br><br>
+  <b>फरक</b><br>
+  नवती :
+  ${diffText(aajRates[0]-kalRates[0])} /
+  ${diffText(aajRates[1]-kalRates[1])} /
+  ${diffText(aajRates[2]-kalRates[2])}<br>
+  गाडी आवक : ${diffText(aavak-kalAavak)}<br>
+  गाडी विक्री : ${diffText(vikri-kalVikri)}
+  `;
+ }
+
+ if(market==="जळगाव" || market==="चोपडा"){
+  const navtiAaj=parseInt(today[2]||0);
+  const navtiKal=yesterday?parseInt(yesterday[2]||0):0;
+  const bagAaj=parseInt(today[3]||0);
+  const bagKal=yesterday?parseInt(yesterday[3]||0):0;
+
+  marketData.innerHTML=`
+  <h3>${market}</h3>
+  <b>आजचा भाव</b><br>
+  नवती : ${navtiAaj}<br>
+  कांदे बाग : ${bagAaj}<br><br>
+  <b>कालचा भाव</b><br>
+  नवती : ${navtiKal}<br>
+  कांदे बाग : ${bagKal}<br><br>
+  <b>फरक</b><br>
+  नवती : ${diffText(navtiAaj-navtiKal)}<br>
+  कांदे बाग : ${diffText(bagAaj-bagKal)}
+  `;
+ }
+
+ if(market==="रावेर"){
+  const a1=parseInt(today[4]||0);
+  const a2=parseInt(today[5]||0);
+  const k1=yesterday?parseInt(yesterday[4]||0):0;
+  const k2=yesterday?parseInt(yesterday[5]||0):0;
+
+  marketData.innerHTML=`
+  <h3>रावेर</h3>
+  <b>आजचा भाव</b><br>
+  नवती 1 : ${a1}<br>
+  नवती 2 : ${a2}<br><br>
+  <b>कालचा भाव</b><br>
+  नवती 1 : ${k1}<br>
+  नवती 2 : ${k2}<br><br>
+  <b>फरक</b><br>
+  नवती 1 : ${diffText(a1-k1)}<br>
+  नवती 2 : ${diffText(a2-k2)}
+  `;
+ }
+
+ loadGraph(30);
+}
+
+let chart,aavakGraph,vikriGraph;
+
+function loadGraph(days){
+ const data = rows.filter(r=>r[1] && r[1].trim()===currentMarket).slice(-days);
+
+ const labels = data.map(r=>{
+   const d=r[0].split("/");
+   const m=["जाने","फेब","मार्च","एप्रिल","मे","जून","जुलै","ऑग","सप्टें","ऑक्टो","नोव्हे","डिसे"];
+   return d[0]+" "+m[parseInt(d[1])-1];
+ });
+
+ if(chart) chart.destroy();
+ if(aavakGraph) aavakGraph.destroy();
+ if(vikriGraph) vikriGraph.destroy();
+
+ document.getElementById("graphSkeleton").style.display="none";
+
+ if(currentMarket==="बुरहानपूर"){
+  const low=data.map(r=>parseInt((r[2]||"0/0/0").split("/")[0]));
+  const high=data.map(r=>parseInt((r[2]||"0/0/0").split("/")[1]));
+  const avg=data.map(r=>parseInt((r[2]||"0/0/0").split("/")[2]));
+
+  chart=new Chart(rateChart,{type:'line',
+   data:{labels,datasets:[
+     {label:'न्यूनतम',data:low},
+     {label:'उच्चतम',data:high},
+     {label:'प्रचलित',data:avg}
+   ]}
+  });
+
+  const aavak=data.map(r=>parseInt(r[6]||0));
+  const vikri=data.map(r=>parseInt(r[7]||0));
+
+  aavakGraph=new Chart(aavakChart,{type:'bar',
+   data:{labels,datasets:[{label:'गाडी आवक',data:aavak}]}
+  });
+
+  vikriGraph=new Chart(vikriChart,{type:'bar',
+   data:{labels,datasets:[{label:'गाडी विक्री',data:vikri}]}
+  });
+
+ } else if(currentMarket==="जळगाव"||currentMarket==="चोपडा"){
+  const navti=data.map(r=>parseInt(r[2]||0));
+  const bag=data.map(r=>parseInt(r[3]||0));
+
+  chart=new Chart(rateChart,{type:'line',
+   data:{labels,datasets:[
+     {label:'नवती',data:navti},
+     {label:'कांदे बाग',data:bag}
+   ]}
+  });
+
+ } else if(currentMarket==="रावेर"){
+  const n1=data.map(r=>parseInt(r[4]||0));
+  const n2=data.map(r=>parseInt(r[5]||0));
+
+  chart=new Chart(rateChart,{type:'line',
+   data:{labels,datasets:[
+     {label:'नवती1',data:n1},
+     {label:'नवती2',data:n2}
+   ]}
+  });
+ }
+}
+
+</script>
+
+</body>
+</html>
