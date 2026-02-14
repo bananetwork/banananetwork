@@ -43,9 +43,34 @@
             font-size:14px;
             color:#555;
         }
+
+        /* Clean round Home + Back icons */
+        .top-icon{
+            position: fixed;
+            top: 15px;
+            z-index: 1000;
+            font-size:18px;
+            text-decoration:none;
+            background:white;
+            padding:7px 10px;
+            border-radius:50%;
+            box-shadow:0 2px 6px rgba(0,0,0,0.15);
+        }
+        .home-icon{
+            left:15px;
+        }
+        .back-icon{
+            left:55px;
+        }
     </style>
 </head>
 <body>
+
+<!-- Home Button -->
+<a href="index.html" class="top-icon home-icon">🏠</a>
+
+<!-- Back Button -->
+<a href="javascript:history.back()" class="top-icon back-icon">←</a>
 
 <div class="container">
 
