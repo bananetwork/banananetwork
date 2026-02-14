@@ -2,8 +2,10 @@
 <html lang="mr">
 <head>
 <meta charset="UTF-8">
-<title>🍌 BananaNetwork | केळी बाजार भाव</title>
+<title>🍌बुरहानपूर आजचा केळी भाव | केळी बाजार भाव Live | BanaNetwork</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="बुरहानपूर आजचा केळी भाव, जळगाव, चोपडा, रावेर केळी बाजार भाव Live अपडेट. दररोज ताजे मंडी दर BanaNetwork वर पहा.">
+<meta name="keywords" content="बुरहानपूर केळी भाव, Jalgaon banana rate, Chopda mandi rate, Raver keli bhav">
 
 <link rel="icon" type="image/png" href="favicon.png">
 
@@ -106,8 +108,22 @@ header{
 }
 
 .box{background:#fff;margin:15px;padding:15px;border-radius:8px}
-.tabs{display:flex;overflow-x:auto;margin:15px}
-.tab{padding:10px 15px;margin-right:8px;background:#e0e0e0;border-radius:6px;cursor:pointer;font-weight:bold}
+.tabs{
+ display:flex;
+ overflow-x:auto;
+ margin:15px;
+ align-items:center;
+}
+.tab{
+ padding:10px 15px;
+ margin-right:8px;
+ background:#e0e0e0;
+ border-radius:6px;
+ font-weight:bold;
+ text-decoration:none;
+ color:black;
+ display:inline-block;
+}
 .tab.active{background:#2e7d32;color:#fff}
 .date-bar{margin:15px;background:#2e7d32;color:#fff;text-align:center;padding:12px;border-radius:6px;font-weight:bold}
 .pavti-img{width:100%;border-radius:6px}
@@ -188,10 +204,10 @@ header{
 </div>
 
 <div class="tabs">
-  <div class="tab active" data-market="बुरहानपूर">बुरहानपूर</div>
-  <div class="tab" data-market="जळगाव">जळगाव</div>
-  <div class="tab" data-market="चोपडा">चोपडा</div>
-  <div class="tab" data-market="रावेर">रावेर</div>
+  <a class="tab active" href="index.html">बुरहानपूर</a>
+  <a class="tab" href="jalgaon.html">जळगाव</a>
+  <a class="tab" href="chopda.html">चोपडा</a>
+  <a class="tab" href="raver.html">रावेर</a>
 </div>
 
 <div class="date-bar" id="dateBar"></div>
@@ -433,13 +449,6 @@ function loadGraph(days){
  }
 }
 
-document.querySelectorAll(".tab").forEach(t=>{
- t.onclick=()=>{
-  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
-  t.classList.add("active");
-  showMarket(t.dataset.market);
- };
-});
 </script>
 
 </body>
