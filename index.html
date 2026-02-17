@@ -285,7 +285,7 @@ fetch(sheetURL)
 .then(t=>{
  rows=t.split("\n").map(r=>r.split(","));
  showMarket("बुरहानपूर");
- loadGraph(30);
+ loadGraph(7);
 });
 
 function diffText(diff){
@@ -384,7 +384,7 @@ function showMarket(market){
   `;
  }
 
- loadGraph(30);
+ loadGraph(7);
 }
 
 let chart,aavakGraph,vikriGraph;
