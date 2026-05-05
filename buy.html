@@ -1,0 +1,4532 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<title>🌱 केळी रोप खोडवा खरेदी विक्री | BanaNetwork</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta id="metaDescription" name="description" content="BanaNetwork वर रोप आणि खोडवा खरेदी विक्री listings पहा. Smart searchable filters, premium image cards आणि chat order request सुविधा मिळवा.">
+<meta id="metaKeywords" name="keywords" content="banana plant buy, khodwa buy, rop kharedi, khodwa kharedi, BanaNetwork buy">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<meta property="og:title" content="BanaNetwork Buy">
+<meta id="ogDescription" property="og:description" content="रोप खोडवा खरेदी विक्री | Smart filters | Premium cards | BanaNetwork">
+<meta property="og:image" content="https://bananetwork.in/share.png">
+<meta property="og:url" content="https://bananetwork.in/buy.html">
+<meta property="og:type" content="website">
+
+<style>
+:root{
+  --green:#2e7d32;
+  --green-dark:#1b5e20;
+  --yellow:#f1c24a;
+  --muted:#64748b;
+  --border:#e5e7eb;
+  --border-strong:#d8e3eb;
+  --shadow:0 10px 28px rgba(15,23,42,.08);
+  --shadow-lg:0 22px 48px rgba(15,23,42,.16);
+}
+
+*{box-sizing:border-box}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f4f6f8;
+  margin:0;
+  color:#111;
+  overflow-x:hidden;
+}
+
+.hidden{display:none !important}
+
+.yt-header{
+  position:sticky;
+  top:0;
+  z-index:7000;
+  background:linear-gradient(180deg,#cfeecd 0%, #b7e2b4 100%);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #a7d3a3;
+  box-shadow:0 8px 20px rgba(46,125,50,.14);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 14px;
+  min-height:72px;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  flex:1;
+}
+
+.menu-btn{
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  background:#fff;
+  color:#111;
+  font-size:26px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .2s ease, transform .2s ease;
+  flex-shrink:0;
+}
+
+.menu-btn:hover{
+  background:#f1f5f9;
+  transform:translateY(-1px);
+}
+
+.brand-link{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  text-decoration:none;
+  color:#111;
+  flex:1;
+}
+
+.logo{
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  border:1px solid #d9f4db;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:4px;
+  background:#fff;
+}
+
+.brand{
+  min-width:0;
+  flex:1;
+  max-width:260px;
+}
+
+.brand b{
+  display:block;
+  font-size:23px;
+  line-height:1.05;
+  color:#146c2e;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-shrink:0;
+  flex-wrap:nowrap;
+}
+
+.status-pill{
+  background:#f1f5f9;
+  color:#111827;
+  font-weight:800;
+  padding:11px 16px;
+  border-radius:999px;
+  font-size:14px;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-height:44px;
+  transition:background .2s ease, transform .2s ease;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+.status-pill:hover{
+  background:#e8eef5;
+  transform:translateY(-1px);
+}
+
+.icon-circle{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:transform .2s ease, background .2s ease;
+  flex-shrink:0;
+}
+
+.icon-circle:hover{transform:translateY(-1px)}
+
+.whatsapp-btn{
+  background:#25D366;
+  box-shadow:0 8px 18px rgba(37,211,102,.22);
+}
+
+.whatsapp-btn img{
+  width:20px;
+  height:20px;
+  display:block;
+}
+
+.account-btn{
+  background:#f59e0b;
+  color:#fff;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(245,158,11,.24);
+}
+
+.lang-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+
+.lang-btn{
+  background:#fff;
+  color:#111827;
+  font-size:15px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+}
+
+.lang-menu{
+  position:absolute;
+  top:54px;
+  right:0;
+  min-width:140px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:8px;
+  display:none;
+  z-index:7100;
+}
+
+.lang-menu.open{display:block}
+
+.lang-option{
+  width:100%;
+  border:none;
+  background:#fff;
+  color:#111827;
+  text-align:left;
+  padding:10px 12px;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.lang-option:hover,
+.lang-option.active{
+  background:#f1f5f9;
+}
+
+/* 🔔 WRAP */
+.notification-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+
+/* 🔔 BUTTON */
+.notification-btn{
+  position:relative;
+  background:#fff;
+  color:#111827;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+  transition:.2s;
+}
+
+.notification-btn:hover{
+  background:#f8fafc;
+  transform:translateY(-1px);
+}
+
+/* 🔴 COUNT */
+.notification-count{
+  position:absolute;
+  top:-2px;
+  right:-2px;
+  min-width:20px;
+  height:20px;
+  padding:0 6px;
+  border-radius:999px;
+  background:#ef4444;
+  color:#fff;
+  font-size:11px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 16px rgba(239,68,68,.28);
+}
+
+/* 📦 DROPDOWN */
+.notification-dropdown{
+  position:absolute;
+  top:54px;
+  right:0;
+  width:min(360px,calc(100vw - 24px));
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:20px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:10px;
+  display:none;
+  z-index:7150;
+}
+
+.notification-dropdown.open{
+  display:block;
+  animation:notificationPop .18s ease;
+}
+
+@keyframes notificationPop{
+  0%{opacity:0; transform:translateY(-8px)}
+  100%{opacity:1; transform:translateY(0)}
+}
+
+/* 🧾 HEADER */
+.notification-head{
+  padding:6px 8px 10px;
+  border-bottom:1px solid #f1f5f9;
+  font-size:15px;
+  font-weight:800;
+  color:#111827;
+}
+
+/* 📜 LIST */
+.notification-list{
+  max-height:380px;
+  overflow:auto;
+  padding:8px 2px 2px;
+}
+
+.notification-list::-webkit-scrollbar{
+  width:6px;
+}
+
+.notification-list::-webkit-scrollbar-thumb{
+  background:#d6dee7;
+  border-radius:999px;
+}
+
+/* ❌ EMPTY */
+.notification-empty{
+  padding:18px 12px;
+  text-align:center;
+  color:#64748b;
+  font-size:14px;
+  font-weight:700;
+}
+
+/* 🔥🔥 PRO CARD SYSTEM (MAIN CHANGE) */
+.notification-card{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:14px 16px;
+  border-radius:16px;
+  background:#fff;
+  margin-bottom:10px;
+  transition:.2s;
+  cursor:pointer;
+}
+
+.notification-card:hover{
+  background:#f8fafc;
+}
+
+/* 🔵 UNREAD STYLE */
+.notification-card.unread{
+  background:#f0f9ff;
+}
+
+/* 👤 AVATAR */
+.notification-avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* 📄 BODY */
+.notification-body{
+  flex:1;
+  min-width:0;
+}
+
+/* 🔝 TOP */
+.notification-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* 👤 NAME */
+.notification-user{
+  font-size:15px;
+  font-weight:700;
+  color:#111827;
+}
+
+/* ⏱ TIME */
+.notification-time{
+  font-size:12px;
+  color:#6b7280;
+  white-space:nowrap;
+}
+
+/* 📝 MESSAGE */
+.notification-message{
+  font-size:14px;
+  font-weight:600;
+  color:#111827;
+  margin-top:2px;
+}
+
+/* 🔽 SUB / PRODUCT */
+.notification-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:4px;
+}
+
+.notification-product{
+  font-size:13px;
+  color:#6b7280;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:80%;
+}
+
+/* 🔴 DOT */
+.notification-dot{
+  width:8px;
+  height:8px;
+  background:#ef4444;
+  border-radius:50%;
+}
+
+/* 🔥 SWIPE EFFECT */
+.notification-card{
+  position:relative;
+  transition:transform .25s ease;
+  touch-action:pan-y;
+}
+
+/* swipe left */
+.notification-card.swiping{
+  transition:none;
+}
+
+/* delete background */
+.notification-card::after{
+  content:"Delete";
+  position:absolute;
+  right:0;
+  top:0;
+  bottom:0;
+  width:100px;
+  background:#ef4444;
+  color:#fff;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  opacity:0;
+  transition:.2s;
+}
+
+.notification-card{
+  overflow:hidden;
+}
+
+.notification-card::after{
+  content:"🗑 Delete";
+  font-size:14px;
+}
+
+.notification-card.show-delete::after{
+  opacity:1;
+}
+.notification-phone{
+  font-size:13px;
+  font-weight:700;
+  color:#0f766e;
+  margin-top:3px;
+}
+
+.sidebar-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.42);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+  z-index:7800;
+}
+
+.sidebar-overlay.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.sidebar-drawer{
+  position:fixed;
+  top:0;
+  left:0;
+  width:min(330px,90vw);
+  height:100vh;
+  background:#fff;
+  transform:translateX(-100%);
+  transition:transform .28s ease;
+  z-index:7900;
+  box-shadow:24px 0 50px rgba(15,23,42,.22);
+  display:flex;
+  flex-direction:column;
+  overflow-y:auto;
+}
+
+.sidebar-drawer.open{transform:translateX(0)}
+
+.sidebar-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 18px 14px;
+  border-bottom:1px solid #eef2f6;
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:2;
+}
+
+.sidebar-head .menu-btn{background:#f8fafc}
+
+.sidebar-brand b{
+  display:block;
+  font-size:22px;
+  color:#146c2e;
+  line-height:1.1;
+}
+
+.sidebar-brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+}
+
+.sidebar-section{
+  padding:12px 14px;
+  border-bottom:1px solid #f1f5f9;
+}
+
+.sidebar-label{
+  font-size:13px;
+  color:#64748b;
+  font-weight:800;
+  margin:4px 10px 10px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.drawer-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px 14px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#111827;
+  font-weight:700;
+  margin-bottom:4px;
+  transition:background .2s ease, transform .2s ease;
+}
+
+.drawer-link:hover{
+  background:#f8fafc;
+  transform:translateX(2px);
+}
+
+.drawer-link.active{
+  background:#111827;
+  color:#fff;
+}
+
+.drawer-icon{
+  width:22px;
+  text-align:center;
+  font-size:18px;
+  flex-shrink:0;
+}
+
+.sticky-shell{
+  position:sticky;
+  top:72px;
+  z-index:6000;
+}
+
+.quick-nav-shell{
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #eef2f6;
+  box-shadow:0 6px 14px rgba(15,23,42,.03);
+}
+
+.quick-nav-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  overflow-x:auto;
+  white-space:nowrap;
+  padding:12px 14px;
+  scrollbar-width:none;
+}
+
+.quick-nav-row::-webkit-scrollbar{display:none}
+
+.nav-chip{
+  background:#f1f5f9;
+  color:#111827;
+  text-decoration:none;
+  border:none;
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:14px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  transition:background .2s ease, transform .2s ease, color .2s ease;
+}
+
+.nav-chip:hover{
+  background:#e9eef5;
+  transform:translateY(-1px);
+}
+
+.nav-chip.active{
+  background:#111827;
+  color:#fff;
+}
+
+.ticker-wrap{
+  background:linear-gradient(90deg,#fff8e4,#fff2cb);
+  border-top:2px solid var(--yellow);
+  border-bottom:2px solid var(--yellow);
+  overflow:hidden;
+  white-space:nowrap;
+  padding:10px 0;
+}
+
+.ticker{
+  display:inline-block;
+  padding-left:100%;
+  animation:ticker 22s linear infinite;
+  font-weight:700;
+  color:#222;
+  font-size:15px;
+}
+
+@keyframes ticker{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-100%)}
+}
+
+.page-content{touch-action:pan-y}
+
+.buy-wrap{
+  max-width:1240px;
+  margin:16px auto 100px;
+  padding:0 15px;
+}
+
+.box{
+  background:#fff;
+  margin:15px 0;
+  padding:15px;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+
+.receipt-box{
+  background:linear-gradient(180deg,#ffffff,#fbfcff);
+  border:1px solid #eef1f5;
+}
+
+.receipt-slider{
+  position:relative;
+  width:100%;
+  height:360px;
+  overflow:hidden;
+  border-radius:16px;
+  background:linear-gradient(180deg,#eef4ff,#f8fbff);
+  border:1px solid #dfe8f4;
+}
+
+.hero-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:.6s;
+  pointer-events:none;
+  text-decoration:none;
+  color:#fff;
+}
+
+.hero-slide.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.hero-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+#pavtiImg{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:10px;
+  box-sizing:border-box;
+  background:#fff;
+}
+
+.hero-slide::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.52));
+}
+
+.slide-text{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  z-index:2;
+  background:rgba(31,41,55,.78);
+  color:#fff;
+  padding:9px 14px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:15px;
+  backdrop-filter:blur(4px);
+  max-width:calc(100% - 28px);
+}
+
+.mode-box{
+  background:#fff;
+  border:1px solid #edf1f5;
+  border-radius:22px;
+  padding:14px 16px;
+  box-shadow:var(--shadow);
+  margin-top:18px;
+}
+
+.mode-row{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  white-space:nowrap;
+}
+
+.mode-row::-webkit-scrollbar{display:none}
+
+.mode-btn{
+  border:none;
+  background:#f1f5f9;
+  color:#111827;
+  padding:11px 16px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+  transition:background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.mode-btn:hover{
+  background:#e9eef5;
+  transform:translateY(-1px);
+}
+
+.mode-btn.active{
+  background:#111827;
+  color:#fff;
+}
+
+.filter-card{
+  margin-top:18px;
+  padding:18px;
+  background:#fff;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  border:1px solid #edf1f5;
+}
+
+.search-wrap{
+  position:relative;
+}
+
+.search-input{
+  width:100%;
+  border:1px solid var(--border-strong);
+  border-radius:18px;
+  padding:15px 16px 15px 48px;
+  font-size:15px;
+  background:#fff;
+  outline:none;
+}
+
+.search-input:focus{
+  border-color:#2e7d32;
+  box-shadow:0 0 0 3px rgba(46,125,50,.1);
+}
+
+.search-icon{
+  position:absolute;
+  left:16px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#64748b;
+  font-size:21px;
+}
+
+.filter-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+
+.smart-filter{
+  position:relative;
+}
+
+.filter-trigger{
+  width:100%;
+  border:1px solid var(--border-strong);
+  border-radius:18px;
+  padding:14px 16px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  cursor:pointer;
+  box-shadow:0 2px 4px rgba(15,23,42,.03);
+  transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.filter-trigger:hover{
+  transform:translateY(-1px);
+}
+
+.filter-trigger.active{
+  border-color:#2e7d32;
+  box-shadow:0 0 0 3px rgba(46,125,50,.12);
+}
+
+.filter-trigger.has-value{
+  background:linear-gradient(180deg,#ffffff,#f8fff9);
+}
+
+.filter-label{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:14px;
+  font-weight:700;
+  color:#111827;
+}
+
+.filter-arrow{
+  flex-shrink:0;
+  color:#64748b;
+  font-size:13px;
+  transition:transform .2s ease;
+}
+
+.filter-trigger[aria-expanded="true"] .filter-arrow{
+  transform:rotate(180deg);
+}
+
+.smart-dropdown{
+  position:absolute;
+  top:calc(100% + 8px);
+  left:0;
+  right:0;
+  background:#fff;
+  border:1px solid #dbe6ef;
+  border-radius:18px;
+  box-shadow:var(--shadow-lg);
+  padding:12px;
+  opacity:0;
+  transform:translateY(8px);
+  pointer-events:none;
+  transition:opacity .22s ease, transform .22s ease;
+  z-index:60;
+}
+
+.smart-dropdown.open{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+.dropdown-search{
+  position:relative;
+  margin-bottom:10px;
+}
+
+.dropdown-search-input{
+  width:100%;
+  border:1px solid var(--border-strong);
+  border-radius:14px;
+  padding:12px 14px 12px 40px;
+  font-size:14px;
+  outline:none;
+}
+
+.dropdown-search-input:focus{
+  border-color:#2e7d32;
+  box-shadow:0 0 0 3px rgba(46,125,50,.1);
+}
+
+.dropdown-search-icon{
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#64748b;
+  font-size:15px;
+}
+
+.dropdown-options{
+  max-height:230px;
+  overflow:auto;
+  padding-right:4px;
+}
+
+.dropdown-options::-webkit-scrollbar{
+  width:6px;
+}
+
+.dropdown-options::-webkit-scrollbar-thumb{
+  background:#d6dee7;
+  border-radius:999px;
+}
+
+.dropdown-option{
+  width:100%;
+  border:none;
+  background:#fff;
+  color:#111827;
+  text-align:left;
+  padding:11px 12px;
+  border-radius:12px;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  transition:background .18s ease, transform .18s ease;
+}
+
+.dropdown-option:hover{
+  background:#f8fafc;
+  transform:translateX(2px);
+}
+
+.dropdown-option.selected{
+  background:#ecfdf3;
+  color:#156c2f;
+}
+
+.dropdown-option.clear{
+  color:#64748b;
+}
+
+.dropdown-empty{
+  padding:12px;
+  text-align:center;
+  color:#64748b;
+  font-size:13px;
+  font-weight:700;
+}
+
+.results-bar{
+  margin-top:16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.result-text{
+  font-size:14px;
+  color:#64748b;
+  font-weight:700;
+}
+
+.clear-btn{
+  border:none;
+  background:#f3f4f6;
+  color:#111827;
+  padding:10px 14px;
+  border-radius:14px;
+  font-weight:800;
+  cursor:pointer;
+  transition:transform .2s ease, background .2s ease;
+}
+
+.clear-btn:hover{
+  background:#eceff3;
+  transform:translateY(-1px);
+}
+
+.message-box{
+  margin-top:18px;
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:16px 18px;
+  border-radius:20px;
+  border:1px solid #fed7aa;
+  background:linear-gradient(180deg,#fffaf3,#fff3e4);
+  box-shadow:var(--shadow);
+}
+
+.message-box.danger{
+  border-color:#fecaca;
+  background:linear-gradient(180deg,#fff8f8,#fef0f0);
+}
+
+.message-icon{
+  width:40px;
+  height:40px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:#fff;
+  box-shadow:0 6px 16px rgba(15,23,42,.08);
+  font-size:18px;
+}
+
+.message-content{min-width:0}
+
+.message-title{
+  font-size:16px;
+  font-weight:800;
+  color:#111827;
+}
+
+.message-text{
+  margin-top:4px;
+  font-size:14px;
+  color:#5b6574;
+  line-height:1.6;
+}
+
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  margin-top:18px;
+}
+
+.product-card{
+  background:linear-gradient(180deg,#ffffff,#fcfdff);
+  border-radius:24px;
+  border:1px solid #edf1f5;
+  overflow:hidden;
+  box-shadow:0 12px 32px rgba(15,23,42,.08);
+  display:flex;
+  flex-direction:column;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.product-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 20px 40px rgba(15,23,42,.12);
+}
+
+.product-media{
+  position:relative;
+  width:100%;
+  aspect-ratio:4 / 3;
+  background:#eef4ff;
+  overflow:hidden;
+}
+@media (max-width:560px){
+  .product-media{
+    aspect-ratio:16 / 9;
+  }
+}
+
+.media-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity .55s ease;
+}
+
+.media-slide.active{
+  opacity:1;
+}
+
+.media-bg-blur{
+  position:absolute;
+  inset:-12px;
+  background-size:cover;
+  background-position:center;
+  filter:blur(20px);
+  transform:scale(1.1);
+  z-index:1;
+}
+
+.media-bg-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.08));
+  z-index:1;
+}
+
+.product-photo{
+  position:relative;
+  z-index:2;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:16px;
+  display:block;
+}
+
+.media-count{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:rgba(17,24,39,.72);
+  color:#fff;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+  z-index:3;
+}
+
+.media-share,
+.media-nav{
+  position:absolute;
+  border:none;
+  z-index:3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:transform .18s ease, background .18s ease, opacity .18s ease;
+}
+
+.media-share{
+  top:12px;
+  right:12px;
+  background:rgba(255,255,255,.95);
+  color:#111827;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  font-size:18px;
+  box-shadow:0 10px 20px rgba(15,23,42,.15);
+}
+
+.media-nav{
+  top:50%;
+  transform:translateY(-50%);
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:rgba(15,23,42,.72);
+  color:#fff;
+  font-size:20px;
+  box-shadow:0 10px 22px rgba(15,23,42,.18);
+}
+
+.media-nav.prev{left:12px}
+.media-nav.next{right:12px}
+
+.media-share:hover{transform:scale(1.04)}
+.media-nav:hover{transform:translateY(-50%) scale(1.04)}
+
+.media-dots{
+  position:absolute;
+  left:50%;
+  bottom:14px;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:6px;
+  z-index:3;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(15,23,42,.3);
+  backdrop-filter:blur(8px);
+}
+
+.media-dot{
+  width:8px;
+  height:8px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,.45);
+  padding:0;
+  cursor:pointer;
+}
+
+.media-dot.active{
+  background:#fff;
+  width:20px;
+  border-radius:999px;
+}
+
+.product-body{
+  padding: 12px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  flex:1;
+}
+
+.product-badges{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.badge{
+  padding:5px 9px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.badge.green{
+  background:#e8f6ea;
+  color:#1b5e20;
+}
+
+.badge.gray{
+  background:#f1f5f9;
+  color:#475569;
+}
+
+.badge.gold{
+  background:#fff7dc;
+  color:#9a6700;
+}
+
+.product-price{
+  font-size:24px;
+  color:#18753a;
+  font-weight:800;
+  line-height:1;
+}
+
+.product-title{
+  margin:0;
+  font-size:16px;
+  line-height:1.3;
+  color:#111827;
+}
+
+.product-location{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:#64748b;
+  font-size:13px;
+  font-weight:700;
+  line-height:1.5;
+}
+
+.location-pin-icon{
+  width:14px;
+  height:14px;
+  flex-shrink:0;
+  display:inline-block;
+  background:no-repeat center/contain url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e11d48'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z'/></svg>");
+}
+
+.seller-box{
+  padding:9px 11px;
+  border-radius:14px;
+  background:#f8fafc;
+  border:1px solid #eef2f6;
+}
+
+.seller-line{
+  font-size:13px;
+  font-weight:800;
+  color:#111827;
+}
+
+.seller-subline{
+  margin-top:3px;
+  font-size:12px;
+  color:#64748b;
+  line-height:1.5;
+  font-weight:700;
+}
+
+.product-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 10px;
+  color:#64748b;
+  font-size:12px;
+  font-weight:700;
+}
+
+.product-actions{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  margin-top:auto;
+}
+
+.action-btn{
+  text-decoration:none;
+  border:none;
+  border-radius:16px;
+  padding:13px 12px;
+  font-weight:800;
+  font-size:14px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  transition:transform .2s ease, opacity .2s ease, box-shadow .2s ease;
+}
+
+.action-btn:hover{transform:translateY(-1px)}
+
+.action-btn.details{
+  background:linear-gradient(135deg,#2e7d32,#1b5e20);
+  color:#fff;
+  box-shadow:0 10px 20px rgba(46,125,50,.22);
+}
+
+.action-btn.order{
+  background:linear-gradient(135deg,#f59e0b,#ea580c);
+  color:#fff;
+  box-shadow:0 10px 20px rgba(234,88,12,.2);
+}
+
+.action-btn.share{
+  background:#f3f4f6;
+  color:#111827;
+  grid-column:span 2;
+}
+
+.action-btn:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+  transform:none;
+  box-shadow:none;
+}
+
+.empty-card{
+  margin-top:18px;
+  padding:38px 24px;
+  text-align:center;
+  background:#fff;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  border:1px solid #edf1f5;
+}
+
+.empty-card h3{
+  margin:0 0 10px;
+  color:#111827;
+  font-size:24px;
+}
+
+.empty-card p{
+  margin:0;
+  color:#64748b;
+  line-height:1.7;
+}
+
+.skeleton-card{
+  background:#fff;
+  border-radius:24px;
+  padding:14px;
+  box-shadow:var(--shadow);
+  border:1px solid #edf1f5;
+}
+
+.skeleton{
+  background:linear-gradient(90deg,#eeeeee 25%,#dddddd 37%,#eeeeee 63%);
+  background-size:400% 100%;
+  animation:shimmer 1.4s infinite;
+  border-radius:16px;
+}
+
+@keyframes shimmer{
+  0%{background-position:100% 0}
+  100%{background-position:-100% 0}
+}
+
+.skel-image{
+  aspect-ratio:4 / 3;
+  margin-bottom:14px;
+}
+
+.skel-line{
+  height:14px;
+  margin:8px 0;
+}
+
+.skel-title{
+  height:22px;
+  width:65%;
+  margin:10px 0;
+}
+
+.footer{
+  background:#1b5e20;
+  color:#fff;
+  text-align:center;
+  padding:18px 10px;
+  margin-top:25px;
+  font-size:14px;
+  border-radius:22px;
+}
+
+.footer a{
+  color:#fff;
+  text-decoration:none;
+  margin:0 10px;
+  font-weight:700;
+}
+
+
+.footer a:hover{text-decoration:underline}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:30px;
+  transform:translateX(-50%) translateY(16px);
+  background:#111827;
+  color:#fff;
+  padding:12px 16px;
+  border-radius:14px;
+  font-size:14px;
+  font-weight:800;
+  z-index:2200;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+  box-shadow:0 18px 38px rgba(0,0,0,.22);
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+@media (max-width:1180px){
+  .filter-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .products-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width:768px){
+  .header-inner{
+    padding:10px;
+    min-height:66px;
+  }
+
+  .logo{
+    width:46px;
+    height:46px;
+    border-radius:13px;
+  }
+
+  .brand{
+    max-width:170px;
+  }
+
+  .brand b{
+    font-size:18px;
+  }
+
+  .brand span{
+    font-size:11px;
+  }
+
+  .status-pill{
+    padding:10px 12px;
+    font-size:13px;
+  }
+
+  .icon-circle{
+    width:40px;
+    height:40px;
+  }
+
+  .sticky-shell{
+    top:66px;
+  }
+
+  .filter-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .products-grid{
+    grid-template-columns:1fr;
+  }
+
+  .receipt-slider{
+    height:300px;
+  }
+
+  .notification-dropdown{
+    width:min(340px,calc(100vw - 24px));
+  }
+}
+
+@media (max-width:560px){
+  .header-inner{
+    gap:8px;
+    padding:8px 10px;
+  }
+
+  .header-left{gap:8px}
+  .header-right{gap:6px}
+
+  .menu-btn{
+    width:38px;
+    height:38px;
+    font-size:22px;
+  }
+
+  .logo{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+  }
+
+  .brand{
+    max-width:130px;
+  }
+
+  .brand b{
+    font-size:16px;
+  }
+
+  .brand span{
+    display:block;
+    font-size:10px;
+  }
+
+  .status-pill{
+    padding:8px 8px;
+    font-size:10px;
+    gap:5px;
+    min-height:38px;
+  }
+
+  .icon-circle{
+    width:36px;
+    height:36px;
+  }
+
+  .whatsapp-btn img{
+    width:17px;
+    height:17px;
+  }
+
+  .nav-chip,
+  .mode-btn{
+    padding:10px 13px;
+    font-size:13px;
+  }
+
+  .receipt-slider{
+    height:270px;
+  }
+
+  .slide-text{
+    font-size:13px;
+    padding:7px 12px;
+  }
+
+  .filter-grid{
+    grid-template-columns:1fr;
+  }
+
+  .product-actions{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .notification-dropdown{
+    right:-52px;
+    width:min(320px,calc(100vw - 16px));
+  }
+}
+
+@media (max-width:390px){
+  .brand{
+    max-width:112px;
+  }
+
+  .brand b{
+    font-size:15px;
+  }
+
+  .brand span{
+    display:block;
+    font-size:9px;
+  }
+
+  .status-pill{
+    padding:7px 7px;
+    font-size:9px;
+  }
+
+  .menu-btn,
+  .icon-circle{
+    width:34px;
+    height:34px;
+  }
+
+  .notification-dropdown{
+    right:-84px;
+    width:calc(100vw - 14px);
+  }
+}
+
+.filter-preview-card{
+  margin-top:18px;
+  background:#fff;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  border:1px solid #edf1f5;
+  padding:14px;
+}
+
+.filter-preview-btn{
+  width:100%;
+  border:none;
+  background:#f8fafc;
+  border-radius:18px;
+  padding:18px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:700;
+  color:#111827;
+}
+
+.filter-preview-left{
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+.filter-preview-arrow{
+  font-size:20px;
+  color:#64748b;
+  transition:.3s;
+}
+
+.filter-preview-btn.active .filter-preview-arrow{
+  transform:rotate(180deg);
+}
+</style>
+</head>
+
+<body>
+
+<header class="yt-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <button class="menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
+
+      <a class="brand-link" href="index.html">
+        <div class="logo"><img src="logo_1.png" alt="BanaNetwork Logo"></div>
+        <div class="brand">
+          <b>BanaNetwork</b>
+          <span id="brandSubtitle">रोप खोडवा खरेदी विक्री</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="header-right">
+      <a class="status-pill" id="loginStatusBtn" href="login.html">
+        <span id="loginStatusIcon">🔑</span>
+        <span id="loginStatusText">Login</span>
+      </a>
+
+      <div class="lang-wrap">
+        <button class="icon-circle lang-btn" id="langToggle" type="button" aria-label="Change language" aria-expanded="false">म</button>
+        <div class="lang-menu" id="langMenu">
+          <button class="lang-option" type="button" data-lang="mr">मराठी</button>
+          <button class="lang-option" type="button" data-lang="hi">हिंदी</button>
+          <button class="lang-option" type="button" data-lang="en">English</button>
+        </div>
+      </div>
+
+      <div class="notification-wrap hidden" id="notificationWrap">
+        <button id="notificationBtn" class="icon-circle notification-btn" type="button" aria-label="Notifications" aria-expanded="false">
+          <span>🔔</span>
+          <span id="notificationCount" class="notification-count hidden">0</span>
+        </button>
+        <div id="notificationDropdown" class="notification-dropdown">
+          <div class="notification-head" id="notificationTitle">Notifications</div>
+          <div class="notification-list" id="notificationList">
+            <div class="notification-empty">No notifications</div>
+          </div>
+        </div>
+      </div>
+
+      <a class="icon-circle whatsapp-btn" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </a>
+
+      <a class="icon-circle account-btn" id="accountBtn" href="login.html" title="My Account">👤</a>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<aside class="sidebar-drawer" id="sidebarDrawer">
+  <div class="sidebar-head">
+    <button class="menu-btn" id="drawerClose" aria-label="Close menu">☰</button>
+    <div class="sidebar-brand">
+      <b>BanaNetwork</b>
+      <span id="drawerSubtitle">केळी संबंधित सर्व सेवा</span>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelMain">मुख्य</div>
+    <a class="drawer-link" data-route="home" href="index.html"><span class="drawer-icon">🏠</span><span id="drawerHome">Home</span></a>
+    <a class="drawer-link" data-route="plant-buy" href="buy.html"><span class="drawer-icon">🌱</span><span id="drawerBuy">केळी रोप खरेदी</span></a>
+    <a class="drawer-link" data-route="plant-sell" href="sell.html"><span class="drawer-icon">💰</span><span id="drawerSell">केळी रोप विक्री</span></a>
+    <a class="drawer-link" data-route="khodwa-buy" href="buy.html"><span class="drawer-icon">🌿</span><span id="drawerKhatBuy">केळी खोडवा खरेदी</span></a>
+    <a class="drawer-link" data-route="khodwa-sell" href="sell.html"><span class="drawer-icon">🚜</span><span id="drawerKhatSell">केळी खोडवा विक्री</span></a>
+    <a class="drawer-link" data-route="burhanpur" href="index.html"><span class="drawer-icon">🍌</span><span id="drawerBurhanpur">बुरहानपूर केळी भाव</span></a>
+    <a class="drawer-link" data-route="jalgaon" href="jalgaon.html"><span class="drawer-icon">📍</span><span id="drawerJalgaon">जळगाव केळी भाव</span></a>
+    <a class="drawer-link" data-route="chopda" href="chopda.html"><span class="drawer-icon">📍</span><span id="drawerChopda">चोपडा केळी भाव</span></a>
+    <a class="drawer-link" data-route="raver" href="raver.html"><span class="drawer-icon">📍</span><span id="drawerRaver">रावेर केळी भाव</span></a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelAccount">खाते</div>
+    <a class="drawer-link" data-protected-route="account.html" href="account.html"><span class="drawer-icon">👤</span><span id="drawerAccount">My Account</span></a>
+    <a class="drawer-link" data-protected-route="chat.html" href="chat.html"><span class="drawer-icon">💬</span><span id="drawerChat">My Chat</span></a>
+    <a class="drawer-link" data-protected-route="mylistings.html" href="mylistings.html"><span class="drawer-icon">📜</span><span id="drawerListingHistory">My Listing History</span></a>
+    <a class="drawer-link" data-protected-route="inbox.html" href="inbox.html"><span class="drawer-icon">📥</span><span id="drawerInbox">My Inbox</span></a>
+    <a class="drawer-link" id="drawerSignupLink" href="login.html?mode=signup">
+      <span class="drawer-icon">📝</span>
+      <span id="drawerSignup">Signup</span>
+    </a>
+    <a class="drawer-link" id="drawerAuthLink" href="login.html"><span class="drawer-icon" id="drawerAuthIcon">🔑</span><span id="drawerLoginText">Login</span></a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelInfo">माहिती</div>
+    <a class="drawer-link" href="about.html"><span class="drawer-icon">ℹ️</span><span id="drawerAbout">About Us</span></a>
+    <a class="drawer-link" href="privacy.html"><span class="drawer-icon">🔒</span><span id="drawerPrivacy">Privacy Policy</span></a>
+    <a class="drawer-link" href="terms.html"><span class="drawer-icon">📄</span><span id="drawerTerms">Terms & Conditions</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">📞</span><span id="drawerContact">Contact Us</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">🤝</span><span id="drawerAgentHelp">प्रतिनिधी मदत</span></a>
+    <a class="drawer-link" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer">
+      <span class="drawer-icon whatsapp-drawer-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </span>
+      <span id="drawerWhatsapp">WhatsApp Group</span>
+    </a>
+  </div>
+</aside>
+
+<div class="sticky-shell">
+  <div class="quick-nav-shell">
+    <div class="quick-nav-row">
+      <a class="nav-chip" data-page="index.html" href="index.html" id="chipRates">भाव</a>
+      <a class="nav-chip" data-page="buy.html" href="buy.html" id="chipBuy">केळी रोप खोडवा खरेदी विक्री</a>
+      <a class="nav-chip" data-page="contact.html" href="contact.html" id="chipServices">🛠Services</a>
+    </div>
+  </div>
+</div>
+
+<div class="ticker-wrap">
+  <div class="ticker" id="marketTicker">🌱 Smart searchable filters वापरून योग्य seller शोधा | 🖼 Premium 4:3 image cards | 📦 Order request थेट chat मध्ये पाठवा | 📱 Mobile swipe slider support</div>
+</div>
+
+<div class="page-content">
+  <div class="buy-wrap">
+    <div class="box receipt-box">
+      <div class="receipt-slider">
+        <a href="#modeSection" class="hero-slide active" data-hero-kind="rop">
+          <img src="ropphoto.jpeg" alt="केळी रोप-खोडवा खरेदी विक्री">
+          <div class="slide-text" id="slideText1">🌱 केळी रोप-खोडवा खरेदी विक्री</div>
+        </a>
+
+        <a href="index.html" class="hero-slide">
+          <img id="pavtiImg" style="display:none" alt="बुरहानपूर मंडी प्रमाणित पावती">
+          <div class="slide-text" id="slideReceiptText">📸 बुरहानपूर मंडी प्रमाणित पावती</div>
+        </a>
+      </div>
+    </div>
+
+    <section class="mode-box" id="modeSection">
+      <div class="mode-row">
+        <button type="button" class="mode-btn active" data-buy-kind="rop" id="modeBtnRopBuy">रोप खरेदी</button>
+        <button type="button" class="mode-btn" data-buy-kind="khodwa" id="modeBtnKhodwaBuy">खोडवा खरेदी</button>
+        <button type="button" class="mode-btn" data-sell-link="rop_sell" id="modeBtnRopSell">रोप विक्री</button>
+        <button type="button" class="mode-btn" data-sell-link="khodwa_sell" id="modeBtnKhodwaSell">खोडवा विक्री</button>
+      </div>
+    </section>
+
+    <section class="filter-preview-card" id="filterPreviewCard">
+      <button type="button" class="filter-preview-btn" id="filterPreviewBtn">
+        <span class="filter-preview-left">
+         🔍 रोप, कंपनी, गाव शोधा / Filter उघडा
+        </span>
+        <span class="filter-preview-arrow">▾</span>
+      </button>
+    </section>
+
+    <section class="filter-card hidden" id="fullFilterCard">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" id="searchInput" type="text" placeholder="रोप, खोडवा, कंपनी, seller, गाव किंवा तालुका शोधा">
+      </div>
+
+      <div class="filter-grid">
+        <div class="smart-filter" data-filter-key="company">
+          <button class="filter-trigger" id="companyTrigger" type="button" aria-expanded="false">
+            <span class="filter-label" id="companyLabel">नर्सरी / कंपनी</span>
+            <span class="filter-arrow">▾</span>
+          </button>
+          <div class="smart-dropdown" id="companyDropdown">
+            <div class="dropdown-search">
+              <span class="dropdown-search-icon">🔍</span>
+              <input class="dropdown-search-input" id="companySearchInput" type="text" placeholder="कंपनी शोधा">
+            </div>
+            <div class="dropdown-options" id="companyOptions"></div>
+          </div>
+        </div>
+
+        <div class="smart-filter" data-filter-key="state">
+          <button class="filter-trigger" id="stateTrigger" type="button" aria-expanded="false">
+            <span class="filter-label" id="stateLabel">राज्य</span>
+            <span class="filter-arrow">▾</span>
+          </button>
+          <div class="smart-dropdown" id="stateDropdown">
+            <div class="dropdown-search">
+              <span class="dropdown-search-icon">🔍</span>
+              <input class="dropdown-search-input" id="stateSearchInput" type="text" placeholder="राज्य शोधा">
+            </div>
+            <div class="dropdown-options" id="stateOptions"></div>
+          </div>
+        </div>
+
+        <div class="smart-filter" data-filter-key="district">
+          <button class="filter-trigger" id="districtTrigger" type="button" aria-expanded="false">
+            <span class="filter-label" id="districtLabel">जिल्हा</span>
+            <span class="filter-arrow">▾</span>
+          </button>
+          <div class="smart-dropdown" id="districtDropdown">
+            <div class="dropdown-search">
+              <span class="dropdown-search-icon">🔍</span>
+              <input class="dropdown-search-input" id="districtSearchInput" type="text" placeholder="जिल्हा शोधा">
+            </div>
+            <div class="dropdown-options" id="districtOptions"></div>
+          </div>
+        </div>
+
+        <div class="smart-filter" data-filter-key="taluka">
+          <button class="filter-trigger" id="talukaTrigger" type="button" aria-expanded="false">
+            <span class="filter-label" id="talukaLabel">तालुका</span>
+            <span class="filter-arrow">▾</span>
+          </button>
+          <div class="smart-dropdown" id="talukaDropdown">
+            <div class="dropdown-search">
+              <span class="dropdown-search-icon">🔍</span>
+              <input class="dropdown-search-input" id="talukaSearchInput" type="text" placeholder="तालुका शोधा">
+            </div>
+            <div class="dropdown-options" id="talukaOptions"></div>
+          </div>
+        </div>
+
+        <div class="smart-filter" data-filter-key="village">
+          <button class="filter-trigger" id="villageTrigger" type="button" aria-expanded="false">
+            <span class="filter-label" id="villageLabel">गाव</span>
+            <span class="filter-arrow">▾</span>
+          </button>
+          <div class="smart-dropdown" id="villageDropdown">
+            <div class="dropdown-search">
+              <span class="dropdown-search-icon">🔍</span>
+              <input class="dropdown-search-input" id="villageSearchInput" type="text" placeholder="गाव शोधा">
+            </div>
+            <div class="dropdown-options" id="villageOptions"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-bar">
+        <div class="result-text" id="resultText">Loading...</div>
+        <button class="clear-btn" id="clearFiltersBtn" type="button">Reset Filters</button>
+      </div>
+    </section>
+
+    <div class="products-grid" id="loadingGrid">
+      <div class="skeleton-card">
+        <div class="skeleton skel-image"></div>
+        <div class="skeleton skel-line"></div>
+        <div class="skeleton skel-title"></div>
+        <div class="skeleton skel-line"></div>
+        <div class="skeleton skel-line"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton skel-image"></div>
+        <div class="skeleton skel-line"></div>
+        <div class="skeleton skel-title"></div>
+        <div class="skeleton skel-line"></div>
+        <div class="skeleton skel-line"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton skel-image"></div>
+        <div class="skeleton skel-line"></div>
+        <div class="skeleton skel-title"></div>
+        <div class="skeleton skel-line"></div>
+        <div class="skeleton skel-line"></div>
+      </div>
+    </div>
+
+    <div class="message-box hidden" id="resultMessageBox">
+      <div class="message-icon">⚠️</div>
+      <div class="message-content">
+        <div class="message-title" id="resultMessageTitle"></div>
+        <div class="message-text" id="resultMessageText"></div>
+      </div>
+    </div>
+
+    <div class="products-grid hidden" id="productsGrid"></div>
+
+    <div class="empty-card hidden" id="emptyState">
+      <h3 id="emptyTitle">Listing मिळाली नाही</h3>
+      <p id="emptyDesc">सध्या कोणतीही listing उपलब्ध नाही.</p>
+    </div>
+
+    <div class="footer">
+      <div>© 2026 BanaNetwork</div>
+      <div id="footerMade">Made for Banana Farmers 🍌</div>
+      <div style="margin-top:8px;">
+        <a href="privacy.html" id="footerPrivacy">Privacy</a> |
+        <a href="terms.html" id="footerTerms">T&C</a> |
+        <a href="contact.html" id="footerContact">Contact</a> |
+        <a href="about.html" id="footerAbout">About</a> 
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+const metaDescription = document.getElementById("metaDescription");
+const metaKeywords = document.getElementById("metaKeywords");
+const ogDescription = document.getElementById("ogDescription");
+
+const brandSubtitle = document.getElementById("brandSubtitle");
+const drawerSubtitle = document.getElementById("drawerSubtitle");
+const labelMain = document.getElementById("labelMain");
+const labelAccount = document.getElementById("labelAccount");
+const labelInfo = document.getElementById("labelInfo");
+const drawerHome = document.getElementById("drawerHome");
+const drawerBuy = document.getElementById("drawerBuy");
+const drawerSell = document.getElementById("drawerSell");
+const drawerKhatBuy = document.getElementById("drawerKhatBuy");
+const drawerKhatSell = document.getElementById("drawerKhatSell");
+const drawerBurhanpur = document.getElementById("drawerBurhanpur");
+const drawerJalgaon = document.getElementById("drawerJalgaon");
+const drawerChopda = document.getElementById("drawerChopda");
+const drawerRaver = document.getElementById("drawerRaver");
+const drawerAccount = document.getElementById("drawerAccount");
+const drawerChat = document.getElementById("drawerChat");
+const drawerListingHistory = document.getElementById("drawerListingHistory");
+const drawerInbox = document.getElementById("drawerInbox");
+const drawerSignup = document.getElementById("drawerSignup");
+const drawerAbout = document.getElementById("drawerAbout");
+const drawerPrivacy = document.getElementById("drawerPrivacy");
+const drawerTerms = document.getElementById("drawerTerms");
+const drawerContact = document.getElementById("drawerContact");
+const drawerAgentHelp = document.getElementById("drawerAgentHelp");
+const drawerWhatsapp = document.getElementById("drawerWhatsapp");
+
+const chipRates = document.getElementById("chipRates");
+const chipBuy = document.getElementById("chipBuy");
+const chipServices = document.getElementById("chipServices");
+const marketTicker = document.getElementById("marketTicker");
+
+const slideText1 = document.getElementById("slideText1");
+const slideReceiptText = document.getElementById("slideReceiptText");
+const pavtiImg = document.getElementById("pavtiImg");
+
+const modeBtnRopBuy = document.getElementById("modeBtnRopBuy");
+const modeBtnKhodwaBuy = document.getElementById("modeBtnKhodwaBuy");
+const modeBtnRopSell = document.getElementById("modeBtnRopSell");
+const modeBtnKhodwaSell = document.getElementById("modeBtnKhodwaSell");
+
+const searchInput = document.getElementById("searchInput");
+const filterPreviewBtn = document.getElementById("filterPreviewBtn");
+const fullFilterCard = document.getElementById("fullFilterCard");
+const clearFiltersBtn = document.getElementById("clearFiltersBtn");
+const resultText = document.getElementById("resultText");
+const emptyTitle = document.getElementById("emptyTitle");
+const emptyDesc = document.getElementById("emptyDesc");
+const footerMade = document.getElementById("footerMade");
+const footerPrivacy = document.getElementById("footerPrivacy");
+const footerContact = document.getElementById("footerContact");
+const footerAbout = document.getElementById("footerAbout");
+
+const menuToggle = document.getElementById("menuToggle");
+const sidebarDrawer = document.getElementById("sidebarDrawer");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+const drawerClose = document.getElementById("drawerClose");
+const loginStatusBtn = document.getElementById("loginStatusBtn");
+const loginStatusIcon = document.getElementById("loginStatusIcon");
+const loginStatusText = document.getElementById("loginStatusText");
+const accountBtn = document.getElementById("accountBtn");
+const drawerAuthLink = document.getElementById("drawerAuthLink");
+const drawerAuthIcon = document.getElementById("drawerAuthIcon");
+const drawerLoginText = document.getElementById("drawerLoginText");
+
+const langToggle = document.getElementById("langToggle");
+const langMenu = document.getElementById("langMenu");
+const langOptions = [...document.querySelectorAll(".lang-option")];
+
+const notificationWrap = document.getElementById("notificationWrap");
+const notificationBtn = document.getElementById("notificationBtn");
+const notificationCount = document.getElementById("notificationCount");
+const notificationDropdown = document.getElementById("notificationDropdown");
+const notificationTitle = document.getElementById("notificationTitle");
+
+const pageOrder = ["index.html","buy.html","sell.html","jalgaon.html","chopda.html","raver.html"];
+const marketPages = ["index.html","jalgaon.html","chopda.html","raver.html"];
+const LANG_SHORT = { mr:"म", hi:"हि", en:"E" };
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT3B4g7toMMWKrRoUl282tnA2E5AY-vWIPETz7RRmKRpTNnvVkN-PuRk4S7YoERbTPa2-TuOGDJAAkR/pub?output=csv";
+
+const translations = {
+  mr:{
+    page_title:"🌱 केळी रोप खोडवा खरेदी विक्री | BanaNetwork",
+    meta_description:"BanaNetwork वर रोप आणि खोडवा खरेदी विक्री listings पहा. Smart searchable filters, premium image cards आणि chat order request सुविधा मिळवा.",
+    meta_keywords:"banana plant buy, khodwa buy, rop kharedi, khodwa kharedi, BanaNetwork buy",
+    og_description:"रोप खोडवा खरेदी विक्री | Smart filters | Premium cards | BanaNetwork",
+    brand_subtitle:"रोप खोडवा खरेदी विक्री",
+    drawer_subtitle:"केळी संबंधित सर्व सेवा",
+    label_main:"मुख्य",
+    label_account:"खाते",
+    label_info:"माहिती",
+    nav_home:"Home",
+    nav_buy:"केळी रोप खरेदी",
+    nav_sell:"केळी रोप विक्री",
+    nav_khat_buy:"केळी खोडवा खरेदी",
+    nav_khat_sell:"केळी खोडवा विक्री",
+    nav_burhanpur_rates:"बुरहानपूर केळी भाव",
+    nav_jalgaon_rates:"जळगाव केळी भाव",
+    nav_chopda_rates:"चोपडा केळी भाव",
+    nav_raver_rates:"रावेर केळी भाव",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    footer_terms:"T&C",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधी मदत",
+    info_whatsapp_group:"WhatsApp Group",
+    chip_rates:"भाव",
+    chip_buy:"केळी रोप खोडवा खरेदी विक्री",
+    chip_services:"🛠Services",
+    ticker_text:"🌱 Smart searchable filters वापरून योग्य seller शोधा | 🖼 Premium 4:3 image cards | 📦 Order request थेट chat मध्ये पाठवा | 📱 Mobile swipe slider support",
+    slide_1:"🌱 केळी रोप-खोडवा खरेदी विक्री",
+    slide_receipt:"📸 बुरहानपूर मंडी प्रमाणित पावती",
+    mode_rop_buy:"रोप खरेदी",
+    mode_khodwa_buy:"खोडवा खरेदी",
+    mode_rop_sell:"रोप विक्री",
+    mode_khodwa_sell:"खोडवा विक्री",
+    filter_company:"नर्सरी / कंपनी",
+    filter_state:"राज्य",
+    filter_district:"जिल्हा",
+    filter_taluka:"तालुका",
+    filter_village:"गाव",
+    dropdown_search_placeholder:(label)=>`${label} शोधा`,
+    dropdown_all:"All",
+    dropdown_empty:"पर्याय सापडला नाही",
+    search_placeholder:"रोप, खोडवा, कंपनी, seller, गाव किंवा तालुका शोधा",
+    reset_filters:"Reset Filters",
+    loading:"Loading...",
+    result_count:(count)=>`${count} listing दिसत आहेत`,
+    message_case2_title:"तुमच्या filter साठी direct seller मिळाला नाही",
+    message_case2_text:(state, company)=>`${state} मध्ये ${company} कंपनीचा seller सापडला नाही. पण खालील sellers तुम्हाला मदत करू शकतात.`,
+    message_case3_title:"तुमच्या area मध्ये matching कंपनी उपलब्ध नाही",
+    message_case3_text:(state, company)=>`${state} मध्ये seller नाही आणि ${company} कंपनीही उपलब्ध नाही. पण खालील listings तुमच्यासाठी उपयोगी ठरू शकतात.`,
+    message_location_title:"तुमच्या area मध्ये direct match नाही",
+    message_location_text:(area)=>`${area} साठी direct seller मिळाला नाही. पण खालील listings तुम्हाला मदत करू शकतात.`,
+    message_company_title:"Matching company direct area मध्ये नाही",
+    message_company_text:(company)=>`${company} कंपनीचा direct seller मिळाला नाही. पण खालील sellers मदत करू शकतात.`,
+    empty_title:"Listing मिळाली नाही",
+    empty_desc:"सध्या कोणतीही listing उपलब्ध नाही.",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_about:"About",
+    status_login:"Login",
+    status_account:"खाते",
+    photos_label:"फोटो",
+    all_area:"All Area Available",
+    location_none:"लोकेशन उपलब्ध नाही",
+    description_none:"Seller ने description दिलेली नाही.",
+    more_info:"अधिक माहिती",
+    order_request:"🛒 Order ची विनंती करा",
+    share:"Share करा",
+    seller_label:"Seller",
+    direct_contact_line:(phone)=>`📞 Direct Contact: ${phone}`,
+    hidden_number_line:(range)=>`🔒 Number hidden (${range})`,
+    inquiry_line:"📩 Order request किंवा inquiry पाठवा",
+    share_copied:"Product link copy झाला.",
+    order_login_required:"Order request साठी login करा.",
+    no_seller_id:"Seller माहिती उपलब्ध नाही.",
+    notification_title:"सूचना",
+    notification_empty:"कोणतीही सूचना नाही",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    notification_open_failed:"Notification उघडता आली नाही.",
+    notification_hide_failed:"Notification hide करता आली नाही.",
+    notification_hide_label:"Hide notification"
+  },
+  hi:{
+    page_title:"🌱 केला रोप खोडवा खरीद बिक्री | BanaNetwork",
+    meta_description:"BanaNetwork पर रोप और खोडवा खरीद बिक्री listings देखें. Smart searchable filters, premium image cards और order request chat सुविधा के साथ.",
+    meta_keywords:"banana plant buy, khodwa buy, BanaNetwork marketplace",
+    og_description:"रोप खोडवा खरीद बिक्री | Smart filters | Premium cards | BanaNetwork",
+    brand_subtitle:"रोप खोडवा खरीद बिक्री",
+    drawer_subtitle:"केले से जुड़ी सभी सेवाएं",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"केला रोप खरीद",
+    nav_sell:"केला रोप बिक्री",
+    nav_khat_buy:"केला खोडवा खरीद",
+    nav_khat_sell:"केला खोडवा बिक्री",
+    nav_burhanpur_rates:"बुरहानपुर केला भाव",
+    nav_jalgaon_rates:"जलगांव केला भाव",
+    nav_chopda_rates:"चोपडा केला भाव",
+    nav_raver_rates:"रावेर केला भाव",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    footer_terms:"T&C",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधि सहायता",
+    info_whatsapp_group:"WhatsApp Group",
+    chip_rates:"भाव",
+    chip_buy:"रोप खोडवा खरीद बिक्री",
+    chip_services:"🛠Services",
+    ticker_text:"🌱 Smart searchable filters से सही seller खोजें | 🖼 Premium 4:3 image cards | 📦 Order request सीधे chat में भेजें | 📱 Mobile swipe slider support",
+    slide_1:"🌱 रोप-खोडवा खरीद बिक्री",
+    slide_receipt:"📸 बुरहानपुर मंडी प्रमाणित रसीद",
+    mode_rop_buy:"रोप खरीद",
+    mode_khodwa_buy:"खोडवा खरीद",
+    mode_rop_sell:"रोप बिक्री",
+    mode_khodwa_sell:"खोडवा बिक्री",
+    filter_company:"नर्सरी / कंपनी",
+    filter_state:"राज्य",
+    filter_district:"जिला",
+    filter_taluka:"तालुका",
+    filter_village:"गांव",
+    dropdown_search_placeholder:(label)=>`${label} खोजें`,
+    dropdown_all:"All",
+    dropdown_empty:"कोई विकल्प नहीं मिला",
+    search_placeholder:"रोप, खोडवा, कंपनी, seller, गांव या तालुका खोजें",
+    reset_filters:"Reset Filters",
+    loading:"Loading...",
+    result_count:(count)=>`${count} listing दिख रही हैं`,
+    message_case2_title:"Direct seller नहीं मिला",
+    message_case2_text:(state, company)=>`${state} में ${company} कंपनी का seller नहीं मिला. लेकिन नीचे वाले sellers आपकी मदद कर सकते हैं.`,
+    message_case3_title:"आपके area में matching company उपलब्ध नहीं",
+    message_case3_text:(state, company)=>`${state} में seller नहीं है और ${company} कंपनी भी उपलब्ध नहीं है. लेकिन नीचे की listings आपके काम आ सकती हैं.`,
+    message_location_title:"आपके area में direct match नहीं मिला",
+    message_location_text:(area)=>`${area} के लिए direct seller नहीं मिला. लेकिन नीचे की listings आपके काम आ सकती हैं.`,
+    message_company_title:"Matching company direct area में नहीं मिली",
+    message_company_text:(company)=>`${company} कंपनी का direct seller नहीं मिला. लेकिन नीचे वाले sellers मदद कर सकते हैं.`,
+    empty_title:"Listing नहीं मिली",
+    empty_desc:"अभी कोई listing उपलब्ध नहीं है.",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_about:"About",
+    status_login:"Login",
+    status_account:"खाता",
+    photos_label:"फोटो",
+    all_area:"All Area Available",
+    location_none:"लोकेशन उपलब्ध नहीं",
+    description_none:"Seller ने description नहीं दिया है.",
+    more_info:"अधिक जानकारी",
+    order_request:"🛒 Order Request करें",
+    share:"Share करें",
+    seller_label:"Seller",
+    direct_contact_line:(phone)=>`📞 Direct Contact: ${phone}`,
+    hidden_number_line:(range)=>`🔒 Number hidden (${range})`,
+    inquiry_line:"📩 Order request या inquiry भेजें",
+    share_copied:"Product link copy हो गया.",
+    order_login_required:"Order request के लिए login करें.",
+    no_seller_id:"Seller जानकारी उपलब्ध नहीं है.",
+    notification_title:"Notifications",
+    notification_empty:"No notifications",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    notification_open_failed:"Notification खोल नहीं पाए.",
+    notification_hide_failed:"Notification hide नहीं कर पाए.",
+    notification_hide_label:"Hide notification"
+  },
+  en:{
+    page_title:"🌱 Banana Plant Khodwa Buy Sell | BanaNetwork",
+    meta_description:"Browse plant and khodwa listings on BanaNetwork with smart searchable filters, premium image cards, and direct order request chat flow.",
+    meta_keywords:"banana plant buy, khodwa buy, BanaNetwork marketplace",
+    og_description:"Plant khodwa buy sell | Smart filters | Premium cards | BanaNetwork",
+    brand_subtitle:"Plant Khodwa Buy Sell",
+    drawer_subtitle:"All Banana Related Services",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"Banana Plant Buy",
+    nav_sell:"Banana Plant Sell",
+    nav_khat_buy:"Banana Khodwa Buy",
+    nav_khat_sell:"Banana Khodwa Sell",
+    nav_burhanpur_rates:"Burhanpur Banana Rate",
+    nav_jalgaon_rates:"Jalgaon Banana Rate",
+    nav_chopda_rates:"Chopda Banana Rate",
+    nav_raver_rates:"Raver Banana Rate",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    footer_terms:"T&C",
+    info_contact:"Contact Us",
+    info_agent_help:"Agent Help",
+    info_whatsapp_group:"WhatsApp Group",
+    chip_rates:"Rates",
+    chip_buy:"Plant Khodwa Buy Sell",
+    chip_services:"🛠Services",
+    ticker_text:"🌱 Find the right seller with smart searchable filters | 🖼 Premium 4:3 image cards | 📦 Send order requests directly in chat | 📱 Mobile swipe slider support",
+    slide_1:"🌱 Plant-Khodwa buy marketplace",
+    slide_receipt:"📸 Certified Burhanpur mandi receipt",
+    mode_rop_buy:"Plant Buy",
+    mode_khodwa_buy:"Khodwa Buy",
+    mode_rop_sell:"Plant Sell",
+    mode_khodwa_sell:"Khodwa Sell",
+    filter_company:"Nursery / Company",
+    filter_state:"State",
+    filter_district:"District",
+    filter_taluka:"Taluka",
+    filter_village:"Village",
+    dropdown_search_placeholder:(label)=>`Search ${label}`,
+    dropdown_all:"All",
+    dropdown_empty:"No options found",
+    search_placeholder:"Search plant, khodwa, company, seller, village or taluka",
+    reset_filters:"Reset Filters",
+    loading:"Loading...",
+    result_count:(count)=>`${count} listings visible`,
+    message_case2_title:"No direct seller found",
+    message_case2_text:(state, company)=>`No sellers in ${state} for ${company}. But these sellers may still help you.`,
+    message_case3_title:"No matching company in your area",
+    message_case3_text:(state, company)=>`No sellers in ${state} and no ${company} company available. But these listings may still help you.`,
+    message_location_title:"No direct match in your area",
+    message_location_text:(area)=>`No direct sellers found for ${area}. But these listings may help you.`,
+    message_company_title:"No direct seller for this company",
+    message_company_text:(company)=>`No direct seller found for ${company}. But these sellers may help you.`,
+    empty_title:"No listing found",
+    empty_desc:"No listings are available right now.",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_about:"About",
+    status_login:"Login",
+    status_account:"Account",
+    photos_label:"photos",
+    all_area:"All Area Available",
+    location_none:"Location not available",
+    description_none:"Seller has not added a description.",
+    more_info:"More Info",
+    order_request:"🛒 Request Order",
+    share:"Share",
+    seller_label:"Seller",
+    direct_contact_line:(phone)=>`📞 Direct Contact: ${phone}`,
+    hidden_number_line:(range)=>`🔒 Number hidden (${range})`,
+    inquiry_line:"📩 Send an order request or inquiry",
+    share_copied:"Product link copied.",
+    order_login_required:"Please log in to send an order request.",
+    no_seller_id:"Seller information is unavailable.",
+    notification_title:"Notifications",
+    notification_empty:"No notifications",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    notification_open_failed:"Notification could not be opened.",
+    notification_hide_failed:"Notification could not be hidden.",
+    notification_hide_label:"Hide notification"
+  }
+};
+
+let currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let heroSlideIndex = 0;
+window.currentBuyUser = null;
+
+function t(key){
+  return translations[currentLanguage]?.[key] || translations.mr[key] || key;
+}
+
+function preserveLanguageAndClearStorage(){
+  const savedLanguage = localStorage.getItem("siteLanguage") || currentLanguage || "mr";
+  localStorage.clear();
+  localStorage.setItem("siteLanguage", savedLanguage);
+}
+
+function protectRouteUrl(url){
+  const hasUser = !!window.currentBuyUser || !!localStorage.getItem("userId") || !!localStorage.getItem("userName");
+  if(!hasUser){
+    window.location.href = "login.html";
+    return;
+  }
+  window.location.href = url;
+}
+
+async function logoutUser(){
+  if(typeof window.performBuyLogout === "function"){
+    await window.performBuyLogout();
+    return;
+  }
+  preserveLanguageAndClearStorage();
+  window.location.href = "index.html";
+}
+
+window.protectRouteUrl = protectRouteUrl;
+window.logoutUser = logoutUser;
+
+function toggleSidebar(show){
+  if(show){
+    sidebarDrawer.classList.add("open");
+    sidebarOverlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }else{
+    sidebarDrawer.classList.remove("open");
+    sidebarOverlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+}
+
+function openLangMenu(){
+  langMenu.classList.add("open");
+  langToggle.setAttribute("aria-expanded", "true");
+}
+
+function closeLangMenu(){
+  langMenu.classList.remove("open");
+  langToggle.setAttribute("aria-expanded", "false");
+}
+
+function openNotificationDropdown(){
+  if(notificationWrap.classList.contains("hidden")) return;
+  notificationDropdown.classList.add("open");
+  notificationBtn.setAttribute("aria-expanded", "true");
+}
+
+function closeNotificationDropdown(){
+  notificationDropdown.classList.remove("open");
+  notificationBtn.setAttribute("aria-expanded", "false");
+}
+
+function toggleNotificationDropdown(){
+  if(notificationDropdown.classList.contains("open")){
+    closeNotificationDropdown();
+  }else{
+    openNotificationDropdown();
+  }
+}
+
+window.closeBuyNotificationDropdown = closeNotificationDropdown;
+
+menuToggle.addEventListener("click", () => toggleSidebar(true));
+drawerClose.addEventListener("click", () => toggleSidebar(false));
+sidebarOverlay.addEventListener("click", () => toggleSidebar(false));
+
+langToggle.addEventListener("click", event => {
+  event.stopPropagation();
+  if(langMenu.classList.contains("open")){
+    closeLangMenu();
+  }else{
+    openLangMenu();
+  }
+});
+
+notificationBtn.addEventListener("click", event => {
+  event.stopPropagation();
+  toggleNotificationDropdown();
+});
+
+notificationDropdown.addEventListener("click", event => {
+  event.stopPropagation();
+});
+
+document.addEventListener("click", event => {
+  if(!event.target.closest(".lang-wrap")){
+    closeLangMenu();
+  }
+});
+
+document.addEventListener("click", event => {
+  if(!event.target.closest(".notification-wrap")){
+    closeNotificationDropdown();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if(event.key === "Escape"){
+    toggleSidebar(false);
+    closeLangMenu();
+    closeNotificationDropdown();
+  }
+});
+
+langOptions.forEach(button=>{
+  button.addEventListener("click", ()=>{
+    currentLanguage = button.dataset.lang;
+    localStorage.setItem("siteLanguage", currentLanguage);
+    applyLanguage();
+    closeLangMenu();
+  });
+});
+
+document.querySelectorAll("[data-protected-route]").forEach(link=>{
+  link.addEventListener("click", event=>{
+    event.preventDefault();
+    protectRouteUrl(link.dataset.protectedRoute);
+  });
+});
+
+function getCurrentPage(){
+  const page = window.location.pathname.split("/").pop();
+  return page || "buy.html";
+}
+
+function setActiveNav(){
+  const currentPage = getCurrentPage();
+
+  document.querySelectorAll(".nav-chip[data-page]").forEach(btn=>{
+    const shouldBeActive = marketPages.includes(currentPage)
+      ? btn.dataset.page === "index.html"
+      : btn.dataset.page === currentPage;
+    btn.classList.toggle("active", shouldBeActive);
+  });
+
+  document.querySelectorAll(".drawer-link[data-route]").forEach(link=>{
+    let active = false;
+
+    if(currentPage === "index.html"){
+      active = link.dataset.route === "home";
+    }else if(currentPage === "buy.html"){
+      active = link.dataset.route === "plant-buy" || link.dataset.route === "khodwa-buy";
+    }else if(currentPage === "sell.html"){
+      active = link.dataset.route === "plant-sell" || link.dataset.route === "khodwa-sell";
+    }else if(currentPage === "jalgaon.html"){
+      active = link.dataset.route === "jalgaon";
+    }else if(currentPage === "chopda.html"){
+      active = link.dataset.route === "chopda";
+    }else if(currentPage === "raver.html"){
+      active = link.dataset.route === "raver";
+    }
+
+    link.classList.toggle("active", active);
+  });
+}
+
+function updateHeaderAuthState(user = window.currentBuyUser){
+  const userName = user?.displayName || localStorage.getItem("userName") || "";
+  const userId = user?.uid || localStorage.getItem("userId") || "";
+  const isLoggedIn = !!(userId || userName);
+
+  if(isLoggedIn){
+    loginStatusBtn.href = "account.html";
+    loginStatusIcon.textContent = "👤";
+    loginStatusText.innerText = t("status_account");
+    accountBtn.href = "account.html";
+    accountBtn.textContent = userName.trim().charAt(0).toUpperCase() || "👤";
+
+    drawerAuthLink.href = "index.html";
+    drawerAuthLink.onclick = function(event){
+      event.preventDefault();
+      logoutUser();
+    };
+    drawerAuthIcon.textContent = "🚪";
+    drawerLoginText.textContent = t("nav_logout");
+
+    notificationWrap.classList.remove("hidden");
+  }else{
+    loginStatusBtn.href = "login.html";
+    loginStatusIcon.textContent = "🔑";
+    loginStatusText.innerText = t("status_login");
+    accountBtn.href = "login.html";
+    accountBtn.textContent = "👤";
+
+    drawerAuthLink.href = "login.html";
+    drawerAuthLink.onclick = null;
+    drawerAuthIcon.textContent = "🔑";
+    drawerLoginText.textContent = t("nav_login");
+
+    notificationWrap.classList.add("hidden");
+    notificationCount.textContent = "0";
+    notificationCount.classList.add("hidden");
+    closeNotificationDropdown();
+  }
+}
+
+function initPageSwipe(){
+  const swipeArea = document.querySelector(".page-content");
+  if(!swipeArea) return;
+
+  swipeArea.addEventListener("touchstart", event=>{
+    const touch = event.changedTouches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  }, { passive:true });
+
+  swipeArea.addEventListener("touchend", event=>{
+    const touch = event.changedTouches[0];
+    touchEndX = touch.clientX;
+    touchEndY = touch.clientY;
+    handlePageSwipe();
+  }, { passive:true });
+}
+
+function handlePageSwipe(){
+  const diffX = touchStartX - touchEndX;
+  const diffY = Math.abs(touchStartY - touchEndY);
+  if(Math.abs(diffX) < 70) return;
+  if(Math.abs(diffX) <= diffY) return;
+
+  const currentPage = getCurrentPage();
+  const currentIndex = pageOrder.indexOf(currentPage);
+  if(currentIndex === -1) return;
+
+  if(diffX > 0 && currentIndex < pageOrder.length - 1){
+    window.location.href = pageOrder[currentIndex + 1];
+  }else if(diffX < 0 && currentIndex > 0){
+    window.location.href = pageOrder[currentIndex - 1];
+  }
+}
+
+function initHeroSlider(){
+  const slides = document.querySelectorAll(".hero-slide");
+  if(!slides.length) return;
+
+  slides.forEach(slide=>{
+    slide.addEventListener("click", event=>{
+      const heroKind = slide.dataset.heroKind;
+      if(heroKind && window.setBuyKind){
+        event.preventDefault();
+        window.setBuyKind(heroKind);
+        document.getElementById("modeSection").scrollIntoView({ behavior:"smooth", block:"start" });
+      }
+    });
+  });
+
+  setInterval(()=>{
+    slides[heroSlideIndex].classList.remove("active");
+    heroSlideIndex = (heroSlideIndex + 1) % slides.length;
+    slides[heroSlideIndex].classList.add("active");
+  }, 3200);
+}
+
+function loadReceiptImage(){
+  fetch(sheetURL)
+    .then(response => response.text())
+    .then(text => {
+      const rows = text.split(/\r?\n/).filter(Boolean).map(line => line.split(","));
+      const filtered = rows.filter(row => row[1] && row[1].trim() === "बुरहानपूर");
+      const latest = filtered[filtered.length - 1];
+      if(!latest) return;
+
+      let photoLink = "";
+      latest.forEach(cell => {
+        const trimmed = String(cell || "").trim();
+        if(trimmed && trimmed.startsWith("http")){
+          photoLink = trimmed;
+        }
+      });
+
+      if(photoLink){
+        pavtiImg.onload = function(){
+          pavtiImg.style.display = "block";
+        };
+        pavtiImg.onerror = function(){
+          pavtiImg.style.display = "none";
+        };
+        pavtiImg.src = photoLink;
+      }
+    })
+    .catch(() => {
+      pavtiImg.style.display = "none";
+    });
+}
+
+function applyLanguage(){
+  document.documentElement.lang = currentLanguage;
+  document.title = t("page_title");
+  metaDescription.content = t("meta_description");
+  metaKeywords.content = t("meta_keywords");
+  ogDescription.content = t("og_description");
+
+  brandSubtitle.textContent = t("brand_subtitle");
+  drawerSubtitle.textContent = t("drawer_subtitle");
+  labelMain.textContent = t("label_main");
+  labelAccount.textContent = t("label_account");
+  labelInfo.textContent = t("label_info");
+
+  drawerHome.textContent = t("nav_home");
+  drawerBuy.textContent = t("nav_buy");
+  drawerSell.textContent = t("nav_sell");
+  drawerKhatBuy.textContent = t("nav_khat_buy");
+  drawerKhatSell.textContent = t("nav_khat_sell");
+  drawerBurhanpur.textContent = t("nav_burhanpur_rates");
+  drawerJalgaon.textContent = t("nav_jalgaon_rates");
+  drawerChopda.textContent = t("nav_chopda_rates");
+  drawerRaver.textContent = t("nav_raver_rates");
+  drawerAccount.textContent = t("nav_account");
+  drawerChat.textContent = t("nav_my_chat");
+  drawerListingHistory.textContent = t("nav_listing_history");
+  drawerInbox.textContent = t("nav_inbox");
+  drawerSignup.textContent = t("nav_signup");
+  drawerAbout.textContent = t("info_about");
+  drawerPrivacy.textContent = t("info_privacy");
+  drawerTerms.textContent = t("info_terms");
+  drawerContact.textContent = t("info_contact");
+  drawerAgentHelp.textContent = t("info_agent_help");
+  drawerWhatsapp.textContent = t("info_whatsapp_group");
+
+  chipRates.textContent = t("chip_rates");
+  chipBuy.textContent = t("chip_buy");
+  chipServices.textContent = t("chip_services");
+  marketTicker.textContent = t("ticker_text");
+  slideText1.textContent = t("slide_1");
+  slideReceiptText.textContent = t("slide_receipt");
+  modeBtnRopBuy.textContent = t("mode_rop_buy");
+  modeBtnKhodwaBuy.textContent = t("mode_khodwa_buy");
+  modeBtnRopSell.textContent = t("mode_rop_sell");
+  modeBtnKhodwaSell.textContent = t("mode_khodwa_sell");
+  searchInput.placeholder = t("search_placeholder");
+  clearFiltersBtn.textContent = t("reset_filters");
+  resultText.textContent = t("loading");
+  emptyTitle.textContent = t("empty_title");
+  emptyDesc.textContent = t("empty_desc");
+  footerMade.textContent = t("footer_made");
+  footerPrivacy.textContent = t("footer_privacy");
+  footerTerms.textContent = t("footer_terms");
+  footerContact.textContent = t("footer_contact");
+  footerAbout.textContent = t("footer_about");
+  notificationTitle.textContent = t("notification_title");
+  notificationBtn.setAttribute("aria-label", t("notification_title"));
+  langToggle.textContent = LANG_SHORT[currentLanguage] || "म";
+  
+  langOptions.forEach(option=>{
+    option.classList.toggle("active", option.dataset.lang === currentLanguage);
+  });
+
+  updateHeaderAuthState(window.currentBuyUser);
+  setActiveNav();
+
+  if(window.refreshBuyPage){
+    window.refreshBuyPage();
+  }
+}
+
+window.buyI18n = {
+  t,
+  currentLanguage: () => currentLanguage
+};
+
+filterPreviewBtn.addEventListener("click", ()=>{
+
+  fullFilterCard.classList.toggle("hidden");
+  filterPreviewBtn.classList.toggle("active");
+
+  if(fullFilterCard.classList.contains("hidden")){
+    filterPreviewBtn.querySelector(".filter-preview-left").textContent =
+      "🔍 रोप, कंपनी, गाव शोधा / Filter उघडा";
+  }else{
+    filterPreviewBtn.querySelector(".filter-preview-left").textContent =
+      "🔍 Filter बंद करा";
+  }
+
+});
+
+window.addEventListener("load", ()=>{
+  updateHeaderAuthState(window.currentBuyUser);
+  setActiveNav();
+  initPageSwipe();
+  initHeroSlider();
+  loadReceiptImage();
+  applyLanguage();
+});
+
+window.addEventListener("focus", ()=>updateHeaderAuthState(window.currentBuyUser));
+window.addEventListener("storage", ()=>{
+  currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+  applyLanguage();
+});
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+  setDoc,
+  query,
+  where,
+  onSnapshot,
+  doc,
+  updateDoc,
+  arrayUnion
+} from "https://www.gstatic.com/firebasejs/12.2.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBACccl0d8dMcssyF7Z1ol8vgOxsCJwYmE",
+  authDomain: "bananetwork-f8e1f.firebaseapp.com",
+  projectId: "bananetwork-f8e1f",
+  storageBucket: "bananetwork-f8e1f.firebasestorage.app",
+  messagingSenderId: "382838460721",
+  appId: "1:382838460721:web:f6a4a902786d4a8d5fe010",
+  measurementId: "G-85BR8H32TC"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+const i18n = window.buyI18n;
+
+const searchInputEl = document.getElementById("searchInput");
+const clearFiltersBtnEl = document.getElementById("clearFiltersBtn");
+const loadingGrid = document.getElementById("loadingGrid");
+const productsGrid = document.getElementById("productsGrid");
+const emptyState = document.getElementById("emptyState");
+const resultTextEl = document.getElementById("resultText");
+const messageBox = document.getElementById("resultMessageBox");
+const messageTitle = document.getElementById("resultMessageTitle");
+const messageText = document.getElementById("resultMessageText");
+const toast = document.getElementById("toast");
+
+const notificationListEl = document.getElementById("notificationList");
+const notificationCountEl = document.getElementById("notificationCount");
+
+const filterConfig = {
+  company:{
+    labelKey:"filter_company",
+    trigger:document.getElementById("companyTrigger"),
+    label:document.getElementById("companyLabel"),
+    panel:document.getElementById("companyDropdown"),
+    input:document.getElementById("companySearchInput"),
+    options:document.getElementById("companyOptions")
+  },
+  state:{
+    labelKey:"filter_state",
+    trigger:document.getElementById("stateTrigger"),
+    label:document.getElementById("stateLabel"),
+    panel:document.getElementById("stateDropdown"),
+    input:document.getElementById("stateSearchInput"),
+    options:document.getElementById("stateOptions")
+  },
+  district:{
+    labelKey:"filter_district",
+    trigger:document.getElementById("districtTrigger"),
+    label:document.getElementById("districtLabel"),
+    panel:document.getElementById("districtDropdown"),
+    input:document.getElementById("districtSearchInput"),
+    options:document.getElementById("districtOptions")
+  },
+  taluka:{
+    labelKey:"filter_taluka",
+    trigger:document.getElementById("talukaTrigger"),
+    label:document.getElementById("talukaLabel"),
+    panel:document.getElementById("talukaDropdown"),
+    input:document.getElementById("talukaSearchInput"),
+    options:document.getElementById("talukaOptions")
+  },
+  village:{
+    labelKey:"filter_village",
+    trigger:document.getElementById("villageTrigger"),
+    label:document.getElementById("villageLabel"),
+    panel:document.getElementById("villageDropdown"),
+    input:document.getElementById("villageSearchInput"),
+    options:document.getElementById("villageOptions")
+  }
+};
+
+let allProducts = [];
+let currentKind = "rop";
+let openDropdownKey = "";
+let sliderCleanupFns = [];
+let currentUser = null;
+let notificationUnsubscribe = null;
+let notificationsCache = [];
+
+const filterState = {
+  company:"",
+  state:"",
+  district:"",
+  taluka:"",
+  village:""
+};
+
+const dropdownSearch = {
+  company:"",
+  state:"",
+  district:"",
+  taluka:"",
+  village:""
+};
+
+let optionMap = {
+  company:[],
+  state:[],
+  district:[],
+  taluka:[],
+  village:[]
+};
+
+function tv(value){
+  return String(value ?? "").trim();
+}
+
+function lv(value){
+  return tv(value).toLowerCase();
+}
+
+function compact(values){
+  return values.map(lv).filter(Boolean).join(" ");
+}
+
+function normalizeText(text){
+  return String(text || "")
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g,"")
+    .replace(/[^\w\u0900-\u097F]/g,"");
+}
+
+function isSimilar(a,b){
+  a = normalizeText(a);
+  b = normalizeText(b);
+
+  // direct
+  if(a.includes(b) || b.includes(a)) return true;
+
+  // 🔥 one-letter missing / typo support
+  let mismatch = 0;
+  let i = 0;
+  let j = 0;
+
+  while(i < a.length && j < b.length){
+    if(a[i] === b[j]){
+      i++;
+      j++;
+    }else{
+      mismatch++;
+      if(mismatch > 2) return false;
+
+      if(a.length > b.length){
+        i++;
+      }else if(b.length > a.length){
+        j++;
+      }else{
+        i++;
+        j++;
+      }
+    }
+  }
+
+  return true;
+}
+
+
+function escapeHtml(value){
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function showToast(message){
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(()=>toast.classList.remove("show"), 2400);
+}
+
+
+window.showBuyToast = showToast;
+
+function getBuyModeLabel(){
+  return currentKind === "khodwa" ? i18n.t("mode_khodwa_buy") : i18n.t("mode_rop_buy");
+}
+
+function inferItemKind(data){
+  const raw = compact([
+    data.productType,
+    data.itemType,
+    data.category,
+    data.subCategory,
+    data.type,
+    data.title,
+    data.name,
+    data.listingMode
+  ]);
+
+  if(raw.includes("खत") || raw.includes("fertilizer") || raw.includes("khat")) return null;
+  if(raw.includes("खोडवा") || raw.includes("khodwa")) return "khodwa";
+  return "rop";
+}
+
+function inferCompanyName(data){
+  let company = tv(
+    data.companyName ||
+    data.company ||
+    data.brand ||
+    data.ropCompany ||
+    data.khodwaCompany ||
+    data.nurseryName
+  );
+
+  if(["other","इतर"].includes(lv(company))){
+    company = tv(
+      data.companyOther ||
+      data.otherCompany ||
+      data.otherBrand ||
+      data.customCompanyName
+    );
+  }
+
+  return company;
+}
+
+function inferAllAreaAvailable(data){
+  const boolCandidates = [
+    data.allAreaAvailable,
+    data.isAllAreaAvailable,
+    data.availableEverywhere,
+    data.allArea,
+    data.allIndiaAvailable,
+    data.panAreaAvailable
+  ];
+
+  if(boolCandidates.some(value => value === true || ["true","yes","all"].includes(lv(value)))){
+    return true;
+  }
+
+  const raw = compact([
+    data.availableArea,
+    data.areaType,
+    data.areaAvailability,
+    data.locationScope,
+    data.serviceArea,
+    data.deliveryArea,
+    data.areaOption
+  ]);
+
+  return raw.includes("all area") ||
+         raw.includes("allareaavailable") ||
+         raw.includes("everywhere") ||
+         raw.includes("सर्व") ||
+         raw.includes("पूर्ण");
+}
+
+function collectImages(data){
+  const raw = [];
+  if(Array.isArray(data.images)) raw.push(...data.images);
+  ["image","image1","image2","image3","image4","image5","photo","photo1","photo2","photo3","photo4","photo5"].forEach(key=>{
+    if(data[key]) raw.push(data[key]);
+  });
+
+  const images = raw
+    .map(tv)
+    .filter(Boolean)
+    .filter((value, index, arr)=>arr.indexOf(value) === index);
+
+  return images.length ? images : ["ropphoto.jpeg"];
+}
+
+function formatPrice(value){
+  return Number(value || 0).toLocaleString("en-IN");
+}
+
+function formatDate(value){
+  if(!value) return "New";
+  try{
+    if(typeof value.toDate === "function"){
+      return value.toDate().toLocaleDateString("en-IN");
+    }
+    if(value.seconds){
+      return new Date(value.seconds * 1000).toLocaleDateString("en-IN");
+    }
+    return new Date(value).toLocaleDateString("en-IN");
+  }catch(error){
+    return "New";
+  }
+}
+
+function getTimestampValue(value){
+  if(!value) return 0;
+  try{
+    if(typeof value.toDate === "function") return value.toDate().getTime();
+    if(value.seconds) return value.seconds * 1000;
+    const d = new Date(value);
+    return isNaN(d.getTime()) ? 0 : d.getTime();
+  }catch(error){
+    return 0;
+  }
+}
+
+function parseTimePart(part, fallbackMeridian = ""){
+  const match = String(part || "").trim().match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)?$/i);
+  if(!match) return null;
+
+  let hour = parseInt(match[1], 10);
+  const minute = parseInt(match[2] || "0", 10);
+  const meridian = (match[3] || fallbackMeridian || "").toLowerCase();
+
+  if(meridian === "pm" && hour < 12) hour += 12;
+  if(meridian === "am" && hour === 12) hour = 0;
+  if(!meridian && hour === 24) hour = 0;
+
+  return {
+    minutes: (hour * 60) + minute,
+    meridian,
+    label: `${match[1]}${match[2] ? ":" + match[2] : ""}${meridian ? " " + meridian.toUpperCase() : ""}`
+  };
+}
+
+function parseCallingTime(value){
+  const raw = tv(value)
+    .toLowerCase()
+    .replace(/[–—]/g,"-")
+    .replace(/\s+(to|ते|se|से)\s+/gi,"-")
+    .replace(/\s+/g," ")
+    .trim();
+
+  if(!raw || !raw.includes("-")) return null;
+
+  const parts = raw.split("-").map(p => p.trim()).filter(Boolean);
+  if(parts.length !== 2) return null;
+
+  let [startRaw, endRaw] = parts;
+
+  let startHasMeridian = /(am|pm)/i.test(startRaw);
+  let endHasMeridian   = /(am|pm)/i.test(endRaw);
+
+  // 🔥 If end has meridian but start missing → copy
+  if(!startHasMeridian && endHasMeridian){
+    startRaw += endRaw.includes("pm") ? " pm" : " am";
+  }
+
+  // 🔥 If start has meridian but end missing → smart opposite when needed
+  if(startHasMeridian && !endHasMeridian){
+    if(startRaw.includes("am")){
+      endRaw += " pm";
+    }else{
+      endRaw += startRaw.includes("pm") ? " pm" : " am";
+    }
+  }
+
+  // 🔥 Both missing → assume daytime business
+  if(!startHasMeridian && !endHasMeridian){
+    startRaw += " am";
+    endRaw += " pm";
+  }
+
+  const start = parseTimePart(startRaw);
+  const end = parseTimePart(endRaw);
+
+  if(!start || !end) return null;
+
+  return {
+    startMinutes:start.minutes,
+    endMinutes:end.minutes,
+    label:`${start.label} - ${end.label}`
+  };
+}
+
+function isWithinCallingTime(callingTime){
+  const parsed = parseCallingTime(callingTime);
+  if(!parsed) return true;
+
+  const now = new Date();
+  const nowMinutes = (now.getHours() * 60) + now.getMinutes();
+
+  if(parsed.startMinutes <= parsed.endMinutes){
+    return nowMinutes >= parsed.startMinutes && nowMinutes <= parsed.endMinutes;
+  }
+
+  return nowMinutes >= parsed.startMinutes || nowMinutes <= parsed.endMinutes;
+}
+
+function getCallingRangeLabel(callingTime){
+  const parsed = parseCallingTime(callingTime);
+  return parsed ? parsed.label : "Any time";
+}
+
+function normalizeListing(docSnap){
+  const data = docSnap.data();
+  const itemKind = inferItemKind(data);
+  if(!itemKind) return null;
+
+  const state = tv(data.state || data.stateName);
+  const district = tv(data.district || data.districtName);
+  const taluka = tv(data.taluka || data.talukaName);
+  const village = tv(data.village || data.villageName);
+  const location = [village, taluka, district, state].filter(Boolean).join(", ");
+  const description = tv(data.description || data.details || data.moreInfo);
+
+  return {
+    id: docSnap.id,
+    sellerId: tv(data.sellerId || data.userId || data.uid || data.ownerId || data.createdBy || data.sellerUid || data.userUID),
+    seller: tv(data.userName || data.sellerName || data.ownerName),
+    title: tv(data.title || data.productName || data.name || (itemKind === "khodwa" ? "खोडवा Listing" : "रोप Listing")),
+    price: Number(data.price || data.rate || 0),
+    state,
+    district,
+    taluka,
+    village,
+    location,
+    phone: tv(data.phone || data.mobile || data.contactNumber),
+    callingTime: tv(data.callingTime || data.contactTime || data.callTime || data.availableTime),
+    description,
+    images: collectImages(data),
+    postedLabel: formatDate(data.createdAt || data.date || ""),
+    createdMs: getTimestampValue(data.createdAt || data.date || ""),
+    itemKind,
+    company: inferCompanyName(data),
+    allAreaAvailable: inferAllAreaAvailable(data)
+  };
+}
+
+function normalizeNotification(docSnap){
+  const data = docSnap.data() || {};
+
+  const createdMs = getTimestampValue(data.createdAt);
+  const hiddenFor = Array.isArray(data.hiddenFor)
+    ? data.hiddenFor.map(String)
+    : [];
+
+  // 🔥 MESSAGE LOGIC
+  let message = tv(data.message);
+
+  if(data.type === "order_request"){
+    message = i18n.t("notification_new_order");
+  }else if(data.type === "order_accept"){
+    message = i18n.t("notification_order_accept");
+  }else if(data.type === "order_reject"){
+    message = i18n.t("notification_order_reject");
+  }else if(data.type === "chat"){
+    message = tv(data.message) || i18n.t("notification_new_message");
+  }else{
+    message = tv(data.message) || i18n.t("notification_new_message");
+  }
+
+  // 🔥 IMPORTANT: FIELD FALLBACK SYSTEM
+  const userName =
+    tv(data.userName) ||
+    tv(data.senderName) ||
+    "User";
+
+  const photoURL =
+    tv(data.photoURL) ||
+    tv(data.senderPhoto) ||
+    "";
+
+  const productName =
+    tv(data.productName) ||
+    tv(data.productTitle) ||
+    "";
+
+  return {
+    id:docSnap.id,
+    type:String(data.type || ""),
+    roomId:String(data.roomId || ""),
+    senderId:String(data.senderId || ""),
+    userName:String(data.userName || data.senderName || "User"),
+    photoURL:String(data.photoURL || data.senderPhoto || ""),
+    productName:String(data.productName || data.productTitle || ""),
+    userPhone:String(data.userPhone || data.senderPhone || ""),
+    message,
+    read:!!data.read,
+    hiddenFor,
+    createdMs:getTimestampValue(data.createdAt),
+    timeLabel:formatDateTime(data.createdAt)
+  };
+}
+
+function formatDateTime(value){
+  if(!value) return "Now";
+
+  try{
+    let date;
+
+    // 🔥 Firestore Timestamp support
+    if(typeof value.toDate === "function"){
+      date = value.toDate();
+    }
+    else if(value.seconds){
+      date = new Date(value.seconds * 1000);
+    }
+    else{
+      date = new Date(value);
+    }
+
+    // ❌ invalid date
+    if(!date || isNaN(date.getTime())) return "Now";
+
+    const now = Date.now();
+    const diff = now - date.getTime();
+
+    const sec = Math.floor(diff / 1000);
+    const min = Math.floor(sec / 60);
+    const hr  = Math.floor(min / 60);
+    const day = Math.floor(hr / 24);
+
+    // 🔥 Facebook style
+    if(sec < 60) return "Just now";
+    if(min < 60) return min + "m ago";
+    if(hr < 24) return hr + "h ago";
+
+    if(day === 1) return "Yesterday";
+
+    if(day < 7) return day + "d ago";
+
+    // 📅 fallback date
+    return date.toLocaleDateString("en-IN");
+
+  }catch(error){
+    return "Now";
+  }
+}
+
+function getVisibleNotifications(){
+  const uid = currentUser?.uid || localStorage.getItem("userId") || "";
+  return notificationsCache
+    .filter(item => !item.hiddenFor.includes(uid))
+    .sort((a,b) => b.createdMs - a.createdMs);
+}
+
+function updateNotificationBadge(){
+  const unread = getVisibleNotifications().filter(item => !item.read).length;
+  notificationCountEl.textContent = unread > 99 ? "99+" : String(unread);
+  notificationCountEl.classList.toggle("hidden", unread === 0);
+}
+
+function renderNotifications(){
+
+  const items = getVisibleNotifications();
+
+  /* ❌ EMPTY */
+  if(!items.length){
+    notificationListEl.innerHTML = `
+      <div class="notification-empty">
+        ${escapeHtml(i18n.t("notification_empty"))}
+      </div>`;
+    updateNotificationBadge();
+    return;
+  }
+
+  /* 🔥 GROUPING */
+  const today = [];
+  const older = [];
+
+  items.forEach(item=>{
+    const diff = Date.now() - item.createdMs;
+
+    if(diff < 86400000){
+      today.push(item);
+    }else{
+      older.push(item);
+    }
+  });
+
+  /* 🔥 GROUP RENDER FUNCTION */
+  function renderGroup(title, list){
+    if(!list.length) return "";
+
+    return `
+      <div style="font-weight:800; padding:8px 12px; color:#64748b;">
+        ${title}
+      </div>
+
+      ${list.map(item=>{
+        const avatar = item.photoURL
+          ? escapeHtml(item.photoURL)
+          : `https://ui-avatars.com/api/?name=${encodeURIComponent(item.userName || "U")}`;
+
+        const phoneLine = item.userPhone
+          ? `<div class="notification-phone">☎ ${escapeHtml(item.userPhone)}</div>`
+          : "";
+
+        return `
+          <div class="notification-card ${item.read ? "" : "unread"}" data-id="${escapeHtml(item.id)}">
+            <img class="notification-avatar" src="${avatar}" alt="${escapeHtml(item.userName || "User")}">
+            <div class="notification-body">
+              <div class="notification-top">
+                <div class="notification-user">${escapeHtml(item.userName || "User")}</div>
+                <div class="notification-time">${escapeHtml(item.timeLabel)}</div>
+              </div>
+              <div class="notification-message">${escapeHtml(item.message)}</div>
+              ${phoneLine}
+              <div class="notification-meta">
+                <div class="notification-product">${escapeHtml(item.productName || "")}</div>
+                ${!item.read ? `<div class="notification-dot"></div>` : ""}
+              </div>
+            </div>
+          </div>
+       `;
+      }).join("")}
+    `;
+  }
+
+  /* 🔥 FINAL HTML */
+  notificationListEl.innerHTML =
+    renderGroup("Today", today) +
+    renderGroup("Earlier", older);
+
+  /* 🚀 EVENT (SINGLE LISTENER) */
+  notificationListEl.onclick = async (e) => {
+    const card = e.target.closest(".notification-card");
+    if(!card) return;
+
+    const id = card.dataset.id;
+    const item = notificationsCache.find(n => n.id === id);
+    if(!item) return;
+
+    if(!item.read){
+      try{
+        await updateDoc(doc(db,"notifications",id),{ read:true });
+      }catch(err){
+        console.error(err);
+      }
+    }
+
+    const roomId = item.roomId;
+    const qs = roomId ? `?room=${roomId}` : "";
+    window.location.href = `chat.html${qs}`;
+  };
+
+  updateNotificationBadge();
+  enableSwipeToDelete();
+}
+
+function enableSwipeToDelete(){
+
+  document.querySelectorAll(".notification-card").forEach(card=>{
+
+    // 👉 prevent duplicate attach
+    if(card.dataset.swipeAttached) return;
+    card.dataset.swipeAttached = "true";
+
+    let startX = 0;
+    let currentX = 0;
+    let isSwiping = false;
+    let isMoved = false;
+
+    card.addEventListener("touchstart", e=>{
+      startX = e.touches[0].clientX;
+      isSwiping = true;
+      isMoved = false;
+      card.style.transition = "none";
+    });
+
+    card.addEventListener("touchmove", e=>{
+      if(!isSwiping) return;
+
+      currentX = e.touches[0].clientX;
+      let diff = currentX - startX;
+
+      if(diff < 0){
+        isMoved = true; // 🔥 important
+
+        card.style.transform = `translateX(${diff}px)`;
+
+        if(Math.abs(diff) > 70){
+          card.classList.add("show-delete");
+        }else{
+          card.classList.remove("show-delete");
+        }
+      }
+    });
+
+    card.addEventListener("touchend", async (e)=>{
+      isSwiping = false;
+
+      let diff = currentX - startX;
+      card.style.transition = "transform .25s ease";
+
+      // 🔥 STOP CLICK IF SWIPE
+      if(isMoved){
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      if(Math.abs(diff) > 120){
+
+        card.style.transform = "translateX(-100%)";
+
+        setTimeout(async ()=>{
+
+          const id = card.dataset.id;
+          const uid = currentUser?.uid || localStorage.getItem("userId");
+
+          try{
+            await updateDoc(doc(db,"notifications",id),{
+              hiddenFor: arrayUnion(uid)
+            });
+          }catch(err){
+            console.error(err);
+          }
+
+        },200);
+
+      }else{
+        card.style.transform = "translateX(0)";
+        card.classList.remove("show-delete");
+      }
+    });
+
+  });
+
+}
+
+function subscribeNotifications(user){
+
+  // 🔁 Clean old listener
+  if(notificationUnsubscribe){
+    notificationUnsubscribe();
+    notificationUnsubscribe = null;
+  }
+
+  // 🧹 Reset UI
+  notificationsCache = [];
+  renderNotifications();
+
+  // ❌ No user → stop
+  if(!user?.uid) return;
+
+  // ✅ ONLY receiver notifications (MAIN FIX)
+  const q = query(
+    collection(db,"notifications"),
+    where("receiverId","==", user.uid)
+  );
+
+  // 🔴 Real-time listener
+  const unsubscribe = onSnapshot(q, snap => {
+
+    notificationsCache = snap.docs
+      .map(doc => normalizeNotification(doc))
+
+      // 🔒 EXTRA SAFETY (self notification block)
+      .filter(item => {
+        const uid = user.uid;
+        return item.senderId !== uid;   // 👉 स्वतःचे notifications remove
+      });
+
+    renderNotifications();
+  });
+
+  // 🔁 Save unsubscribe
+  notificationUnsubscribe = () => {
+    unsubscribe();
+  };
+}
+
+function getReceiver(room){
+  if(!room || !currentUser?.uid) return "";
+  return currentUser.uid === room.sellerId
+    ? room.buyerId
+    : room.sellerId;
+}
+
+window.getReceiver = getReceiver;
+
+function uniqueSorted(values){
+  return [...new Set(values.filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+}
+
+function clearLowerFilters(changedKey){
+  if(changedKey === "state"){
+    filterState.district = "";
+    filterState.taluka = "";
+    filterState.village = "";
+  }
+  if(changedKey === "district"){
+    filterState.taluka = "";
+    filterState.village = "";
+  }
+  if(changedKey === "taluka"){
+    filterState.village = "";
+  }
+}
+
+function buildOptionMap(){
+  const pool = allProducts.filter(product => product.itemKind === currentKind);
+
+  const companies = uniqueSorted(pool.map(product => product.company));
+  if(filterState.company && !companies.includes(filterState.company)){
+    filterState.company = "";
+  }
+
+  const states = uniqueSorted(pool.map(product => product.state));
+  if(filterState.state && !states.includes(filterState.state)){
+    filterState.state = "";
+    filterState.district = "";
+    filterState.taluka = "";
+    filterState.village = "";
+  }
+
+  const districts = uniqueSorted(
+    pool
+      .filter(product => !filterState.state || product.state === filterState.state)
+      .map(product => product.district)
+  );
+  if(filterState.district && !districts.includes(filterState.district)){
+    filterState.district = "";
+    filterState.taluka = "";
+    filterState.village = "";
+  }
+
+  const talukas = uniqueSorted(
+    pool
+      .filter(product => (!filterState.state || product.state === filterState.state) && (!filterState.district || product.district === filterState.district))
+      .map(product => product.taluka)
+  );
+  if(filterState.taluka && !talukas.includes(filterState.taluka)){
+    filterState.taluka = "";
+    filterState.village = "";
+  }
+
+  const villages = uniqueSorted(
+    pool
+      .filter(product =>
+        (!filterState.state || product.state === filterState.state) &&
+        (!filterState.district || product.district === filterState.district) &&
+        (!filterState.taluka || product.taluka === filterState.taluka)
+      )
+      .map(product => product.village)
+  );
+  if(filterState.village && !villages.includes(filterState.village)){
+    filterState.village = "";
+  }
+
+  optionMap = { company:companies, state:states, district:districts, taluka:talukas, village:villages };
+}
+
+function updateFilterLabels(){
+  Object.entries(filterConfig).forEach(([key, ui])=>{
+    ui.label.textContent = filterState[key] || i18n.t(ui.labelKey);
+    ui.trigger.classList.toggle("has-value", !!filterState[key]);
+    ui.input.placeholder = i18n.t("dropdown_search_placeholder")(i18n.t(ui.labelKey));
+  });
+}
+
+function closeDropdown(){
+  if(!openDropdownKey) return;
+  const ui = filterConfig[openDropdownKey];
+  ui.panel.classList.remove("open");
+  ui.trigger.setAttribute("aria-expanded", "false");
+  ui.trigger.classList.remove("active");
+  openDropdownKey = "";
+}
+
+function openDropdown(key){
+  if(openDropdownKey && openDropdownKey !== key){
+    closeDropdown();
+  }
+  openDropdownKey = key;
+  const ui = filterConfig[key];
+  ui.panel.classList.add("open");
+  ui.trigger.setAttribute("aria-expanded", "true");
+  ui.trigger.classList.add("active");
+  renderDropdownOptions(key);
+  setTimeout(()=>{
+    ui.input.focus();
+    ui.input.select();
+  }, 20);
+}
+
+function toggleDropdown(key){
+  if(openDropdownKey === key){
+    closeDropdown();
+  }else{
+    openDropdown(key);
+  }
+}
+
+function renderDropdownOptions(key){
+  const ui = filterConfig[key];
+  const search = lv(dropdownSearch[key]);
+
+  // 🔥 SMART FILTER (Auto Suggest + Similar Match)
+  const options = optionMap[key].filter(option => {
+    if(!search) return true;
+
+    const opt = option.toLowerCase();
+
+    return (
+      opt.includes(search) ||         // normal match
+      isSimilar(option, search)       // smart match (spelling fix)
+    );
+  });
+
+  let html = "";
+
+  // 🔥 ONLY show All when search box empty
+  if(!search){
+    html = `
+      <button 
+        type="button" 
+        class="dropdown-option clear ${filterState[key] === "" ? "selected" : ""}" 
+        data-filter-option="${key}" 
+        data-value="">
+        ${escapeHtml(i18n.t("dropdown_all"))}
+      </button>
+    `;
+  }
+
+  if(options.length){
+    html += options.map(option => `
+      <button 
+        type="button" 
+        class="dropdown-option ${filterState[key] === option ? "selected" : ""}" 
+        data-filter-option="${key}" 
+        data-value="${escapeHtml(option)}">
+        ${escapeHtml(option)}
+      </button>
+    `).join("");
+  }else{
+    html += `
+      <div class="dropdown-empty" style="text-align:center; padding:14px;">
+        <div style="font-weight:700; color:#111; line-height:1.5;">
+          तुम्ही search केलेल्या area मध्ये माहिती उपलब्ध नाही
+        </div>
+
+        <div style="font-size:13px; color:#64748b; margin-top:6px;">
+          👇 All Area sellers आहेत
+        </div>
+
+        <button 
+          type="button"
+          id="showAllAreaSellerBtn"
+          style="
+            margin-top:10px;
+            background:#2e7d32;
+            color:#fff;
+            border:none;
+            padding:10px 16px;
+            border-radius:12px;
+            font-size:13px;
+            font-weight:800;
+            cursor:pointer;
+          ">
+          विक्रेते बघा
+        </button>
+      </div>
+    `;
+  }
+
+  ui.options.innerHTML = html;
+}
+
+function refreshFilterUi(){
+  buildOptionMap();
+  updateFilterLabels();
+  Object.keys(filterConfig).forEach(key => renderDropdownOptions(key));
+}
+
+function setFilterValue(key, value){
+  filterState[key] = value;
+  clearLowerFilters(key);
+  dropdownSearch[key] = "";
+  closeDropdown();
+  refreshFilterUi();
+  applyFilters();
+}
+
+Object.entries(filterConfig).forEach(([key, ui])=>{
+  ui.trigger.addEventListener("click", event=>{
+    event.stopPropagation();
+    toggleDropdown(key);
+  });
+
+  ui.input.addEventListener("input", ()=>{
+    dropdownSearch[key] = ui.input.value;
+
+    renderDropdownOptions(key);
+
+    // 🔥 AUTO SELECT IF EXACT MATCH
+    const match = optionMap[key].find(opt => 
+      opt.toLowerCase() === ui.input.value.toLowerCase()
+    );
+
+    if(match){
+      setFilterValue(key, match);
+    }
+  });
+
+  ui.panel.addEventListener("click", event=>{
+    const button = event.target.closest(`[data-filter-option="${key}"]`);
+    if(!button) return;
+    setFilterValue(key, button.dataset.value || "");
+  });
+});
+
+document.addEventListener("click", event=>{
+  if(!event.target.closest(".smart-filter")){
+    closeDropdown();
+  }
+});
+
+document.addEventListener("click", event=>{
+
+  const sellerBtn = event.target.closest("#showAllAreaSellerBtn");
+
+  if(!sellerBtn) return;
+
+  closeDropdown();
+
+  const firstAllAreaCard = [...document.querySelectorAll(".product-card")]
+    .find(card => card.innerText.toLowerCase().includes("all area"));
+
+  if(firstAllAreaCard){
+    firstAllAreaCard.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+    firstAllAreaCard.style.boxShadow = "0 0 0 3px rgba(46,125,50,.35)";
+
+    setTimeout(()=>{
+      firstAllAreaCard.style.boxShadow = "";
+    }, 2200);
+  }
+
+});
+
+document.addEventListener("keydown", event=>{
+  if(event.key === "Escape"){
+    closeDropdown();
+  }
+});
+
+function getSearchText(){
+  return lv(searchInputEl.value);
+}
+
+function matchesSearch(product){
+  const searchText = getSearchText();
+  if(!searchText) return true;
+  const haystack = compact([
+    product.title,
+    product.company,
+    product.seller,
+    product.description,
+    product.state,
+    product.district,
+    product.taluka,
+    product.village,
+    product.location,
+    product.phone
+  ]);
+  return haystack.includes(searchText);
+}
+
+function matchesDirectFilters(product){
+  return (!filterState.company || product.company === filterState.company) &&
+         (!filterState.state || product.state === filterState.state) &&
+         (!filterState.district || product.district === filterState.district) &&
+         (!filterState.taluka || product.taluka === filterState.taluka) &&
+         (!filterState.village || product.village === filterState.village);
+}
+
+function getAreaLabel(){
+  return filterState.village || filterState.taluka || filterState.district || filterState.state || i18n.t("filter_state");
+}
+
+function getPriorityWeight(product){
+  let weight = 0;
+  if(filterState.company && product.company !== filterState.company) weight += 1000;
+  if(filterState.state && product.state !== filterState.state) weight += 500;
+  if(filterState.district && product.district !== filterState.district) weight += 200;
+  if(filterState.taluka && product.taluka !== filterState.taluka) weight += 80;
+  if(filterState.village && product.village !== filterState.village) weight += 30;
+  return weight;
+}
+
+function sortByRelevance(products){
+  return [...products].sort((a,b)=>{
+    const weightDiff = getPriorityWeight(a) - getPriorityWeight(b);
+    if(weightDiff !== 0) return weightDiff;
+    return b.createdMs - a.createdMs;
+  });
+}
+
+function renderMessage(tone, title, text){
+  messageBox.classList.remove("hidden", "danger");
+  if(tone === "danger") messageBox.classList.add("danger");
+  messageTitle.textContent = title;
+  messageText.textContent = text;
+}
+
+function hideMessage(){
+  messageBox.classList.add("hidden");
+  messageBox.classList.remove("danger");
+}
+
+function getFinalResultSet(kindPool){
+  const searched = kindPool.filter(matchesSearch);
+  const directResults = sortByRelevance(searched.filter(matchesDirectFilters));
+
+  // 1) exact match मिळाला तर तोच show कर
+  if(directResults.length){
+    return { results:directResults, mode:"direct" };
+  }
+
+  // 2) exact match नाही मिळाला तर fallback search
+  // पहिले same company + all area sellers
+  let fallback = [];
+
+  if(filterState.company){
+    fallback = searched.filter(product =>
+      product.allAreaAvailable && product.company === filterState.company
+    );
+  }
+
+  // company मध्ये all-area seller नाही मिळाला तर फक्त all-area sellers
+  if(!fallback.length){
+    fallback = searched.filter(product => product.allAreaAvailable);
+  }
+
+  // 3) fallback पण नसेल तर same company चे sellers कुठल्याही area मधले
+  if(!fallback.length && filterState.company){
+    fallback = searched.filter(product => product.company === filterState.company);
+  }
+
+  // 4) location/company/search काहीही select असेल आणि direct result नसेल
+  if(filterState.state || filterState.district || filterState.taluka || filterState.village || filterState.company || getSearchText()){
+    return {
+      results: sortByRelevance(fallback),
+      title: "तुम्ही निवडलेल्या भागात सध्या seller उपलब्ध नाही",
+      text: "पण खाली काही sellers आहेत जे सर्व area मध्ये विक्री करतात.",
+      tone: fallback.length ? "" : "danger"
+    };
+  }
+
+  // 5) सामान्य case
+  return { results: sortByRelevance(searched) };
+}
+
+function getSellerSublineText(product){
+  const phone = product.phone;
+  const isAllowedTime = isWithinCallingTime(product.callingTime);
+
+  if(phone && isAllowedTime){
+    return i18n.t("direct_contact_line")(phone);
+  }else if(phone && !isAllowedTime){
+    return i18n.t("hidden_number_line")(getCallingRangeLabel(product.callingTime));
+  }else{
+    return i18n.t("inquiry_line");
+  }
+}
+
+function getShareUrl(id){
+  return `https://bananetwork.in/product.html?id=${encodeURIComponent(id)}`;
+}
+
+async function quickShareProduct(id, title){
+  const url = getShareUrl(id);
+  const text = `${title} | BanaNetwork`;
+
+  try{
+    if(navigator.share){
+      await navigator.share({
+        title:`${title} | BanaNetwork`,
+        text,
+        url
+      });
+      return;
+    }
+  }catch(error){
+  }
+
+  try{
+    await navigator.clipboard.writeText(url);
+    showToast(i18n.t("share_copied"));
+  }catch(error){
+    window.open(`https://wa.me/?text=${encodeURIComponent(text + "\n" + url)}`, "_blank");
+  }
+}
+
+async function sendNotification(data){
+  try{
+    await addDoc(collection(db,"notifications"), {
+      ...data,
+      createdAt: new Date(),
+      read: false,
+      hiddenFor: []
+    });
+  }catch(err){
+    console.error("Notification Error:", err);
+  }
+}
+
+async function goToOrderRequest(productId, sellerId, productTitle){
+  const buyerId = currentUser?.uid || localStorage.getItem("userId") || "";
+  const buyerName = currentUser?.displayName || localStorage.getItem("userName") || "User";
+  const buyerPhoto = currentUser?.photoURL || localStorage.getItem("userPhoto") || "";
+  const buyerPhone = localStorage.getItem("userPhone") || localStorage.getItem("userMobile") || "";
+
+  if(!buyerId){
+    showToast(i18n.t("order_login_required"));
+    setTimeout(()=>{
+      window.location.href = `login.html?redirect=${encodeURIComponent(window.location.href)}`;
+    }, 700);
+    return;
+  }
+
+  if(!sellerId){
+    showToast(i18n.t("no_seller_id"));
+    return;
+  }
+
+  if(buyerId === sellerId){
+    showToast("स्वतःच्या product वर order request पाठवू शकत नाही.");
+    return;
+  }
+
+  if(!productId){
+    showToast("Product माहिती उपलब्ध नाही.");
+    return;
+  }
+
+  const roomId = `${productId}_${sellerId}_${buyerId}`;
+
+  try{
+    const pendingQuery = query(
+      collection(db, "orders"),
+      where("roomId", "==", roomId),
+      where("status", "==", "pending")
+    );
+
+    const pendingSnap = await getDocs(pendingQuery);
+
+    if(!pendingSnap.empty){
+      window.location.href = `chat.html?product=${encodeURIComponent(productId)}&seller=${encodeURIComponent(sellerId)}&buyer=${encodeURIComponent(buyerId)}&room=${encodeURIComponent(roomId)}`;
+      return;
+    }
+
+    await setDoc(doc(db, "chats", roomId), {
+      roomId,
+      participantIds:[buyerId, sellerId],
+      buyerId,
+      sellerId,
+      productId,
+      buyerPhone,
+      productName: productTitle || "Product",
+      buyerName,
+      buyerPhoto,
+      hasOrderRequest:true,
+      lastMessage:"Order Request",
+      createdAt:new Date(),
+      updatedAt:new Date()
+    }, { merge:true });
+
+    const orderRef = doc(collection(db, "orders"));
+    const orderId = orderRef.id;
+
+    await setDoc(orderRef, {
+      orderId,
+      roomId,
+      productId,
+      productName: productTitle || "Product",
+      sellerId,
+      buyerId,
+      buyerPhone,
+      buyerName,
+      buyerPhoto,
+      status:"pending",
+      createdAt:new Date(),
+      updatedAt:new Date()
+    });
+
+    const msgRef = await addDoc(collection(db, "chats", roomId, "messages"), {
+      sender:buyerId,
+      senderId:buyerId,
+      senderName:buyerName,
+      senderPhoto:buyerPhoto,
+      userPhone:buyerPhone,
+      senderPhone:buyerPhone,
+      buyerId,
+      buyerName,
+      sellerId,
+      productId,
+      productName: productTitle || "Product",
+      text:"Order Request Sent",
+      type:"order_request",
+      orderId,
+      orderStatus:"pending",
+      orderRequest:true,
+      readBy:[buyerId],
+      time:new Date()
+    });
+
+    await updateDoc(orderRef, {
+      messageId: msgRef.id
+    });
+
+    await addDoc(collection(db, "notifications"), {
+      receiverId:sellerId,
+      senderId:buyerId,
+      type:"order_request",
+      roomId,
+      orderId,
+      productId,
+      productName: productTitle || "Product",
+      userName:buyerName,
+      photoURL:buyerPhoto,
+      userPhone: buyerPhone,
+      senderPhone: buyerPhone,
+      message:"New Order Request",
+      createdAt:new Date(),
+      read:false,
+      hiddenFor:[]
+    });
+
+    window.location.href = `chat.html?product=${encodeURIComponent(productId)}&seller=${encodeURIComponent(sellerId)}&buyer=${encodeURIComponent(buyerId)}&room=${encodeURIComponent(roomId)}`;
+  }catch(err){
+    console.error("FULL ERROR 👉", err);
+    showToast("⚠️ Something went wrong, try again");
+  }
+}
+
+
+
+function buildSliderMarkup(product){
+  const hasMultiple = product.images.length > 1;
+
+  return `
+    <div class="product-media" data-slider-root>
+      ${product.images.map((image, index) => `
+        <div class="media-slide ${index === 0 ? "active" : ""}">
+          <div class="media-bg-blur" style="background-image:url('${escapeHtml(image)}')"></div>
+          <div class="media-bg-overlay"></div>
+          <img class="product-photo" src="${escapeHtml(image)}" alt="${escapeHtml(product.title)}" loading="lazy" decoding="async">
+        </div>
+      `).join("")}
+
+      <div class="media-count">${product.images.length} ${escapeHtml(i18n.t("photos_label"))}</div>
+
+      <button class="media-share" type="button" data-share-product="${escapeHtml(product.id)}" data-share-title="${escapeHtml(product.title)}" aria-label="${escapeHtml(i18n.t("share"))}">⤴</button>
+
+      ${hasMultiple ? `
+        <button class="media-nav prev" type="button" data-slider-prev aria-label="Previous">‹</button>
+        <button class="media-nav next" type="button" data-slider-next aria-label="Next">›</button>
+        <div class="media-dots">
+          ${product.images.map((_, index) => `
+            <button class="media-dot ${index === 0 ? "active" : ""}" type="button" data-slider-dot="${index}" aria-label="Slide ${index + 1}"></button>
+          `).join("")}
+        </div>
+      ` : ""}
+    </div>
+  `;
+}
+
+function renderProductCards(products){
+  productsGrid.innerHTML = products.map(product=>{
+    return `
+      <article class="product-card">
+        ${buildSliderMarkup(product)}
+
+        <div class="product-body">
+          <div class="product-badges">
+            <span class="badge green">${escapeHtml(getBuyModeLabel())}</span>
+            ${product.company ? `<span class="badge gray">${escapeHtml(product.company)}</span>` : ""}
+            ${product.allAreaAvailable ? `<span class="badge gold">${escapeHtml(i18n.t("all_area"))}</span>` : ""}
+          </div>
+
+          <div class="product-price">₹${formatPrice(product.price)}</div>
+          <h3 class="product-title">${escapeHtml(product.title)}</h3>
+          <div class="product-location">
+            <span class="location-pin-icon"></span>
+            ${escapeHtml(product.location || i18n.t("location_none"))}
+          </div>
+
+          <div class="seller-box">
+            <div class="seller-line">👤 ${escapeHtml(product.seller || i18n.t("seller_label"))}</div>
+            <div class="seller-subline">${escapeHtml(getSellerSublineText(product))}</div>
+          </div>
+
+          <div class="product-meta">
+            <span>🕒 ${escapeHtml(product.postedLabel)}</span>
+            ${product.callingTime ? `<span>⏰ ${escapeHtml(getCallingRangeLabel(product.callingTime))}</span>` : ""}
+          </div>
+
+          <div class="product-actions">
+            <a class="action-btn details" href="product.html?id=${encodeURIComponent(product.id)}">${escapeHtml(i18n.t("more_info"))}</a>
+            <button
+              class="action-btn order"
+              type="button"
+              data-order-product="${escapeHtml(product.id)}"
+              data-order-seller="${escapeHtml(product.sellerId)}"
+              data-order-title="${escapeHtml(product.title)}"
+              ${product.sellerId ? "" : "disabled"}>
+              ${escapeHtml(i18n.t("order_request"))}
+            </button>
+
+            <button class="action-btn share" type="button" data-share-product="${escapeHtml(product.id)}" data-share-title="${escapeHtml(product.title)}">${escapeHtml(i18n.t("share"))}</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function destroySliders(){
+  sliderCleanupFns.forEach(cleanup => cleanup());
+  sliderCleanupFns = [];
+}
+
+function initCardSliders(){
+  destroySliders();
+
+  productsGrid.querySelectorAll("[data-slider-root]").forEach(root=>{
+    const slides = [...root.querySelectorAll(".media-slide")];
+    const dots = [...root.querySelectorAll("[data-slider-dot]")];
+    const prevBtn = root.querySelector("[data-slider-prev]");
+    const nextBtn = root.querySelector("[data-slider-next]");
+
+    if(slides.length <= 1) return;
+
+    let currentIndex = 0;
+    let startX = 0;
+    let deltaX = 0;
+    let autoTimer = null;
+
+    function updateSlides(index){
+      currentIndex = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => slide.classList.toggle("active", slideIndex === currentIndex));
+      dots.forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === currentIndex));
+    }
+
+    function stopAuto(){
+      if(autoTimer){
+        clearInterval(autoTimer);
+        autoTimer = null;
+      }
+    }
+
+    function startAuto(){
+      stopAuto();
+      autoTimer = setInterval(() => {
+        updateSlides(currentIndex + 1);
+      }, 3000);
+    }
+
+    function restartAuto(){
+      stopAuto();
+      startAuto();
+    }
+
+    function onPrev(){
+      updateSlides(currentIndex - 1);
+      restartAuto();
+    }
+
+    function onNext(){
+      updateSlides(currentIndex + 1);
+      restartAuto();
+    }
+
+    function onTouchStart(event){
+      stopAuto();
+      startX = event.changedTouches[0].clientX;
+      deltaX = 0;
+    }
+
+    function onTouchMove(event){
+      deltaX = event.changedTouches[0].clientX - startX;
+    }
+
+    function onTouchEnd(){
+      if(Math.abs(deltaX) > 50){
+        if(deltaX < 0){
+          updateSlides(currentIndex + 1);
+        }else{
+          updateSlides(currentIndex - 1);
+        }
+      }
+      startAuto();
+    }
+
+    function onPointerEnter(){
+      stopAuto();
+    }
+
+    function onPointerLeave(){
+      startAuto();
+    }
+
+    prevBtn?.addEventListener("click", onPrev);
+    nextBtn?.addEventListener("click", onNext);
+
+    dots.forEach(dot=>{
+      dot.addEventListener("click", ()=>{
+        updateSlides(Number(dot.dataset.sliderDot));
+        restartAuto();
+      });
+    });
+
+    root.addEventListener("touchstart", onTouchStart, { passive:true });
+    root.addEventListener("touchmove", onTouchMove, { passive:true });
+    root.addEventListener("touchend", onTouchEnd, { passive:true });
+    root.addEventListener("mouseenter", onPointerEnter);
+    root.addEventListener("mouseleave", onPointerLeave);
+
+    startAuto();
+
+    sliderCleanupFns.push(()=>{
+      stopAuto();
+      prevBtn?.removeEventListener("click", onPrev);
+      nextBtn?.removeEventListener("click", onNext);
+      root.removeEventListener("touchstart", onTouchStart);
+      root.removeEventListener("touchmove", onTouchMove);
+      root.removeEventListener("touchend", onTouchEnd);
+      root.removeEventListener("mouseenter", onPointerEnter);
+      root.removeEventListener("mouseleave", onPointerLeave);
+    });
+  });
+}
+
+productsGrid.addEventListener("click", function(event){
+
+  let el = event.target;
+
+  // 🔥 Loop until button
+  while(el && el !== productsGrid){
+
+    if(el.hasAttribute("data-order-product")){
+      const productId = el.getAttribute("data-order-product");
+      const sellerId = el.getAttribute("data-order-seller");
+      const productTitle = el.getAttribute("data-order-title") || "Product";
+
+      goToOrderRequest(productId, sellerId, productTitle);
+      return;
+    }
+
+
+    if(el.hasAttribute("data-share-product")){
+      quickShareProduct(
+        el.getAttribute("data-share-product"),
+        el.getAttribute("data-share-title")
+      );
+      return;
+    }
+
+    el = el.parentElement;
+  }
+
+});
+
+function showResults(products, modeData){
+  loadingGrid.classList.add("hidden");
+
+  if(!products.length){
+    productsGrid.classList.add("hidden");
+    emptyState.classList.remove("hidden");
+    hideMessage();
+    resultTextEl.textContent = i18n.t("result_count")(0);
+    return;
+  }
+
+  renderProductCards(products);
+  initCardSliders();
+
+  emptyState.classList.add("hidden");
+  productsGrid.classList.remove("hidden");
+  resultTextEl.textContent = i18n.t("result_count")(products.length);
+
+  if(modeData.title && modeData.text){
+    renderMessage(modeData.tone, modeData.title, modeData.text);
+  }else{
+    hideMessage();
+  }
+}
+
+function applyFilters(){
+  const kindPool = allProducts.filter(product => product.itemKind === currentKind);
+  if(!kindPool.length){
+    loadingGrid.classList.add("hidden");
+    productsGrid.classList.add("hidden");
+    hideMessage();
+    emptyState.classList.remove("hidden");
+    resultTextEl.textContent = i18n.t("result_count")(0);
+    return;
+  }
+
+  const modeData = getFinalResultSet(kindPool);
+  const finalResults = modeData.results || [];
+  showResults(finalResults, modeData);
+}
+
+function resetAllFilters(){
+  searchInputEl.value = "";
+  Object.keys(filterState).forEach(key => {
+    filterState[key] = "";
+    dropdownSearch[key] = "";
+  });
+  closeDropdown();
+  refreshFilterUi();
+  applyFilters();
+}
+
+function updateModeButtons(){
+  document.querySelectorAll("[data-buy-kind]").forEach(button=>{
+    button.classList.toggle("active", button.dataset.buyKind === currentKind);
+  });
+}
+
+function attachModeActions(){
+  document.querySelectorAll("[data-buy-kind]").forEach(button=>{
+    button.addEventListener("click", ()=>{
+      currentKind = button.dataset.buyKind;
+      updateModeButtons();
+      Object.keys(filterState).forEach(key => {
+        filterState[key] = "";
+        dropdownSearch[key] = "";
+      });
+      refreshFilterUi();
+      applyFilters();
+    });
+  });
+
+  document.querySelectorAll("[data-sell-link]").forEach(button=>{
+    button.addEventListener("click", ()=>{
+      window.location.href = `sell.html?mode=${button.dataset.sellLink}`;
+    });
+  });
+}
+
+async function loadProducts(){
+  try{
+    const snapshot = await getDocs(collection(db, "listings"));
+    allProducts = [];
+
+    snapshot.forEach(docSnap=>{
+      const listing = normalizeListing(docSnap);
+      if(listing) allProducts.push(listing);
+    });
+
+    refreshFilterUi();
+    applyFilters();
+  }catch(error){
+    console.error(error);
+    loadingGrid.classList.add("hidden");
+    productsGrid.classList.add("hidden");
+    hideMessage();
+    emptyState.classList.remove("hidden");
+    resultTextEl.textContent = i18n.t("result_count")(0);
+  }
+}
+
+searchInputEl.addEventListener("input", applyFilters);
+clearFiltersBtnEl.addEventListener("click", resetAllFilters);
+
+window.setBuyKind = function(kind){
+  currentKind = kind;
+  updateModeButtons();
+  Object.keys(filterState).forEach(key => {
+    filterState[key] = "";
+    dropdownSearch[key] = "";
+  });
+  refreshFilterUi();
+  applyFilters();
+};
+
+window.refreshBuyNotifications = function(){
+  renderNotifications();
+};
+
+window.refreshBuyPage = function(){
+  updateModeButtons();
+  refreshFilterUi();
+  applyFilters();
+  renderNotifications();
+};
+
+window.performBuyLogout = async function(){
+  try{
+    await signOut(auth);
+  }catch(error){
+    console.error(error);
+  }
+
+  const savedLanguage = localStorage.getItem("siteLanguage") || "mr";
+  localStorage.clear();
+  localStorage.setItem("siteLanguage", savedLanguage);
+
+  currentUser = null;
+  window.currentBuyUser = null;
+
+  if(notificationUnsubscribe){
+    notificationUnsubscribe();
+    notificationUnsubscribe = null;
+  }
+
+  notificationsCache = [];
+  renderNotifications();
+
+  if(typeof window.updateHeaderAuthState === "function"){
+    window.updateHeaderAuthState(null);
+  }
+
+  window.location.href = "index.html";
+};
+
+onAuthStateChanged(auth, user => {
+  currentUser = user;
+  window.currentBuyUser = user;
+
+  if(user){
+    localStorage.setItem("userId", user.uid);
+    if(user.displayName){
+      localStorage.setItem("userName", user.displayName);
+    }
+    if(user.photoURL){
+      localStorage.setItem("userPhoto", user.photoURL);
+    }
+  }else{
+    localStorage.removeItem("userId");
+  }
+
+  if(typeof window.updateHeaderAuthState === "function"){
+    window.updateHeaderAuthState(user);
+  }
+
+  subscribeNotifications(user);
+});
+
+attachModeActions();
+refreshFilterUi();
+renderNotifications();
+loadProducts();
+</script>
+
+</body>
+</html>
