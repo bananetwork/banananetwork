@@ -1,0 +1,3618 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<title>🌱 केळी रोप खोडवा विक्री | BanaNetwork</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta id="metaDescription" name="description" content="BanaNetwork वर केळी रोप आणि खोडवा विक्री listing जोडा. Same app UI, realtime notifications, responsive form आणि image upload preview सह listing post करा.">
+<meta id="metaKeywords" name="keywords" content="banana plant sell, khodwa sell, bana network sell, plant listing, khodwa listing">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<meta property="og:title" content="BanaNetwork Sell">
+<meta id="ogDescription" property="og:description" content="रोप खोडवा विक्री | Smart form | Realtime notifications | BanaNetwork">
+<meta property="og:image" content="https://bananetwork.in/share.png">
+<meta property="og:url" content="https://bananetwork.in/sell.html">
+<meta property="og:type" content="website">
+
+<style>
+:root{
+  --green:#2e7d32;
+  --green-dark:#1b5e20;
+  --yellow:#f1c24a;
+  --muted:#64748b;
+  --border:#e5e7eb;
+  --border-strong:#d8e3eb;
+  --shadow:0 10px 28px rgba(15,23,42,.08);
+  --shadow-lg:0 22px 48px rgba(15,23,42,.16);
+}
+
+*{box-sizing:border-box}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f4f6f8;
+  margin:0;
+  color:#111;
+  overflow-x:hidden;
+}
+
+.hidden{display:none !important}
+
+.yt-header{
+  position:sticky;
+  top:0;
+  z-index:7000;
+  background:linear-gradient(180deg,#cfeecd 0%, #b7e2b4 100%);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #a7d3a3;
+  box-shadow:0 8px 20px rgba(46,125,50,.14);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 14px;
+  min-height:72px;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  flex:1;
+}
+
+.menu-btn{
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  background:#fff;
+  color:#111;
+  font-size:26px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .2s ease, transform .2s ease;
+  flex-shrink:0;
+}
+
+.menu-btn:hover{
+  background:#f1f5f9;
+  transform:translateY(-1px);
+}
+
+.brand-link{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  text-decoration:none;
+  color:#111;
+  flex:1;
+}
+
+.logo{
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  border:1px solid #d9f4db;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:4px;
+  background:#fff;
+}
+
+.brand{
+  min-width:0;
+  flex:1;
+  max-width:260px;
+}
+
+.brand b{
+  display:block;
+  font-size:23px;
+  line-height:1.05;
+  color:#146c2e;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-shrink:0;
+  flex-wrap:nowrap;
+}
+
+.status-pill{
+  background:#f1f5f9;
+  color:#111827;
+  font-weight:800;
+  padding:11px 16px;
+  border-radius:999px;
+  font-size:14px;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-height:44px;
+  transition:background .2s ease, transform .2s ease;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+.status-pill:hover{
+  background:#e8eef5;
+  transform:translateY(-1px);
+}
+
+.icon-circle{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:transform .2s ease, background .2s ease;
+  flex-shrink:0;
+}
+
+.icon-circle:hover{transform:translateY(-1px)}
+
+.whatsapp-btn{
+  background:#25D366;
+  box-shadow:0 8px 18px rgba(37,211,102,.22);
+}
+
+.whatsapp-btn img{
+  width:20px;
+  height:20px;
+  display:block;
+}
+
+.account-btn{
+  background:#f59e0b;
+  color:#fff;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(245,158,11,.24);
+}
+
+.lang-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+
+.lang-btn{
+  background:#fff;
+  color:#111827;
+  font-size:15px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+}
+
+.lang-menu{
+  position:absolute;
+  top:54px;
+  right:0;
+  min-width:140px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:8px;
+  display:none;
+  z-index:7100;
+}
+
+.lang-menu.open{display:block}
+
+.lang-option{
+  width:100%;
+  border:none;
+  background:#fff;
+  color:#111827;
+  text-align:left;
+  padding:10px 12px;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.lang-option:hover,
+.lang-option.active{
+  background:#f1f5f9;
+}
+
+.notification-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+
+.notification-btn{
+  position:relative;
+  background:#fff;
+  color:#111827;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+  transition:.2s;
+}
+
+.notification-btn:hover{
+  background:#f8fafc;
+  transform:translateY(-1px);
+}
+
+.notification-count{
+  position:absolute;
+  top:-2px;
+  right:-2px;
+  min-width:20px;
+  height:20px;
+  padding:0 6px;
+  border-radius:999px;
+  background:#ef4444;
+  color:#fff;
+  font-size:11px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 16px rgba(239,68,68,.28);
+}
+
+.notification-dropdown{
+  position:absolute;
+  top:54px;
+  right:0;
+  width:min(360px,calc(100vw - 24px));
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:20px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:10px;
+  display:none;
+  z-index:7150;
+}
+
+.notification-dropdown.open{
+  display:block;
+  animation:notificationPop .18s ease;
+}
+
+@keyframes notificationPop{
+  0%{opacity:0; transform:translateY(-8px)}
+  100%{opacity:1; transform:translateY(0)}
+}
+
+.notification-head{
+  padding:6px 8px 10px;
+  border-bottom:1px solid #f1f5f9;
+  font-size:15px;
+  font-weight:800;
+  color:#111827;
+}
+
+.notification-list{
+  max-height:380px;
+  overflow:auto;
+  padding:8px 2px 2px;
+}
+
+.notification-list::-webkit-scrollbar{
+  width:6px;
+}
+
+.notification-list::-webkit-scrollbar-thumb{
+  background:#d6dee7;
+  border-radius:999px;
+}
+
+.notification-empty{
+  padding:18px 12px;
+  text-align:center;
+  color:#64748b;
+  font-size:14px;
+  font-weight:700;
+}
+
+.notification-card{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:14px 16px;
+  border-radius:16px;
+  background:#fff;
+  margin-bottom:10px;
+  transition:.2s;
+  cursor:pointer;
+}
+
+.notification-card:hover{
+  background:#f8fafc;
+}
+
+.notification-card.unread{
+  background:#f0f9ff;
+}
+
+.notification-avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.notification-body{
+  flex:1;
+  min-width:0;
+}
+
+.notification-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+}
+
+.notification-user{
+  font-size:15px;
+  font-weight:700;
+  color:#111827;
+}
+
+.notification-time{
+  font-size:12px;
+  color:#6b7280;
+  white-space:nowrap;
+}
+
+.notification-message{
+  font-size:14px;
+  font-weight:600;
+  color:#111827;
+  margin-top:2px;
+}
+
+.notification-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:4px;
+  gap:8px;
+}
+
+.notification-product{
+  font-size:13px;
+  color:#6b7280;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:80%;
+}
+
+.notification-dot{
+  width:8px;
+  height:8px;
+  background:#ef4444;
+  border-radius:50%;
+}
+.notification-phone{
+  font-size:13px;
+  font-weight:700;
+  color:#15803d;
+  margin-top:4px;
+}
+
+.sidebar-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.42);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+  z-index:7800;
+}
+
+.sidebar-overlay.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.sidebar-drawer{
+  position:fixed;
+  top:0;
+  left:0;
+  width:min(330px,90vw);
+  height:100vh;
+  background:#fff;
+  transform:translateX(-100%);
+  transition:transform .28s ease;
+  z-index:7900;
+  box-shadow:24px 0 50px rgba(15,23,42,.22);
+  display:flex;
+  flex-direction:column;
+  overflow-y:auto;
+}
+
+.sidebar-drawer.open{transform:translateX(0)}
+
+.sidebar-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 18px 14px;
+  border-bottom:1px solid #eef2f6;
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:2;
+}
+
+.sidebar-head .menu-btn{background:#f8fafc}
+
+.sidebar-brand b{
+  display:block;
+  font-size:22px;
+  color:#146c2e;
+  line-height:1.1;
+}
+
+.sidebar-brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+}
+
+.sidebar-section{
+  padding:12px 14px;
+  border-bottom:1px solid #f1f5f9;
+}
+
+.sidebar-label{
+  font-size:13px;
+  color:#64748b;
+  font-weight:800;
+  margin:4px 10px 10px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.drawer-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px 14px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#111827;
+  font-weight:700;
+  margin-bottom:4px;
+  transition:background .2s ease, transform .2s ease;
+}
+
+.drawer-link:hover{
+  background:#f8fafc;
+  transform:translateX(2px);
+}
+
+.drawer-link.active{
+  background:#111827;
+  color:#fff;
+}
+
+.drawer-icon{
+  width:22px;
+  text-align:center;
+  font-size:18px;
+  flex-shrink:0;
+}
+
+.nav-chip{
+  background:#f1f5f9;
+  color:#111827;
+  text-decoration:none;
+  border:none;
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:14px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  transition:background .2s ease, transform .2s ease, color .2s ease;
+}
+
+.nav-chip:hover{
+  background:#e9eef5;
+  transform:translateY(-1px);
+}
+
+.nav-chip.active{
+  background:#111827;
+  color:#fff;
+}
+
+.ticker-wrap{
+  background:linear-gradient(90deg,#fff8e4,#fff2cb);
+  border-top:2px solid var(--yellow);
+  border-bottom:2px solid var(--yellow);
+  overflow:hidden;
+  white-space:nowrap;
+  padding:10px 0;
+}
+
+.ticker{
+  display:inline-block;
+  padding-left:100%;
+  animation:ticker 22s linear infinite;
+  font-weight:700;
+  color:#222;
+  font-size:15px;
+}
+
+@keyframes ticker{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-100%)}
+}
+
+.page-content{touch-action:pan-y}
+
+.sell-wrap{
+  max-width:1240px;
+  margin:16px auto 100px;
+  padding:0 15px;
+}
+
+.box{
+  background:#fff;
+  margin:15px 0;
+  padding:15px;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+
+.receipt-box{
+  background:linear-gradient(180deg,#ffffff,#fbfcff);
+  border:1px solid #eef1f5;
+}
+
+.receipt-slider{
+  position:relative;
+  width:100%;
+  height:360px;
+  overflow:hidden;
+  border-radius:16px;
+  background:linear-gradient(180deg,#eef4ff,#f8fbff);
+  border:1px solid #dfe8f4;
+}
+
+.hero-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:.6s;
+  pointer-events:none;
+  text-decoration:none;
+  color:#fff;
+}
+
+.hero-slide.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.hero-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.hero-slide::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.58));
+}
+
+.slide-text{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  z-index:2;
+  background:rgba(31,41,55,.78);
+  color:#fff;
+  padding:9px 14px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:15px;
+  backdrop-filter:blur(4px);
+  max-width:calc(100% - 28px);
+}
+
+.mode-box{
+  background:#fff;
+  border:1px solid #edf1f5;
+  border-radius:22px;
+  padding:18px;
+  box-shadow:var(--shadow);
+  margin-top:18px;
+}
+
+.section-copy h2,
+.section-copy h3{
+  margin:0;
+  color:#111827;
+  line-height:1.2;
+}
+
+.section-copy h2{font-size:24px}
+.section-copy h3{font-size:22px}
+
+.section-copy p{
+  margin:8px 0 0;
+  font-size:14px;
+  line-height:1.7;
+  color:#64748b;
+}
+
+.mode-row{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  white-space:nowrap;
+  margin-top:14px;
+}
+
+.mode-row::-webkit-scrollbar{display:none}
+
+.mode-btn{
+  border:none;
+  background:#f1f5f9;
+  color:#111827;
+  padding:11px 16px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+  transition:background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.mode-btn:hover{
+  background:#e9eef5;
+  transform:translateY(-1px);
+}
+
+.mode-btn.active{
+  background:#111827;
+  color:#fff;
+}
+
+.sell-form-card{
+  margin-top:18px;
+  padding:22px;
+  background:#fff;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  border:1px solid #edf1f5;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+
+.form-row-full{
+  grid-column:1 / -1;
+}
+
+.field-label{
+  display:block;
+  margin:0 0 7px;
+  color:#111827;
+  font-size:14px;
+  font-weight:800;
+}
+
+.form-control{
+  width:100%;
+  padding:14px 15px;
+  border-radius:16px;
+  border:1px solid var(--border-strong);
+  background:#fff;
+  font:inherit;
+  outline:none;
+}
+
+.form-control:focus{
+  border-color:#2e7d32;
+  box-shadow:0 0 0 3px rgba(46,125,50,.10);
+}
+
+.form-textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.time-range-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  gap:10px;
+  align-items:end;
+}
+
+.time-mini{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.time-mini-label{
+  font-size:12px;
+  font-weight:800;
+  color:#64748b;
+}
+
+.time-inline{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 96px;
+  gap:10px;
+}
+
+.time-hour-input{
+  text-align:center;
+  font-weight:800;
+}
+
+.time-meridiem{
+  font-weight:800;
+}
+
+.time-divider{
+  align-self:center;
+  padding-bottom:14px;
+  color:#64748b;
+  font-size:14px;
+  font-weight:800;
+}
+
+@media (max-width:560px){
+  .time-range-grid{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .time-divider{
+    padding-bottom:0;
+    text-align:center;
+  }
+
+  .time-inline{
+    grid-template-columns:minmax(0,1fr) 88px;
+  }
+}
+
+
+.upload-stack{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.upload-box{
+  border:2px dashed #b8d4ba;
+  background:#f8fff8;
+  border-radius:18px;
+  padding:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  cursor:pointer;
+  min-height:92px;
+  color:#166534;
+  font-weight:800;
+  line-height:1.6;
+}
+
+.upload-box input{display:none}
+
+.camera-box{
+  background:#f6fbff;
+  border-color:#bfdbfe;
+  color:#1d4ed8;
+}
+
+.upload-note{
+  color:#64748b;
+  font-size:13px;
+  line-height:1.6;
+  margin-top:10px;
+}
+
+.selected-files{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
+}
+
+.empty-selected{
+  padding:12px 14px;
+  background:#f8fafc;
+  border:1px dashed #d7dee7;
+  border-radius:14px;
+  color:#64748b;
+  font-size:13px;
+  font-weight:700;
+}
+
+.file-chip{
+  position:relative;
+  width:88px;
+  height:88px;
+  border-radius:16px;
+  overflow:hidden;
+  background:#f1f5f9;
+  border:1px solid #e5e7eb;
+}
+
+.file-chip img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.file-remove{
+  position:absolute;
+  top:6px;
+  right:6px;
+  width:24px;
+  height:24px;
+  border:none;
+  border-radius:50%;
+  background:rgba(17,24,39,.8);
+  color:#fff;
+  font-size:15px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.submit-btn{
+  border:none;
+  background:linear-gradient(135deg,#2e7d32,#1b5e20);
+  color:#fff;
+  padding:14px 18px;
+  border-radius:16px;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+  width:100%;
+  box-shadow:0 12px 24px rgba(46,125,50,.18);
+  transition:transform .2s ease, opacity .2s ease, box-shadow .2s ease;
+}
+
+.submit-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 16px 28px rgba(46,125,50,.22);
+}
+
+.submit-btn:disabled{
+  opacity:.65;
+  cursor:not-allowed;
+  transform:none;
+  box-shadow:none;
+}
+
+.preview-shell{
+  margin-top:18px;
+  background:#fff;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  border:1px solid #edf1f5;
+  padding:22px;
+}
+
+.preview-card-host{
+  margin-top:18px;
+  max-width:420px;
+}
+
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  margin-top:18px;
+}
+
+.product-card{
+  background:linear-gradient(180deg,#ffffff,#fcfdff);
+  border-radius:24px;
+  border:1px solid #edf1f5;
+  overflow:hidden;
+  box-shadow:0 12px 32px rgba(15,23,42,.08);
+  display:flex;
+  flex-direction:column;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.product-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 20px 40px rgba(15,23,42,.12);
+}
+
+.product-media{
+  position:relative;
+  width:100%;
+  aspect-ratio:4 / 3;
+  background:#eef4ff;
+  overflow:hidden;
+}
+
+.media-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity .55s ease;
+}
+
+.media-slide.active{
+  opacity:1;
+}
+
+.media-bg-blur{
+  position:absolute;
+  inset:-12px;
+  background-size:cover;
+  background-position:center;
+  filter:blur(20px);
+  transform:scale(1.1);
+  z-index:1;
+}
+
+.media-bg-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.08));
+  z-index:1;
+}
+
+.product-photo{
+  position:relative;
+  z-index:2;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:16px;
+  display:block;
+}
+
+.media-count{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:rgba(17,24,39,.72);
+  color:#fff;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+  z-index:3;
+}
+
+.product-body{
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  flex:1;
+}
+
+.product-badges{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.badge{
+  padding:7px 11px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.badge.green{
+  background:#e8f6ea;
+  color:#1b5e20;
+}
+
+.badge.gray{
+  background:#f1f5f9;
+  color:#475569;
+}
+
+.product-price{
+  font-size:29px;
+  color:#18753a;
+  font-weight:800;
+  line-height:1;
+}
+
+.product-title{
+  margin:0;
+  font-size:20px;
+  line-height:1.28;
+  color:#111827;
+}
+
+.product-location{
+  color:#64748b;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.6;
+}
+
+.product-desc{
+  color:#5b6574;
+  font-size:14px;
+  line-height:1.7;
+  margin:0;
+  min-height:48px;
+}
+
+.seller-box{
+  padding:12px 14px;
+  border-radius:18px;
+  background:#f8fafc;
+  border:1px solid #eef2f6;
+}
+
+.seller-line{
+  font-size:14px;
+  font-weight:800;
+  color:#111827;
+}
+.phone-block{
+  border:1px solid #e5e7eb;
+  padding:10px;
+  border-radius:12px;
+  margin-bottom:10px;
+  background:#f8fafc;
+}
+
+.calling-time-row{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:8px;
+  align-items:end;
+}
+
+.calling-time-box{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.calling-time-label{
+  font-size:12px;
+  font-weight:600;
+  color:#64748b;
+}
+
+.time-input-wrap{
+  display:grid;
+  grid-template-columns:1fr 70px;
+  gap:6px;
+}
+
+.time-hour{
+  text-align:center;
+  font-size:18px;
+  font-weight:600;
+  padding:10px;
+}
+
+.time-ampm{
+  font-size:13px;
+  font-weight:700;
+  padding:8px;
+  cursor:pointer;
+}
+
+.calling-divider{
+  font-size:14px;
+  font-weight:700;
+  padding-bottom:6px;
+  color:#64748b;
+}
+
+@media(max-width:768px){
+  .calling-time-row{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .calling-divider{
+    text-align:center;
+    padding:2px 0;
+  }
+
+  .time-input-wrap{
+    grid-template-columns:1fr 60px;
+  }
+
+  .time-hour{
+    font-size:16px;
+    padding:8px;
+  }
+
+  .time-ampm{
+    font-size:12px;
+    padding:6px;
+  }
+}
+
+.seller-subline{
+  margin-top:5px;
+  font-size:13px;
+  color:#64748b;
+  line-height:1.5;
+  font-weight:700;
+}
+
+.product-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 14px;
+  color:#64748b;
+  font-size:13px;
+  font-weight:700;
+}
+
+.footer{
+  background:#1b5e20;
+  color:#fff;
+  text-align:center;
+  padding:18px 10px;
+  margin-top:25px;
+  font-size:14px;
+  border-radius:22px;
+}
+
+.footer a{
+  color:#fff;
+  text-decoration:none;
+  margin:0 10px;
+  font-weight:700;
+}
+
+.footer a:hover{text-decoration:underline}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:30px;
+  transform:translateX(-50%) translateY(16px);
+  background:#111827;
+  color:#fff;
+  padding:12px 16px;
+  border-radius:14px;
+  font-size:14px;
+  font-weight:800;
+  z-index:2200;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+  box-shadow:0 18px 38px rgba(0,0,0,.22);
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+@media (max-width:1180px){
+  .products-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width:768px){
+  .header-inner{
+    padding:10px;
+    min-height:66px;
+  }
+
+  .logo{
+    width:46px;
+    height:46px;
+    border-radius:13px;
+  }
+
+  .brand{
+    max-width:170px;
+  }
+
+  .brand b{
+    font-size:18px;
+  }
+
+  .brand span{
+    font-size:11px;
+  }
+
+  .status-pill{
+    padding:10px 12px;
+    font-size:13px;
+  }
+
+  .icon-circle{
+    width:40px;
+    height:40px;
+  }
+
+  .sticky-shell{
+    top:66px;
+  }
+
+  .receipt-slider{
+    height:300px;
+  }
+
+  .form-grid,
+  .upload-stack,
+  .products-grid{
+    grid-template-columns:1fr;
+  }
+
+  .notification-dropdown{
+    width:min(340px,calc(100vw - 24px));
+  }
+
+  .preview-card-host{
+    max-width:none;
+  }
+}
+
+@media (max-width:560px){
+  .header-inner{
+    gap:8px;
+    padding:8px 10px;
+  }
+
+  .header-left{gap:8px}
+  .header-right{gap:6px}
+
+  .menu-btn{
+    width:38px;
+    height:38px;
+    font-size:22px;
+  }
+
+  .logo{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+  }
+
+  .brand{
+    max-width:130px;
+  }
+
+  .brand b{
+    font-size:16px;
+  }
+
+  .brand span{
+    display:block;
+    font-size:10px;
+  }
+
+  .status-pill{
+    padding:8px 8px;
+    font-size:10px;
+    gap:5px;
+    min-height:38px;
+  }
+
+  .icon-circle{
+    width:36px;
+    height:36px;
+  }
+
+  .whatsapp-btn img{
+    width:17px;
+    height:17px;
+  }
+
+  .receipt-slider{
+    height:270px;
+  }
+
+  .slide-text{
+    font-size:13px;
+    padding:7px 12px;
+  }
+
+  .notification-dropdown{
+    right:-52px;
+    width:min(320px,calc(100vw - 16px));
+  }
+
+  .sell-form-card,
+  .preview-shell,
+  .mode-box,
+  .box{
+    padding:16px;
+  }
+}
+
+@media (max-width:390px){
+  .brand{
+    max-width:112px;
+  }
+
+  .brand b{
+    font-size:15px;
+  }
+
+  .brand span{
+    display:block;
+    font-size:9px;
+  }
+
+  .status-pill{
+    padding:7px 7px;
+    font-size:9px;
+  }
+
+  .menu-btn,
+  .icon-circle{
+    width:34px;
+    height:34px;
+  }
+
+  .notification-dropdown{
+    right:-84px;
+    width:calc(100vw - 14px);
+  }
+}
+.popup-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:99999;
+  padding:16px;
+}
+
+.popup-box{
+  width:100%;
+  max-width:420px;
+  background:#fff;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 25px 60px rgba(0,0,0,.25);
+  animation:popupFade .25s ease;
+}
+
+@keyframes popupFade{
+  from{transform:translateY(20px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+.popup-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:16px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.back-btn{
+  border:none;
+  background:#f1f5f9;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.popup-content{
+  padding:18px;
+  font-size:15px;
+  line-height:1.7;
+  color:#374151;
+}
+
+.popup-actions{
+  padding:16px;
+}
+
+.agree-btn{
+  width:100%;
+  border:none;
+  background:linear-gradient(135deg,#2e7d32,#1b5e20);
+  color:#fff;
+  padding:14px;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header class="yt-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <button class="menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
+
+      <a class="brand-link" href="index.html">
+        <div class="logo"><img src="logo_1.png" alt="BanaNetwork Logo"></div>
+        <div class="brand">
+          <b>BanaNetwork</b>
+          <span id="brandSubtitle">रोप खोडवा विक्री</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="header-right">
+      <a class="status-pill" id="loginStatusBtn" href="login.html">
+        <span id="loginStatusIcon">🔑</span>
+        <span id="loginStatusText">Login</span>
+      </a>
+
+      <div class="lang-wrap">
+        <button class="icon-circle lang-btn" id="langToggle" type="button" aria-label="Change language" aria-expanded="false">म</button>
+        <div class="lang-menu" id="langMenu">
+          <button class="lang-option" type="button" data-lang="mr">मराठी</button>
+          <button class="lang-option" type="button" data-lang="hi">हिंदी</button>
+          <button class="lang-option" type="button" data-lang="en">English</button>
+        </div>
+      </div>
+
+      <div class="notification-wrap hidden" id="notificationWrap">
+        <button id="notificationBtn" class="icon-circle notification-btn" type="button" aria-label="Notifications" aria-expanded="false">
+          <span>🔔</span>
+          <span id="notificationCount" class="notification-count hidden">0</span>
+        </button>
+        <div id="notificationDropdown" class="notification-dropdown">
+          <div class="notification-head" id="notificationTitle">Notifications</div>
+          <div class="notification-list" id="notificationList">
+            <div class="notification-empty">No notifications</div>
+          </div>
+        </div>
+      </div>
+
+      <a class="icon-circle whatsapp-btn" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </a>
+
+      <a class="icon-circle account-btn" id="accountBtn" href="login.html" title="My Account">👤</a>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<aside class="sidebar-drawer" id="sidebarDrawer">
+  <div class="sidebar-head">
+    <button class="menu-btn" id="drawerClose" aria-label="Close menu">☰</button>
+    <div class="sidebar-brand">
+      <b>BanaNetwork</b>
+      <span id="drawerSubtitle">केळी संबंधित सर्व सेवा</span>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelMain">मुख्य</div>
+    <a class="drawer-link" data-route="home" href="index.html"><span class="drawer-icon">🏠</span><span id="drawerHome">Home</span></a>
+    <a class="drawer-link" data-route="plant-buy" href="buy.html"><span class="drawer-icon">🌱</span><span id="drawerBuy">केळी रोप खरेदी</span></a>
+    <a class="drawer-link" data-route="plant-sell" href="sell.html"><span class="drawer-icon">💰</span><span id="drawerSell">केळी रोप विक्री</span></a>
+    <a class="drawer-link" data-route="khodwa-buy" href="buy.html"><span class="drawer-icon">🌿</span><span id="drawerKhatBuy">केळी खोडवा खरेदी</span></a>
+    <a class="drawer-link" data-route="khodwa-sell" href="sell.html"><span class="drawer-icon">🚜</span><span id="drawerKhatSell">केळी खोडवा विक्री</span></a>
+    <a class="drawer-link" data-route="burhanpur" href="index.html"><span class="drawer-icon">🍌</span><span id="drawerBurhanpur">बुरहानपूर केळी भाव</span></a>
+    <a class="drawer-link" data-route="jalgaon" href="jalgaon.html"><span class="drawer-icon">📍</span><span id="drawerJalgaon">जळगाव केळी भाव</span></a>
+    <a class="drawer-link" data-route="chopda" href="chopda.html"><span class="drawer-icon">📍</span><span id="drawerChopda">चोपडा केळी भाव</span></a>
+    <a class="drawer-link" data-route="raver" href="raver.html"><span class="drawer-icon">📍</span><span id="drawerRaver">रावेर केळी भाव</span></a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelAccount">खाते</div>
+    <a class="drawer-link" data-protected-route="account.html" href="account.html"><span class="drawer-icon">👤</span><span id="drawerAccount">My Account</span></a>
+    <a class="drawer-link" data-protected-route="chat.html" href="chat.html"><span class="drawer-icon">💬</span><span id="drawerChat">My Chat</span></a>
+    <a class="drawer-link" data-protected-route="mylistings.html" href="mylistings.html"><span class="drawer-icon">📜</span><span id="drawerListingHistory">My Listing History</span></a>
+    <a class="drawer-link" data-protected-route="inbox.html" href="inbox.html"><span class="drawer-icon">📥</span><span id="drawerInbox">My Inbox</span></a>
+    <a class="drawer-link" id="drawerSignupLink" href="login.html?mode=signup">
+      <span class="drawer-icon">📝</span>
+      <span id="drawerSignup">Signup</span>
+    </a>
+    <a class="drawer-link" id="drawerAuthLink" href="login.html"><span class="drawer-icon" id="drawerAuthIcon">🔑</span><span id="drawerLoginText">Login</span></a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelInfo">माहिती</div>
+    <a class="drawer-link" href="about.html"><span class="drawer-icon">ℹ️</span><span id="drawerAbout">About Us</span></a>
+    <a class="drawer-link" href="privacy.html"><span class="drawer-icon">🔒</span><span id="drawerPrivacy">Privacy Policy</span></a>
+    <a class="drawer-link" href="terms.html"><span class="drawer-icon">📄</span><span id="drawerTerms">Terms & Conditions</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">📞</span><span id="drawerContact">Contact Us</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">🤝</span><span id="drawerAgentHelp">प्रतिनिधी मदत</span></a>
+    <a class="drawer-link" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer">
+      <span class="drawer-icon whatsapp-drawer-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </span>
+      <span id="drawerWhatsapp">WhatsApp Group</span>
+    </a>
+  </div>
+</aside>
+
+<div class="ticker-wrap">
+  <div class="ticker" id="marketTicker">🌱 तुमची केळी रोप आणि खोडवा listing आता पोस्ट करा | 📸 Multiple image upload preview | 🔔 Realtime notification system active | 📱 Mobile responsive BanaNetwork sell page</div>
+</div>
+
+<div class="page-content">
+  <div class="sell-wrap">
+    <div class="box receipt-box">
+      <div class="receipt-slider">
+        <a href="#modeSection" class="hero-slide active" data-sell-kind="rop">
+          <img src="ropphoto.jpeg" alt="केळी रोप विक्री करा">
+          <div class="slide-text" id="slideText1">🌱 केळी रोप विक्री करा</div>
+        </a>
+
+        <a href="#modeSection" class="hero-slide" data-sell-kind="khodwa">
+          <img src="bananakhodwa.jpg" alt="Sell Banana Plants & Khodwa">
+          <div class="slide-text" id="slideText2">🌿 केळी खोडवा विक्री करा</div>
+        </a>
+      </div>
+    </div>
+
+    <section class="mode-box" id="modeSection">
+      <div class="section-copy">
+        <h2 id="modeSwitchTitle">तुम्ही काय विकणार आहात?</h2>
+        <p id="modeSwitchDesc">रोप किंवा खोडवा mode निवडा. समान BanaNetwork UI मध्ये listing post करा.</p>
+      </div>
+
+      <div class="mode-row">
+        <button type="button" class="mode-btn active" data-sell-kind="rop" id="modeBtnRopSell">रोप विक्री</button>
+        <button type="button" class="mode-btn" data-sell-kind="khodwa" id="modeBtnKhodwaSell">खोडवा विक्री</button>
+      </div>
+    </section>
+
+    <section class="sell-form-card">
+      <div class="section-copy">
+        <h3 id="formHeading">तुमची listing जोडा</h3>
+        <p id="formDesc">Title, location, company, phone आणि images भरून तुमची listing publish करा.</p>
+      </div>
+
+      <form id="sellForm" novalidate>
+        <div class="form-grid">
+          <div>
+            <label class="field-label" id="productTypeLabel" for="listingProductType">Product Type</label>
+            <select class="form-control" id="listingProductType">
+              <option value="rop">रोप</option>
+              <option value="khodwa">खोडवा</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="field-label" id="listingTitleLabel" for="listingTitle">Title</label>
+            <input class="form-control" id="listingTitle" type="text" placeholder="उदा. Tissue Culture Banana Plant">
+          </div>
+
+          <div>
+            <label class="field-label" id="listingPriceLabel" for="listingPrice">Price</label>
+            <input class="form-control" id="listingPrice" type="number" placeholder="किंमत लिहा">
+          </div>
+
+          <div>
+            <label class="field-label" id="listingCompanyLabel" for="listingCompany">Company / Nursery</label>
+            <input class="form-control" id="listingCompany" type="text" placeholder="कंपनी / Nursery नाव">
+          </div>
+
+          <div>
+            <label class="field-label" id="listingStateLabel" for="listingState">राज्य</label>
+            <input class="form-control" id="listingState" type="text" placeholder="राज्य">
+          </div>
+
+          <div>
+            <label class="field-label" id="listingDistrictLabel" for="listingDistrict">जिल्हा</label>
+            <input class="form-control" id="listingDistrict" type="text" placeholder="जिल्हा">
+          </div>
+
+          <div>
+            <label class="field-label" id="listingTalukaLabel" for="listingTaluka">तालुका</label>
+            <input class="form-control" id="listingTaluka" type="text" placeholder="तालुका">
+          </div>
+
+          <div>
+            <label class="field-label" id="listingVillageLabel" for="listingVillage">गाव</label>
+            <input class="form-control" id="listingVillage" type="text" placeholder="गाव">
+          </div>
+
+          <div>
+            <label class="field-label" id="listingAllAreaLabel" for="listingAllArea">All Area Service</label>
+            <select class="form-control" id="listingAllArea">
+              <option value="">निवडा</option>
+              <option value="yes">हो</option>
+              <option value="no">नाही</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="field-label">Stock Type *</label>
+
+            <select class="form-control" id="stockType">
+              <option value="">निवडा</option>
+              <option value="unlimited">Unlimited</option>
+              <option value="limited">Limited</option>
+            </select>
+
+          <!-- Limited number input -->
+          <input 
+            class="form-control hidden" 
+            id="stockNumber" 
+            type="number" 
+            min="0" 
+            placeholder="किती stock आहे (optional)">
+          </div>
+
+          <!-- 🔹 Primary Number -->
+          <div class="phone-block">
+            <label class="field-label">Primary Phone Number *</label>
+            <input class="form-control" id="phone1" type="tel" placeholder="मोबाईल नंबर">
+
+            <label>
+              <input type="checkbox" id="phone1Any" checked>
+              Any Time Available
+            </label>
+
+            <div id="phone1Time" class="hidden">
+              <div class="calling-time-row">
+
+                <div class="calling-time-box">
+                  <label class="calling-time-label">पासून</label>
+                  <div class="time-input-wrap">
+                    <input class="form-control time-hour" id="phone1Start" type="number" min="1" max="12" value="10">
+                    <select class="form-control time-ampm" id="phone1StartAMPM">
+                      <option value="AM" selected>AM</option>
+                      <option value="PM">PM</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="calling-divider">ते</div>
+
+                <div class="calling-time-box">
+                  <label class="calling-time-label">पर्यंत</label>
+                  <div class="time-input-wrap">
+                    <input class="form-control time-hour" id="phone1End" type="number" min="1" max="12" value="10">
+                    <select class="form-control time-ampm" id="phone1EndAMPM">
+                      <option value="AM">AM</option>
+                      <option value="PM" selected>PM</option>
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- 🔹 Add More Numbers -->
+          <div class="form-row-full">
+            <label class="field-label">आणखी मोबाईल नंबर add करायचा आहे का?</label>
+            <select class="form-control" id="moreNumbersOption">
+              <option value="no">नाही</option>
+              <option value="yes">हो</option>
+            </select>
+          </div>
+
+          <!-- 🔹 Optional Number 2 -->
+          <div id="optionalPhone2Block" class="hidden">
+            <div class="phone-block">
+              <label class="field-label">Optional Phone Number 2</label>
+              <input class="form-control" id="phone2" type="tel" placeholder="मोबाईल नंबर">
+
+              <label>
+                <input type="checkbox" id="phone2Any" checked>
+                Any Time Available
+              </label>
+
+              <div id="phone2Time" class="hidden">
+                <div class="calling-time-row">
+
+                  <div class="calling-time-box">
+                    <label class="calling-time-label">पासून</label>
+                    <div class="time-input-wrap">
+                      <input class="form-control time-hour" id="phone2Start" type="number" min="1" max="12" value="10">
+                      <select class="form-control time-ampm" id="phone2StartAMPM">
+                        <option value="AM" selected>AM</option>
+                        <option value="PM">PM</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="calling-divider">ते</div>
+
+                  <div class="calling-time-box">
+                    <label class="calling-time-label">पर्यंत</label>
+                    <div class="time-input-wrap">
+                      <input class="form-control time-hour" id="phone2End" type="number" min="1" max="12" value="10">
+                      <select class="form-control time-ampm" id="phone2EndAMPM">
+                        <option value="AM">AM</option>
+                        <option value="PM" selected>PM</option>
+                      </select>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <label class="field-label">आणखी एक नंबर add करायचा आहे का?</label>
+            <select class="form-control" id="morePhone3Option">
+              <option value="no">नाही</option>
+              <option value="yes">हो</option>
+            </select>
+          </div>
+
+          <!-- 🔹 Optional Number 3 -->
+          <div id="optionalPhone3Block" class="hidden">
+            <div class="phone-block">
+              <label class="field-label">Optional Phone Number 3</label>
+              <input class="form-control" id="phone3" type="tel" placeholder="मोबाईल नंबर">
+
+              <label>
+                <input type="checkbox" id="phone3Any" checked>
+                Any Time Available
+              </label>
+
+              <div id="phone3Time" class="hidden">
+                <div class="calling-time-row">
+
+                  <div class="calling-time-box">
+                    <label class="calling-time-label">पासून</label>
+                    <div class="time-input-wrap">
+                      <input class="form-control time-hour" id="phone3Start" type="number" min="1" max="12" value="10">
+                      <select class="form-control time-ampm" id="phone3StartAMPM">
+                        <option value="AM" selected>AM</option>
+                        <option value="PM">PM</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="calling-divider">ते</div>
+
+                  <div class="calling-time-box">
+                    <label class="calling-time-label">पर्यंत</label>
+                    <div class="time-input-wrap">
+                      <input class="form-control time-hour" id="phone3End" type="number" min="1" max="12" value="10">
+                      <select class="form-control time-ampm" id="phone3EndAMPM">
+                        <option value="AM">AM</option>
+                        <option value="PM" selected>PM</option>
+                      </select>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row-full">
+            <label class="field-label" id="listingDescriptionLabel" for="listingDescription">Description</label>
+            <textarea class="form-control form-textarea" id="listingDescription" placeholder="तुमच्या listing बद्दल पूर्ण माहिती लिहा."></textarea>
+          </div>
+
+          <div class="form-row-full">
+            <div class="upload-stack">
+              <label class="upload-box">
+                <input type="file" id="listingFiles" accept="image/*" multiple>
+                <span id="uploadGalleryText">📁 Gallery मधून multiple images upload करा</span>
+              </label>
+
+              <label class="upload-box camera-box">
+                <input type="file" id="listingCamera" accept="image/*" capture="environment">
+                <span id="uploadCameraText">📷 Live camera वापरून photo add करा</span>
+              </label>
+            </div>
+
+            <div class="upload-note" id="uploadNote">कमाल 5 फोटो add करू शकता.</div>
+            <div class="selected-files" id="selectedFiles"></div>
+          </div>
+          <div class="form-row-full">
+            <label style="display:flex;align-items:flex-start;gap:8px;font-size:14px;font-weight:700;line-height:1.5;">
+              <input type="checkbox" id="sellTermsAgree" style="margin-top:3px;">
+              <span>
+                I agree to 
+                <a href="privacy.html" target="_blank">Privacy</a> 
+                & 
+                <a href="terms.html" target="_blank">Terms & Conditions</a>
+              </span>
+           </label>
+          </div>
+
+          <div class="form-row-full">
+            <button class="submit-btn" id="submitListingBtn" type="submit">Post your listing</button>
+          </div>
+
+        </div>
+      </form>
+    </section>
+
+    <section class="preview-shell">
+      <div class="section-copy">
+        <h3 id="previewTitle">Live Preview</h3>
+        <p id="previewDesc">Buy page card style मध्ये तुमची listing live preview इथे दिसेल.</p>
+      </div>
+
+      <div class="preview-card-host" id="previewCardHost"></div>
+    </section>
+
+    <div class="footer">
+      <div>© 2026 BanaNetwork</div>
+      <div id="footerMade">Made for Banana Farmers 🍌</div>
+      <div style="margin-top:8px;">
+        <a href="privacy.html" id="footerPrivacy">Privacy</a> |
+        <a href="terms.html" id="footerTerms">T&C</a> |
+        <a href="contact.html" id="footerContact">Contact</a> |
+        <a href="about.html" id="footerAbout">About</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<!-- SELL TERMS POPUP -->
+<div id="sellTermsPopup" class="popup-overlay">
+  <div class="popup-box">
+
+    <div class="popup-header">
+      <button id="closeSellTermsPopup" class="back-btn">←</button>
+      <h3>Terms & Conditions</h3>
+    </div>
+
+    <div class="popup-content">
+      <p id="sellTermsPopupMessage">
+        Listing post करण्यासाठी Privacy Policy आणि Terms agree करणे आवश्यक आहे.
+      </p>
+
+      <p>
+        कृपया checkbox select करून पुढे जा.
+      </p>
+    </div>
+
+    <div class="popup-actions">
+      <button id="agreeSellTermsBtn" class="agree-btn">
+        Agree & Continue
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+const metaDescription = document.getElementById("metaDescription");
+const metaKeywords = document.getElementById("metaKeywords");
+const ogDescription = document.getElementById("ogDescription");
+
+const brandSubtitle = document.getElementById("brandSubtitle");
+const drawerSubtitle = document.getElementById("drawerSubtitle");
+const labelMain = document.getElementById("labelMain");
+const labelAccount = document.getElementById("labelAccount");
+const labelInfo = document.getElementById("labelInfo");
+const drawerHome = document.getElementById("drawerHome");
+const drawerBuy = document.getElementById("drawerBuy");
+const drawerSell = document.getElementById("drawerSell");
+const drawerKhatBuy = document.getElementById("drawerKhatBuy");
+const drawerKhatSell = document.getElementById("drawerKhatSell");
+const drawerBurhanpur = document.getElementById("drawerBurhanpur");
+const drawerJalgaon = document.getElementById("drawerJalgaon");
+const drawerChopda = document.getElementById("drawerChopda");
+const drawerRaver = document.getElementById("drawerRaver");
+const drawerAccount = document.getElementById("drawerAccount");
+const drawerChat = document.getElementById("drawerChat");
+const drawerListingHistory = document.getElementById("drawerListingHistory");
+const drawerInbox = document.getElementById("drawerInbox");
+const drawerSignup = document.getElementById("drawerSignup");
+const drawerAbout = document.getElementById("drawerAbout");
+const drawerPrivacy = document.getElementById("drawerPrivacy");
+const drawerTerms = document.getElementById("drawerTerms");
+const drawerContact = document.getElementById("drawerContact");
+const drawerAgentHelp = document.getElementById("drawerAgentHelp");
+const drawerWhatsapp = document.getElementById("drawerWhatsapp");
+
+const marketTicker = document.getElementById("marketTicker");
+
+const slideText1 = document.getElementById("slideText1");
+const slideText2 = document.getElementById("slideText2");
+
+const menuToggle = document.getElementById("menuToggle");
+const sidebarDrawer = document.getElementById("sidebarDrawer");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+const drawerClose = document.getElementById("drawerClose");
+const loginStatusBtn = document.getElementById("loginStatusBtn");
+const loginStatusIcon = document.getElementById("loginStatusIcon");
+const loginStatusText = document.getElementById("loginStatusText");
+const accountBtn = document.getElementById("accountBtn");
+const drawerAuthLink = document.getElementById("drawerAuthLink");
+const drawerAuthIcon = document.getElementById("drawerAuthIcon");
+const drawerLoginText = document.getElementById("drawerLoginText");
+const footerTerms = document.getElementById("footerTerms");
+
+const langToggle = document.getElementById("langToggle");
+const langMenu = document.getElementById("langMenu");
+const langOptions = [...document.querySelectorAll(".lang-option")];
+
+const notificationWrap = document.getElementById("notificationWrap");
+const notificationBtn = document.getElementById("notificationBtn");
+const notificationCount = document.getElementById("notificationCount");
+const notificationDropdown = document.getElementById("notificationDropdown");
+const notificationTitle = document.getElementById("notificationTitle");
+
+const modeSwitchTitle = document.getElementById("modeSwitchTitle");
+const modeSwitchDesc = document.getElementById("modeSwitchDesc");
+const modeBtnRopSell = document.getElementById("modeBtnRopSell");
+const modeBtnKhodwaSell = document.getElementById("modeBtnKhodwaSell");
+
+const productTypeLabel = document.getElementById("productTypeLabel");
+const listingTitleLabel = document.getElementById("listingTitleLabel");
+const listingPriceLabel = document.getElementById("listingPriceLabel");
+const listingCompanyLabel = document.getElementById("listingCompanyLabel");
+const listingStateLabel = document.getElementById("listingStateLabel");
+const listingDistrictLabel = document.getElementById("listingDistrictLabel");
+const listingTalukaLabel = document.getElementById("listingTalukaLabel");
+const listingVillageLabel = document.getElementById("listingVillageLabel");
+const listingAllAreaLabel = document.getElementById("listingAllAreaLabel");
+const listingAllArea = document.getElementById("listingAllArea");
+const phone1 = document.getElementById("phone1");
+const phone2 = document.getElementById("phone2");
+const phone3 = document.getElementById("phone3");
+
+const phone1Any = document.getElementById("phone1Any");
+const phone2Any = document.getElementById("phone2Any");
+const phone3Any = document.getElementById("phone3Any");
+
+const phone1Start = document.getElementById("phone1Start");
+const phone1End = document.getElementById("phone1End");
+
+const phone2Start = document.getElementById("phone2Start");
+const phone2End = document.getElementById("phone2End");
+
+const phone3Start = document.getElementById("phone3Start");
+const phone3End = document.getElementById("phone3End");
+const moreNumbersOption = document.getElementById("moreNumbersOption");
+const morePhone3Option = document.getElementById("morePhone3Option");
+
+const optionalPhone2Block = document.getElementById("optionalPhone2Block");
+const optionalPhone3Block = document.getElementById("optionalPhone3Block");
+const stockType = document.getElementById("stockType");
+const stockNumber = document.getElementById("stockNumber");
+const sellTermsAgree = document.getElementById("sellTermsAgree");
+const sellTermsPopup = document.getElementById("sellTermsPopup");
+const closeSellTermsPopup = document.getElementById("closeSellTermsPopup");
+const agreeSellTermsBtn = document.getElementById("agreeSellTermsBtn");
+
+stockType.addEventListener("change", () => {
+  if(stockType.value === "limited"){
+    stockNumber.classList.remove("hidden");
+  } else {
+    stockNumber.classList.add("hidden");
+    stockNumber.value = "";
+  }
+  updatePreviewCard();
+});
+agreeSellTermsBtn.addEventListener("click", ()=>{
+  sellTermsAgree.checked = true;
+  sellTermsPopup.style.display = "none";
+});
+
+closeSellTermsPopup.addEventListener("click", ()=>{
+  sellTermsPopup.style.display = "none";
+});
+
+sellTermsPopup.addEventListener("click", (e)=>{
+  if(e.target === sellTermsPopup){
+    sellTermsPopup.style.display = "none";
+  }
+});
+/* Optional Number 2 Show */
+moreNumbersOption.addEventListener("change", () => {
+  if(moreNumbersOption.value === "yes"){
+    optionalPhone2Block.classList.remove("hidden");
+  } else {
+    optionalPhone2Block.classList.add("hidden");
+    optionalPhone3Block.classList.add("hidden");
+  }
+  updatePreviewCard();
+});
+
+/* Optional Number 3 Show */
+morePhone3Option.addEventListener("change", () => {
+  if(morePhone3Option.value === "yes"){
+    optionalPhone3Block.classList.remove("hidden");
+  } else {
+    optionalPhone3Block.classList.add("hidden");
+  }
+  updatePreviewCard();
+});
+
+const listingDescriptionLabel = document.getElementById("listingDescriptionLabel");
+const uploadGalleryText = document.getElementById("uploadGalleryText");
+const uploadCameraText = document.getElementById("uploadCameraText");
+const uploadNote = document.getElementById("uploadNote");
+const previewTitle = document.getElementById("previewTitle");
+const previewDesc = document.getElementById("previewDesc");
+const footerMade = document.getElementById("footerMade");
+const footerPrivacy = document.getElementById("footerPrivacy");
+const footerContact = document.getElementById("footerContact");
+const footerAbout = document.getElementById("footerAbout");
+
+const pageOrder = ["index.html","buy.html","sell.html","jalgaon.html","chopda.html","raver.html"];
+const marketPages = ["index.html","jalgaon.html","chopda.html","raver.html"];
+const LANG_SHORT = { mr:"म", hi:"हि", en:"E" };
+
+const translations = {
+  mr:{
+    page_title:"🌱 केळी रोप खोडवा विक्री | BanaNetwork",
+    meta_description:"BanaNetwork वर केळी रोप आणि खोडवा विक्री listing जोडा. Same app UI, realtime notifications, responsive form आणि image upload preview सह listing post करा.",
+    meta_keywords:"banana plant sell, khodwa sell, bana network sell, plant listing, khodwa listing",
+    og_description:"रोप खोडवा विक्री | Smart form | Realtime notifications | BanaNetwork",
+    brand_subtitle:"रोप खोडवा विक्री",
+    drawer_subtitle:"केळी संबंधित सर्व सेवा",
+    label_main:"मुख्य",
+    label_account:"खाते",
+    label_info:"माहिती",
+    nav_home:"Home",
+    nav_buy:"केळी रोप खोडवा खरेदी",
+    nav_sell:"केळी रोप खोडवा विक्री",
+    nav_khat_buy:"केळी खोडवा खरेदी",
+    nav_khat_sell:"केळी खोडवा विक्री",
+    nav_burhanpur_rates:"बुरहानपूर केळी भाव",
+    nav_jalgaon_rates:"जळगाव केळी भाव",
+    nav_chopda_rates:"चोपडा केळी भाव",
+    nav_raver_rates:"रावेर केळी भाव",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    footer_terms:"T&C",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधी मदत",
+    info_whatsapp_group:"WhatsApp Group",
+    chip_rates:"भाव",
+    chip_buy:"केळी रोप खोडवा खरेदी",
+    chip_sell:"केळी रोप खोडवा विक्री",
+    chip_services:"🛠Services",
+    ticker_text:"🌱 तुमची केळी रोप आणि खोडवा listing आता पोस्ट करा | 📸 Multiple image upload preview | 🔔 Realtime notification system active | 📱 Mobile responsive BanaNetwork sell page",
+    slide_1:"🌱 केळी रोप विक्री करा",
+    slide_2:"🌿 केळी खोडवा विक्री करा",
+    mode_switch_title:"तुम्ही काय विकणार आहात?",
+    mode_switch_desc:"रोप किंवा खोडवा mode निवडा. समान BanaNetwork UI मध्ये listing post करा.",
+    mode_rop_sell:"रोप विक्री",
+    mode_khodwa_sell:"खोडवा विक्री",
+    form_heading_rop:"तुमची रोप listing जोडा",
+    form_heading_khodwa:"तुमची खोडवा listing जोडा",
+    form_desc_rop:"Title, location, company, phone आणि images भरून रोप listing publish करा.",
+    form_desc_khodwa:"Title, location, company, phone आणि images भरून खोडवा listing publish करा.",
+    product_type:"Product Type",
+    option_rop:"रोप",
+    option_khodwa:"खोडवा",
+    title_label:"Title",
+    title_placeholder:"उदा. Tissue Culture Banana Plant",
+    price_label:"Price",
+    price_placeholder:"किंमत लिहा",
+    company_label:"Company / Nursery",
+    company_placeholder:"कंपनी / Nursery नाव",
+    state:"राज्य",
+    district:"जिल्हा",
+    taluka:"तालुका",
+    village:"गाव",
+    all_area_service_label:"All Area Service",
+    select_option:"निवडा",
+    yes:"हो",
+    no:"नाही",
+    stock_label:"Stock Available",
+    stock_placeholder:"उपलब्ध stock लिहा",
+    preview_stock:"Stock",
+    preview_all_area:"All Area",
+    description_label:"Description",
+    description_placeholder:"तुमच्या listing बद्दल पूर्ण माहिती लिहा.",
+    phone_label:"Phone Number",
+    phone_placeholder:"मोबाईल नंबर",
+    calling_time_label:"Calling Time",
+    calling_time_placeholder:"उदा. 10AM to 10PM",
+    calling_from:"पासून",
+    calling_to:"पर्यंत",
+    calling_to_short:"ते",
+    hour_placeholder:"10",
+    calling_time_hint:"फक्त hour भरा. उदाहरण: 10 AM ते 10 PM",
+    upload_gallery_text:"📁 Gallery मधून multiple images upload करा",
+    upload_camera_text:"📷 Live camera वापरून photo add करा",
+    upload_note:"कमाल 5 फोटो add करू शकता.",
+    submit_btn:"Post your listing",
+    preview_title:"Live Preview",
+    preview_desc:"Buy page card style मध्ये तुमची listing live preview इथे दिसेल.",
+    preview_no_title:"तुमच्या listing चे title इथे दिसेल",
+    preview_no_desc:"Description भरल्यानंतर preview इथे दिसेल.",
+    seller_label:"Seller",
+    location_none:"लोकेशन उपलब्ध नाही",
+    calling_any:"Any time",
+    no_photo_added:"अजून photo add केलेला नाही.",
+    photos_label:"फोटो",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_about:"About",
+    status_login:"Login",
+    status_account:"खाते",
+    notification_title:"सूचना",
+    notification_empty:"कोणतीही सूचना नाही",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    notification_open_failed:"Notification उघडता आली नाही.",
+    notification_hide_failed:"Notification hide करता आली नाही.",
+    notification_hide_label:"Hide notification",
+    max_five:"कमाल 5 फोटोच add करता येतील.",
+    fill_all:"कृपया सर्व required fields भरा.",
+    select_photo:"किमान 1 image add करा.",
+    need_login:"Listing post करण्यासाठी login करा.",
+    saving:"Saving...",
+    upload_failed:"Image upload झाला नाही.",
+    saved_ok:"Listing successfully added"
+  },
+  hi:{
+    page_title:"🌱 केला रोप खोडवा बिक्री | BanaNetwork",
+    meta_description:"BanaNetwork पर केला रोप और खोडवा बिक्री listing डालें. Same app UI, realtime notifications, responsive form और image upload preview के साथ listing post करें.",
+    meta_keywords:"banana plant sell, khodwa sell, bana network sell, plant listing, khodwa listing",
+    og_description:"रोप खोडवा बिक्री | Smart form | Realtime notifications | BanaNetwork",
+    brand_subtitle:"रोप खोडवा बिक्री",
+    drawer_subtitle:"केले से जुड़ी सभी सेवाएं",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"केला रोप खोडवा खरीद",
+    nav_sell:"केला रोप खोडवा बिक्री",
+    nav_khat_buy:"केला खोडवा खरीद",
+    nav_khat_sell:"केला खोडवा बिक्री",
+    nav_burhanpur_rates:"बुरहानपुर केला भाव",
+    nav_jalgaon_rates:"जलगांव केला भाव",
+    nav_chopda_rates:"चोपडा केला भाव",
+    nav_raver_rates:"रावेर केला भाव",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    footer_terms:"T&C",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधि सहायता",
+    info_whatsapp_group:"WhatsApp Group",
+    chip_rates:"भाव",
+    chip_buy:"केला रोप खोडवा खरीद",
+    chip_sell:"केला रोप खोडवा बिक्री",
+    chip_services:"🛠Services",
+    ticker_text:"🌱 अपनी केला रोप और खोडवा listing अभी पोस्ट करें | 📸 Multiple image upload preview | 🔔 Realtime notification system active | 📱 Mobile responsive BanaNetwork sell page",
+    slide_1:"🌱 केला रोप बिक्री करें",
+    slide_2:"🌿 Sell Banana Plants & Khodwa",
+    mode_switch_title:"आप क्या बेचेंगे?",
+    mode_switch_desc:"रोप या खोडवा mode चुनें. वही BanaNetwork UI में listing post करें.",
+    mode_rop_sell:"रोप बिक्री",
+    mode_khodwa_sell:"खोडवा बिक्री",
+    form_heading_rop:"अपनी रोप listing जोड़ें",
+    form_heading_khodwa:"अपनी खोडवा listing जोड़ें",
+    form_desc_rop:"Title, location, company, phone और images भरकर plant listing publish करें.",
+    form_desc_khodwa:"Title, location, company, phone और images भरकर khodwa listing publish करें.",
+    product_type:"Product Type",
+    option_rop:"रोप",
+    option_khodwa:"खोडवा",
+    title_label:"Title",
+    title_placeholder:"उदा. Tissue Culture Banana Plant",
+    price_label:"Price",
+    price_placeholder:"कीमत लिखें",
+    company_label:"Company / Nursery",
+    company_placeholder:"कंपनी / Nursery नाम",
+    state:"राज्य",
+    district:"जिला",
+    taluka:"तालुका",
+    village:"गांव",
+    all_area_service_label:"All Area Service",
+    select_option:"चुनें",
+    yes:"हाँ",
+    no:"नहीं",
+    stock_label:"Stock Available",
+    stock_placeholder:"उपलब्ध stock लिखें",
+    preview_stock:"Stock",
+    preview_all_area:"All Area",
+    description_label:"Description",
+    description_placeholder:"अपनी listing की पूरी जानकारी लिखें.",
+    phone_label:"Phone Number",
+    phone_placeholder:"मोबाइल नंबर",
+    calling_time_label:"Calling Time",
+    calling_time_placeholder:"उदा. 10AM to 10PM",
+    upload_gallery_text:"📁 Gallery से multiple images upload करें",
+    upload_camera_text:"📷 Live camera से photo add करें",
+    upload_note:"अधिकतम 5 फोटो add कर सकते हैं.",
+    submit_btn:"Post your listing",
+    preview_title:"Live Preview",
+    preview_desc:"Buy page card style में आपकी listing का live preview यहां दिखेगा.",
+    preview_no_title:"आपकी listing का title यहां दिखेगा",
+    preview_no_desc:"Description भरने के बाद preview यहां दिखेगा.",
+    seller_label:"Seller",
+    location_none:"लोकेशन उपलब्ध नहीं",
+    calling_any:"Any time",
+    no_photo_added:"अभी कोई photo add नहीं किया गया है.",
+    photos_label:"फोटो",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_about:"About",
+    status_login:"Login",
+    status_account:"खाता",
+    notification_title:"Notifications",
+    notification_empty:"No notifications",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    notification_open_failed:"Notification नहीं खुली.",
+    notification_hide_failed:"Notification hide नहीं हुई.",
+    notification_hide_label:"Hide notification",
+    max_five:"आप अधिकतम 5 फोटो ही add कर सकते हैं.",
+    fill_all:"कृपया सभी required fields भरें.",
+    select_photo:"कृपया कम से कम 1 image add करें.",
+    need_login:"Listing post करने के लिए login करें.",
+    saving:"Saving...",
+    upload_failed:"Image upload नहीं हुआ.",
+    saved_ok:"Listing successfully added"
+  },
+  en:{
+    page_title:"🌱 Banana Plant Khodwa Sell | BanaNetwork",
+    meta_description:"Create banana plant and khodwa sell listings on BanaNetwork with the same app UI, realtime notifications, responsive form, and image upload preview.",
+    meta_keywords:"banana plant sell, khodwa sell, bana network sell, plant listing, khodwa listing",
+    og_description:"Plant khodwa sell | Smart form | Realtime notifications | BanaNetwork",
+    brand_subtitle:"Plant Khodwa Sell",
+    drawer_subtitle:"All Banana Related Services",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"Banana Plant Khodwa Buy",
+    nav_sell:"Banana Plant Khodwa Sell",
+    nav_khat_buy:"Banana Khodwa Buy",
+    nav_khat_sell:"Banana Khodwa Sell",
+    nav_burhanpur_rates:"Burhanpur Banana Rate",
+    nav_jalgaon_rates:"Jalgaon Banana Rate",
+    nav_chopda_rates:"Chopda Banana Rate",
+    nav_raver_rates:"Raver Banana Rate",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    footer_terms:"T&C",
+    info_contact:"Contact Us",
+    info_agent_help:"Agent Help",
+    info_whatsapp_group:"WhatsApp Group",
+    chip_rates:"Rates",
+    chip_buy:"Banana Plant Khodwa Buy",
+    chip_sell:"Banana Plant Khodwa Sell",
+    chip_services:"🛠Services",
+    ticker_text:"🌱 Post your banana plant and khodwa listing now | 📸 Multiple image upload preview | 🔔 Realtime notification system active | 📱 Mobile responsive BanaNetwork sell page",
+    slide_1:"🌱 Sell Banana Plants",
+    slide_2:"🌿 Sell Banana Plants & Khodwa",
+    mode_switch_title:"What do you want to sell?",
+    mode_switch_desc:"Choose plant or khodwa mode and post your listing in the same BanaNetwork UI.",
+    mode_rop_sell:"Plant Sell",
+    mode_khodwa_sell:"Khodwa Sell",
+    form_heading_rop:"Add your plant listing",
+    form_heading_khodwa:"Add your khodwa listing",
+    form_desc_rop:"Fill title, location, company, phone, and images to publish your plant listing.",
+    form_desc_khodwa:"Fill title, location, company, phone, and images to publish your khodwa listing.",
+    product_type:"Product Type",
+    option_rop:"Plant",
+    option_khodwa:"Khodwa",
+    title_label:"Title",
+    title_placeholder:"e.g. Tissue Culture Banana Plant",
+    price_label:"Price",
+    price_placeholder:"Enter price",
+    company_label:"Company / Nursery",
+    company_placeholder:"Company / Nursery name",
+    state:"State",
+    district:"District",
+    taluka:"Taluka",
+    village:"Village",
+    all_area_service_label:"All Area Service",
+    select_option:"Select",
+    yes:"Yes",
+    no:"No",
+    stock_label:"Stock Available",
+    stock_placeholder:"Enter available stock",
+    preview_stock:"Stock",
+    preview_all_area:"All Area",
+    description_label:"Description",
+    description_placeholder:"Write complete details about your listing.",
+    phone_label:"Phone Number",
+    phone_placeholder:"Mobile number",
+    calling_time_label:"Calling Time",
+    calling_time_placeholder:"e.g. 10AM to 10PM",
+    upload_gallery_text:"📁 Upload multiple images from gallery",
+    upload_camera_text:"📷 Add a photo using live camera",
+    upload_note:"You can add up to 5 photos.",
+    submit_btn:"Post your listing",
+    preview_title:"Live Preview",
+    preview_desc:"Your listing live preview appears here in the same buy-page card style.",
+    preview_no_title:"Your listing title will appear here",
+    preview_no_desc:"Preview description appears here after you add details.",
+    seller_label:"Seller",
+    location_none:"Location unavailable",
+    calling_any:"Any time",
+    no_photo_added:"No photo added yet.",
+    photos_label:"photos",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_about:"About",
+    status_login:"Login",
+    status_account:"Account",
+    notification_title:"Notifications",
+    notification_empty:"No notifications",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    notification_open_failed:"Notification could not be opened.",
+    notification_hide_failed:"Notification could not be hidden.",
+    notification_hide_label:"Hide notification",
+    max_five:"You can add only up to 5 photos.",
+    fill_all:"Please fill all required fields.",
+    select_photo:"Please add at least 1 image.",
+    need_login:"Please log in to post a listing.",
+    saving:"Saving...",
+    upload_failed:"Image upload failed.",
+    saved_ok:"Listing successfully added"
+  }
+};
+
+let currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let heroSlideIndex = 0;
+window.currentSellUser = null;
+
+function t(key){
+  return translations[currentLanguage]?.[key] || translations.mr[key] || key;
+}
+
+function preserveLanguageAndClearStorage(){
+  const savedLanguage = localStorage.getItem("siteLanguage") || currentLanguage || "mr";
+  localStorage.clear();
+  localStorage.setItem("siteLanguage", savedLanguage);
+}
+
+function protectRouteUrl(url){
+  const hasUser = !!window.currentSellUser || !!localStorage.getItem("userId") || !!localStorage.getItem("userName");
+  if(!hasUser){
+    window.location.href = "login.html";
+    return;
+  }
+  window.location.href = url;
+}
+
+async function logoutUser(){
+  if(typeof window.performSellLogout === "function"){
+    await window.performSellLogout();
+    return;
+  }
+  preserveLanguageAndClearStorage();
+  window.location.href = "index.html";
+}
+
+window.protectRouteUrl = protectRouteUrl;
+window.logoutUser = logoutUser;
+
+function toggleSidebar(show){
+  if(show){
+    sidebarDrawer.classList.add("open");
+    sidebarOverlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }else{
+    sidebarDrawer.classList.remove("open");
+    sidebarOverlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+}
+
+function showSellTermsPopup(){
+  sellTermsPopup.style.display = "flex";
+}
+
+function openLangMenu(){
+  langMenu.classList.add("open");
+  langToggle.setAttribute("aria-expanded", "true");
+}
+
+function closeLangMenu(){
+  langMenu.classList.remove("open");
+  langToggle.setAttribute("aria-expanded", "false");
+}
+
+function openNotificationDropdown(){
+  if(notificationWrap.classList.contains("hidden")) return;
+  notificationDropdown.classList.add("open");
+  notificationBtn.setAttribute("aria-expanded", "true");
+}
+
+function closeNotificationDropdown(){
+  notificationDropdown.classList.remove("open");
+  notificationBtn.setAttribute("aria-expanded", "false");
+}
+
+function toggleNotificationDropdown(){
+  if(notificationDropdown.classList.contains("open")){
+    closeNotificationDropdown();
+  }else{
+    openNotificationDropdown();
+  }
+}
+
+window.closeSellNotificationDropdown = closeNotificationDropdown;
+
+menuToggle.addEventListener("click", () => toggleSidebar(true));
+drawerClose.addEventListener("click", () => toggleSidebar(false));
+sidebarOverlay.addEventListener("click", () => toggleSidebar(false));
+
+langToggle.addEventListener("click", event => {
+  event.stopPropagation();
+  if(langMenu.classList.contains("open")){
+    closeLangMenu();
+  }else{
+    openLangMenu();
+  }
+});
+
+notificationBtn.addEventListener("click", event => {
+  event.stopPropagation();
+  toggleNotificationDropdown();
+});
+
+notificationDropdown.addEventListener("click", event => {
+  event.stopPropagation();
+});
+
+document.addEventListener("click", event => {
+  if(!event.target.closest(".lang-wrap")){
+    closeLangMenu();
+  }
+});
+
+document.addEventListener("click", event => {
+  if(!event.target.closest(".notification-wrap")){
+    closeNotificationDropdown();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if(event.key === "Escape"){
+    toggleSidebar(false);
+    closeLangMenu();
+    closeNotificationDropdown();
+  }
+});
+
+langOptions.forEach(button=>{
+  button.addEventListener("click", ()=>{
+    currentLanguage = button.dataset.lang;
+    localStorage.setItem("siteLanguage", currentLanguage);
+    applyLanguage();
+    closeLangMenu();
+  });
+});
+
+document.querySelectorAll("[data-protected-route]").forEach(link=>{
+  link.addEventListener("click", event=>{
+    event.preventDefault();
+    protectRouteUrl(link.dataset.protectedRoute);
+  });
+});
+
+function getCurrentPage(){
+  const page = window.location.pathname.split("/").pop();
+  return page || "sell.html";
+}
+
+function setActiveNav(){
+  const currentPage = getCurrentPage();
+
+  document.querySelectorAll(".drawer-link[data-route]").forEach(link=>{
+    let active = false;
+
+    if(currentPage === "index.html"){
+      active = link.dataset.route === "home";
+    }else if(currentPage === "buy.html"){
+      active = link.dataset.route === "plant-buy" || link.dataset.route === "khodwa-buy";
+    }else if(currentPage === "sell.html"){
+      active = link.dataset.route === "plant-sell" || link.dataset.route === "khodwa-sell";
+    }else if(currentPage === "jalgaon.html"){
+      active = link.dataset.route === "jalgaon";
+    }else if(currentPage === "chopda.html"){
+      active = link.dataset.route === "chopda";
+    }else if(currentPage === "raver.html"){
+      active = link.dataset.route === "raver";
+    }
+
+    link.classList.toggle("active", active);
+  });
+}
+
+function updateHeaderAuthState(user = window.currentSellUser){
+  const userName = user?.displayName || localStorage.getItem("userName") || "";
+  const userId = user?.uid || localStorage.getItem("userId") || "";
+  const isLoggedIn = !!(userId || userName);
+
+  if(isLoggedIn){
+    loginStatusBtn.href = "account.html";
+    loginStatusIcon.textContent = "👤";
+    loginStatusText.innerText = t("status_account");
+    accountBtn.href = "account.html";
+    accountBtn.textContent = userName.trim().charAt(0).toUpperCase() || "👤";
+
+    drawerAuthLink.href = "index.html";
+    drawerAuthLink.onclick = function(event){
+      event.preventDefault();
+      logoutUser();
+    };
+    drawerAuthIcon.textContent = "🚪";
+    drawerLoginText.textContent = t("nav_logout");
+
+    notificationWrap.classList.remove("hidden");
+  }else{
+    loginStatusBtn.href = "login.html";
+    loginStatusIcon.textContent = "🔑";
+    loginStatusText.innerText = t("status_login");
+    accountBtn.href = "login.html";
+    accountBtn.textContent = "👤";
+
+    drawerAuthLink.href = "login.html";
+    drawerAuthLink.onclick = null;
+    drawerAuthIcon.textContent = "🔑";
+    drawerLoginText.textContent = t("nav_login");
+
+    notificationWrap.classList.add("hidden");
+    notificationCount.textContent = "0";
+    notificationCount.classList.add("hidden");
+    closeNotificationDropdown();
+  }
+}
+
+window.updateHeaderAuthState = updateHeaderAuthState;
+
+function initPageSwipe(){
+  const swipeArea = document.querySelector(".page-content");
+  if(!swipeArea) return;
+
+  swipeArea.addEventListener("touchstart", event=>{
+    const touch = event.changedTouches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  }, { passive:true });
+
+  swipeArea.addEventListener("touchend", event=>{
+    const touch = event.changedTouches[0];
+    touchEndX = touch.clientX;
+    touchEndY = touch.clientY;
+    handlePageSwipe();
+  }, { passive:true });
+}
+
+function handlePageSwipe(){
+  const diffX = touchStartX - touchEndX;
+  const diffY = Math.abs(touchStartY - touchEndY);
+  if(Math.abs(diffX) < 70) return;
+  if(Math.abs(diffX) <= diffY) return;
+
+  const currentPage = getCurrentPage();
+  const currentIndex = pageOrder.indexOf(currentPage);
+  if(currentIndex === -1) return;
+
+  if(diffX > 0 && currentIndex < pageOrder.length - 1){
+    window.location.href = pageOrder[currentIndex + 1];
+  }else if(diffX < 0 && currentIndex > 0){
+    window.location.href = pageOrder[currentIndex - 1];
+  }
+}
+
+function initHeroSlider(){
+  const slides = document.querySelectorAll(".hero-slide");
+  if(!slides.length) return;
+
+  slides.forEach(slide=>{
+    slide.addEventListener("click", event=>{
+      const sellKind = slide.dataset.sellKind;
+      if(sellKind && window.setSellKind){
+        event.preventDefault();
+        window.setSellKind(sellKind);
+        document.getElementById("modeSection").scrollIntoView({ behavior:"smooth", block:"start" });
+      }
+    });
+  });
+
+  setInterval(()=>{
+    slides[heroSlideIndex].classList.remove("active");
+    heroSlideIndex = (heroSlideIndex + 1) % slides.length;
+    slides[heroSlideIndex].classList.add("active");
+  }, 3200);
+}
+
+function applyLanguage(){
+  document.documentElement.lang = currentLanguage;
+  document.title = t("page_title");
+  metaDescription.content = t("meta_description");
+  metaKeywords.content = t("meta_keywords");
+  ogDescription.content = t("og_description");
+
+  brandSubtitle.textContent = t("brand_subtitle");
+  drawerSubtitle.textContent = t("drawer_subtitle");
+  labelMain.textContent = t("label_main");
+  labelAccount.textContent = t("label_account");
+  labelInfo.textContent = t("label_info");
+
+  drawerHome.textContent = t("nav_home");
+  drawerBuy.textContent = t("nav_buy");
+  drawerSell.textContent = t("nav_sell");
+  drawerKhatBuy.textContent = t("nav_khat_buy");
+  drawerKhatSell.textContent = t("nav_khat_sell");
+  drawerBurhanpur.textContent = t("nav_burhanpur_rates");
+  drawerJalgaon.textContent = t("nav_jalgaon_rates");
+  drawerChopda.textContent = t("nav_chopda_rates");
+  drawerRaver.textContent = t("nav_raver_rates");
+  drawerAccount.textContent = t("nav_account");
+  drawerChat.textContent = t("nav_my_chat");
+  drawerListingHistory.textContent = t("nav_listing_history");
+  drawerInbox.textContent = t("nav_inbox");
+  drawerSignup.textContent = t("nav_signup");
+  drawerAbout.textContent = t("info_about");
+  drawerPrivacy.textContent = t("info_privacy");
+  drawerTerms.textContent = t("info_terms");
+  drawerContact.textContent = t("info_contact");
+  drawerAgentHelp.textContent = t("info_agent_help");
+  drawerWhatsapp.textContent = t("info_whatsapp_group");
+  marketTicker.textContent = t("ticker_text");
+
+  slideText1.textContent = t("slide_1");
+  slideText2.textContent = t("slide_2");
+  modeSwitchTitle.textContent = t("mode_switch_title");
+  modeSwitchDesc.textContent = t("mode_switch_desc");
+  modeBtnRopSell.textContent = t("mode_rop_sell");
+  modeBtnKhodwaSell.textContent = t("mode_khodwa_sell");
+
+  productTypeLabel.textContent = t("product_type");
+  listingProductType.options[0].text = t("option_rop");
+  listingProductType.options[1].text = t("option_khodwa");
+  listingTitleLabel.textContent = t("title_label");
+  listingPriceLabel.textContent = t("price_label");
+  listingCompanyLabel.textContent = t("company_label");
+  listingStateLabel.textContent = t("state");
+  listingDistrictLabel.textContent = t("district");
+  listingTalukaLabel.textContent = t("taluka");
+  listingVillageLabel.textContent = t("village");
+  listingAllAreaLabel.textContent = t("all_area_service_label");
+  listingAllArea.options[0].text = t("select_option");
+  listingAllArea.options[1].text = t("yes");
+  listingAllArea.options[2].text = t("no");
+  listingDescriptionLabel.textContent = t("description_label");
+  document.getElementById("listingTitle").placeholder = t("title_placeholder");
+  document.getElementById("listingPrice").placeholder = t("price_placeholder");
+  document.getElementById("listingCompany").placeholder = t("company_placeholder");
+  document.getElementById("listingState").placeholder = t("state");
+  document.getElementById("listingDistrict").placeholder = t("district");
+  document.getElementById("listingTaluka").placeholder = t("taluka");
+  document.getElementById("listingVillage").placeholder = t("village");
+  document.getElementById("listingDescription").placeholder = t("description_placeholder");
+  uploadGalleryText.textContent = t("upload_gallery_text");
+  uploadCameraText.textContent = t("upload_camera_text");
+  uploadNote.textContent = t("upload_note");
+  submitListingBtn.textContent = t("submit_btn");
+  previewTitle.textContent = t("preview_title");
+  previewDesc.textContent = t("preview_desc");
+
+  footerMade.textContent = t("footer_made");
+  footerPrivacy.textContent = t("footer_privacy");
+  footerContact.textContent = t("footer_contact");
+  footerAbout.textContent = t("footer_about");
+  footerTerms.textContent = t("footer_terms");
+
+  notificationTitle.textContent = t("notification_title");
+  notificationBtn.setAttribute("aria-label", t("notification_title"));
+  langToggle.textContent = LANG_SHORT[currentLanguage] || "म";
+
+  langOptions.forEach(option=>{
+    option.classList.toggle("active", option.dataset.lang === currentLanguage);
+  });
+
+  updateHeaderAuthState(window.currentSellUser);
+  setActiveNav();
+
+  if(window.refreshSellPage){
+    window.refreshSellPage();
+  }
+}
+
+window.sellI18n = {
+  t,
+  currentLanguage: () => currentLanguage
+};
+
+window.addEventListener("load", ()=>{
+  updateHeaderAuthState(window.currentSellUser);
+  setActiveNav();
+  initPageSwipe();
+  initHeroSlider();
+  applyLanguage();
+});
+
+window.addEventListener("focus", ()=>updateHeaderAuthState(window.currentSellUser));
+window.addEventListener("storage", ()=>{
+  currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+  applyLanguage();
+});
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  query,
+  where,
+  onSnapshot,
+  doc,
+  updateDoc
+} from "https://www.gstatic.com/firebasejs/12.2.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBACccl0d8dMcssyF7Z1ol8vgOxsCJwYmE",
+  authDomain: "bananetwork-f8e1f.firebaseapp.com",
+  projectId: "bananetwork-f8e1f",
+  storageBucket: "bananetwork-f8e1f.firebasestorage.app",
+  messagingSenderId: "382838460721",
+  appId: "1:382838460721:web:f6a4a902786d4a8d5fe010",
+  measurementId: "G-85BR8H32TC"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+const i18n = window.sellI18n;
+
+const sellForm = document.getElementById("sellForm");
+const listingProductType = document.getElementById("listingProductType");
+const listingTitle = document.getElementById("listingTitle");
+const listingPrice = document.getElementById("listingPrice");
+const listingCompany = document.getElementById("listingCompany");
+const listingState = document.getElementById("listingState");
+const listingDistrict = document.getElementById("listingDistrict");
+const listingTaluka = document.getElementById("listingTaluka");
+const listingVillage = document.getElementById("listingVillage");
+const listingDescription = document.getElementById("listingDescription");
+const listingFiles = document.getElementById("listingFiles");
+const listingCamera = document.getElementById("listingCamera");
+const selectedFilesEl = document.getElementById("selectedFiles");
+const previewCardHost = document.getElementById("previewCardHost");
+const submitListingBtn = document.getElementById("submitListingBtn");
+const formHeading = document.getElementById("formHeading");
+const formDesc = document.getElementById("formDesc");
+const notificationListEl = document.getElementById("notificationList");
+const notificationCountEl = document.getElementById("notificationCount");
+
+function toggleTime(id){
+  const checkbox = document.getElementById(id + "Any");
+  const timeBox = document.getElementById(id + "Time");
+
+  checkbox.addEventListener("change", () => {
+    if(checkbox.checked){
+      timeBox.classList.add("hidden");
+    } else {
+      timeBox.classList.remove("hidden");
+    }
+    updatePreviewCard();
+  });
+}
+
+toggleTime("phone1");
+toggleTime("phone2");
+toggleTime("phone3");
+
+let currentUser = null;
+let currentSellKind = "rop";
+let notificationUnsubscribe = null;
+let notificationsCache = [];
+const selectedFiles = [];
+
+function escapeHtml(value){
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function tv(value){
+  return String(value ?? "").trim();
+}
+
+function clampHour(value){
+  const digits = String(value || "").replace(/[^\d]/g, "");
+  if(!digits) return "";
+  const num = Math.max(1, Math.min(12, Number(digits)));
+  return String(num);
+}
+function getFormattedTime(startId, startAmpmId, endId, endAmpmId){
+  const start = tv(document.getElementById(startId).value) || "10";
+  const startAmpm = tv(document.getElementById(startAmpmId).value) || "AM";
+
+  const end = tv(document.getElementById(endId).value) || "10";
+  const endAmpm = tv(document.getElementById(endAmpmId).value) || "PM";
+
+  return `${start} ${startAmpm} to ${end} ${endAmpm}`;
+}
+
+
+function showToast(message){
+  if(typeof window.showBuyToast === "function"){
+    window.showBuyToast(message);
+  }else{
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+    clearTimeout(showToast.timer);
+    showToast.timer = setTimeout(()=>toast.classList.remove("show"), 2400);
+  }
+}
+
+function getTimestampValue(value){
+  if(!value) return 0;
+  try{
+    if(typeof value.toDate === "function") return value.toDate().getTime();
+    if(value.seconds) return value.seconds * 1000;
+    const d = new Date(value);
+    return isNaN(d.getTime()) ? 0 : d.getTime();
+  }catch(error){
+    return 0;
+  }
+}
+
+function formatDateTime(value){
+  if(!value) return "Now";
+
+  try{
+    let date;
+
+    if(typeof value.toDate === "function"){
+      date = value.toDate();
+    }else if(value.seconds){
+      date = new Date(value.seconds * 1000);
+    }else{
+      date = new Date(value);
+    }
+
+    if(!date || isNaN(date.getTime())) return "Now";
+
+    const now = Date.now();
+    const diff = now - date.getTime();
+
+    const sec = Math.floor(diff / 1000);
+    const min = Math.floor(sec / 60);
+    const hr = Math.floor(min / 60);
+    const day = Math.floor(hr / 24);
+
+    if(sec < 60) return "Just now";
+    if(min < 60) return `${min}m ago`;
+    if(hr < 24) return `${hr}h ago`;
+    if(day === 1) return "Yesterday";
+    if(day < 7) return `${day}d ago`;
+
+    return date.toLocaleDateString("en-IN");
+  }catch(error){
+    return "Now";
+  }
+}
+
+function normalizeNotification(docSnap){
+  const data = docSnap.data() || {};
+
+  const createdMs = getTimestampValue(data.createdAt);
+  const hiddenFor = Array.isArray(data.hiddenFor)
+    ? data.hiddenFor.map(String)
+    : [];
+
+  let message = tv(data.message);
+
+  if(data.type === "order_request"){
+    message = i18n.t("notification_new_order");
+  }else if(data.type === "order_accept"){
+    message = i18n.t("notification_order_accept");
+  }else if(data.type === "order_reject"){
+    message = i18n.t("notification_order_reject");
+  }else if(data.type === "chat"){
+    message = tv(data.message) || i18n.t("notification_new_message");
+  }else{
+    message = tv(data.message) || i18n.t("notification_new_message");
+  }
+
+  const userName = tv(data.userName) || tv(data.senderName) || "User";
+  const photoURL = tv(data.photoURL) || tv(data.senderPhoto) || "";
+  const productName = tv(data.productName) || tv(data.productTitle) || "";
+  const userPhone = tv(data.userPhone) || tv(data.senderPhone) || "";
+  return {
+    id: docSnap.id,
+    type: tv(data.type),
+    roomId: tv(data.roomId),
+    senderId: tv(data.senderId),
+    userName,
+    photoURL,
+    productName,
+    message,
+    userPhone,
+    read: !!data.read,
+    hiddenFor,
+    createdMs,
+    timeLabel: formatDateTime(data.createdAt)
+  };
+}
+
+function getVisibleNotifications(){
+  const uid = currentUser?.uid || localStorage.getItem("userId") || "";
+  return notificationsCache
+    .filter(item => !item.hiddenFor.includes(uid))
+    .sort((a,b) => b.createdMs - a.createdMs);
+}
+
+function updateNotificationBadge(){
+  const unread = getVisibleNotifications().filter(item => !item.read).length;
+  notificationCountEl.textContent = unread > 99 ? "99+" : String(unread);
+  notificationCountEl.classList.toggle("hidden", unread === 0);
+}
+
+function renderNotifications(){
+  const items = getVisibleNotifications();
+
+  if(!items.length){
+    notificationListEl.innerHTML = `
+      <div class="notification-empty">
+        ${escapeHtml(i18n.t("notification_empty"))}
+      </div>`;
+    updateNotificationBadge();
+    return;
+  }
+
+  const today = [];
+  const older = [];
+
+  items.forEach(item=>{
+    const diff = Date.now() - item.createdMs;
+    if(diff < 86400000){
+      today.push(item);
+    }else{
+      older.push(item);
+    }
+  });
+
+  function renderGroup(title, list){
+    if(!list.length) return "";
+
+    return `
+      <div style="font-weight:800; padding:8px 12px; color:#64748b;">
+        ${title}
+      </div>
+
+      ${list.map(item => `
+        <div class="notification-card ${item.read ? "" : "unread"}" data-id="${escapeHtml(item.id)}">
+          <img class="notification-avatar" src="${escapeHtml(item.photoURL || ('https://ui-avatars.com/api/?name=' + encodeURIComponent(item.userName || 'U')))}" alt="${escapeHtml(item.userName || 'User')}">
+
+          <div class="notification-body">
+            <div class="notification-top">
+              <div class="notification-user">${escapeHtml(item.userName || "User")}</div>
+              <div class="notification-time">${escapeHtml(item.timeLabel)}</div>
+            </div>
+
+            <div class="notification-message">${escapeHtml(item.message)}</div>
+            ${item.userPhone ? `<div class="notification-phone">☎ ${escapeHtml(item.userPhone)}</div>` : ""}
+            <div class="notification-meta">
+              <div class="notification-product">${escapeHtml(item.productName || "")}</div>
+              ${!item.read ? `<div class="notification-dot"></div>` : ""}
+            </div>
+          </div>
+        </div>
+      `).join("")}
+    `;
+  }
+
+  notificationListEl.innerHTML =
+    renderGroup("Today", today) +
+    renderGroup("Earlier", older);
+
+  notificationListEl.onclick = async (e) => {
+    const card = e.target.closest(".notification-card");
+    if(!card) return;
+
+    const id = card.dataset.id;
+    const item = notificationsCache.find(n => n.id === id);
+    if(!item) return;
+
+    if(!item.read){
+      try{
+        await updateDoc(doc(db,"notifications",id),{ read:true });
+      }catch(err){
+        console.error(err);
+      }
+    }
+
+    const roomId = item.roomId;
+    const qs = roomId ? `?room=${encodeURIComponent(roomId)}` : "";
+    window.location.href = `chat.html${qs}`;
+  };
+
+  updateNotificationBadge();
+}
+
+function subscribeNotifications(user){
+  if(notificationUnsubscribe){
+    notificationUnsubscribe();
+    notificationUnsubscribe = null;
+  }
+
+  notificationsCache = [];
+  renderNotifications();
+
+  if(!user?.uid) return;
+
+  const q = query(
+    collection(db,"notifications"),
+    where("receiverId","==", user.uid)
+  );
+
+  const unsubscribe = onSnapshot(q, snap => {
+    notificationsCache = snap.docs
+      .map(docSnap => normalizeNotification(docSnap))
+      .filter(item => item.senderId !== user.uid);
+
+    renderNotifications();
+  }, error => {
+    console.error(error);
+    notificationsCache = [];
+    renderNotifications();
+  });
+
+  notificationUnsubscribe = () => {
+    unsubscribe();
+  };
+}
+
+function getReceiver(room){
+  if(!room || !currentUser?.uid) return "";
+  return currentUser.uid === room.sellerId
+    ? room.buyerId
+    : room.sellerId;
+}
+
+window.getReceiver = getReceiver;
+
+function updateModeButtons(){
+  document.querySelectorAll("[data-sell-kind]").forEach(button => {
+    button.classList.toggle("active", button.dataset.sellKind === currentSellKind);
+  });
+}
+
+function updateFormCopy(){
+  formHeading.textContent = currentSellKind === "khodwa"
+    ? i18n.t("form_heading_khodwa")
+    : i18n.t("form_heading_rop");
+
+  formDesc.textContent = currentSellKind === "khodwa"
+    ? i18n.t("form_desc_khodwa")
+    : i18n.t("form_desc_rop");
+}
+
+function getModeLabel(){
+  return currentSellKind === "khodwa"
+    ? i18n.t("mode_khodwa_sell")
+    : i18n.t("mode_rop_sell");
+}
+
+function getCurrentSellerName(){
+  return currentUser?.displayName || localStorage.getItem("userName") || i18n.t("seller_label");
+}
+
+function renderSelectedFiles(){
+  if(!selectedFiles.length){
+    selectedFilesEl.innerHTML = `<div class="empty-selected">${escapeHtml(i18n.t("no_photo_added"))}</div>`;
+    return;
+  }
+
+  selectedFilesEl.innerHTML = selectedFiles.map((file, index) => `
+    <div class="file-chip">
+      <img src="${URL.createObjectURL(file)}" alt="Selected image">
+      <button class="file-remove" type="button" data-remove-index="${index}">×</button>
+    </div>
+  `).join("");
+
+  selectedFilesEl.querySelectorAll("[data-remove-index]").forEach(button => {
+    button.addEventListener("click", () => {
+      selectedFiles.splice(Number(button.dataset.removeIndex), 1);
+      renderSelectedFiles();
+      updatePreviewCard();
+    });
+  });
+}
+
+function getPreviewImage(){
+  if(selectedFiles.length){
+    return URL.createObjectURL(selectedFiles[0]);
+  }
+  return "ropphoto.jpeg";
+}
+
+function updatePreviewCard(){
+  const title = tv(listingTitle.value) || i18n.t("preview_no_title");
+  const price = tv(listingPrice.value) ? `₹${Number(listingPrice.value).toLocaleString("en-IN")}` : "₹0";
+  const company = tv(listingCompany.value);
+  const location = [tv(listingVillage.value), tv(listingTaluka.value), tv(listingDistrict.value), tv(listingState.value)]
+    .filter(Boolean)
+    .join(", ") || i18n.t("location_none");
+  let stock = "-";
+
+  if(stockType.value === "unlimited"){
+    stock = "Unlimited";
+  } else if(stockType.value === "limited"){
+    stock = stockNumber.value ? stockNumber.value : "Limited";
+  }
+  const allAreaValue = tv(listingAllArea.value);
+  const allAreaText =
+    allAreaValue === "yes" ? i18n.t("yes") :
+    allAreaValue === "no" ? i18n.t("no") : "-";
+  const description = tv(listingDescription.value) || i18n.t("preview_no_desc");
+  const phone = tv(phone1.value) || "-";
+  const calling = phone1Any.checked
+    ? "Any Time"
+    : getFormattedTime("phone1Start","phone1StartAMPM","phone1End","phone1EndAMPM");
+  const image = getPreviewImage();
+  const count = selectedFiles.length;
+
+  previewCardHost.innerHTML = `
+    <article class="product-card">
+      <div class="product-media">
+        <div class="media-slide active">
+          <div class="media-bg-blur" style="background-image:url('${escapeHtml(image)}')"></div>
+          <div class="media-bg-overlay"></div>
+          <img class="product-photo" src="${escapeHtml(image)}" alt="${escapeHtml(title)}">
+        </div>
+        <div class="media-count">${count} ${escapeHtml(i18n.t("photos_label"))}</div>
+      </div>
+
+      <div class="product-body">
+        <div class="product-badges">
+          <span class="badge green">${escapeHtml(getModeLabel())}</span>
+          ${company ? `<span class="badge gray">${escapeHtml(company)}</span>` : ""}
+        </div>
+
+        <div class="product-price">${escapeHtml(price)}</div>
+        <h3 class="product-title">${escapeHtml(title)}</h3>
+        <div class="product-location">📍 ${escapeHtml(location)}</div>
+        <p class="product-desc">${escapeHtml(description)}</p>
+
+        <div class="seller-box">
+          <div class="seller-line">👤 ${escapeHtml(getCurrentSellerName())}</div>
+          <div class="seller-subline">📞 ${escapeHtml(phone)} | ⏰ ${escapeHtml(calling)}</div>
+        </div>
+
+        <div class="product-meta">
+          <span>🕒 Preview</span>
+          <span>📦 ${escapeHtml(i18n.t("preview_stock"))}: ${escapeHtml(stock)}</span>
+          <span>🌍 ${escapeHtml(i18n.t("preview_all_area"))}: ${escapeHtml(allAreaText)}</span>
+          <span>📸 ${escapeHtml(count ? `${count} ${i18n.t("photos_label")}` : i18n.t("no_photo_added"))}</span>
+        </div>
+
+      </div>
+    </article>
+  `;
+}
+
+function setSellKind(kind){
+  currentSellKind = kind === "khodwa" ? "khodwa" : "rop";
+  listingProductType.value = currentSellKind;
+  updateModeButtons();
+  updateFormCopy();
+  updatePreviewCard();
+}
+
+window.setSellKind = setSellKind;
+
+function addFilesToSelection(fileList){
+  if(!fileList || !fileList.length) return;
+
+  let exceeded = false;
+
+  [...fileList].forEach(file => {
+    if(!file.type.startsWith("image/")) return;
+
+    const duplicate = selectedFiles.some(item =>
+      item.name === file.name &&
+      item.size === file.size &&
+      item.lastModified === file.lastModified
+    );
+
+    if(duplicate) return;
+
+    if(selectedFiles.length >= 5){
+      exceeded = true;
+      return;
+    }
+
+    selectedFiles.push(file);
+  });
+
+  renderSelectedFiles();
+  updatePreviewCard();
+
+  if(exceeded){
+    showToast(i18n.t("max_five"));
+  }
+}
+
+listingFiles.addEventListener("change", () => {
+  addFilesToSelection(listingFiles.files);
+  listingFiles.value = "";
+});
+
+listingCamera.addEventListener("change", () => {
+  addFilesToSelection(listingCamera.files);
+  listingCamera.value = "";
+});
+
+[
+  listingTitle,
+  listingPrice,
+  listingCompany,
+  listingState,
+  listingDistrict,
+  listingTaluka,
+  listingVillage,
+  listingDescription,
+  phone1,
+  phone2,
+  phone3
+].forEach(input => {
+  input.addEventListener("input", updatePreviewCard);
+});
+
+listingAllArea.addEventListener("change", updatePreviewCard);
+
+listingProductType.addEventListener("change", () => {
+  setSellKind(listingProductType.value);
+});
+
+document.querySelectorAll(".mode-btn").forEach(button => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSellKind(button.dataset.sellKind);
+  });
+});
+
+async function uploadSelectedImages(){
+  if(!selectedFiles.length) return [];
+
+  const urls = [];
+
+  for(const file of selectedFiles){
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "bananetwork");
+
+    const response = await fetch("https://api.cloudinary.com/v1_1/dmwpnhsni/image/upload", {
+      method:"POST",
+      body:formData
+    });
+
+    const data = await response.json();
+
+    if(!response.ok || !data.secure_url){
+      throw new Error(i18n.t("upload_failed"));
+    }
+
+    urls.push(data.secure_url);
+  }
+
+  return urls;
+}
+
+function buildPayload(imageUrls){
+  const sellKind = listingProductType.value === "khodwa" ? "khodwa" : "rop";
+  const userName = currentUser?.displayName || localStorage.getItem("userName") || "Seller";
+  let stockValue = 0;
+  let stockTypeValue = stockType.value;
+
+  if(stockTypeValue === "limited"){
+    stockValue = Number(stockNumber.value || 0);
+  }
+  const allAreaAvailable = listingAllArea.value === "yes";
+
+  return {
+    sellerId: currentUser.uid,
+    userId: currentUser.uid,
+    uid: currentUser.uid,
+    ownerId: currentUser.uid,
+    createdBy: currentUser.uid,
+    sellerUid: currentUser.uid,
+    userUID: currentUser.uid,
+    userName,
+    sellerName: userName,
+    title: tv(listingTitle.value),
+    name: tv(listingTitle.value),
+    productName: tv(listingTitle.value),
+    price: Number(listingPrice.value || 0),
+    company: tv(listingCompany.value),
+    companyName: tv(listingCompany.value),
+    nurseryName: tv(listingCompany.value),
+    brand: tv(listingCompany.value),
+    state: tv(listingState.value),
+    district: tv(listingDistrict.value),
+    taluka: tv(listingTaluka.value),
+    village: tv(listingVillage.value),
+    stockAvailable: stockValue,
+    stock: stockValue,
+    runningStock: stockValue,
+    stockType: stockTypeValue,
+    stockAvailable: stockValue,
+    allAreaAvailable: allAreaAvailable,
+    isAllAreaAvailable: allAreaAvailable,
+    availableEverywhere: allAreaAvailable,
+    allArea: allAreaAvailable ? "yes" : "no",
+    description: tv(listingDescription.value),
+    phone: tv(phone1.value),
+    mobile: tv(phone1.value),
+
+    phones: [
+      tv(phone1.value) ? {
+        number: tv(phone1.value),
+        time: phone1Any.checked ? "Any Time" : getFormattedTime("phone1Start","phone1StartAMPM","phone1End","phone1EndAMPM")
+      } : null,
+
+      tv(phone2.value) ? {
+        number: tv(phone2.value),
+        time: phone2Any.checked ? "Any Time" : getFormattedTime("phone2Start","phone2StartAMPM","phone2End","phone2EndAMPM")
+      } : null,
+
+      tv(phone3.value) ? {
+        number: tv(phone3.value),
+       time: phone3Any.checked ? "Any Time" : getFormattedTime("phone3Start","phone3StartAMPM","phone3End","phone3EndAMPM")
+      } : null
+    ].filter(Boolean),
+    sellerMobile: tv(phone1.value),
+    contactNumber: tv(phone1.value),
+    callingTime: phone1Any.checked ? "Any Time" : `${tv(phone1Start.value)} to ${tv(phone1End.value)}`,
+    contactTime: phone1Any.checked ? "Any Time" : `${tv(phone1Start.value)} to ${tv(phone1End.value)}`,
+    images: imageUrls,
+    image: imageUrls[0] || "",
+    createdAt: new Date(),
+    date: new Date(),
+    itemType: sellKind,
+    category: sellKind,
+    productType: sellKind,
+    type: sellKind,
+    listingMode: sellKind === "khodwa" ? "khodwa_sell" : "rop_sell",
+    status: "active",
+    views: 0,
+    userPhoto: currentUser.photoURL || localStorage.getItem("userPhoto") || ""
+  };
+}
+
+function validateForm(){
+  const values = [
+    tv(listingProductType.value),
+    tv(listingTitle.value),
+    tv(listingPrice.value),
+    tv(listingCompany.value),
+    tv(listingState.value),
+    tv(listingDistrict.value),
+    tv(listingTaluka.value),
+    tv(listingVillage.value),
+    tv(listingAllArea.value),
+    tv(stockType.value),
+    tv(listingDescription.value),
+    tv(phone1.value),
+  ];
+
+  return values.every(Boolean);
+}
+
+sellForm.addEventListener("submit", async event => {
+  event.preventDefault();
+
+  if(!currentUser){
+    showToast(i18n.t("need_login"));
+    setTimeout(() => {
+      window.location.href = "login.html";
+    }, 700);
+    return;
+  }
+
+  if(!sellTermsAgree.checked){
+    showSellTermsPopup();
+    return;
+  }
+
+  if(!validateForm()){
+    showToast(i18n.t("fill_all"));
+    return;
+  }
+
+  if(!selectedFiles.length){
+    showToast(i18n.t("select_photo"));
+    return;
+  }
+
+  const originalText = submitListingBtn.textContent;
+  submitListingBtn.disabled = true;
+  submitListingBtn.textContent = i18n.t("saving");
+
+  try{
+    const imageUrls = await uploadSelectedImages();
+    const payload = buildPayload(imageUrls);
+    await addDoc(collection(db, "listings"), payload);
+
+    showToast(i18n.t("saved_ok"));
+    setTimeout(() => {
+      window.location.href = "buy.html";
+    }, 900);
+  }catch(error){
+    console.error(error);
+    showToast(error?.message || i18n.t("upload_failed"));
+  }finally{
+    submitListingBtn.disabled = false;
+    submitListingBtn.textContent = originalText;
+  }
+});
+
+window.refreshSellPage = function(){
+  updateModeButtons();
+  updateFormCopy();
+  renderSelectedFiles();
+  updatePreviewCard();
+  renderNotifications();
+};
+
+window.performSellLogout = async function(){
+  try{
+    await signOut(auth);
+  }catch(error){
+    console.error(error);
+  }
+
+  const savedLanguage = localStorage.getItem("siteLanguage") || "mr";
+  localStorage.clear();
+  localStorage.setItem("siteLanguage", savedLanguage);
+
+  currentUser = null;
+  window.currentSellUser = null;
+
+  if(notificationUnsubscribe){
+    notificationUnsubscribe();
+    notificationUnsubscribe = null;
+  }
+
+  notificationsCache = [];
+  renderNotifications();
+
+  if(typeof window.updateHeaderAuthState === "function"){
+    window.updateHeaderAuthState(null);
+  }
+
+  window.location.href = "index.html";
+};
+
+onAuthStateChanged(auth, user => {
+  currentUser = user;
+  window.currentSellUser = user;
+
+  if(user){
+    localStorage.setItem("userId", user.uid);
+    if(user.displayName){
+      localStorage.setItem("userName", user.displayName);
+    }
+    if(user.photoURL){
+      localStorage.setItem("userPhoto", user.photoURL);
+    }
+  }else{
+    localStorage.removeItem("userId");
+  }
+
+  if(typeof window.updateHeaderAuthState === "function"){
+    window.updateHeaderAuthState(user);
+  }
+
+  subscribeNotifications(user);
+  updatePreviewCard();
+});
+
+setSellKind("rop");
+renderSelectedFiles();
+updatePreviewCard();
+renderNotifications();
+
+</script>
+
+</body>
+</html>
