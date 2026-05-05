@@ -1,0 +1,5079 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<title>Product Details | BanaNetwork</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta id="metaDescription" name="description" content="BanaNetwork वर तुमच्या product ची all माहिती इथे असेल. फोटो, seller माहिती, calling time, share, chat आणि direct संपर्क एकाच page वर पाहा.">
+<meta id="metaKeywords" name="keywords" content="banana product details, plant listing, khodwa listing, BanaNetwork product">
+<meta property="og:title" content="Product Details | BanaNetwork">
+<meta id="ogDescription" property="og:description" content="तुमच्या product ची all माहिती इथे असेल | BanaNetwork">
+<meta property="og:image" content="https://bananetwork.in/share.png">
+<meta property="og:url" content="https://bananetwork.in/product.html">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="favicon.png">
+<script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+
+<style>
+:root{
+  --green:#2e7d32;
+  --green-dark:#1b5e20;
+  --yellow:#f1c24a;
+  --muted:#64748b;
+  --border:#e5e7eb;
+  --border-strong:#d8e3eb;
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --shadow:0 12px 32px rgba(15,23,42,.08);
+  --shadow-lg:0 22px 48px rgba(15,23,42,.16);
+  --blue:#1877f2;
+  --blue-dark:#1660c7;
+  --orange:#ea580c;
+  --orange-light:#fff4e8;
+  --black:#111827;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:#111827;
+  background:
+    radial-gradient(circle at top right, rgba(46,125,50,.08), transparent 26%),
+    linear-gradient(180deg,#f8fbff 0%, #f5f7fb 100%);
+  overflow-x:hidden;
+}
+
+.hidden{display:none !important}
+
+/* HEADER */
+
+.yt-header{
+  position:sticky;
+  top:0;
+  z-index:7000;
+  background:linear-gradient(180deg,#cfeecd 0%, #b7e2b4 100%);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #a7d3a3;
+  box-shadow:0 8px 20px rgba(46,125,50,.14);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 14px;
+  min-height:72px;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  flex:1;
+}
+
+.menu-btn{
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  background:#fff;
+  color:#111;
+  font-size:26px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .2s ease, transform .2s ease;
+  flex-shrink:0;
+}
+
+.menu-btn:hover{
+  background:#f1f5f9;
+  transform:translateY(-1px);
+}
+
+.brand-link{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  text-decoration:none;
+  color:#111;
+  flex:1;
+}
+
+.logo{
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  border:1px solid #d9f4db;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:4px;
+  background:#fff;
+}
+
+.brand{
+  min-width:0;
+  flex:1;
+  max-width:260px;
+}
+
+.brand b{
+  display:block;
+  font-size:23px;
+  line-height:1.05;
+  color:#146c2e;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-shrink:0;
+  flex-wrap:nowrap;
+}
+
+.status-pill{
+  background:#f1f5f9;
+  color:#111827;
+  font-weight:800;
+  padding:11px 16px;
+  border-radius:999px;
+  font-size:14px;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-height:44px;
+  transition:background .2s ease, transform .2s ease;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+.status-pill:hover{
+  background:#e8eef5;
+  transform:translateY(-1px);
+}
+
+.icon-circle{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:transform .2s ease, background .2s ease;
+  flex-shrink:0;
+}
+
+.icon-circle:hover{transform:translateY(-1px)}
+
+.whatsapp-btn{
+  background:#25D366;
+  box-shadow:0 8px 18px rgba(37,211,102,.22);
+}
+
+.whatsapp-btn img{
+  width:20px;
+  height:20px;
+  display:block;
+}
+
+.account-btn{
+  background:#f59e0b;
+  color:#fff;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(245,158,11,.24);
+}
+
+.lang-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+
+.lang-btn{
+  background:#fff;
+  color:#111827;
+  font-size:15px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+}
+
+.lang-menu{
+  position:absolute;
+  top:54px;
+  right:0;
+  min-width:140px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:8px;
+  display:none;
+  z-index:7100;
+}
+
+.lang-menu.open{display:block}
+
+.lang-option{
+  width:100%;
+  border:none;
+  background:#fff;
+  color:#111827;
+  text-align:left;
+  padding:10px 12px;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.lang-option:hover,
+.lang-option.active{
+  background:#f1f5f9;
+}
+
+/* NOTIFICATIONS */
+
+.notification-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+
+.notification-btn{
+  position:relative;
+  background:#fff;
+  color:#111827;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+  transition:.2s;
+}
+
+.notification-btn:hover{
+  background:#f8fafc;
+  transform:translateY(-1px);
+}
+
+.notification-count{
+  position:absolute;
+  top:-2px;
+  right:-2px;
+  min-width:20px;
+  height:20px;
+  padding:0 6px;
+  border-radius:999px;
+  background:#ef4444;
+  color:#fff;
+  font-size:11px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 16px rgba(239,68,68,.28);
+}
+
+.notification-dropdown{
+  position:absolute;
+  top:54px;
+  right:0;
+  width:min(360px,calc(100vw - 24px));
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:20px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:10px;
+  display:none;
+  z-index:7150;
+}
+
+.notification-dropdown.open{
+  display:block;
+  animation:notificationPop .18s ease;
+}
+
+@keyframes notificationPop{
+  0%{opacity:0; transform:translateY(-8px)}
+  100%{opacity:1; transform:translateY(0)}
+}
+
+.notification-head{
+  padding:6px 8px 10px;
+  border-bottom:1px solid #f1f5f9;
+  font-size:15px;
+  font-weight:800;
+  color:#111827;
+}
+
+.notification-list{
+  max-height:380px;
+  overflow:auto;
+  padding:8px 2px 2px;
+}
+
+.notification-list::-webkit-scrollbar{width:6px}
+.notification-list::-webkit-scrollbar-thumb{
+  background:#d6dee7;
+  border-radius:999px;
+}
+
+.notification-empty{
+  padding:18px 12px;
+  text-align:center;
+  color:#64748b;
+  font-size:14px;
+  font-weight:700;
+}
+
+.notification-card{
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:14px 16px;
+  border-radius:16px;
+  background:#fff;
+  margin-bottom:10px;
+  transition:.2s;
+  cursor:pointer;
+  overflow:hidden;
+  touch-action:pan-y;
+}
+
+.notification-card:hover{background:#f8fafc}
+.notification-card.unread{background:#f0f9ff}
+.notification-card.swiping{transition:none}
+
+.notification-card::after{
+  content:"🗑 Delete";
+  position:absolute;
+  right:0;
+  top:0;
+  bottom:0;
+  width:100px;
+  background:#ef4444;
+  color:#fff;
+  font-size:14px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  opacity:0;
+  transition:.2s;
+}
+
+.notification-card.show-delete::after{opacity:1}
+
+.notification-avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.notification-body{
+  flex:1;
+  min-width:0;
+}
+
+.notification-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.notification-user{
+  font-size:15px;
+  font-weight:700;
+  color:#111827;
+}
+
+.notification-time{
+  font-size:12px;
+  color:#6b7280;
+  white-space:nowrap;
+}
+
+.notification-message{
+  font-size:14px;
+  font-weight:600;
+  color:#111827;
+  margin-top:2px;
+}
+
+.notification-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:4px;
+  gap:10px;
+}
+
+.notification-product{
+  font-size:13px;
+  color:#6b7280;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:80%;
+}
+
+.notification-dot{
+  width:8px;
+  height:8px;
+  background:#ef4444;
+  border-radius:50%;
+}
+
+.notification-phone{
+  font-size:13px;
+  font-weight:700;
+  color:#0f766e;
+  margin-top:3px;
+}
+
+/* DRAWER */
+
+.sidebar-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.42);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+  z-index:7800;
+}
+
+.sidebar-overlay.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.sidebar-drawer{
+  position:fixed;
+  top:0;
+  left:0;
+  width:min(330px,90vw);
+  height:100vh;
+  background:#fff;
+  transform:translateX(-100%);
+  transition:transform .28s ease;
+  z-index:7900;
+  box-shadow:24px 0 50px rgba(15,23,42,.22);
+  display:flex;
+  flex-direction:column;
+  overflow-y:auto;
+}
+
+.sidebar-drawer.open{transform:translateX(0)}
+
+.sidebar-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 18px 14px;
+  border-bottom:1px solid #eef2f6;
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:2;
+}
+
+.sidebar-head .menu-btn{background:#f8fafc}
+
+.sidebar-brand b{
+  display:block;
+  font-size:22px;
+  color:#146c2e;
+  line-height:1.1;
+}
+
+.sidebar-brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+}
+
+.sidebar-section{
+  padding:12px 14px;
+  border-bottom:1px solid #f1f5f9;
+}
+
+.sidebar-label{
+  font-size:13px;
+  color:#64748b;
+  font-weight:800;
+  margin:4px 10px 10px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.drawer-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px 14px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#111827;
+  font-weight:700;
+  margin-bottom:4px;
+  transition:background .2s ease, transform .2s ease;
+}
+
+.drawer-link:hover{
+  background:#f8fafc;
+  transform:translateX(2px);
+}
+
+.drawer-link.active{
+  background:#111827;
+  color:#fff;
+}
+
+.drawer-icon{
+  width:22px;
+  text-align:center;
+  font-size:18px;
+  flex-shrink:0;
+}
+
+/* PAGE */
+
+main{
+  max-width:1180px;
+  margin:22px auto 130px;
+  padding:0 15px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid #edf1f5;
+  border-radius:26px;
+  box-shadow:0 18px 45px rgba(15,23,42,.06);
+}
+
+.loading-card,
+.not-found-card{
+  text-align:center;
+  padding:36px 22px;
+}
+
+.loading-title{
+  font-size:20px;
+  font-weight:800;
+  color:#1f2937;
+  margin-bottom:10px;
+}
+
+.loading-text,
+.not-found-card p{
+  color:var(--muted);
+  line-height:1.7;
+  margin:0;
+}
+
+.not-found-card h2{
+  margin:0 0 10px;
+  color:var(--green-dark);
+}
+
+.not-found-card a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:16px;
+  padding:12px 16px;
+  border-radius:14px;
+  background:var(--green);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+}
+
+/* HERO */
+
+.product-hero{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);
+  gap:18px;
+  align-items:start;
+}
+
+.gallery-panel{
+  padding:16px;
+}
+
+.hero-gallery{
+  position:relative;
+  aspect-ratio:4 / 3;
+  border-radius:30px;
+  overflow:hidden;
+  background:#0f172a;
+  border:1px solid #dbe5ef;
+  box-shadow:0 22px 46px rgba(15,23,42,.12);
+}
+
+.gallery-stage{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+
+.gallery-slide-card{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  opacity:0;
+  transition:opacity .4s ease;
+  border:none;
+  background:#f3f4f6;
+  padding:0;
+  cursor:zoom-in;
+}
+
+.gallery-slide-card.active{
+  opacity:1;
+  z-index:2;
+}
+
+.gallery-slide-bg{
+  position:absolute;
+  inset:-24px;
+  background-size:cover;
+  background-position:center;
+  filter:blur(34px);
+  transform:scale(1.18);
+  opacity:.85;
+}
+
+.gallery-slide-shell{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:linear-gradient(180deg, rgba(15,23,42,.08), rgba(15,23,42,.16));
+}
+
+.gallery-slide-shell::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center, rgba(255,255,255,.02) 0%, rgba(15,23,42,.18) 100%);
+  pointer-events:none;
+}
+
+.gallery-slide-image{
+  position:relative;
+  z-index:2;
+  width:auto;
+  height:auto;
+  max-width:min(100%, 560px);
+  max-height:100%;
+  object-fit:contain;
+  border-radius:24px;
+  background:#fff;
+  box-shadow:0 24px 60px rgba(15,23,42,.32);
+}
+
+.gallery-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:46px;
+  height:46px;
+  border:none;
+  border-radius:50%;
+  background:rgba(15,23,42,.68);
+  color:#fff;
+  font-size:26px;
+  cursor:pointer;
+  z-index:5;
+  backdrop-filter:blur(6px);
+  box-shadow:0 12px 24px rgba(0,0,0,.18);
+}
+
+.gallery-nav.prev{left:14px}
+.gallery-nav.next{right:14px}
+
+.gallery-count{
+  position:absolute;
+  right:14px;
+  bottom:14px;
+  z-index:5;
+  background:rgba(17,24,39,.72);
+  color:#fff;
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+  backdrop-filter:blur(8px);
+}
+
+.gallery-dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin:14px 0 0;
+}
+
+.gallery-dots button{
+  width:10px;
+  height:10px;
+  border:none;
+  border-radius:50%;
+  background:#cbd5e1;
+  cursor:pointer;
+  padding:0;
+}
+
+.gallery-dots button.active{
+  background:var(--green);
+}
+
+.gallery-thumbs{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding-top:14px;
+  scrollbar-width:none;
+}
+
+.gallery-thumbs::-webkit-scrollbar{display:none}
+
+.gallery-thumb{
+  width:82px;
+  height:82px;
+  border-radius:16px;
+  object-fit:cover;
+  border:2px solid transparent;
+  cursor:pointer;
+  flex:0 0 auto;
+  background:#eef2f6;
+  box-shadow:0 8px 18px rgba(15,23,42,.08);
+}
+
+.gallery-thumb.active{
+  border-color:var(--green);
+  box-shadow:0 10px 18px rgba(46,125,50,.18);
+}
+
+.gallery-actions{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:10px;
+  margin-top:16px;
+}
+
+.mini-btn{
+  border:none;
+  border-radius:16px;
+  padding:12px 10px;
+  font-weight:700;
+  cursor:pointer;
+  background:#f3f4f6;
+  color:#111827;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:48px;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.mini-btn:hover{
+  transform:translateY(-1px);
+}
+
+.mini-btn.native{background:#ecf4ff;color:#0f4fa8;}
+.mini-btn.whatsapp{background:#e9f9f0;color:#177c42;}
+.mini-btn.facebook{background:#edf4ff;color:#1553b7;}
+.mini-btn.poster{background:#fff3e8;color:#a44d00;}
+
+/* SUMMARY */
+
+.summary-panel{
+  padding:20px;
+}
+
+.summary-panel-inner{
+  position:sticky;
+  top:88px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.top-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.pill-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.pill.green{
+  background:#e8f6ea;
+  color:var(--green-dark);
+}
+
+.pill.gray{
+  background:#f3f4f6;
+  color:#475569;
+}
+
+.pill.orange{
+  background:#fff4e9;
+  color:#a75804;
+}
+
+.title{
+  margin:0;
+  font-size:34px;
+  line-height:1.15;
+  color:#101828;
+}
+
+.product-rating-summary{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  width:fit-content;
+  max-width:100%;
+  padding:10px 14px;
+  border-radius:16px;
+  background:linear-gradient(180deg,#fffaf0,#f8fbff);
+  border:1px solid #eef2f6;
+}
+
+.product-rating-icon{
+  font-size:18px;
+  line-height:1;
+}
+
+.product-rating-text{
+  font-size:14px;
+  color:#475569;
+  font-weight:700;
+  word-break:break-word;
+}
+
+.price-row{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.price{
+  font-size:38px;
+  font-weight:800;
+  color:var(--green);
+  letter-spacing:-.02em;
+}
+
+.location{
+  color:var(--muted);
+  font-weight:700;
+  font-size:15px;
+  max-width:100%;
+}
+
+.trust-strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.trust-box{
+  border-radius:18px;
+  padding:14px 12px;
+  background:linear-gradient(180deg,#f7fbf7,#eef7ee);
+  border:1px solid #dfeee0;
+  text-align:center;
+}
+
+.trust-box span{
+  display:block;
+  font-size:12px;
+  color:#56705a;
+  margin-top:5px;
+  font-weight:700;
+}
+
+.trust-box strong{
+  display:block;
+  color:#13361a;
+  font-size:15px;
+  word-break:break-word;
+}
+
+.action-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.action-btn{
+  text-decoration:none;
+  border:none;
+  border-radius:18px;
+  padding:14px 16px;
+  font-weight:800;
+  font-size:15px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease, background .2s ease;
+}
+
+.action-btn:hover{transform:translateY(-2px)}
+
+.action-call{
+  background:linear-gradient(135deg,#1fc56c,#179454);
+  color:#fff;
+  box-shadow:0 14px 26px rgba(31,197,108,.24);
+}
+
+.action-call.locked{
+  background:linear-gradient(135deg,#9ca3af,#6b7280);
+  box-shadow:none;
+}
+
+.action-call.disabledish{
+  opacity:.6;
+  box-shadow:none;
+}
+
+.action-chat{
+  background:linear-gradient(135deg,#2d9bff,#1777df);
+  color:#fff;
+  box-shadow:0 14px 26px rgba(45,155,255,.22);
+}
+
+.action-share{
+  background:#111827;
+  color:#fff;
+  box-shadow:0 14px 26px rgba(17,24,39,.18);
+}
+
+.action-poster{
+  background:#fff1e4;
+  color:#ad5700;
+  border:1px solid #ffd5aa;
+}
+
+.action-order{
+  background:linear-gradient(135deg,#2e7d32,#1b5e20);
+  color:#fff;
+  box-shadow:0 14px 26px rgba(46,125,50,.24);
+}
+
+.order-wide{
+  grid-column:1 / -1;
+}
+
+.seller-card{
+  border-radius:22px;
+  padding:18px;
+  background:linear-gradient(180deg,#ffffff,#f9fbfd);
+  border:1px solid #edf1f5;
+}
+
+.seller-top{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.seller-avatar{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#2e7d32,#1b5e20);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:20px;
+  flex:0 0 auto;
+}
+
+.seller-meta strong{
+  display:block;
+  font-size:17px;
+  color:#111827;
+}
+
+.seller-meta span{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.seller-note{
+  background:#f7fafc;
+  border:1px solid #edf2f7;
+  border-radius:16px;
+  padding:14px;
+  color:#44515f;
+  font-size:14px;
+  line-height:1.6;
+}
+
+.details-card,
+.description-card,
+.growth-card{
+  padding:18px;
+  margin-top:18px;
+}
+
+.section-title{
+  margin:0 0 14px;
+  font-size:20px;
+  color:#111827;
+}
+
+.details-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.detail-item{
+  background:#fafbfc;
+  border:1px solid #eef2f5;
+  border-radius:18px;
+  padding:14px;
+}
+
+.detail-item span{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+
+.detail-item strong{
+  color:#111827;
+  font-size:15px;
+  word-break:break-word;
+}
+
+.description-box,
+.growth-box{
+  border-radius:18px;
+  padding:16px;
+  background:#fafbfc;
+  border:1px solid #edf1f5;
+  color:#44515f;
+  line-height:1.7;
+  font-size:15px;
+}
+
+.growth-box{
+  background:linear-gradient(180deg,#fff8ea,#fff5df);
+  border-color:#ffe2a8;
+  color:#5d4c1d;
+}
+
+.growth-box b{
+  color:#3b300f;
+}
+
+/* REVIEWS */
+
+.reviews-section{
+  padding:18px;
+  margin-top:18px;
+}
+
+.reviews-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.review-average-card{
+  min-width:190px;
+  padding:16px 18px;
+  border-radius:22px;
+  background:linear-gradient(180deg,#fffdf7,#fff7e7);
+  border:1px solid #ffe2a8;
+  text-align:center;
+}
+
+.review-average-value{
+  font-size:36px;
+  font-weight:800;
+  color:#111827;
+  line-height:1;
+}
+
+.review-average-stars{
+  margin-top:8px;
+  color:#f59e0b;
+  font-size:20px;
+  letter-spacing:2px;
+  font-weight:800;
+}
+
+.review-average-meta{
+  margin-top:8px;
+  color:#64748b;
+  font-size:13px;
+  font-weight:700;
+}
+
+.review-layout{
+  display:grid;
+  grid-template-columns:minmax(320px,.92fr) minmax(0,1.08fr);
+  gap:18px;
+  margin-top:18px;
+}
+
+.review-form-card,
+.reviews-list-card{
+  background:#fafbfc;
+  border:1px solid #edf1f5;
+  border-radius:22px;
+  padding:18px;
+}
+
+.review-helper{
+  color:#64748b;
+  font-size:14px;
+  line-height:1.6;
+  margin-top:6px;
+}
+
+.review-form-grid{
+  display:grid;
+  gap:14px;
+  margin-top:16px;
+}
+
+.review-label{
+  display:block;
+  font-size:13px;
+  font-weight:800;
+  color:#111827;
+  margin-bottom:6px;
+}
+
+.review-stars-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.review-stars-input{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.review-star-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:#fff7e6;
+  color:#d1d5db;
+  font-size:22px;
+  cursor:pointer;
+  box-shadow:0 8px 18px rgba(15,23,42,.08);
+  transition:transform .2s ease, color .2s ease, background .2s ease;
+}
+
+.review-star-btn:hover{
+  transform:translateY(-1px);
+}
+
+.review-star-btn.active{
+  color:#f59e0b;
+  background:#fff1c9;
+}
+
+.review-selected-rating{
+  font-size:13px;
+  font-weight:800;
+  color:#475569;
+}
+
+.review-textarea{
+  width:100%;
+  min-height:130px;
+  resize:vertical;
+  padding:14px;
+  border-radius:16px;
+  border:1px solid #d7dee7;
+  font:inherit;
+  outline:none;
+  background:#fff;
+}
+
+.review-textarea:focus{
+  border-color:#2e7d32;
+  box-shadow:0 0 0 3px rgba(46,125,50,.10);
+}
+
+.review-submit-btn{
+  width:100%;
+  border:none;
+  border-radius:18px;
+  padding:14px 16px;
+  font-weight:800;
+  font-size:15px;
+  cursor:pointer;
+  background:linear-gradient(135deg,#2e7d32,#1b5e20);
+  color:#fff;
+  box-shadow:0 14px 26px rgba(46,125,50,.24);
+  transition:transform .2s ease, opacity .2s ease;
+}
+
+.review-submit-btn:hover{
+  transform:translateY(-1px);
+}
+
+.review-submit-btn:disabled{
+  opacity:.7;
+  cursor:not-allowed;
+  transform:none;
+}
+
+.review-list-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.review-list-count{
+  color:#64748b;
+  font-size:13px;
+  font-weight:800;
+}
+
+.review-empty{
+  padding:18px;
+  border-radius:18px;
+  background:#fff;
+  border:1px dashed #d9e2ec;
+  color:#64748b;
+  text-align:center;
+  font-weight:700;
+}
+
+.review-list{
+  display:grid;
+  gap:14px;
+}
+
+.review-card{
+  background:#fff;
+  border:1px solid #eef2f6;
+  border-radius:22px;
+  padding:16px;
+  box-shadow:0 10px 22px rgba(15,23,42,.05);
+}
+
+.review-card-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.review-user-name{
+  font-size:16px;
+  font-weight:800;
+  color:#111827;
+}
+
+.review-time{
+  font-size:12px;
+  color:#64748b;
+  white-space:nowrap;
+}
+
+.review-card-stars{
+  margin-top:4px;
+  color:#f59e0b;
+  font-size:16px;
+  letter-spacing:1px;
+  font-weight:800;
+}
+
+.review-card-text{
+  margin-top:10px;
+  color:#475569;
+  line-height:1.7;
+  white-space:pre-wrap;
+  word-break:break-word;
+}
+
+/* MODALS */
+
+.image-modal,
+.sheet-backdrop,
+.popup-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:1800;
+}
+
+.image-modal{
+  background:rgba(0,0,0,.94);
+  display:grid;
+  grid-template-columns:60px minmax(0,1fr) 60px;
+  align-items:center;
+  gap:14px;
+  padding:20px;
+}
+
+.modal-stage{
+  position:relative;
+  min-height:72vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.modal-image-shell{
+  width:100%;
+  height:min(82vh,920px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:24px;
+  overflow:hidden;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+
+.modal-image-shell img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  background:#000;
+}
+
+.modal-top-btn{
+  position:absolute;
+  top:18px;
+  width:46px;
+  height:46px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,.14);
+  color:#fff;
+  font-size:26px;
+  cursor:pointer;
+  z-index:2;
+  backdrop-filter:blur(6px);
+}
+
+.modal-back-btn{left:18px}
+.modal-close-btn{right:18px}
+
+.modal-nav{
+  width:52px;
+  height:52px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,.14);
+  color:#fff;
+  font-size:30px;
+  cursor:pointer;
+  backdrop-filter:blur(6px);
+  box-shadow:0 12px 24px rgba(0,0,0,.16);
+}
+
+.modal-count{
+  position:absolute;
+  bottom:18px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(17,24,39,.72);
+  color:#fff;
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:800;
+  backdrop-filter:blur(8px);
+}
+
+.action-btn:disabled,
+.bar-btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+  transform:none;
+  box-shadow:none;
+}
+
+.sheet-backdrop,
+.popup-backdrop{
+  background:rgba(15,23,42,.46);
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:16px;
+}
+
+.sheet{
+  width:min(560px,100%);
+  background:#fff;
+  border-radius:28px 28px 20px 20px;
+  padding:18px;
+  box-shadow:0 24px 50px rgba(0,0,0,.22);
+}
+
+.sheet-handle{
+  width:60px;
+  height:6px;
+  border-radius:999px;
+  background:#d1d5db;
+  margin:0 auto 16px;
+}
+
+.sheet-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.sheet-header h3{
+  margin:0 0 6px;
+  font-size:22px;
+}
+
+.sheet-header p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+}
+
+.sheet-close{
+  border:none;
+  background:#f3f4f6;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  font-size:24px;
+  cursor:pointer;
+}
+
+.sheet-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:18px;
+}
+
+.sheet-btn{
+  border:none;
+  border-radius:18px;
+  padding:14px 14px;
+  font-weight:700;
+  cursor:pointer;
+  background:#f8fafc;
+  color:#111827;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:56px;
+}
+
+.sheet-btn.whatsapp{background:#eaf9f0;color:#147a40;}
+.sheet-btn.facebook{background:#edf4ff;color:#1655bb;}
+.sheet-btn.native{background:#eef5ff;color:#0f4fa8;}
+.sheet-btn.copy{background:#f3f4f6;color:#111827;}
+.sheet-btn.poster{background:#fff4e8;color:#a85100;}
+.sheet-btn.chat{background:#e9f4ff;color:#0f63d7;}
+
+.sheet-link-preview{
+  margin-top:16px;
+  background:#f8fafc;
+  border:1px solid #eef2f6;
+  border-radius:16px;
+  padding:12px;
+  color:#475569;
+  font-size:13px;
+  word-break:break-all;
+}
+
+.popup-card{
+  width:min(520px,100%);
+  background:#fff;
+  border-radius:26px;
+  box-shadow:0 24px 50px rgba(0,0,0,.22);
+  padding:18px;
+  position:relative;
+  align-self:center;
+}
+
+.popup-back{
+  border:none;
+  background:#f3f4f6;
+  color:#111827;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  font-size:24px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.popup-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.popup-title{
+  margin:0 0 8px;
+  font-size:22px;
+  color:#111827;
+}
+
+.popup-text{
+  margin:0;
+  color:#64748b;
+  line-height:1.7;
+  font-size:15px;
+}
+
+.popup-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:18px;
+}
+
+.popup-inputs{
+  display:grid;
+  gap:12px;
+  margin-top:16px;
+}
+
+.popup-label{
+  display:block;
+  margin-bottom:6px;
+  font-size:13px;
+  color:#111827;
+  font-weight:800;
+}
+
+.popup-input{
+  width:100%;
+  padding:13px 14px;
+  border-radius:14px;
+  border:1px solid #d7dee7;
+  outline:none;
+  font:inherit;
+}
+
+.popup-input:focus{
+  border-color:#2e7d32;
+  box-shadow:0 0 0 3px rgba(46,125,50,.10);
+}
+
+.login-error{
+  margin-top:10px;
+  color:#b91c1c;
+  font-size:13px;
+  font-weight:700;
+}
+
+.secondary-btn{
+  border:none;
+  background:#f3f4f6;
+  color:#111827;
+  border-radius:16px;
+  padding:13px 14px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+/* MOBILE BAR */
+
+.mobile-bar{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:1200;
+  background:rgba(255,255,255,.97);
+  border-top:1px solid #e5e7eb;
+  box-shadow:0 -12px 28px rgba(15,23,42,.08);
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+  display:none;
+  gap:8px;
+}
+
+.mobile-bar .bar-btn{
+  flex:1;
+  border:none;
+  border-radius:16px;
+  padding:13px 8px;
+  font-weight:800;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.bar-call{background:#18b663;color:#fff}
+.bar-chat{background:#1f8fff;color:#fff}
+.bar-order{background:linear-gradient(135deg,#2e7d32,#1b5e20);color:#fff}
+.bar-share{background:#111827;color:#fff}
+.bar-btn.locked{background:#6b7280;color:#fff}
+.bar-btn.disabledish{opacity:.65}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:88px;
+  transform:translateX(-50%) translateY(16px);
+  background:#111827;
+  color:#fff;
+  padding:12px 16px;
+  border-radius:14px;
+  font-size:14px;
+  font-weight:700;
+  z-index:2200;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+  box-shadow:0 18px 38px rgba(0,0,0,.22);
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+@media (max-width:980px){
+  .product-hero{
+    grid-template-columns:1fr;
+  }
+
+  .summary-panel-inner{
+    position:static;
+  }
+
+  .review-layout{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:768px){
+  main{
+    margin:16px auto 132px;
+  }
+
+  .gallery-actions{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .details-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .trust-strip{
+    grid-template-columns:1fr;
+  }
+
+  .mobile-bar{
+    display:flex;
+  }
+
+  .header-inner{
+    padding:10px;
+    min-height:66px;
+  }
+
+  .logo{
+    width:46px;
+    height:46px;
+    border-radius:13px;
+  }
+
+  .brand{
+    max-width:170px;
+  }
+
+  .brand b{font-size:18px}
+  .brand span{font-size:11px}
+
+  .status-pill{
+    padding:10px 12px;
+    font-size:13px;
+    min-height:40px;
+  }
+
+  .icon-circle{
+    width:40px;
+    height:40px;
+  }
+
+  .image-modal{
+    grid-template-columns:46px minmax(0,1fr) 46px;
+    gap:8px;
+    padding:14px;
+  }
+
+  .modal-nav{
+    width:42px;
+    height:42px;
+    font-size:26px;
+  }
+
+  .notification-dropdown{
+    width:min(340px,calc(100vw - 24px));
+  }
+}
+
+@media (max-width:560px){
+  .gallery-slide-image{
+    max-width:min(100%, 320px);
+    border-radius:18px;
+  }
+}
+
+@media (max-width:560px){
+  .gallery-panel,
+  .summary-panel,
+  .details-card,
+  .description-card,
+  .growth-card,
+  .reviews-section{
+    padding:14px;
+  }
+
+  .review-form-card,
+  .reviews-list-card{
+    padding:14px;
+  }
+
+  .title{font-size:28px}
+  .price{font-size:32px}
+
+  .gallery-nav{
+    width:42px;
+    height:42px;
+    font-size:24px;
+  }
+
+  .gallery-thumb{
+    width:72px;
+    height:72px;
+  }
+
+  .action-grid{
+    grid-template-columns:1fr;
+  }
+
+  .order-wide{
+    grid-column:auto;
+  }
+
+  .details-grid{
+    grid-template-columns:1fr;
+  }
+
+  .sheet-grid,
+  .popup-actions{
+    grid-template-columns:1fr;
+  }
+
+  .header-inner{
+    gap:8px;
+    padding:8px 10px;
+  }
+
+  .header-left{gap:8px}
+  .header-right{gap:6px}
+
+  .menu-btn{
+    width:38px;
+    height:38px;
+    font-size:22px;
+  }
+
+  .logo{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+  }
+
+  .brand{
+    max-width:130px;
+  }
+
+  .brand b{
+    font-size:16px;
+  }
+
+  .brand span{
+    display:block;
+    font-size:10px;
+  }
+
+  .status-pill{
+    padding:8px 8px;
+    font-size:10px;
+    gap:5px;
+    min-height:38px;
+  }
+
+  .icon-circle{
+    width:36px;
+    height:36px;
+  }
+
+  .whatsapp-btn img{
+    width:17px;
+    height:17px;
+  }
+
+  .image-modal{
+    grid-template-columns:1fr;
+    gap:10px;
+    align-items:center;
+  }
+
+  .modal-nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:3;
+  }
+
+  .image-modal .modal-nav.prev{left:10px}
+  .image-modal .modal-nav.next{right:10px}
+
+  .notification-dropdown{
+    right:-52px;
+    width:min(320px,calc(100vw - 16px));
+  }
+}
+
+@media (max-width:390px){
+  .brand{
+    max-width:112px;
+  }
+
+  .brand b{
+    font-size:15px;
+  }
+
+  .brand span{
+    display:block;
+    font-size:9px;
+  }
+
+  .status-pill{
+    padding:7px 7px;
+    font-size:9px;
+  }
+
+  .menu-btn,
+  .icon-circle{
+    width:34px;
+    height:34px;
+  }
+
+  .mobile-bar .bar-btn{
+    font-size:12px;
+    padding:12px 6px;
+  }
+
+  .notification-dropdown{
+    right:-84px;
+    width:calc(100vw - 14px);
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="yt-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <button class="menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
+
+      <a class="brand-link" href="index.html">
+        <div class="logo"><img src="logo_1.png" alt="BanaNetwork Logo"></div>
+        <div class="brand">
+          <b>BanaNetwork</b>
+          <span id="brandSubtitle">Direct seller product details</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="header-right">
+      <a class="status-pill" id="loginStatusBtn" href="login.html">
+        <span id="loginStatusIcon">🔑</span>
+        <span id="loginStatusText">Login</span>
+      </a>
+
+      <div class="lang-wrap">
+        <button class="icon-circle lang-btn" id="langToggle" type="button" aria-label="Change language" aria-expanded="false">म</button>
+        <div class="lang-menu" id="langMenu">
+          <button class="lang-option" type="button" data-lang="mr">मराठी</button>
+          <button class="lang-option" type="button" data-lang="hi">हिंदी</button>
+          <button class="lang-option" type="button" data-lang="en">English</button>
+        </div>
+      </div>
+
+      <div class="notification-wrap hidden" id="notificationWrap">
+        <button id="notificationBtn" class="icon-circle notification-btn" type="button" aria-label="Notifications" aria-expanded="false">
+          <span>🔔</span>
+          <span id="notificationCountBell" class="notification-count hidden">0</span>
+        </button>
+        <div id="notificationDropdown" class="notification-dropdown">
+          <div class="notification-head" id="notificationTitle">Notifications</div>
+          <div class="notification-list" id="notificationList">
+            <div class="notification-empty">No notifications</div>
+          </div>
+        </div>
+      </div>
+
+      <a class="icon-circle whatsapp-btn" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </a>
+
+      <a class="icon-circle account-btn" id="accountBtn" href="login.html" title="My Account">👤</a>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<aside class="sidebar-drawer" id="sidebarDrawer">
+  <div class="sidebar-head">
+    <button class="menu-btn" id="drawerClose" aria-label="Close menu">☰</button>
+    <div class="sidebar-brand">
+      <b>BanaNetwork</b>
+      <span id="drawerSubtitle">केळी संबंधित सर्व सेवा</span>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelMain">मुख्य</div>
+    <a class="drawer-link" data-route="home" href="index.html"><span class="drawer-icon">🏠</span><span id="drawerHome">Home</span></a>
+    <a class="drawer-link" data-route="plant-buy" href="buy.html"><span class="drawer-icon">🌱</span><span id="drawerBuy">केळी रोप खरेदी</span></a>
+    <a class="drawer-link" data-route="plant-sell" href="sell.html"><span class="drawer-icon">💰</span><span id="drawerSell">केळी रोप विक्री</span></a>
+    <a class="drawer-link" data-route="khodwa-buy" href="buy.html"><span class="drawer-icon">🌿</span><span id="drawerKhatBuy">केळी खोडवा खरेदी</span></a>
+    <a class="drawer-link" data-route="khodwa-sell" href="sell.html"><span class="drawer-icon">🚜</span><span id="drawerKhatSell">केळी खोडवा विक्री</span></a>
+    <a class="drawer-link" data-route="burhanpur" href="index.html"><span class="drawer-icon">🍌</span><span id="drawerBurhanpur">बुरहानपूर केळी भाव</span></a>
+    <a class="drawer-link" data-route="jalgaon" href="jalgaon.html"><span class="drawer-icon">📍</span><span id="drawerJalgaon">जळगाव केळी भाव</span></a>
+    <a class="drawer-link" data-route="chopda" href="chopda.html"><span class="drawer-icon">📍</span><span id="drawerChopda">चोपडा केळी भाव</span></a>
+    <a class="drawer-link" data-route="raver" href="raver.html"><span class="drawer-icon">📍</span><span id="drawerRaver">रावेर केळी भाव</span></a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelAccount">खाते</div>
+    <a class="drawer-link" data-protected-route="account.html" href="account.html"><span class="drawer-icon">👤</span><span id="drawerAccount">My Account</span></a>
+    <a class="drawer-link" data-protected-route="chat.html" href="chat.html"><span class="drawer-icon">💬</span><span id="drawerChat">My Chat</span></a>
+    <a class="drawer-link" data-protected-route="mylistings.html" href="mylistings.html"><span class="drawer-icon">📜</span><span id="drawerListingHistory">My Listing History</span></a>
+    <a class="drawer-link" data-protected-route="inbox.html" href="inbox.html"><span class="drawer-icon">📥</span><span id="drawerInbox">My Inbox</span></a>
+    <a class="drawer-link" id="drawerSignupLink" href="login.html?mode=signup">
+      <span class="drawer-icon">📝</span>
+      <span id="drawerSignup">Signup</span>
+    </a>
+    <a class="drawer-link" id="drawerAuthLink" href="login.html"><span class="drawer-icon" id="drawerAuthIcon">🔑</span><span id="drawerLoginText">Login</span></a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelInfo">माहिती</div>
+    <a class="drawer-link" href="about.html"><span class="drawer-icon">ℹ️</span><span id="drawerAbout">About Us</span></a>
+    <a class="drawer-link" href="privacy.html"><span class="drawer-icon">🔒</span><span id="drawerPrivacy">Privacy Policy</span></a>
+    <a class="drawer-link" href="terms.html"><span class="drawer-icon">📄</span><span id="drawerTerms">Terms & Conditions</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">📞</span><span id="drawerContact">Contact Us</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">🤝</span><span id="drawerAgentHelp">प्रतिनिधी मदत</span></a>
+    <a class="drawer-link" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer">
+      <span class="drawer-icon whatsapp-drawer-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </span>
+      <span id="drawerWhatsapp">WhatsApp Group</span>
+    </a>
+  </div>
+</aside>
+
+<main>
+  <div class="loading-card card" id="loadingState">
+    <div class="loading-title" id="loadingTitle">प्रॉडक्ट माहिती लोड होत आहे...</div>
+    <p class="loading-text" id="loadingText">थोडा वेळ थांबा. Seller listing, share options आणि calling time logic तयार होत आहेत.</p>
+  </div>
+
+  <div class="not-found-card card hidden" id="notFoundState">
+    <h2 id="notFoundTitle">प्रॉडक्ट सापडला नाही</h2>
+    <p id="notFoundText">ही listing delete झाली असू शकते किंवा link चुकीची असू शकते.</p>
+    <a href="buy.html" id="notFoundBack">मागे जा</a>
+  </div>
+
+  <div class="product-hero hidden" id="productLayout">
+    <section class="gallery-panel card">
+      <div class="hero-gallery" id="heroGallery">
+        <div class="gallery-stage" id="gallerySlides"></div>
+        <button class="gallery-nav prev" id="prevBtn" type="button" aria-label="Previous image">‹</button>
+        <button class="gallery-nav next" id="nextBtn" type="button" aria-label="Next image">›</button>
+        <div class="gallery-count" id="galleryCount">1 / 1</div>
+      </div>
+
+      <div class="gallery-dots" id="galleryDots"></div>
+      <div class="gallery-thumbs" id="galleryThumbs"></div>
+
+      <div class="gallery-actions">
+        <button class="mini-btn native" id="topNativeShareBtn" type="button">📤 Quick Share</button>
+        <button class="mini-btn whatsapp" id="topWhatsappShareBtn" type="button">🟢 WhatsApp</button>
+        <button class="mini-btn facebook" id="topFacebookShareBtn" type="button">📘 Facebook</button>
+        <button class="mini-btn poster" id="topPosterBtn" type="button">🖼 Poster</button>
+      </div>
+    </section>
+
+    <section class="summary-panel card">
+      <div class="summary-panel-inner">
+        <div class="top-meta">
+          <div class="pill-row">
+            <span class="pill green" id="typePill">उत्पादन</span>
+            <span class="pill gray" id="listingPill">Listing</span>
+          </div>
+          <div class="pill-row">
+            <span class="pill orange" id="postedPill">आज</span>
+          </div>
+        </div>
+
+        <h1 class="title" id="productTitle">Product</h1>
+
+        <div class="product-rating-summary" id="productRatingSummary">
+          <span class="product-rating-icon">⭐</span>
+          <span class="product-rating-text" id="productRatingText">No reviews yet</span>
+        </div>
+
+        <div class="price-row">
+          <div class="price" id="productPrice">₹0</div>
+          <div class="location" id="productLocation">Location</div>
+        </div>
+
+        <div class="trust-strip">
+          <div class="trust-box">
+            <strong id="districtTrust">-</strong>
+            <span id="districtTrustLabel">जिल्हा</span>
+          </div>
+          <div class="trust-box">
+            <strong id="contactTrust">Direct</strong>
+            <span id="contactTrustLabel">Seller संपर्क</span>
+          </div>
+          <div class="trust-box">
+            <strong id="timingTrust">Any</strong>
+            <span id="timingTrustLabel">Calling Time</span>
+          </div>
+        </div>
+
+        <div class="action-grid">
+          <button class="action-btn action-call" id="callBtn" type="button">📞 कॉल करा</button>
+          <button class="action-btn action-chat" id="chatBtn" type="button">💬 Chat करा</button>
+          <button class="action-btn action-share" id="shareBtn" type="button">📤 Share करा</button>
+          <button class="action-btn action-poster" id="posterBtn" type="button">🖼 Poster घ्या</button>
+          <button class="action-btn action-order order-wide" id="orderRequestBtn" type="button">🛒 Order Request करा</button>
+        </div>
+
+        <div class="seller-card">
+          <div class="seller-top">
+            <div class="seller-avatar" id="sellerAvatar">B</div>
+            <div class="seller-meta">
+              <strong id="sellerName">BanaNetwork Seller</strong>
+              <span id="sellerSubline">Direct product inquiry available</span>
+            </div>
+          </div>
+
+          <div class="seller-note" id="sellerNote">
+            या product ची link, WhatsApp share, poster download, calling time lock आणि direct seller chat सगळं इथे तयार आहे.
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="details-card card hidden" id="detailsSection">
+    <h2 class="section-title" id="detailsTitle">उत्पादन तपशील</h2>
+    <div class="details-grid" id="detailsGrid"></div>
+  </section>
+
+  <section class="description-card card hidden" id="descriptionSection">
+    <h2 class="section-title" id="descriptionTitle">वर्णन</h2>
+    <div class="description-box" id="descriptionBox"></div>
+  </section>
+
+  <section class="reviews-section card hidden" id="reviewsSection">
+    <div class="reviews-top">
+      <div>
+        <h2 class="section-title" id="reviewsTitle">⭐ Reviews & Ratings</h2>
+      </div>
+
+      <div class="review-average-card">
+        <div class="review-average-value" id="reviewAverageValue">0.0</div>
+        <div class="review-average-stars" id="reviewAverageStars">☆☆☆☆☆</div>
+        <div class="review-average-meta" id="reviewAverageMeta">0 reviews</div>
+      </div>
+    </div>
+
+    <div class="review-layout">
+      <div class="review-form-card">
+        <h3 class="section-title" style="margin-bottom:8px;" id="reviewFormTitle">Write a Review</h3>
+        <div class="review-helper" id="reviewFormHelper">या product बद्दल तुमचा अनुभव लिहा.</div>
+
+        <div class="review-form-grid">
+          <div>
+            <label class="review-label" id="reviewRatingLabel">Rating</label>
+            <div class="review-stars-row">
+              <div class="review-stars-input" id="reviewStarsInput">
+                <button class="review-star-btn" data-rating="1" type="button">★</button>
+                <button class="review-star-btn" data-rating="2" type="button">★</button>
+                <button class="review-star-btn" data-rating="3" type="button">★</button>
+                <button class="review-star-btn" data-rating="4" type="button">★</button>
+                <button class="review-star-btn" data-rating="5" type="button">★</button>
+              </div>
+              <div class="review-selected-rating" id="reviewSelectedRating">0/5</div>
+            </div>
+          </div>
+
+          <div>
+            <label class="review-label" id="reviewTextLabel" for="reviewTextInput">Review</label>
+            <textarea class="review-textarea" id="reviewTextInput" placeholder="तुमचा अनुभव लिहा..."></textarea>
+          </div>
+
+          <button class="review-submit-btn" id="reviewSubmitBtn" type="button">Submit Review</button>
+        </div>
+      </div>
+
+      <div class="reviews-list-card">
+        <div class="review-list-head">
+          <strong id="reviewsListTitle">All Reviews</strong>
+          <span class="review-list-count" id="reviewListCount">0 reviews</span>
+        </div>
+
+        <div class="review-empty" id="reviewsEmpty">No reviews yet</div>
+        <div class="review-list" id="reviewsList"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="mobile-bar hidden" id="mobileBar">
+  <button class="bar-btn bar-call" id="mobileCallBtn" type="button">📞 Call</button>
+  <button class="bar-btn bar-chat" id="mobileChatBtn" type="button">💬 Chat</button>
+  <button class="bar-btn bar-order" id="mobileOrderBtn" type="button">🛒 Order</button>
+  <button class="bar-btn bar-share" id="mobileShareBtn" type="button">📤 Share</button>
+</div>
+
+<div class="image-modal hidden" id="imageModal">
+  <button class="modal-top-btn modal-back-btn" id="imageModalBack" type="button">←</button>
+  <button class="modal-top-btn modal-close-btn" id="closeImageModal" type="button">×</button>
+  <button class="modal-nav prev" id="modalPrevBtn" type="button" aria-label="Previous image">‹</button>
+  <div class="modal-stage" id="imageModalStage">
+    <div class="modal-image-shell">
+      <img id="modalImage" src="" alt="Preview">
+    </div>
+    <div class="modal-count" id="modalImageCount">1 / 1</div>
+  </div>
+  <button class="modal-nav next" id="modalNextBtn" type="button" aria-label="Next image">›</button>
+</div>
+
+<div class="sheet-backdrop hidden" id="shareSheetBackdrop">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+
+    <div class="sheet-header">
+      <div>
+        <h3 id="shareSheetTitle">Share Product</h3>
+        <p id="shareSheetDesc">WhatsApp, Facebook, direct link आणि poster वापरून buyer ला product page वर आणा.</p>
+      </div>
+      <button class="sheet-close" id="closeShareSheet" type="button">×</button>
+    </div>
+
+    <div class="sheet-grid">
+      <button class="sheet-btn native" id="nativeShareBtn" type="button">📤 System Share</button>
+      <button class="sheet-btn whatsapp" id="whatsappShareBtn" type="button">🟢 WhatsApp</button>
+      <button class="sheet-btn facebook" id="facebookShareBtn" type="button">📘 Facebook</button>
+      <button class="sheet-btn copy" id="copyLinkBtn" type="button">🔗 Copy Link</button>
+      <button class="sheet-btn poster" id="posterSheetBtn" type="button">🖼 Poster Download</button>
+      <button class="sheet-btn chat" id="sheetChatBtn" type="button">💬 Chat Seller</button>
+    </div>
+
+    <div class="sheet-link-preview" id="shareUrlPreview"></div>
+  </div>
+</div>
+
+<div class="popup-backdrop hidden" id="callWindowBackdrop">
+  <div class="popup-card">
+    <div class="popup-head">
+      <button class="popup-back" id="closeCallWindow" type="button">←</button>
+      <div style="flex:1;">
+        <h3 class="popup-title" id="callWindowTitle">कॉल सध्या लॉक आहे</h3>
+        <p class="popup-text" id="callWindowMessage">तुम्ही seller ने दिलेल्या वेळेतच call करू शकता.</p>
+      </div>
+    </div>
+
+    <div class="popup-actions">
+      <button class="action-btn action-chat" id="callWindowChatBtn" type="button">💬 Chat करा</button>
+      <button class="secondary-btn" id="callWindowCloseBtn" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="popup-backdrop hidden" id="loginBackdrop">
+  <div class="popup-card">
+    <div class="popup-head">
+      <button class="popup-back" id="closeLoginPopup" type="button">←</button>
+      <div style="flex:1;">
+        <h3 class="popup-title" id="loginPopupTitle">Login Required</h3>
+        <p class="popup-text" id="loginPopupText">Call, chat किंवा order request वापरण्यासाठी आधी login करा.</p>
+      </div>
+    </div>
+
+    <div class="popup-inputs">
+      <div>
+        <label class="popup-label" id="loginEmailLabel" for="loginEmail">Email</label>
+        <input class="popup-input" id="loginEmail" type="email" autocomplete="email" placeholder="Email">
+      </div>
+
+      <div>
+        <label class="popup-label" id="loginPasswordLabel" for="loginPassword">Password</label>
+        <input class="popup-input" id="loginPassword" type="password" autocomplete="current-password" placeholder="Password">
+      </div>
+    </div>
+
+    <div class="login-error hidden" id="loginErrorText"></div>
+
+    <div class="popup-actions">
+      <button class="action-btn action-order" id="loginSubmitBtn" type="button">Login करा</button>
+      <button class="secondary-btn" id="openLoginPageBtn" type="button">Login Page Open करा</button>
+    </div>
+  </div>
+</div>
+
+<canvas id="posterCanvas" width="1080" height="1350" hidden></canvas>
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-app.js";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  getDocs,
+  collection,
+  addDoc,
+  setDoc,
+  onSnapshot,
+  query,
+  where,
+  updateDoc,
+  arrayUnion,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.2.0/firebase-firestore.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.2.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBACccl0d8dMcssyF7Z1ol8vgOxsCJwYmE",
+  authDomain: "bananetwork-f8e1f.firebaseapp.com",
+  projectId: "bananetwork-f8e1f",
+  storageBucket: "bananetwork-f8e1f.firebasestorage.app",
+  messagingSenderId: "382838460721",
+  appId: "1:382838460721:web:f6a4a902786d4a8d5fe010",
+  measurementId: "G-85BR8H32TC"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+const CANONICAL_BASE = "https://bananetwork.in";
+const params = new URLSearchParams(window.location.search);
+const listingId = params.get("id");
+
+const localeMap = { mr:"mr-IN", hi:"hi-IN", en:"en-IN" };
+const LANG_SHORT = { mr:"म", hi:"हि", en:"E" };
+
+const translations = {
+  mr:{
+    page_title:"Product Details | BanaNetwork",
+    meta_description:"BanaNetwork वर तुमच्या product ची all माहिती इथे असेल. फोटो, seller माहिती, calling time, share, chat आणि direct संपर्क एकाच page वर पाहा.",
+    meta_keywords:"banana product details, plant listing, khodwa listing, BanaNetwork product",
+    og_description:"तुमच्या product ची all माहिती इथे असेल | BanaNetwork",
+    brand_subtitle:"थेट seller product माहिती",
+    drawer_subtitle:"केळी संबंधित सर्व सेवा",
+    label_main:"मुख्य",
+    label_account:"खाते",
+    label_info:"माहिती",
+    nav_home:"Home",
+    nav_buy:"केळी रोप खरेदी",
+    nav_sell:"केळी रोप विक्री",
+    nav_khat_buy:"केळी खोडवा खरेदी",
+    nav_khat_sell:"केळी खोडवा विक्री",
+    nav_burhanpur_rates:"बुरहानपूर केळी भाव",
+    nav_jalgaon_rates:"जळगाव केळी भाव",
+    nav_chopda_rates:"चोपडा केळी भाव",
+    nav_raver_rates:"रावेर केळी भाव",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधी मदत",
+    info_whatsapp_group:"WhatsApp Group",
+    status_login:"Login",
+    status_account:"खाते",
+    notification_title:"सूचना",
+    notification_empty:"कोणतीही सूचना नाही",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    notification_today:"आज",
+    notification_earlier:"मागील",
+    call_login_required:"Call करण्यासाठी login करा.",
+    chat_login_required:"Chat करण्यासाठी login करा.",
+    order_login_required:"Order request साठी login करा.",
+    loading_title:"प्रॉडक्ट माहिती लोड होत आहे...",
+    loading_text:"थोडा वेळ थांबा. Seller listing, share options आणि calling time logic तयार होत आहेत.",
+    not_found_title:"प्रॉडक्ट सापडला नाही",
+    not_found_text:"ही listing delete झाली असू शकते किंवा link चुकीची असू शकते.",
+    back_buy:"मागे जा",
+    location_unavailable:"लोकेशन उपलब्ध नाही",
+    district:"जिल्हा",
+    seller_contact:"Seller संपर्क",
+    calling_time:"Calling Time",
+    call_btn:"कॉल करा",
+    chat_btn:"Chat करा",
+    share_btn:"Share करा",
+    poster_btn:"Poster घ्या",
+    order_request_btn:"Order Request करा",
+    self_order_block:"स्वतःच्या product वर order request पाठवू शकत नाही.",
+    quick_share:"Quick Share",
+    whatsapp:"WhatsApp",
+    facebook:"Facebook",
+    poster_short:"Poster",
+    seller_default:"BanaNetwork Seller",
+    seller_note:"या product ची link, WhatsApp share, poster download, calling time lock आणि direct seller chat सगळं इथे तयार आहे.",
+    details_title:"उत्पादन तपशील",
+    mobile_hidden_until:(range)=>`मोबाईल नंबर ${range} दरम्यान दिसेल`,
+    description_title:"वर्णन",
+    share_title:"Share Product",
+    share_desc:"WhatsApp, Facebook, direct link आणि poster वापरून buyer ला product page वर आणा.",
+    system_share:"System Share",
+    copy_link:"Copy Link",
+    poster_download:"Poster Download",
+    chat_seller:"Chat Seller",
+    popup_close:"Close",
+    call_locked_title:"कॉल सध्या लॉक आहे",
+    call_locked_msg:(range)=>`तुम्ही call ${range} च्या दरम्यान करू शकता. आता तुम्ही chat करून seller शी संवाद करू शकता.`,
+    call_locked_short:(range)=>`Call ${range} नंतर`,
+    login_title:"Login Required",
+    login_text:(action)=>`${action} वापरण्यासाठी आधी login करा.`,
+    email:"Email",
+    password:"Password",
+    login_continue:"Login करा",
+    open_login_page:"Login Page Open करा",
+    login_failed:"Login झाला नाही. Email किंवा password तपासा.",
+    login_loading:"Logging in...",
+    seller_info_missing:"Seller माहिती उपलब्ध नाही.",
+    seller_number_missing:"Seller number उपलब्ध नाही.",
+    link_copied:"Product link copy झाला.",
+    notification_call_attempt:"Buyer ने तुमच्या product वर call करण्याचा प्रयत्न केला",
+    link_copy_failed:"Link copy झाला नाही.",
+    poster_done:"Poster download झाला.",
+    any_time:"Any Time",
+    call_available:"Available",
+    chat_only:"Chat Only",
+    posted:"Posted",
+    mobile:"मोबाईल",
+    company:"कंपनी",
+    product_type:"प्रकार",
+    state:"राज्य",
+    taluka:"तालुका",
+    village:"गाव",
+    stock:"Stock Available",
+    listing_id:"Listing ID",
+    all_area:"All Area Available",
+    yes:"हो",
+    no:"नाही",
+    not_mentioned:"नमूद नाही",
+    unlimited_stock:"अमर्यादित",
+    limited_stock:"मर्यादित",
+    rop_sell:"केळी रोप विक्री",
+    khodwa_sell:"केळी खोडवा विक्री",
+    khat_sell:"शेणखत विक्री",
+    listing:"Listing",
+    new_listing:"नवीन listing",
+    need_photo:"No photo",
+    inquiry_line:"Direct product inquiry available",
+    mobile_call:"Call",
+    mobile_chat:"Chat",
+    mobile_share:"Share",
+    mobile_order:"Order",
+    reviews_title:"⭐ Reviews & Ratings",
+    reviews_list_title:"All Reviews",
+    reviews_summary_empty:"No reviews yet",
+    review_count_label:(count)=>`${count} reviews`,
+    review_form_title:"Write a Review",
+    review_form_title_edit:"Edit Review",
+    review_form_helper_guest:"Review submit करण्यासाठी login करा.",
+    review_form_helper_new:"या product बद्दल तुमचा अनुभव लिहा.",
+    review_form_helper_edit:"तुमचा review update करू शकता.",
+    review_rating_label:"Rating",
+    review_selected_rating:(rating)=>`${rating}/5`,
+    review_text_label:"Review",
+    review_text_placeholder:"तुमचा अनुभव लिहा...",
+    review_submit:"Submit Review",
+    review_edit_button:"Edit Review",
+    review_saving:"Saving...",
+    review_saved:"Review submitted.",
+    review_updated:"Review updated.",
+    review_save_failed:"Review save झाला नाही. पुन्हा प्रयत्न करा.",
+    review_validation_rating:"कृपया rating निवडा.",
+    review_validation_text:"कृपया review लिहा.",
+    review_action:"review"
+  },
+  hi:{
+    page_title:"Product Details | BanaNetwork",
+    meta_description:"BanaNetwork पर आपके product की पूरी जानकारी यहां मिलेगी. फोटो, seller जानकारी, calling time, share, chat और direct संपर्क एक ही page पर देखें.",
+    meta_keywords:"banana product details, plant listing, khodwa listing, BanaNetwork product",
+    og_description:"आपके product की पूरी जानकारी यहां मिलेगी | BanaNetwork",
+    brand_subtitle:"Direct seller product details",
+    drawer_subtitle:"केले से जुड़ी सभी सेवाएं",
+    notification_call_attempt:"Buyer ने आपके product पर call करने की कोशिश की",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"केला रोप खरीद",
+    nav_sell:"केला रोप बिक्री",
+    nav_khat_buy:"केला खोडवा खरीद",
+    nav_khat_sell:"केला खोडवा बिक्री",
+    nav_burhanpur_rates:"बुरहानपुर केला भाव",
+    nav_jalgaon_rates:"जलगांव केला भाव",
+    nav_chopda_rates:"चोपडा केला भाव",
+    nav_raver_rates:"रावेर केला भाव",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधि सहायता",
+    info_whatsapp_group:"WhatsApp Group",
+    status_login:"Login",
+    status_account:"खाता",
+    notification_title:"Notifications",
+    notification_empty:"No notifications",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    notification_today:"Today",
+    notification_earlier:"Earlier",
+    loading_title:"Product जानकारी load हो रही है...",
+    loading_text:"थोड़ा इंतजार करें. Seller listing, share options और calling time logic तैयार हो रहे हैं.",
+    not_found_title:"Product नहीं मिला",
+    not_found_text:"यह listing delete हो चुकी हो सकती है या link गलत हो सकता है.",
+    back_buy:"वापस जाएं",
+    location_unavailable:"Location उपलब्ध नहीं",
+    call_login_required:"Call करने के लिए login करें.",
+    chat_login_required:"Chat करने के लिए login करें.",
+    order_login_required:"Order request के लिए login करें.",
+    district:"जिला",
+    seller_contact:"Seller संपर्क",
+    calling_time:"Calling Time",
+    call_btn:"Call करें",
+    chat_btn:"Chat करें",
+    share_btn:"Share करें",
+    poster_btn:"Poster लें",
+    order_request_btn:"Order Request करें",
+    self_order_block:"अपने ही product पर order request नहीं भेज सकते.",
+    quick_share:"Quick Share",
+    whatsapp:"WhatsApp",
+    facebook:"Facebook",
+    poster_short:"Poster",
+    seller_default:"BanaNetwork Seller",
+    seller_note:"इस product का link, WhatsApp share, poster download, calling time lock और direct seller chat सब यहां तैयार है.",
+    details_title:"Product Details",
+    mobile_hidden_until:(range)=>`मोबाइल नंबर ${range} के दौरान दिखेगा`,
+    description_title:"विवरण",
+    share_title:"Share Product",
+    share_desc:"WhatsApp, Facebook, direct link और poster से buyer को product page पर लाएं.",
+    system_share:"System Share",
+    copy_link:"Copy Link",
+    poster_download:"Poster Download",
+    chat_seller:"Chat Seller",
+    popup_close:"Close",
+    call_locked_title:"Call अभी lock है",
+    call_locked_msg:(range)=>`आप ${range} के दौरान ही call कर सकते हैं. अभी आप chat करके seller से बात कर सकते हैं.`,
+    call_locked_short:(range)=>`Call ${range} के बाद`,
+    login_title:"Login Required",
+    login_text:(action)=>`${action} use करने के लिए पहले login करें.`,
+    email:"Email",
+    password:"Password",
+    login_continue:"Login करें",
+    open_login_page:"Login Page खोलें",
+    login_failed:"Login नहीं हुआ. Email या password जांचें.",
+    login_loading:"Logging in...",
+    seller_info_missing:"Seller जानकारी उपलब्ध नहीं है.",
+    seller_number_missing:"Seller number उपलब्ध नहीं है.",
+    link_copied:"Product link copy हो गया.",
+    link_copy_failed:"Link copy नहीं हुआ.",
+    poster_done:"Poster download हो गया.",
+    any_time:"Any Time",
+    call_available:"Available",
+    chat_only:"Chat Only",
+    posted:"Posted",
+    mobile:"मोबाइल",
+    company:"कंपनी",
+    product_type:"प्रकार",
+    state:"राज्य",
+    taluka:"तालुका",
+    village:"गांव",
+    stock:"Stock Available",
+    listing_id:"Listing ID",
+    all_area:"All Area Available",
+    yes:"हाँ",
+    no:"नहीं",
+    not_mentioned:"उल्लेख नहीं",
+    unlimited_stock:"असीमित",
+    limited_stock:"सीमित",
+    rop_sell:"केला रोप बिक्री",
+    khodwa_sell:"केला खोडवा बिक्री",
+    khat_sell:"गोबर खाद बिक्री",
+    listing:"Listing",
+    new_listing:"नई listing",
+    need_photo:"No photo",
+    inquiry_line:"Direct product inquiry available",
+    mobile_call:"Call",
+    mobile_chat:"Chat",
+    mobile_share:"Share",
+    mobile_order:"Order",
+    reviews_title:"⭐ Reviews & Ratings",
+    order_login_required:"Please log in to send an order request.",
+    reviews_list_title:"All Reviews",
+    reviews_summary_empty:"No reviews yet",
+    review_count_label:(count)=>`${count} reviews`,
+    review_form_title:"Write a Review",
+    review_form_title_edit:"Edit Review",
+    review_form_helper_guest:"Review submit करने के लिए login करें.",
+    review_form_helper_new:"इस product के बारे में अपना अनुभव लिखें.",
+    review_form_helper_edit:"आप अपना review update कर सकते हैं.",
+    review_rating_label:"Rating",
+    review_selected_rating:(rating)=>`${rating}/5`,
+    review_text_label:"Review",
+    review_text_placeholder:"अपना अनुभव लिखें...",
+    review_submit:"Submit Review",
+    review_edit_button:"Edit Review",
+    review_saving:"Saving...",
+    review_saved:"Review submitted.",
+    review_updated:"Review updated.",
+    review_save_failed:"Review save नहीं हुआ. फिर से कोशिश करें.",
+    review_validation_rating:"कृपया rating चुनें.",
+    review_validation_text:"कृपया review लिखें.",
+    review_action:"review"
+  },
+  en:{
+    page_title:"Product Details | BanaNetwork",
+    meta_description:"See all product details on BanaNetwork in one place with photos, seller info, calling time, share tools, chat, and direct contact.",
+    meta_keywords:"banana product details, plant listing, khodwa listing, BanaNetwork product",
+    og_description:"All product details in one place | BanaNetwork",
+    brand_subtitle:"Direct seller product details",
+    drawer_subtitle:"All Banana Related Services",
+    label_main:"Main",
+    label_account:"Account",
+    notification_call_attempt:"Buyer tried to call on your product",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"Banana Plant Buy",
+    nav_sell:"Banana Plant Sell",
+    nav_khat_buy:"Banana Khodwa Buy",
+    nav_khat_sell:"Banana Khodwa Sell",
+    nav_burhanpur_rates:"Burhanpur Banana Rate",
+    nav_jalgaon_rates:"Jalgaon Banana Rate",
+    nav_chopda_rates:"Chopda Banana Rate",
+    nav_raver_rates:"Raver Banana Rate",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    info_contact:"Contact Us",
+    info_agent_help:"Agent Help",
+    info_whatsapp_group:"WhatsApp Group",
+    status_login:"Login",
+    status_account:"Account",
+    notification_title:"Notifications",
+    notification_empty:"No notifications",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    notification_today:"Today",
+    notification_earlier:"Earlier",
+    loading_title:"Loading product details...",
+    loading_text:"Please wait. Seller listing, share options, and calling-time logic are being prepared.",
+    not_found_title:"Product not found",
+    not_found_text:"This listing may have been deleted or the link may be incorrect.",
+    back_buy:"Go Back",
+    location_unavailable:"Location not available",
+    district:"District",
+    seller_contact:"Seller Contact",
+    calling_time:"Calling Time",
+    call_btn:"Call Now",
+    chat_btn:"Chat Now",
+    share_btn:"Share",
+    poster_btn:"Get Poster",
+    order_request_btn:"Order Request",
+    self_order_block:"You cannot send an order request on your own product.",
+    quick_share:"Quick Share",
+    whatsapp:"WhatsApp",
+    facebook:"Facebook",
+    poster_short:"Poster",
+    seller_default:"BanaNetwork Seller",
+    seller_note:"This product page already includes the link, WhatsApp share, poster download, calling-time lock, and direct seller chat.",
+    details_title:"Product Details",
+    mobile_hidden_until:(range)=>`Mobile number will be visible during ${range}`,
+    description_title:"Description",
+    share_title:"Share Product",
+    share_desc:"Use WhatsApp, Facebook, direct link, and poster to bring buyers to this product page.",
+    system_share:"System Share",
+    copy_link:"Copy Link",
+    poster_download:"Poster Download",
+    chat_seller:"Chat Seller",
+    popup_close:"Close",
+    call_locked_title:"Call is currently locked",
+    call_locked_msg:(range)=>`You can call only during ${range}. Right now you can chat with the seller.`,
+    call_locked_short:(range)=>`Call after ${range}`,
+    login_title:"Login Required",
+    login_text:(action)=>`Please log in first to use ${action}.`,
+    email:"Email",
+    password:"Password",
+    login_continue:"Log In",
+    open_login_page:"Open Login Page",
+    login_failed:"Login failed. Please check your email or password.",
+    login_loading:"Logging in...",
+    seller_info_missing:"Seller information is not available.",
+    seller_number_missing:"Seller number is not available.",
+    link_copied:"Product link copied.",
+    link_copy_failed:"Link could not be copied.",
+    poster_done:"Poster downloaded.",
+    call_login_required:"Please log in to call.",
+    chat_login_required:"Please log in to chat.",
+    order_login_required:"Please log in to send an order request.",
+    any_time:"Any Time",
+    call_available:"Available",
+    chat_only:"Chat Only",
+    posted:"Posted",
+    mobile:"Mobile",
+    company:"Company",
+    product_type:"Type",
+    state:"State",
+    taluka:"Taluka",
+    village:"Village",
+    stock:"Stock Available",
+    listing_id:"Listing ID",
+    all_area:"All Area Available",
+    yes:"Yes",
+    no:"No",
+    not_mentioned:"Not mentioned",
+    unlimited_stock:"Unlimited",
+    limited_stock:"Limited",
+    rop_sell:"Banana Plant Sell",
+    khodwa_sell:"Banana Khodwa Sell",
+    khat_sell:"Manure Sell",
+    listing:"Listing",
+    new_listing:"New listing",
+    need_photo:"No photo",
+    inquiry_line:"Direct product inquiry available",
+    mobile_call:"Call",
+    mobile_chat:"Chat",
+    mobile_share:"Share",
+    mobile_order:"Order",
+    reviews_title:"⭐ Reviews & Ratings",
+    reviews_list_title:"All Reviews",
+    reviews_summary_empty:"No reviews yet",
+    review_count_label:(count)=>`${count} reviews`,
+    review_form_title:"Write a Review",
+    review_form_title_edit:"Edit Review",
+    review_form_helper_guest:"Log in to submit a review.",
+    review_form_helper_new:"Share your experience about this product.",
+    review_form_helper_edit:"You can update your review.",
+    review_rating_label:"Rating",
+    review_selected_rating:(rating)=>`${rating}/5`,
+    review_text_label:"Review",
+    review_text_placeholder:"Write your experience...",
+    review_submit:"Submit Review",
+    review_edit_button:"Edit Review",
+    review_saving:"Saving...",
+    review_saved:"Review submitted.",
+    review_updated:"Review updated.",
+    review_save_failed:"Review could not be saved. Please try again.",
+    review_validation_rating:"Please choose a rating.",
+    review_validation_text:"Please write a review.",
+    review_action:"review"
+  }
+};
+
+let currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+let currentUser = null;
+let rawProductData = null;
+let product = null;
+let sellerId = "";
+let shareUrl = "";
+let slideImages = [];
+let currentSlideIndex = 0;
+let autoSlider = null;
+let touchStartX = 0;
+let modalTouchStartX = 0;
+let drawerOpen = false;
+let pendingAction = null;
+let notificationUnsubscribe = null;
+let notificationsCache = [];
+
+let reviewsUnsubscribe = null;
+let reviewsCache = [];
+let currentUserReview = null;
+let selectedReviewRating = 0;
+let reviewFormDirty = false;
+let reviewSubmitting = false;
+
+const menuToggle = document.getElementById("menuToggle");
+const drawerClose = document.getElementById("drawerClose");
+const sidebarDrawer = document.getElementById("sidebarDrawer");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+const langToggle = document.getElementById("langToggle");
+const langMenu = document.getElementById("langMenu");
+const langOptions = [...document.querySelectorAll(".lang-option")];
+
+const loginStatusBtn = document.getElementById("loginStatusBtn");
+const loginStatusIcon = document.getElementById("loginStatusIcon");
+const loginStatusText = document.getElementById("loginStatusText");
+const accountBtn = document.getElementById("accountBtn");
+const drawerAuthLink = document.getElementById("drawerAuthLink");
+const drawerAuthIcon = document.getElementById("drawerAuthIcon");
+const drawerLoginText = document.getElementById("drawerLoginText");
+
+const notificationWrap = document.getElementById("notificationWrap");
+const notificationBtn = document.getElementById("notificationBtn");
+const notificationCountBell = document.getElementById("notificationCountBell");
+const notificationDropdown = document.getElementById("notificationDropdown");
+const notificationTitle = document.getElementById("notificationTitle");
+const notificationList = document.getElementById("notificationList");
+
+const loadingState = document.getElementById("loadingState");
+const notFoundState = document.getElementById("notFoundState");
+const productLayout = document.getElementById("productLayout");
+const detailsSection = document.getElementById("detailsSection");
+const descriptionSection = document.getElementById("descriptionSection");
+const reviewsSection = document.getElementById("reviewsSection");
+const mobileBar = document.getElementById("mobileBar");
+
+const gallerySlides = document.getElementById("gallerySlides");
+const galleryDots = document.getElementById("galleryDots");
+const galleryThumbs = document.getElementById("galleryThumbs");
+const galleryCount = document.getElementById("galleryCount");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const heroGallery = document.getElementById("heroGallery");
+
+const typePill = document.getElementById("typePill");
+const listingPill = document.getElementById("listingPill");
+const postedPill = document.getElementById("postedPill");
+const productTitle = document.getElementById("productTitle");
+const productRatingText = document.getElementById("productRatingText");
+const productPrice = document.getElementById("productPrice");
+const productLocation = document.getElementById("productLocation");
+const districtTrust = document.getElementById("districtTrust");
+const contactTrust = document.getElementById("contactTrust");
+const timingTrust = document.getElementById("timingTrust");
+const sellerAvatar = document.getElementById("sellerAvatar");
+const sellerName = document.getElementById("sellerName");
+const sellerSubline = document.getElementById("sellerSubline");
+const sellerNote = document.getElementById("sellerNote");
+const detailsGrid = document.getElementById("detailsGrid");
+const descriptionBox = document.getElementById("descriptionBox");
+
+const callBtn = document.getElementById("callBtn");
+const chatBtn = document.getElementById("chatBtn");
+const shareBtn = document.getElementById("shareBtn");
+const posterBtn = document.getElementById("posterBtn");
+const orderRequestBtn = document.getElementById("orderRequestBtn");
+
+const topNativeShareBtn = document.getElementById("topNativeShareBtn");
+const topWhatsappShareBtn = document.getElementById("topWhatsappShareBtn");
+const topFacebookShareBtn = document.getElementById("topFacebookShareBtn");
+const topPosterBtn = document.getElementById("topPosterBtn");
+
+const mobileCallBtn = document.getElementById("mobileCallBtn");
+const mobileChatBtn = document.getElementById("mobileChatBtn");
+const mobileOrderBtn = document.getElementById("mobileOrderBtn");
+const mobileShareBtn = document.getElementById("mobileShareBtn");
+
+const imageModal = document.getElementById("imageModal");
+const imageModalBack = document.getElementById("imageModalBack");
+const modalImage = document.getElementById("modalImage");
+const modalImageCount = document.getElementById("modalImageCount");
+const closeImageModal = document.getElementById("closeImageModal");
+const modalPrevBtn = document.getElementById("modalPrevBtn");
+const modalNextBtn = document.getElementById("modalNextBtn");
+const imageModalStage = document.getElementById("imageModalStage");
+
+const shareSheetBackdrop = document.getElementById("shareSheetBackdrop");
+const closeShareSheet = document.getElementById("closeShareSheet");
+const nativeShareBtn = document.getElementById("nativeShareBtn");
+const whatsappShareBtn = document.getElementById("whatsappShareBtn");
+const facebookShareBtn = document.getElementById("facebookShareBtn");
+const copyLinkBtn = document.getElementById("copyLinkBtn");
+const posterSheetBtn = document.getElementById("posterSheetBtn");
+const sheetChatBtn = document.getElementById("sheetChatBtn");
+const shareUrlPreview = document.getElementById("shareUrlPreview");
+
+const callWindowBackdrop = document.getElementById("callWindowBackdrop");
+const closeCallWindow = document.getElementById("closeCallWindow");
+const callWindowCloseBtn = document.getElementById("callWindowCloseBtn");
+const callWindowTitle = document.getElementById("callWindowTitle");
+const callWindowMessage = document.getElementById("callWindowMessage");
+const callWindowChatBtn = document.getElementById("callWindowChatBtn");
+
+const loginBackdrop = document.getElementById("loginBackdrop");
+const closeLoginPopup = document.getElementById("closeLoginPopup");
+const loginPopupTitle = document.getElementById("loginPopupTitle");
+const loginPopupText = document.getElementById("loginPopupText");
+const loginEmailLabel = document.getElementById("loginEmailLabel");
+const loginPasswordLabel = document.getElementById("loginPasswordLabel");
+const loginEmail = document.getElementById("loginEmail");
+const loginPassword = document.getElementById("loginPassword");
+const loginErrorText = document.getElementById("loginErrorText");
+const loginSubmitBtn = document.getElementById("loginSubmitBtn");
+const openLoginPageBtn = document.getElementById("openLoginPageBtn");
+
+const reviewsTitle = document.getElementById("reviewsTitle");
+const reviewAverageValue = document.getElementById("reviewAverageValue");
+const reviewAverageStars = document.getElementById("reviewAverageStars");
+const reviewAverageMeta = document.getElementById("reviewAverageMeta");
+const reviewFormTitle = document.getElementById("reviewFormTitle");
+const reviewFormHelper = document.getElementById("reviewFormHelper");
+const reviewRatingLabel = document.getElementById("reviewRatingLabel");
+const reviewStarsInput = document.getElementById("reviewStarsInput");
+const reviewSelectedRating = document.getElementById("reviewSelectedRating");
+const reviewTextLabel = document.getElementById("reviewTextLabel");
+const reviewTextInput = document.getElementById("reviewTextInput");
+const reviewSubmitBtn = document.getElementById("reviewSubmitBtn");
+const reviewsListTitle = document.getElementById("reviewsListTitle");
+const reviewListCount = document.getElementById("reviewListCount");
+const reviewsEmpty = document.getElementById("reviewsEmpty");
+const reviewsList = document.getElementById("reviewsList");
+
+const toast = document.getElementById("toast");
+
+function tr(key, ...args){
+  const value = translations[currentLanguage]?.[key] ?? translations.mr[key] ?? key;
+  return typeof value === "function" ? value(...args) : value;
+}
+
+function escapeHtml(value){
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function syncBodyLock(){
+  const anyOpen =
+    drawerOpen ||
+    !imageModal.classList.contains("hidden") ||
+    !shareSheetBackdrop.classList.contains("hidden") ||
+    !callWindowBackdrop.classList.contains("hidden") ||
+    !loginBackdrop.classList.contains("hidden") ||
+    notificationDropdown.classList.contains("open");
+
+  document.body.style.overflow = anyOpen ? "hidden" : "";
+}
+
+function showToast(message){
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(()=>toast.classList.remove("show"), 2200);
+}
+
+function formatPrice(value){
+  return Number(value || 0).toLocaleString("en-IN");
+}
+
+function formatDate(value){
+  try{
+    if(!value) return tr("new_listing");
+    const locale = localeMap[currentLanguage] || "en-IN";
+    if(typeof value.toDate === "function"){
+      return value.toDate().toLocaleDateString(locale);
+    }
+    if(value.seconds){
+      return new Date(value.seconds * 1000).toLocaleDateString(locale);
+    }
+    return new Date(value).toLocaleDateString(locale);
+  }catch(error){
+    return tr("new_listing");
+  }
+}
+
+function formatDateTime(value){
+  if(!value) return "Now";
+  try{
+    let date;
+    if(typeof value.toDate === "function"){
+      date = value.toDate();
+    }else if(value.seconds){
+      date = new Date(value.seconds * 1000);
+    }else{
+      date = new Date(value);
+    }
+
+    if(!date || isNaN(date.getTime())) return "Now";
+
+    const now = Date.now();
+    const diff = now - date.getTime();
+    const sec = Math.floor(diff / 1000);
+    const min = Math.floor(sec / 60);
+    const hr = Math.floor(min / 60);
+    const day = Math.floor(hr / 24);
+
+    if(sec < 60) return "Just now";
+    if(min < 60) return `${min}m ago`;
+    if(hr < 24) return `${hr}h ago`;
+    if(day === 1) return "Yesterday";
+    if(day < 7) return `${day}d ago`;
+
+    return date.toLocaleDateString("en-IN");
+  }catch(error){
+    return "Now";
+  }
+}
+
+function getTimestampValue(value){
+  if(!value) return 0;
+  try{
+    if(typeof value.toDate === "function") return value.toDate().getTime();
+    if(value.seconds) return value.seconds * 1000;
+    const date = new Date(value);
+    return isNaN(date.getTime()) ? 0 : date.getTime();
+  }catch(error){
+    return 0;
+  }
+}
+
+function getField(data, keys, fallback = ""){
+  for(const key of keys){
+    if(data[key] !== undefined && data[key] !== null && data[key] !== ""){
+      return data[key];
+    }
+  }
+  return fallback;
+}
+
+function normalizePhone(phone){
+  const digits = String(phone || "").replace(/\D/g, "");
+  if(!digits) return "";
+  if(digits.length === 10) return `91${digits}`;
+  if(digits.length === 12 && digits.startsWith("91")) return digits;
+  return digits;
+}
+
+function getSellerInitials(name){
+  const clean = String(name || "B").trim().split(" ").filter(Boolean);
+  return clean.slice(0,2).map(part=>part[0]).join("").toUpperCase() || "B";
+}
+
+function detailItem(label, value){
+  return `
+    <div class="detail-item">
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(value || "-")}</strong>
+    </div>
+  `;
+}
+
+function inferAllAreaAvailable(data){
+  const boolCandidates = [
+    data.allAreaAvailable,
+    data.isAllAreaAvailable,
+    data.availableEverywhere,
+    data.allArea,
+    data.allIndiaAvailable,
+    data.panAreaAvailable
+  ];
+
+  if(boolCandidates.some(value => value === true || ["true","yes","all"].includes(String(value || "").toLowerCase()))){
+    return true;
+  }
+
+  const raw = [
+    data.availableArea,
+    data.areaType,
+    data.areaAvailability,
+    data.locationScope,
+    data.serviceArea,
+    data.deliveryArea,
+    data.areaOption
+  ].map(value => String(value || "").toLowerCase()).join(" ");
+
+  return raw.includes("all area") || raw.includes("everywhere") || raw.includes("सर्व") || raw.includes("पूर्ण");
+}
+
+function extractImageList(data){
+  const list = [];
+
+  ["images","imageUrls","photos","gallery","media"].forEach(key=>{
+    if(Array.isArray(data[key])) list.push(...data[key]);
+  });
+
+  ["image","imageUrl","photo","photoUrl","img","imgUrl","image1","image2","image3","image4","image5","photo1","photo2","photo3","photo4","photo5"].forEach(key=>{
+    if(data[key]) list.push(data[key]);
+  });
+
+  const filtered = [...new Set(list.filter(Boolean).map(item => String(item).trim()).filter(Boolean))];
+  return filtered.length ? filtered : ["ropphoto.jpeg"];
+}
+
+function getListingLabel(data){
+  const mode = String(getField(data, ["listingMode","mode"], "")).toLowerCase();
+  if(mode === "rop_sell") return tr("rop_sell");
+  if(mode === "khodwa_sell") return tr("khodwa_sell");
+  if(mode === "khat_sell") return tr("khat_sell");
+
+  const itemType = String(getField(data, ["itemType","category","type","productType"], "")).toLowerCase();
+  if(itemType.includes("khodwa") || itemType.includes("खोडवा")) return tr("khodwa_sell");
+  if(itemType.includes("khat") || itemType.includes("खत")) return tr("khat_sell");
+  return tr("rop_sell");
+}
+
+function extractTimeTokens(raw){
+  const text = String(raw || "").toUpperCase().replace(/\s+/g, " ");
+  const matches = text.match(/\d{1,2}(?::\d{2})?\s*(AM|PM)/g) || [];
+  return matches.slice(0,2).map(token => token.replace(/\s+/g, ""));
+}
+
+function timeTokenToMinutes(token){
+  const match = String(token || "").match(/^(\d{1,2})(?::(\d{2}))?(AM|PM)$/i);
+  if(!match) return null;
+  let hour = Number(match[1]) % 12;
+  const minute = Number(match[2] || 0);
+  const meridiem = match[3].toUpperCase();
+  if(meridiem === "PM") hour += 12;
+  return hour * 60 + minute;
+}
+
+function parseCallingWindow(raw){
+  const tokens = extractTimeTokens(raw);
+  if(tokens.length < 2) return null;
+  const start = timeTokenToMinutes(tokens[0]);
+  const end = timeTokenToMinutes(tokens[1]);
+  if(start === null || end === null) return null;
+  return { start, end, startLabel:tokens[0], endLabel:tokens[1] };
+}
+
+function getCallingRangeLabel(raw){
+  const parsed = parseCallingWindow(raw);
+  if(!parsed) return raw || tr("any_time");
+  const joiner = currentLanguage === "en" ? " to " : " ते ";
+  return `${parsed.startLabel}${joiner}${parsed.endLabel}`;
+}
+
+function isWithinCallingTime(raw, now = new Date()){
+  const parsed = parseCallingWindow(raw);
+  if(!parsed) return true;
+
+  const minutesNow = now.getHours() * 60 + now.getMinutes();
+  if(parsed.start <= parsed.end){
+    return minutesNow >= parsed.start && minutesNow <= parsed.end;
+  }
+  return minutesNow >= parsed.start || minutesNow <= parsed.end;
+}
+
+function isPhoneVisibleNow(phone, callingTime){
+  if(!phone) return false;
+  if(!callingTime) return true;
+  return isWithinCallingTime(callingTime);
+}
+
+function getPhoneDisplay(phone, callingTime){
+  if(!phone) return "-";
+  if(isPhoneVisibleNow(phone, callingTime)) return phone;
+  return tr("mobile_hidden_until", getCallingRangeLabel(callingTime));
+}
+
+function refreshPhoneVisibilityUI(){
+  if(!product) return;
+
+  sellerSubline.innerHTML = product.phonesData?.length
+    ? product.phonesData.map(phoneObj => {
+        const visible = phoneObj.time === "Any Time" || isWithinCallingTime(phoneObj.time);
+        const displayPhone = visible
+          ? phoneObj.number
+          : tr("mobile_hidden_until", getCallingRangeLabel(phoneObj.time));
+
+        return `📞 ${escapeHtml(displayPhone)} | ⏰ ${escapeHtml(phoneObj.time || "Any Time")}`;
+      }).join("<br>")
+    : tr("inquiry_line");
+
+  contactTrust.textContent = product.phone
+    ? (isPhoneVisibleNow(product.phone, product.callingTime) ? tr("call_available") : tr("chat_only"))
+    : tr("chat_only");
+}
+
+function isUserLoggedIn(){
+  return !!(currentUser || localStorage.getItem("userId"));
+}
+
+function isOwnProduct(){
+  const uid = currentUser?.uid || localStorage.getItem("userId") || "";
+  return !!(uid && sellerId && uid === sellerId);
+}
+
+function updateOrderButtonsState(){
+  const own = isOwnProduct();
+
+  [orderRequestBtn, mobileOrderBtn].forEach(btn=>{
+    btn.disabled = own;
+    btn.title = own ? tr("self_order_block") : "";
+  });
+}
+
+function preserveLanguageAndClearStorage(){
+  const savedLanguage = localStorage.getItem("siteLanguage") || currentLanguage || "mr";
+  localStorage.clear();
+  localStorage.setItem("siteLanguage", savedLanguage);
+}
+
+function protectRouteUrl(url){
+  if(!isUserLoggedIn()){
+    window.location.href = `login.html?redirect=${encodeURIComponent(window.location.href)}`;
+    return;
+  }
+  window.location.href = url;
+}
+
+async function logoutUser(){
+  try{
+    await signOut(auth);
+  }catch(error){}
+
+  preserveLanguageAndClearStorage();
+  window.location.href = "index.html";
+}
+
+function setDrawer(show){
+  drawerOpen = show;
+  sidebarDrawer.classList.toggle("open", show);
+  sidebarOverlay.classList.toggle("open", show);
+  syncBodyLock();
+}
+
+function openLangMenu(){
+  langMenu.classList.add("open");
+  langToggle.setAttribute("aria-expanded", "true");
+}
+
+function closeLangMenu(){
+  langMenu.classList.remove("open");
+  langToggle.setAttribute("aria-expanded", "false");
+}
+
+function openNotificationDropdown(){
+  if(notificationWrap.classList.contains("hidden")) return;
+  notificationDropdown.classList.add("open");
+  notificationBtn.setAttribute("aria-expanded", "true");
+  syncBodyLock();
+}
+
+function closeNotificationDropdown(){
+  notificationDropdown.classList.remove("open");
+  notificationBtn.setAttribute("aria-expanded", "false");
+  syncBodyLock();
+}
+
+function toggleNotificationDropdown(){
+  if(notificationDropdown.classList.contains("open")){
+    closeNotificationDropdown();
+  }else{
+    openNotificationDropdown();
+  }
+}
+
+function setActiveDrawerRoute(route){
+  document.querySelectorAll(".drawer-link[data-route]").forEach(link=>{
+    link.classList.toggle("active", link.dataset.route === route);
+  });
+}
+
+function updateHeaderAuthState(){
+  const userName = currentUser?.displayName || localStorage.getItem("userName") || "";
+  const isLoggedIn = isUserLoggedIn();
+
+  if(isLoggedIn){
+    loginStatusBtn.href = "account.html";
+    loginStatusIcon.textContent = "👤";
+    loginStatusText.textContent = tr("status_account");
+    accountBtn.href = "account.html";
+    accountBtn.textContent = userName.trim().charAt(0).toUpperCase() || "U";
+
+    drawerAuthLink.href = "index.html";
+    drawerAuthLink.onclick = async function(event){
+      event.preventDefault();
+      await logoutUser();
+    };
+    drawerAuthIcon.textContent = "🚪";
+    drawerLoginText.textContent = tr("nav_logout");
+
+    notificationWrap.classList.remove("hidden");
+  }else{
+    loginStatusBtn.href = "login.html";
+    loginStatusIcon.textContent = "🔑";
+    loginStatusText.textContent = tr("status_login");
+    accountBtn.href = "login.html";
+    accountBtn.textContent = "👤";
+
+    drawerAuthLink.href = "login.html";
+    drawerAuthLink.onclick = null;
+    drawerAuthIcon.textContent = "🔑";
+    drawerLoginText.textContent = tr("nav_login");
+
+    notificationWrap.classList.add("hidden");
+    notificationCountBell.textContent = "0";
+    notificationCountBell.classList.add("hidden");
+    closeNotificationDropdown();
+  }
+}
+
+function setLoadingState(found){
+  loadingState.classList.toggle("hidden", found);
+  productLayout.classList.toggle("hidden", !found);
+  detailsSection.classList.toggle("hidden", !found);
+  descriptionSection.classList.toggle("hidden", !found);
+  reviewsSection.classList.toggle("hidden", !found);
+  mobileBar.classList.toggle("hidden", !found);
+}
+
+function showNotFound(){
+  loadingState.classList.add("hidden");
+  productLayout.classList.add("hidden");
+  detailsSection.classList.add("hidden");
+  descriptionSection.classList.add("hidden");
+  reviewsSection.classList.add("hidden");
+  mobileBar.classList.add("hidden");
+  notFoundState.classList.remove("hidden");
+}
+
+function hideNotFound(){
+  notFoundState.classList.add("hidden");
+}
+
+function updateModalImage(){
+  if(!slideImages.length) return;
+  modalImage.src = slideImages[currentSlideIndex];
+  modalImageCount.textContent = `${currentSlideIndex + 1} / ${slideImages.length}`;
+}
+
+function setSlide(index){
+  if(!slideImages.length) return;
+  currentSlideIndex = (index + slideImages.length) % slideImages.length;
+
+  gallerySlides.querySelectorAll(".gallery-slide-card").forEach((slide, idx)=>{
+    slide.classList.toggle("active", idx === currentSlideIndex);
+  });
+
+  galleryDots.querySelectorAll("button").forEach((dot, idx)=>{
+    dot.classList.toggle("active", idx === currentSlideIndex);
+  });
+
+  galleryThumbs.querySelectorAll("img").forEach((thumb, idx)=>{
+    thumb.classList.toggle("active", idx === currentSlideIndex);
+  });
+
+  galleryCount.textContent = `${currentSlideIndex + 1} / ${slideImages.length}`;
+
+  if(!imageModal.classList.contains("hidden")){
+    updateModalImage();
+  }
+}
+
+function restartAutoSlider(){
+  clearInterval(autoSlider);
+  if(slideImages.length <= 1 || !imageModal.classList.contains("hidden")) return;
+  autoSlider = setInterval(()=>{
+    setSlide(currentSlideIndex + 1);
+  }, 3200);
+}
+
+function renderGallery(images){
+  slideImages = images.length ? images : ["ropphoto.jpeg"];
+  gallerySlides.innerHTML = "";
+  galleryDots.innerHTML = "";
+  galleryThumbs.innerHTML = "";
+
+  slideImages.forEach((src, index)=>{
+    const slideButton = document.createElement("button");
+    slideButton.type = "button";
+    slideButton.className = "gallery-slide-card" + (index === 0 ? " active" : "");
+    slideButton.setAttribute("aria-label", `Image ${index + 1}`);
+
+    const bg = document.createElement("div");
+    bg.className = "gallery-slide-bg";
+    bg.style.backgroundImage = `url("${src}")`;
+
+    const shell = document.createElement("div");
+    shell.className = "gallery-slide-shell";
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = `Product image ${index + 1}`;
+    img.className = "gallery-slide-image";
+    img.loading = index === 0 ? "eager" : "lazy";
+    img.decoding = "async";
+
+    shell.appendChild(img);
+    slideButton.appendChild(bg);
+    slideButton.appendChild(shell);
+    slideButton.addEventListener("click", ()=>openImageModal(index));
+    gallerySlides.appendChild(slideButton);
+
+    const dot = document.createElement("button");
+    dot.type = "button";
+    if(index === 0) dot.classList.add("active");
+    dot.addEventListener("click", ()=>{
+      setSlide(index);
+      restartAutoSlider();
+    });
+    galleryDots.appendChild(dot);
+
+    const thumb = document.createElement("img");
+    thumb.src = src;
+    thumb.alt = `Thumbnail ${index + 1}`;
+    thumb.className = "gallery-thumb" + (index === 0 ? " active" : "");
+    thumb.loading = "lazy";
+    thumb.addEventListener("click", ()=>{
+      setSlide(index);
+      restartAutoSlider();
+    });
+    galleryThumbs.appendChild(thumb);
+  });
+
+  currentSlideIndex = 0;
+  setSlide(0);
+  restartAutoSlider();
+
+  const showControls = slideImages.length > 1;
+  prevBtn.style.display = showControls ? "block" : "none";
+  nextBtn.style.display = showControls ? "block" : "none";
+  galleryDots.style.display = showControls ? "flex" : "none";
+  galleryThumbs.style.display = slideImages.length > 1 ? "flex" : "none";
+}
+
+function openImageModal(index){
+  setSlide(index);
+  updateModalImage();
+  imageModal.classList.remove("hidden");
+  syncBodyLock();
+  clearInterval(autoSlider);
+}
+
+function closeImageModalUI(){
+  imageModal.classList.add("hidden");
+  modalImage.src = "";
+  syncBodyLock();
+  restartAutoSlider();
+}
+
+function openShareSheet(){
+  shareSheetBackdrop.classList.remove("hidden");
+  syncBodyLock();
+}
+
+function closeShareSheetUI(){
+  shareSheetBackdrop.classList.add("hidden");
+  syncBodyLock();
+}
+
+function openCallWindow(){
+  callWindowTitle.textContent = tr("call_locked_title");
+  callWindowMessage.textContent = tr("call_locked_msg", getCallingRangeLabel(product?.callingTime || ""));
+  callWindowBackdrop.classList.remove("hidden");
+  syncBodyLock();
+}
+
+function closeCallWindowUI(){
+  callWindowBackdrop.classList.add("hidden");
+  syncBodyLock();
+}
+
+function getActionLabel(action){
+  if(action === "call") return tr("call_btn");
+  if(action === "chat") return tr("chat_btn");
+  if(action === "order") return tr("order_request_btn");
+  if(action === "review") return tr("review_action");
+  return tr("nav_login");
+}
+
+function openLoginModal(action){
+  pendingAction = action;
+  loginErrorText.classList.add("hidden");
+  loginErrorText.textContent = "";
+  loginPopupTitle.textContent = tr("login_title");
+  loginPopupText.textContent = tr("login_text", getActionLabel(action));
+  loginBackdrop.classList.remove("hidden");
+  syncBodyLock();
+}
+
+function closeLoginModal(){
+  loginBackdrop.classList.add("hidden");
+  syncBodyLock();
+}
+
+function requireLoginRedirect(){
+  if(!isUserLoggedIn()){
+    window.location.href = `login.html?redirect=${encodeURIComponent(window.location.href)}`;
+    return false;
+  }
+  return true;
+}
+
+function requireLoginForAction(action){
+  if(isUserLoggedIn()) return true;
+
+  const messageKey = `${action}_login_required`;
+  showToast(tr(messageKey));
+
+  setTimeout(()=>{
+    window.location.href = `login.html?redirect=${encodeURIComponent(window.location.href)}`;
+  }, 900);
+
+  return false;
+}
+
+
+
+function isCallLocked(){
+  if(!product?.phone || !product.callingTime) return false;
+  return !isWithinCallingTime(product.callingTime);
+}
+
+function updateCallButtons(){
+  const noPhone = !product?.phone;
+  const locked = isCallLocked();
+
+  callBtn.classList.remove("locked","disabledish");
+  mobileCallBtn.classList.remove("locked","disabledish");
+
+  if(noPhone){
+    callBtn.classList.add("disabledish");
+    mobileCallBtn.classList.add("disabledish");
+  }else if(locked){
+    callBtn.classList.add("locked");
+    mobileCallBtn.classList.add("locked");
+  }
+
+  callBtn.textContent = `${locked ? "🔒" : "📞"} ${tr("call_btn")}`;
+  mobileCallBtn.textContent = `${locked ? "🔒" : "📞"} ${tr("mobile_call")}`;
+}
+
+async function openChat(){
+  const buyerId = currentUser?.uid || localStorage.getItem("userId") || "";
+
+  if(!requireLoginRedirect()) return;
+
+  if(!sellerId){
+    showToast("Seller info missing");
+    return;
+  }
+
+  if(buyerId === sellerId){
+    showToast("तुम्ही स्वतःला chat करू शकत नाही");
+    return;
+  }
+
+  const roomId = `${listingId}_${sellerId}_${buyerId}`;
+
+  try{
+    // ✅ chat create
+    await setDoc(doc(db, "chats", roomId), {
+      roomId,
+      participantIds:[buyerId, sellerId],
+      buyerId,
+      sellerId,
+      productId: listingId,
+      productName: product?.title || "Product",
+      buyerName: currentUser?.displayName || "User",
+      sellerName: product?.sellerDisplayName || "",
+      createdAt:new Date(),
+      updatedAt:new Date()
+    }, { merge:true });
+
+    // ✅ redirect
+    window.location.href = `chat.html?room=${roomId}`;
+
+  }catch(error){
+    console.error(error);
+    showToast("Chat सुरू झाला नाही");
+  }
+}
+
+function performChatAction(){
+  const buyerId = currentUser?.uid || localStorage.getItem("userId") || "";
+
+  if(!requireLoginForAction("chat")) return;
+
+  closeCallWindowUI();
+  closeShareSheetUI();
+  openChat();
+}
+
+async function performOrderRequestAction(){
+  if(!requireLoginForAction("order")) return;
+
+  closeCallWindowUI();
+  closeShareSheetUI();
+  await goToOrderRequest(listingId, sellerId);
+}
+
+
+
+function getOrderRoomId(productId, sellerId, buyerId){
+  return `${productId}_${sellerId}_${buyerId}`;
+}
+
+async function goToOrderRequest(productId, sellerId){
+  const buyerId = currentUser?.uid || localStorage.getItem("userId") || "";
+  const buyerName = currentUser?.displayName || localStorage.getItem("userName") || "User";
+  const buyerPhoto = currentUser?.photoURL || localStorage.getItem("userPhoto") || "";
+  const buyerPhone = localStorage.getItem("userPhone") || localStorage.getItem("userMobile") || "";
+
+  if(!requireLoginForOrderRequest()) return;
+
+  if(!sellerId){
+    showToast(tr("seller_info_missing"));
+    return;
+  }
+
+  if(buyerId === sellerId){
+    showToast(tr("self_order_block"));
+    return;
+  }
+
+  if(!productId){
+    showToast("Product माहिती उपलब्ध नाही.");
+    return;
+  }
+
+  const roomId = getOrderRoomId(productId, sellerId, buyerId);
+
+  try{
+    const pendingQuery = query(
+      collection(db, "orders"),
+      where("roomId", "==", roomId),
+      where("status", "==", "pending")
+    );
+
+    const pendingSnap = await getDocs(pendingQuery);
+
+    if(!pendingSnap.empty){
+      window.location.href = `chat.html?product=${encodeURIComponent(productId)}&seller=${encodeURIComponent(sellerId)}&buyer=${encodeURIComponent(buyerId)}&room=${encodeURIComponent(roomId)}`;
+      return;
+    }
+
+    const orderRef = doc(collection(db, "orders"));
+    const orderId = orderRef.id;
+
+    await setDoc(doc(db, "chats", roomId), {
+      roomId,
+      participantIds:[buyerId, sellerId],
+      buyerId,
+      sellerId,
+      productId,
+      productTitle: product?.title || "Product",
+      productName: product?.title || "Product",
+      buyerName,
+      buyerPhoto,
+      buyerPhone,
+      sellerName: product?.sellerDisplayName || "",
+      hasOrderRequest:true,
+      lastMessage:"Order Request",
+      lastMessageType:"order_request",
+      orderRequest:true,
+      requestType:"order_request",
+      activeOrderId:orderId,
+      activeOrderStatus:"pending",
+      lastOrderStatus:"pending",
+      createdAt:new Date(),
+      updatedAt:new Date()
+    }, { merge:true });
+
+    await setDoc(orderRef, {
+      orderId,
+      roomId,
+      productId,
+      productName: product?.title || "Product",
+      sellerId,
+      buyerId,
+      buyerName,
+      buyerPhoto,
+      buyerPhone,
+      status:"pending",
+      createdAt:new Date(),
+      updatedAt:new Date()
+    });
+
+    const msgRef = await addDoc(collection(db, "chats", roomId, "messages"), {
+      sender:buyerId,
+      senderId:buyerId,
+      senderName:buyerName,
+      senderPhoto:buyerPhoto,
+      buyerId,
+      buyerName,
+      sellerId,
+      productId,
+      productName: product?.title || "Product",
+      text:"Order Request Sent",
+      type:"order_request",
+      orderId,
+      status:"pending",
+      orderStatus:"pending",
+      orderRequest:true,
+      readBy:[buyerId],
+      deliveredTo:[],
+      seenBy:[],
+      deletedFor:[],
+      deletedForEveryone:false,
+      time:new Date(),
+      createdAt:new Date(),
+      updatedAt:new Date()
+    });
+
+    await updateDoc(orderRef, {
+      messageId: msgRef.id
+    });
+
+    await addDoc(collection(db, "notifications"), {
+      receiverId:sellerId,
+      senderId:buyerId,
+      type:"order_request",
+      roomId,
+      orderId,
+      productId,
+      productName: product?.title || "Product",
+      userName:buyerName,
+      photoURL:buyerPhoto,
+      userPhone:buyerPhone,
+      senderPhone:buyerPhone,
+      message:"New Order Request",
+      createdAt:new Date(),
+      read:false,
+      hiddenFor:[]
+    });
+
+    window.location.href = `chat.html?product=${encodeURIComponent(productId)}&seller=${encodeURIComponent(sellerId)}&room=${encodeURIComponent(roomId)}&buyer=${encodeURIComponent(buyerId)}`;
+  }catch(error){
+    console.error("ORDER REQUEST ERROR:", error);
+    showToast("Order request पाठवता आली नाही. पुन्हा प्रयत्न करा.");
+  }
+}
+
+async function notifySellerCallAttempt(){
+  const buyerId = currentUser?.uid || localStorage.getItem("userId") || "";
+  const buyerName = currentUser?.displayName || localStorage.getItem("userName") || "User";
+  const buyerPhoto = currentUser?.photoURL || localStorage.getItem("userPhoto") || "";
+  const buyerPhone = localStorage.getItem("userPhone") || localStorage.getItem("userMobile") || "";
+
+  if(!buyerId || !sellerId || !listingId) return;
+  if(buyerId === sellerId) return;
+
+  try{
+    await addDoc(collection(db, "notifications"), {
+      receiverId:sellerId,
+      senderId:buyerId,
+      type:"call_attempt",
+      productId:listingId,
+      productName: product?.title || "Product",
+      userName:buyerName,
+      photoURL:buyerPhoto,
+      userPhone:buyerPhone,
+      senderPhone:buyerPhone,
+      message:"Call Attempt",
+      createdAt:new Date(),
+      read:false,
+      hiddenFor:[]
+    });
+  }catch(error){
+    console.error("CALL ATTEMPT NOTIFICATION ERROR:", error);
+  }
+}
+
+
+async function performCallAction() {
+  const buyerId = currentUser?.uid || localStorage.getItem("userId") || "";
+
+  if(!requireLoginForAction("call")) return;
+
+  await notifySellerCallAttempt();
+
+  const normalizedPhone = normalizePhone(product?.phone || "");
+
+  if (!normalizedPhone) {
+    showToast(tr("seller_number_missing"));
+    return;
+  }
+
+  if (isCallLocked()) {
+    openCallWindow();
+    return;
+  }
+
+  window.location.href = `tel:${normalizedPhone}`;
+}
+
+function getShareText(){
+  if(!product) return "BanaNetwork product";
+  const parts = [
+    product.title,
+    product.price ? `₹${formatPrice(product.price)}` : "",
+    [product.village, product.taluka, product.district].filter(Boolean).join(", "),
+    "BanaNetwork"
+  ].filter(Boolean);
+  return parts.join("\n");
+}
+
+async function systemShare(){
+  if(!product) return;
+
+  if(navigator.share){
+    try{
+      await navigator.share({
+        title:`${product.title} | BanaNetwork`,
+        text:getShareText(),
+        url:shareUrl
+      });
+      closeShareSheetUI();
+      return;
+    }catch(error){
+      return;
+    }
+  }
+
+  await copyLink();
+}
+
+function openFacebookShare(){
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, "_blank");
+}
+
+function openWhatsAppShare(){
+  const message = `${getShareText()}\n${shareUrl}`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, "_blank");
+}
+
+async function copyLink(){
+  try{
+    await navigator.clipboard.writeText(shareUrl);
+    showToast(tr("link_copied"));
+    closeShareSheetUI();
+  }catch(error){
+    showToast(tr("link_copy_failed"));
+  }
+}
+
+function roundedRect(ctx, x, y, width, height, radius){
+  ctx.beginPath();
+  ctx.moveTo(x + radius, y);
+  ctx.lineTo(x + width - radius, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+  ctx.lineTo(x + width, y + height - radius);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+  ctx.lineTo(x + radius, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+  ctx.lineTo(x, y + radius);
+  ctx.quadraticCurveTo(x, y, x + radius, y);
+  ctx.closePath();
+}
+
+function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight, maxLines = 3){
+  const words = String(text || "").split(" ");
+  let line = "";
+  let lines = 0;
+
+  for(let n = 0; n < words.length; n++){
+    const test = line + words[n] + " ";
+    const width = ctx.measureText(test).width;
+    if(width > maxWidth && n > 0){
+      ctx.fillText(line.trim(), x, y);
+      line = words[n] + " ";
+      y += lineHeight;
+      lines++;
+      if(lines >= maxLines - 1) break;
+    }else{
+      line = test;
+    }
+  }
+
+  ctx.fillText(line.trim(), x, y);
+}
+
+function loadImage(src){
+  return new Promise((resolve, reject)=>{
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = ()=>resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+
+function drawCoverImage(ctx, img, x, y, w, h){
+  const imgRatio = img.width / img.height;
+  const boxRatio = w / h;
+  let drawWidth, drawHeight, offsetX, offsetY;
+
+  if(imgRatio > boxRatio){
+    drawHeight = h;
+    drawWidth = img.width * (h / img.height);
+    offsetX = x - (drawWidth - w) / 2;
+    offsetY = y;
+  }else{
+    drawWidth = w;
+    drawHeight = img.height * (w / img.width);
+    offsetX = x;
+    offsetY = y - (drawHeight - h) / 2;
+  }
+
+  ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+}
+
+async function downloadPoster(){
+  if(!product) return;
+
+  const canvas = document.getElementById("posterCanvas");
+  const ctx = canvas.getContext("2d");
+  const W = canvas.width;
+  const H = canvas.height;
+
+  ctx.clearRect(0,0,W,H);
+
+  const bg = ctx.createLinearGradient(0,0,W,H);
+  bg.addColorStop(0,"#edf8ef");
+  bg.addColorStop(1,"#f8fbff");
+  ctx.fillStyle = bg;
+  ctx.fillRect(0,0,W,H);
+
+  roundedRect(ctx, 54, 54, W - 108, H - 108, 42);
+  ctx.fillStyle = "#ffffff";
+  ctx.fill();
+
+  ctx.fillStyle = "#2e7d32";
+  ctx.font = "bold 58px Arial";
+  ctx.fillText("BanaNetwork", 95, 130);
+
+  ctx.fillStyle = "#6b7280";
+  ctx.font = "28px Arial";
+  ctx.fillText("Direct Product Share Poster", 95, 172);
+
+  roundedRect(ctx, 95, 220, 890, 520, 32);
+  ctx.save();
+  ctx.clip();
+
+  if(slideImages[0]){
+    try{
+      const img = await loadImage(slideImages[0]);
+      drawCoverImage(ctx, img, 95, 220, 890, 520);
+    }catch(error){
+      ctx.fillStyle = "#e7f2ea";
+      ctx.fillRect(95, 220, 890, 520);
+    }
+  }else{
+    ctx.fillStyle = "#e7f2ea";
+    ctx.fillRect(95, 220, 890, 520);
+  }
+  ctx.restore();
+
+  ctx.fillStyle = "#111827";
+  ctx.font = "bold 60px Arial";
+  drawWrappedText(ctx, product.title, 95, 835, 890, 66, 3);
+
+  ctx.fillStyle = "#2e7d32";
+  ctx.font = "bold 78px Arial";
+  ctx.fillText(`₹${formatPrice(product.price)}`, 95, 990);
+
+  ctx.fillStyle = "#475569";
+  ctx.font = "30px Arial";
+  const locationLine = [product.village, product.taluka, product.district].filter(Boolean).join(", ");
+  ctx.fillText(`📍 ${locationLine || tr("location_unavailable")}`, 95, 1045);
+  ctx.fillText(`📞 ${getPhoneDisplay(product.phone, product.callingTime)}`, 95, 1092);
+
+  ctx.fillStyle = "#f7fafc";
+  roundedRect(ctx, 95, 1135, 620, 135, 24);
+  ctx.fill();
+
+  ctx.fillStyle = "#111827";
+  ctx.font = "bold 32px Arial";
+  ctx.fillText("पूर्ण माहिती आणि direct संपर्कासाठी", 125, 1190);
+  ctx.fillStyle = "#2e7d32";
+  ctx.font = "bold 34px Arial";
+  ctx.fillText("BanaNetwork वर पाहा", 125, 1235);
+
+  const qr = new QRious({
+    value: shareUrl,
+    size: 180,
+    level: "H",
+    background: "white",
+    foreground: "#111827"
+  });
+
+  const qrImg = await loadImage(qr.toDataURL());
+  ctx.fillStyle = "#ffffff";
+  roundedRect(ctx, 780, 1085, 205, 205, 22);
+  ctx.fill();
+  ctx.drawImage(qrImg, 792, 1097, 180, 180);
+
+  ctx.fillStyle = "#6b7280";
+  ctx.font = "24px Arial";
+  ctx.fillText("Scan / Open", 815, 1318);
+
+  const safeName = (product.title || "product").replace(/[^\w\-]+/g, "-");
+  const link = document.createElement("a");
+  link.download = `${safeName}-poster.png`;
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+
+  showToast(tr("poster_done"));
+  closeShareSheetUI();
+}
+
+function normalizeNotification(docSnap){
+  const data = docSnap.data() || {};
+  let message = String(data.message || "").trim();
+
+  if(data.type === "order_request"){
+    message = tr("notification_new_order");
+  }else if(data.type === "order_accept"){
+    message = tr("notification_order_accept");
+  }else if(data.type === "order_reject"){
+    message = tr("notification_order_reject");
+  }else if(data.type === "call_attempt"){
+    message = tr("notification_call_attempt");
+  }else{
+    message = message || tr("notification_new_message");
+  }
+  
+  const hiddenFor = Array.isArray(data.hiddenFor) ? data.hiddenFor.map(String) : [];
+
+  return {
+    id:docSnap.id,
+    type:String(data.type || ""),
+    roomId:String(data.roomId || ""),
+    senderId:String(data.senderId || ""),
+    userName:String(data.userName || data.senderName || "User"),
+    photoURL:String(data.photoURL || data.senderPhoto || ""),
+    productName:String(data.productName || data.productTitle || ""),
+    userPhone:String(data.userPhone || data.senderPhone || ""),
+    message,
+    read:!!data.read,
+    hiddenFor,
+    createdMs:getTimestampValue(data.createdAt),
+    timeLabel:formatDateTime(data.createdAt)
+  };
+}
+
+function getVisibleNotifications(){
+  const uid = currentUser?.uid || localStorage.getItem("userId") || "";
+  return notificationsCache
+    .filter(item => !item.hiddenFor.includes(uid))
+    .sort((a,b) => b.createdMs - a.createdMs);
+}
+
+function updateNotificationBadge(){
+  const unread = getVisibleNotifications().filter(item => !item.read).length;
+  notificationCountBell.textContent = unread > 99 ? "99+" : String(unread);
+  notificationCountBell.classList.toggle("hidden", unread === 0);
+}
+
+function enableSwipeToDelete(){
+  document.querySelectorAll(".notification-card").forEach(card=>{
+    if(card.dataset.swipeAttached) return;
+    card.dataset.swipeAttached = "true";
+
+    let startX = 0;
+    let currentX = 0;
+    let isSwiping = false;
+    let isMoved = false;
+
+    card.addEventListener("touchstart", e=>{
+      startX = e.touches[0].clientX;
+      currentX = startX;
+      isSwiping = true;
+      isMoved = false;
+      card.style.transition = "none";
+    }, { passive:true });
+
+    card.addEventListener("touchmove", e=>{
+      if(!isSwiping) return;
+      currentX = e.touches[0].clientX;
+      const diff = currentX - startX;
+
+      if(diff < 0){
+        isMoved = true;
+        card.style.transform = `translateX(${diff}px)`;
+        if(Math.abs(diff) > 70){
+          card.classList.add("show-delete");
+        }else{
+          card.classList.remove("show-delete");
+        }
+      }
+    }, { passive:true });
+
+    card.addEventListener("touchend", async e=>{
+      isSwiping = false;
+      const diff = currentX - startX;
+      card.style.transition = "transform .25s ease";
+
+      if(isMoved){
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      if(Math.abs(diff) > 120){
+        card.style.transform = "translateX(-100%)";
+
+        setTimeout(async ()=>{
+          const id = card.dataset.id;
+          const uid = currentUser?.uid || localStorage.getItem("userId");
+
+          try{
+            await updateDoc(doc(db, "notifications", id), {
+              hiddenFor:arrayUnion(uid)
+            });
+          }catch(error){
+            console.error(error);
+          }
+        }, 200);
+      }else{
+        card.style.transform = "translateX(0)";
+        card.classList.remove("show-delete");
+      }
+    }, { passive:false });
+  });
+}
+
+function renderNotifications(){
+  const items = getVisibleNotifications();
+
+  if(!items.length){
+    notificationList.innerHTML = `<div class="notification-empty">${escapeHtml(tr("notification_empty"))}</div>`;
+    updateNotificationBadge();
+    return;
+  }
+
+  const today = [];
+  const older = [];
+
+  items.forEach(item=>{
+    const diff = Date.now() - item.createdMs;
+    if(diff < 86400000){
+      today.push(item);
+    }else{
+      older.push(item);
+    }
+  });
+
+  function renderGroup(title, list){
+    if(!list.length) return "";
+
+    return `
+      <div style="font-weight:800; padding:8px 12px; color:#64748b;">
+        ${escapeHtml(title)}
+      </div>
+      ${list.map(item=>{
+        const avatar = item.photoURL
+          ? escapeHtml(item.photoURL)
+          : `https://ui-avatars.com/api/?name=${encodeURIComponent(item.userName || "U")}`;
+        const phoneLine = item.userPhone
+          ? `<div class="notification-phone">☎ ${escapeHtml(item.userPhone)}</div>`
+          : "";
+
+        return `
+          <div class="notification-card ${item.read ? "" : "unread"}" data-id="${escapeHtml(item.id)}">
+            <img class="notification-avatar" src="${avatar}" alt="${escapeHtml(item.userName || "User")}">
+            <div class="notification-body">
+              <div class="notification-top">
+                <div class="notification-user">${escapeHtml(item.userName || "User")}</div>
+                <div class="notification-time">${escapeHtml(item.timeLabel)}</div>
+              </div>
+              ${phoneLine}
+              <div class="notification-message">${escapeHtml(item.message)}</div>
+              <div class="notification-meta">
+                <div class="notification-product">${escapeHtml(item.productName || "")}</div>
+                ${!item.read ? `<div class="notification-dot"></div>` : ""}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("")}
+    `;
+  }
+
+  notificationList.innerHTML =
+    renderGroup(tr("notification_today"), today) +
+    renderGroup(tr("notification_earlier"), older);
+
+  notificationList.onclick = async event=>{
+    const card = event.target.closest(".notification-card");
+    if(!card) return;
+
+    const id = card.dataset.id;
+    const item = notificationsCache.find(n => n.id === id);
+    if(!item) return;
+
+    if(!item.read){
+      try{
+        await updateDoc(doc(db, "notifications", id), { read:true });
+      }catch(error){
+        console.error(error);
+      }
+    }
+
+    const qs = item.roomId ? `?room=${item.roomId}` : "";
+    window.location.href = `chat.html${qs}`;
+  };
+
+  updateNotificationBadge();
+  enableSwipeToDelete();
+}
+
+function subscribeNotifications(user){
+  if(notificationUnsubscribe){
+    notificationUnsubscribe();
+    notificationUnsubscribe = null;
+  }
+
+  notificationsCache = [];
+  renderNotifications();
+
+  if(!user?.uid) return;
+
+  const q = query(
+    collection(db, "notifications"),
+    where("receiverId", "==", user.uid)
+  );
+
+  const unsubscribe = onSnapshot(q, snap=>{
+    notificationsCache = snap.docs
+      .map(docSnap => normalizeNotification(docSnap))
+      .filter(item => item.senderId !== user.uid);
+
+    renderNotifications();
+  });
+
+  notificationUnsubscribe = ()=>{
+    unsubscribe();
+  };
+}
+
+/* REVIEWS SYSTEM */
+
+function formatReviewCountLabel(count){
+  return tr("review_count_label", count);
+}
+
+function getRoundedStars(rating){
+  const rounded = Math.round(Number(rating) || 0);
+  return Array.from({ length:5 }, (_, idx) => idx < rounded ? "★" : "☆").join("");
+}
+
+function getReviewDocId(productId, userId){
+  return `${productId}_${userId}`;
+}
+
+function updateReviewSelectedRatingText(){
+  reviewSelectedRating.textContent = tr("review_selected_rating", selectedReviewRating || 0);
+}
+
+function updateReviewStarPicker(){
+  reviewStarsInput.querySelectorAll(".review-star-btn").forEach(button=>{
+    const rating = Number(button.dataset.rating || 0);
+    button.classList.toggle("active", rating <= selectedReviewRating);
+    button.setAttribute("aria-pressed", rating <= selectedReviewRating ? "true" : "false");
+  });
+  updateReviewSelectedRatingText();
+}
+
+function setSelectedReviewRating(rating, markDirty = true){
+  selectedReviewRating = Number(rating || 0);
+  if(markDirty) reviewFormDirty = true;
+  updateReviewStarPicker();
+}
+
+function hydrateReviewForm(review){
+  reviewTextInput.value = review?.reviewText || "";
+  selectedReviewRating = Number(review?.rating || 0);
+  reviewFormDirty = false;
+  updateReviewStarPicker();
+}
+
+function updateReviewFormUI(){
+  const isLoggedIn = isUserLoggedIn();
+  reviewFormTitle.textContent = currentUserReview ? tr("review_form_title_edit") : tr("review_form_title");
+
+  if(!isLoggedIn){
+    reviewFormHelper.textContent = tr("review_form_helper_guest");
+  }else if(currentUserReview){
+    reviewFormHelper.textContent = tr("review_form_helper_edit");
+  }else{
+    reviewFormHelper.textContent = tr("review_form_helper_new");
+  }
+
+  reviewSubmitBtn.disabled = reviewSubmitting;
+  reviewSubmitBtn.textContent = reviewSubmitting
+    ? tr("review_saving")
+    : (currentUserReview ? tr("review_edit_button") : tr("review_submit"));
+}
+
+function normalizeReview(docSnap){
+  const data = docSnap.data() || {};
+  return {
+    id:docSnap.id,
+    productId:String(data.productId || ""),
+    userId:String(data.userId || ""),
+    userName:String(data.userName || "User"),
+    rating:Number(data.rating || 0),
+    reviewText:String(data.reviewText || ""),
+    createdAtRaw:data.createdAt || null,
+    createdMs:getTimestampValue(data.createdAt),
+    createdLabel:formatDateTime(data.createdAt)
+  };
+}
+
+function setCurrentUserReviewFromCache(){
+  const uid = currentUser?.uid || localStorage.getItem("userId") || "";
+  currentUserReview = uid
+    ? reviewsCache.find(review => review.userId === uid) || null
+    : null;
+}
+
+function renderReviewSummary(){
+  const total = reviewsCache.length;
+  const average = total
+    ? reviewsCache.reduce((sum, review) => sum + (Number(review.rating) || 0), 0) / total
+    : 0;
+
+  const averageFixed = average.toFixed(1);
+  const starText = getRoundedStars(average);
+
+  if(total){
+    productRatingText.textContent = `${averageFixed} (${formatReviewCountLabel(total)})`;
+  }else{
+    productRatingText.textContent = tr("reviews_summary_empty");
+  }
+
+  reviewAverageValue.textContent = averageFixed;
+  reviewAverageStars.textContent = starText;
+  reviewAverageMeta.textContent = formatReviewCountLabel(total);
+  reviewListCount.textContent = formatReviewCountLabel(total);
+}
+
+function renderReviewsList(){
+  if(!reviewsCache.length){
+    reviewsEmpty.classList.remove("hidden");
+    reviewsList.innerHTML = "";
+    return;
+  }
+
+  reviewsEmpty.classList.add("hidden");
+
+  reviewsList.innerHTML = reviewsCache.map(review => {
+    return `
+      <article class="review-card">
+        <div class="review-card-top">
+          <div>
+            <div class="review-user-name">${escapeHtml(review.userName || "User")}</div>
+            <div class="review-card-stars">${escapeHtml(getRoundedStars(review.rating))} <span style="color:#64748b; font-size:13px; letter-spacing:0;">${escapeHtml(String(review.rating || 0))}/5</span></div>
+          </div>
+          <div class="review-time">${escapeHtml(review.createdLabel)}</div>
+        </div>
+        <div class="review-card-text">${escapeHtml(review.reviewText || "")}</div>
+      </article>
+    `;
+  }).join("");
+}
+
+function subscribeReviews(){
+  if(reviewsUnsubscribe){
+    reviewsUnsubscribe();
+    reviewsUnsubscribe = null;
+  }
+
+  reviewsCache = [];
+  renderReviewSummary();
+  renderReviewsList();
+
+  if(!listingId) return;
+
+  const reviewsQuery = query(
+    collection(db, "reviews"),
+    where("productId", "==", listingId)
+  );
+
+  reviewsUnsubscribe = onSnapshot(reviewsQuery, snapshot => {
+    reviewsCache = snapshot.docs
+      .map(docSnap => normalizeReview(docSnap))
+      .sort((a, b) => b.createdMs - a.createdMs);
+
+    setCurrentUserReviewFromCache();
+
+    if(currentUserReview){
+      if(!reviewFormDirty || reviewSubmitting){
+        hydrateReviewForm(currentUserReview);
+      }
+    }else if(!reviewFormDirty){
+      hydrateReviewForm(null);
+    }
+
+    renderReviewSummary();
+    renderReviewsList();
+    updateReviewFormUI();
+  });
+}
+
+async function saveReview(){
+  if(!product || !listingId){
+    showToast(tr("not_found_title"));
+    return;
+  }
+
+  if(!requireLoginRedirect()) return;
+
+  const userId = currentUser?.uid || localStorage.getItem("userId") || "";
+  const userName = currentUser?.displayName || localStorage.getItem("userName") || "User";
+  const reviewText = reviewTextInput.value.trim();
+
+  if(!selectedReviewRating){
+    showToast(tr("review_validation_rating"));
+    return;
+  }
+
+  if(!reviewText){
+    showToast(tr("review_validation_text"));
+    return;
+  }
+
+  reviewSubmitting = true;
+  updateReviewFormUI();
+
+  try{
+    const reviewDocId = getReviewDocId(listingId, userId);
+    const reviewRef = doc(db, "reviews", reviewDocId);
+    const existingSnap = await getDoc(reviewRef);
+    const existingData = existingSnap.exists() ? existingSnap.data() : null;
+
+    await setDoc(reviewRef, {
+      productId: listingId,
+      userId,
+      uniqueKey: reviewDocId,
+      userName,
+      rating: selectedReviewRating,
+      reviewText,
+      createdAt: existingData?.createdAt || currentUserReview?.createdAtRaw || serverTimestamp(),
+      updatedAt: serverTimestamp()
+    }, { merge:true });
+
+    reviewFormDirty = false;
+
+    showToast(existingSnap.exists() ? tr("review_updated") : tr("review_saved"));
+  }catch(error){
+    console.error(error);
+    showToast(tr("review_save_failed"));
+  }finally{
+    reviewSubmitting = false;
+    updateReviewFormUI();
+  }
+}
+
+function scrollToReviewForm(){
+  reviewsSection.scrollIntoView({ behavior:"smooth", block:"start" });
+  setTimeout(() => {
+    reviewTextInput.focus();
+  }, 250);
+}
+
+function bindActions(){
+  [chatBtn, mobileChatBtn, sheetChatBtn, callWindowChatBtn].forEach(btn=>{
+    btn.addEventListener("click", performChatAction);
+  });
+
+  [orderRequestBtn, mobileOrderBtn].forEach(btn=>{
+    btn.addEventListener("click", performOrderRequestAction);
+  });
+
+  [callBtn, mobileCallBtn].forEach(btn=>{
+    btn.addEventListener("click", performCallAction);
+  });
+
+  [shareBtn, mobileShareBtn].forEach(btn=>{
+    btn.addEventListener("click", openShareSheet);
+  });
+
+  [posterBtn, topPosterBtn, posterSheetBtn].forEach(btn=>{
+    btn.addEventListener("click", downloadPoster);
+  });
+
+  [topNativeShareBtn, nativeShareBtn].forEach(btn=>{
+    btn.addEventListener("click", systemShare);
+  });
+
+  [topWhatsappShareBtn, whatsappShareBtn].forEach(btn=>{
+    btn.addEventListener("click", openWhatsAppShare);
+  });
+
+  [topFacebookShareBtn, facebookShareBtn].forEach(btn=>{
+    btn.addEventListener("click", openFacebookShare);
+  });
+
+  copyLinkBtn.addEventListener("click", copyLink);
+  reviewSubmitBtn.addEventListener("click", saveReview);
+  reviewTextInput.addEventListener("input", ()=>{ reviewFormDirty = true; });
+
+  reviewStarsInput.querySelectorAll(".review-star-btn").forEach(button=>{
+    button.addEventListener("click", ()=>{
+      setSelectedReviewRating(Number(button.dataset.rating || 0), true);
+    });
+  });
+}
+
+function renderProduct(data){
+  rawProductData = data;
+
+  const title = getField(data, ["title","productName","name","type","productType"], "Product");
+  const listingLabel = getListingLabel(data);
+  const price = Number(getField(data, ["price","amount","rate"], 0));
+  let companyName = getField(data, ["companyName","company","brand","ropCompany","khodwaCompany","nurseryName"], "");
+
+  if(["other","इतर"].includes(String(companyName || "").toLowerCase())){
+    companyName = getField(data, ["companyOther","otherCompany","otherBrand","customCompanyName"], companyName);
+  }
+
+  const productTypeValue = getField(data, ["productType","type","category","itemType","name"], title);
+  const district = getField(data, ["district","districtName","city"], "");
+  const taluka = getField(data, ["taluka","talukaName","tehsil"], "");
+  const village = getField(data, ["village","villageName","area"], "");
+  const state = getField(data, ["state","stateName"], "");
+  const phonesData = Array.isArray(data.phones) && data.phones.length
+    ? data.phones.filter(p => p && p.number)
+    : (getField(data, ["phone","mobile","contact","sellerMobile","contactNumber"], "")
+        ? [{
+            number: getField(data, ["phone","mobile","contact","sellerMobile","contactNumber"], ""),
+            time: getField(data, ["callingTime","contactTime","callTime","availableTime"], "Any Time")
+          }]
+        : []);
+
+  const phone = phonesData[0]?.number || "";
+  const description = getField(data, ["description","desc","details","moreInfo"], "");
+  const sellerDisplayName = getField(data, ["sellerName","userName","ownerName"], tr("seller_default"));
+  const createdAt = getField(data, ["createdAt","postedAt","timestamp","date"], "");
+  const images = extractImageList(data);
+  const allAreaAvailable = inferAllAreaAvailable(data);
+  const callingTime = phonesData[0]?.time || getField(data, ["callingTime","contactTime","callTime","availableTime"], "");
+  const stockType = String(
+    getField(data, ["stockType","stocktype","stockMode","stock_mode","stock_status"], "")
+  ).trim().toLowerCase();
+
+  const stockNumber = getField(data, ["stockAvailable","stock","runningStock","stockQty","stockNumber"], "");
+  let rawStockValue = "";
+
+  if(stockType === "unlimited" || stockType === "अमर्यादित"){
+    rawStockValue = "unlimited";
+  }else if(stockType === "limited" || stockType === "मर्यादित"){
+    rawStockValue = stockNumber || "limited";
+  }else{
+    rawStockValue = stockNumber;
+  }
+
+  function getStockDisplay(value){
+    const stockText = String(value || "").trim().toLowerCase();
+
+    if(!stockText) return tr("not_mentioned");
+    if(stockText === "unlimited" || stockText === "अमर्यादित" || stockText === "limitless"){
+      return tr("unlimited_stock");
+    }
+    if(stockText === "limited"){
+      return tr("limited_stock");
+    }
+
+    const stockNumberValue = Number(String(value).replace(/[^\d]/g, ""));
+    if(!isNaN(stockNumberValue) && stockNumberValue > 0){
+      return `${tr("limited_stock")} (${stockNumberValue.toLocaleString("en-IN")})`;
+    }
+
+    return tr("not_mentioned");
+  }
+
+  const stockAvailable = getStockDisplay(rawStockValue);
+
+  product = {
+    title,
+    listingLabel,
+    price,
+    companyName,
+    productTypeValue,
+    district,
+    taluka,
+    village,
+    state,
+    phonesData,
+    phone,
+    description: description || "-",
+    sellerDisplayName,
+    createdAt,
+    images,
+    allAreaAvailable,
+    callingTime,
+    stockAvailable
+  };
+
+  sellerId = getField(data, ["sellerId","userId","uid","ownerId","createdBy","sellerUid","userUID"], "");
+  shareUrl = `${CANONICAL_BASE}/product.html?id=${encodeURIComponent(listingId)}`;
+
+  const locationText = [village, taluka, district, state].filter(Boolean).join(", ");
+  document.title = `${title} | BanaNetwork`;
+  document.getElementById("metaDescription").content = `${title} | ${locationText || tr("location_unavailable")} | BanaNetwork`;
+  document.getElementById("ogDescription").content = `${title} | ${locationText || tr("location_unavailable")} | BanaNetwork`;
+
+  typePill.textContent = listingLabel;
+  listingPill.textContent = `${tr("listing_id")}: ${(listingId || "").slice(0,8) || "-"}`;
+  postedPill.textContent = `📅 ${formatDate(createdAt)}`;
+  productTitle.textContent = title;
+  productPrice.textContent = `₹${formatPrice(price)}`;
+  productLocation.textContent = locationText || tr("location_unavailable");
+
+  districtTrust.textContent = district || state || "-";
+  contactTrust.textContent = phone ? (isPhoneVisibleNow(phone, callingTime) ? tr("call_available") : tr("chat_only")) : tr("chat_only");
+  timingTrust.textContent = callingTime ? getCallingRangeLabel(callingTime) : tr("any_time");
+
+  sellerAvatar.textContent = getSellerInitials(sellerDisplayName);
+  sellerName.textContent = sellerDisplayName;
+
+  sellerSubline.innerHTML = phonesData.length
+    ? phonesData.map(phoneObj => {
+        const visible = phoneObj.time === "Any Time" || isWithinCallingTime(phoneObj.time);
+        const displayPhone = visible
+          ? phoneObj.number
+          : tr("mobile_hidden_until", getCallingRangeLabel(phoneObj.time));
+
+        return `📞 ${escapeHtml(displayPhone)} | ⏰ ${escapeHtml(phoneObj.time || "Any Time")}`;
+      }).join("<br>")
+    : tr("inquiry_line");
+
+  sellerNote.textContent = tr("seller_note");
+
+  detailsGrid.innerHTML = `
+    ${companyName ? detailItem(tr("company"), companyName) : ""}
+    ${detailItem(tr("product_type"), productTypeValue)}
+    ${detailItem(tr("state"), state || "-")}
+    ${detailItem(tr("district"), district || "-")}
+    ${detailItem(tr("taluka"), taluka || "-")}
+    ${detailItem(tr("village"), village || "-")}
+    ${detailItem(tr("stock"), stockAvailable || "-")}
+    ${detailItem(tr("calling_time"), callingTime ? getCallingRangeLabel(callingTime) : tr("any_time"))}
+    ${phonesData.map((phoneObj, index) => {
+      const visible = phoneObj.time === "Any Time" || isWithinCallingTime(phoneObj.time);
+      const displayPhone = visible
+        ? phoneObj.number
+        : tr("mobile_hidden_until", getCallingRangeLabel(phoneObj.time));
+
+      return `
+        <div class="detail-item">
+          <span>${escapeHtml(tr("mobile"))} ${index + 1}</span>
+          <strong>${escapeHtml(displayPhone)} (${escapeHtml(phoneObj.time || "Any Time")})</strong>
+        </div>
+      `;
+    }).join("")}
+    ${detailItem(tr("listing_id"), listingId || "-")}
+    ${detailItem(tr("posted"), formatDate(createdAt))}
+    ${detailItem(tr("all_area"), allAreaAvailable ? tr("yes") : tr("no"))}
+  `;
+
+  descriptionBox.textContent = description || "-";
+  shareUrlPreview.textContent = shareUrl;
+
+  const routeProbe = `${listingLabel} ${productTypeValue}`.toLowerCase();
+  setActiveDrawerRoute(routeProbe.includes("khodwa") || routeProbe.includes("खोडवा") ? "khodwa-buy" : "plant-buy");
+
+  renderGallery(images);
+  hideNotFound();
+  setLoadingState(true);
+  updateCallButtons();
+  updateOrderButtonsState();
+  renderReviewSummary();
+}
+
+async function loadProduct(){
+  if(!listingId){
+    showNotFound();
+    return;
+  }
+
+  try{
+    const ref = doc(db, "listings", listingId);
+    const snap = await getDoc(ref);
+
+    if(!snap.exists()){
+      showNotFound();
+      return;
+    }
+
+    renderProduct(snap.data());
+  }catch(error){
+    console.error(error);
+    showNotFound();
+  }
+}
+
+function applyLanguage(){
+  document.documentElement.lang = currentLanguage;
+  document.title = tr("page_title");
+  document.getElementById("metaDescription").content = tr("meta_description");
+  document.getElementById("metaKeywords").content = tr("meta_keywords");
+  document.getElementById("ogDescription").content = tr("og_description");
+
+  document.getElementById("brandSubtitle").textContent = tr("brand_subtitle");
+  document.getElementById("drawerSubtitle").textContent = tr("drawer_subtitle");
+  document.getElementById("labelMain").textContent = tr("label_main");
+  document.getElementById("labelAccount").textContent = tr("label_account");
+  document.getElementById("labelInfo").textContent = tr("label_info");
+  document.getElementById("drawerHome").textContent = tr("nav_home");
+  document.getElementById("drawerBuy").textContent = tr("nav_buy");
+  document.getElementById("drawerSell").textContent = tr("nav_sell");
+  document.getElementById("drawerKhatBuy").textContent = tr("nav_khat_buy");
+  document.getElementById("drawerKhatSell").textContent = tr("nav_khat_sell");
+  document.getElementById("drawerBurhanpur").textContent = tr("nav_burhanpur_rates");
+  document.getElementById("drawerJalgaon").textContent = tr("nav_jalgaon_rates");
+  document.getElementById("drawerChopda").textContent = tr("nav_chopda_rates");
+  document.getElementById("drawerRaver").textContent = tr("nav_raver_rates");
+  document.getElementById("drawerAccount").textContent = tr("nav_account");
+  document.getElementById("drawerChat").textContent = tr("nav_my_chat");
+  document.getElementById("drawerListingHistory").textContent = tr("nav_listing_history");
+  document.getElementById("drawerInbox").textContent = tr("nav_inbox");
+  document.getElementById("drawerSignup").textContent = tr("nav_signup");
+  document.getElementById("drawerAbout").textContent = tr("info_about");
+  document.getElementById("drawerPrivacy").textContent = tr("info_privacy");
+  document.getElementById("drawerTerms").textContent = tr("info_terms");
+  document.getElementById("drawerContact").textContent = tr("info_contact");
+  document.getElementById("drawerAgentHelp").textContent = tr("info_agent_help");
+  document.getElementById("drawerWhatsapp").textContent = tr("info_whatsapp_group");
+
+  notificationTitle.textContent = tr("notification_title");
+  notificationBtn.setAttribute("aria-label", tr("notification_title"));
+
+  document.getElementById("loadingTitle").textContent = tr("loading_title");
+  document.getElementById("loadingText").textContent = tr("loading_text");
+  document.getElementById("notFoundTitle").textContent = tr("not_found_title");
+  document.getElementById("notFoundText").textContent = tr("not_found_text");
+  document.getElementById("notFoundBack").textContent = tr("back_buy");
+
+  document.getElementById("districtTrustLabel").textContent = tr("district");
+  document.getElementById("contactTrustLabel").textContent = tr("seller_contact");
+  document.getElementById("timingTrustLabel").textContent = tr("calling_time");
+
+  chatBtn.textContent = `💬 ${tr("chat_btn")}`;
+  shareBtn.textContent = `📤 ${tr("share_btn")}`;
+  posterBtn.textContent = `🖼 ${tr("poster_btn")}`;
+  orderRequestBtn.textContent = `🛒 ${tr("order_request_btn")}`;
+
+  topNativeShareBtn.textContent = `📤 ${tr("quick_share")}`;
+  topWhatsappShareBtn.textContent = `🟢 ${tr("whatsapp")}`;
+  topFacebookShareBtn.textContent = `📘 ${tr("facebook")}`;
+  topPosterBtn.textContent = `🖼 ${tr("poster_short")}`;
+
+  mobileChatBtn.textContent = `💬 ${tr("mobile_chat")}`;
+  mobileOrderBtn.textContent = `🛒 ${tr("mobile_order")}`;
+  mobileShareBtn.textContent = `📤 ${tr("mobile_share")}`;
+
+  document.getElementById("detailsTitle").textContent = tr("details_title");
+  document.getElementById("descriptionTitle").textContent = tr("description_title");
+
+  document.getElementById("shareSheetTitle").textContent = tr("share_title");
+  document.getElementById("shareSheetDesc").textContent = tr("share_desc");
+  nativeShareBtn.textContent = `📤 ${tr("system_share")}`;
+  whatsappShareBtn.textContent = `🟢 ${tr("whatsapp")}`;
+  facebookShareBtn.textContent = `📘 ${tr("facebook")}`;
+  copyLinkBtn.textContent = `🔗 ${tr("copy_link")}`;
+  posterSheetBtn.textContent = `🖼 ${tr("poster_download")}`;
+  sheetChatBtn.textContent = `💬 ${tr("chat_seller")}`;
+
+  callWindowTitle.textContent = tr("call_locked_title");
+  callWindowMessage.textContent = tr("call_locked_msg", product?.callingTime ? getCallingRangeLabel(product.callingTime) : tr("any_time"));
+  callWindowChatBtn.textContent = `💬 ${tr("chat_btn")}`;
+  callWindowCloseBtn.textContent = tr("popup_close");
+
+  loginPopupTitle.textContent = tr("login_title");
+  loginPopupText.textContent = tr("login_text", tr("chat_btn"));
+  loginEmailLabel.textContent = tr("email");
+  loginPasswordLabel.textContent = tr("password");
+  loginEmail.placeholder = tr("email");
+  loginPassword.placeholder = tr("password");
+  loginSubmitBtn.textContent = tr("login_continue");
+  openLoginPageBtn.textContent = tr("open_login_page");
+
+  reviewsTitle.textContent = tr("reviews_title");
+  reviewRatingLabel.textContent = tr("review_rating_label");
+  reviewTextLabel.textContent = tr("review_text_label");
+  reviewTextInput.placeholder = tr("review_text_placeholder");
+  reviewsListTitle.textContent = tr("reviews_list_title");
+  reviewsEmpty.textContent = tr("reviews_summary_empty");
+
+  langToggle.textContent = LANG_SHORT[currentLanguage] || "म";
+  langOptions.forEach(option=>{
+    option.classList.toggle("active", option.dataset.lang === currentLanguage);
+  });
+
+  updateHeaderAuthState();
+  renderNotifications();
+  renderReviewSummary();
+  renderReviewsList();
+  updateReviewStarPicker();
+  updateReviewFormUI();
+
+  if(rawProductData){
+    renderProduct(rawProductData);
+  }else{
+    callBtn.textContent = `📞 ${tr("call_btn")}`;
+    mobileCallBtn.textContent = `📞 ${tr("mobile_call")}`;
+    sellerName.textContent = tr("seller_default");
+    sellerNote.textContent = tr("seller_note");
+    setActiveDrawerRoute("plant-buy");
+  }
+}
+
+menuToggle.addEventListener("click", ()=>setDrawer(true));
+drawerClose.addEventListener("click", ()=>setDrawer(false));
+sidebarOverlay.addEventListener("click", ()=>setDrawer(false));
+
+langToggle.addEventListener("click", event=>{
+  event.stopPropagation();
+  if(langMenu.classList.contains("open")) closeLangMenu();
+  else openLangMenu();
+});
+
+notificationBtn.addEventListener("click", event=>{
+  event.stopPropagation();
+  toggleNotificationDropdown();
+});
+
+notificationDropdown.addEventListener("click", event=>{
+  event.stopPropagation();
+});
+
+document.addEventListener("click", event=>{
+  if(!event.target.closest(".lang-wrap")) closeLangMenu();
+  if(!event.target.closest(".notification-wrap")) closeNotificationDropdown();
+});
+
+document.addEventListener("keydown", event=>{
+  if(event.key === "Escape"){
+    setDrawer(false);
+    closeLangMenu();
+    closeNotificationDropdown();
+    closeImageModalUI();
+    closeShareSheetUI();
+    closeCallWindowUI();
+    closeLoginModal();
+  }
+
+  if(!imageModal.classList.contains("hidden")){
+    if(event.key === "ArrowLeft"){
+      setSlide(currentSlideIndex - 1);
+    }else if(event.key === "ArrowRight"){
+      setSlide(currentSlideIndex + 1);
+    }
+  }
+});
+
+langOptions.forEach(button=>{
+  button.addEventListener("click", ()=>{
+    currentLanguage = button.dataset.lang;
+    localStorage.setItem("siteLanguage", currentLanguage);
+    applyLanguage();
+    closeLangMenu();
+  });
+});
+
+document.querySelectorAll("[data-protected-route]").forEach(link=>{
+  link.addEventListener("click", event=>{
+    event.preventDefault();
+    protectRouteUrl(link.dataset.protectedRoute);
+  });
+});
+
+closeImageModal.addEventListener("click", closeImageModalUI);
+imageModalBack.addEventListener("click", closeImageModalUI);
+imageModal.addEventListener("click", event=>{
+  if(event.target === imageModal) closeImageModalUI();
+});
+
+modalPrevBtn.addEventListener("click", ()=>setSlide(currentSlideIndex - 1));
+modalNextBtn.addEventListener("click", ()=>setSlide(currentSlideIndex + 1));
+
+prevBtn.addEventListener("click", ()=>{
+  setSlide(currentSlideIndex - 1);
+  restartAutoSlider();
+});
+
+nextBtn.addEventListener("click", ()=>{
+  setSlide(currentSlideIndex + 1);
+  restartAutoSlider();
+});
+
+heroGallery.addEventListener("touchstart", event=>{
+  touchStartX = event.changedTouches[0].clientX;
+}, { passive:true });
+
+heroGallery.addEventListener("touchend", event=>{
+  const diff = touchStartX - event.changedTouches[0].clientX;
+  if(Math.abs(diff) < 45) return;
+  if(diff > 0) setSlide(currentSlideIndex + 1);
+  else setSlide(currentSlideIndex - 1);
+  restartAutoSlider();
+}, { passive:true });
+
+imageModalStage.addEventListener("touchstart", event=>{
+  modalTouchStartX = event.changedTouches[0].clientX;
+}, { passive:true });
+
+imageModalStage.addEventListener("touchend", event=>{
+  const diff = modalTouchStartX - event.changedTouches[0].clientX;
+  if(Math.abs(diff) < 45) return;
+  if(diff > 0) setSlide(currentSlideIndex + 1);
+  else setSlide(currentSlideIndex - 1);
+}, { passive:true });
+
+closeShareSheet.addEventListener("click", closeShareSheetUI);
+shareSheetBackdrop.addEventListener("click", event=>{
+  if(event.target === shareSheetBackdrop) closeShareSheetUI();
+});
+
+closeCallWindow.addEventListener("click", closeCallWindowUI);
+callWindowCloseBtn.addEventListener("click", closeCallWindowUI);
+callWindowBackdrop.addEventListener("click", event=>{
+  if(event.target === callWindowBackdrop) closeCallWindowUI();
+});
+
+closeLoginPopup.addEventListener("click", closeLoginModal);
+loginBackdrop.addEventListener("click", event=>{
+  if(event.target === loginBackdrop) closeLoginModal();
+});
+
+openLoginPageBtn.addEventListener("click", ()=>{
+  window.location.href = `login.html?redirect=${encodeURIComponent(window.location.href)}`;
+});
+
+loginSubmitBtn.addEventListener("click", async ()=>{
+  const email = loginEmail.value.trim();
+  const password = loginPassword.value.trim();
+
+  if(!email || !password){
+    loginErrorText.textContent = tr("login_failed");
+    loginErrorText.classList.remove("hidden");
+    return;
+  }
+
+  const originalText = loginSubmitBtn.textContent;
+  loginSubmitBtn.disabled = true;
+  loginSubmitBtn.textContent = tr("login_loading");
+  loginErrorText.classList.add("hidden");
+  loginErrorText.textContent = "";
+
+  try{
+    const cred = await signInWithEmailAndPassword(auth, email, password);
+    currentUser = cred.user;
+    localStorage.setItem("userId", cred.user.uid);
+    localStorage.setItem("userName", cred.user.displayName || email.split("@")[0] || "User");
+    if(cred.user.photoURL){
+      localStorage.setItem("userPhoto", cred.user.photoURL);
+    }
+
+    closeLoginModal();
+    updateHeaderAuthState();
+
+    const actionToRun = pendingAction;
+    pendingAction = null;
+
+    if(actionToRun === "call"){
+      performCallAction();
+    }else if(actionToRun === "chat"){
+      performChatAction();
+    }else if(actionToRun === "order"){
+      performOrderRequestAction();
+    }else if(actionToRun === "review"){
+      scrollToReviewForm();
+    }
+  }catch(error){
+    loginErrorText.textContent = tr("login_failed");
+    loginErrorText.classList.remove("hidden");
+  }finally{
+    loginSubmitBtn.disabled = false;
+    loginSubmitBtn.textContent = originalText;
+  }
+});
+
+onAuthStateChanged(auth, user=>{
+  currentUser = user || null;
+
+  if(user){
+    localStorage.setItem("userId", user.uid);
+    localStorage.setItem("userName", user.displayName || localStorage.getItem("userName") || "User");
+    if(user.photoURL){
+      localStorage.setItem("userPhoto", user.photoURL);
+    }
+  }else{
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userPhoto");
+  }
+
+  updateHeaderAuthState();
+  subscribeNotifications(user);
+  updateOrderButtonsState();
+  setCurrentUserReviewFromCache();
+
+  if(currentUserReview){
+    hydrateReviewForm(currentUserReview);
+  }else if(!isUserLoggedIn()){
+    hydrateReviewForm(null);
+  }
+
+  updateReviewFormUI();
+});
+
+window.addEventListener("focus", ()=>updateHeaderAuthState());
+window.addEventListener("storage", ()=>{
+  currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+  applyLanguage();
+});
+
+bindActions();
+applyLanguage();
+loadProduct();
+subscribeReviews();
+setInterval(()=>{
+  updateCallButtons();
+  refreshPhoneVisibilityUI();
+}, 60000);
+</script>
+
+</body>
+</html>
