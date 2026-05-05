@@ -1,0 +1,3767 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<title>My Listings | BanaNetwork</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta id="metaDescription" name="description" content="BanaNetwork वर तुमचे सर्व product listings, company filters, stock update, edit validity आणि restore options एकाच page वर manage करा.">
+<meta id="metaKeywords" name="keywords" content="banana my listings, listing history, listing dashboard, BanaNetwork seller listings">
+<meta property="og:title" content="My Listings | BanaNetwork">
+<meta id="ogDescription" property="og:description" content="तुमचे सर्व product listings manage करा | BanaNetwork">
+<meta property="og:image" content="https://bananetwork.in/share.png">
+<meta property="og:url" content="https://bananetwork.in/mylistings.html">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<style>
+:root{
+  --green:#2e7d32;
+  --green-dark:#1b5e20;
+  --green-soft:#eef8ef;
+  --blue:#1877f2;
+  --blue-soft:#edf4ff;
+  --orange:#ff9800;
+  --orange-soft:#fff4e8;
+  --red:#dc2626;
+  --red-soft:#fde8e8;
+  --black:#111827;
+  --muted:#64748b;
+  --border:#e5e7eb;
+  --card:#ffffff;
+  --bg:#f4f6f8;
+  --shadow:0 12px 30px rgba(15,23,42,.08);
+  --shadow-lg:0 22px 48px rgba(15,23,42,.16);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:var(--black);
+  background:
+    radial-gradient(circle at top left, rgba(31,143,82,.08), transparent 24%),
+    radial-gradient(circle at top right, rgba(24,119,242,.06), transparent 26%),
+    linear-gradient(180deg,#f8fbff 0%, #f4f6f8 100%);
+  overflow-x:hidden;
+}
+
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+a{color:inherit}
+
+.hidden{display:none !important}
+
+/* HEADER - EXACT BUY STYLE */
+.yt-header{
+  position:sticky;
+  top:0;
+  z-index:7000;
+  background:linear-gradient(180deg,#cfeecd 0%, #b7e2b4 100%);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #a7d3a3;
+  box-shadow:0 8px 20px rgba(46,125,50,.14);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 14px;
+  min-height:72px;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  flex:1;
+}
+
+.menu-btn{
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  background:#fff;
+  color:#111;
+  font-size:26px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .2s ease, transform .2s ease;
+  flex-shrink:0;
+}
+
+.menu-btn:hover{
+  background:#f1f5f9;
+  transform:translateY(-1px);
+}
+
+.brand-link{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  text-decoration:none;
+  color:#111;
+  flex:1;
+}
+
+.logo{
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  border:1px solid #d9f4db;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:4px;
+  background:#fff;
+}
+
+.brand{
+  min-width:0;
+  flex:1;
+  max-width:260px;
+}
+
+.brand b{
+  display:block;
+  font-size:23px;
+  line-height:1.05;
+  color:#146c2e;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-shrink:0;
+  flex-wrap:nowrap;
+}
+
+.status-pill{
+  background:#f1f5f9;
+  color:#111827;
+  font-weight:800;
+  padding:11px 16px;
+  border-radius:999px;
+  font-size:14px;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-height:44px;
+  transition:background .2s ease, transform .2s ease;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+.status-pill:hover{
+  background:#e8eef5;
+  transform:translateY(-1px);
+}
+
+.icon-circle{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:transform .2s ease, background .2s ease;
+  flex-shrink:0;
+}
+
+.icon-circle:hover{transform:translateY(-1px)}
+
+.whatsapp-btn{
+  background:#25D366;
+  box-shadow:0 8px 18px rgba(37,211,102,.22);
+}
+
+.whatsapp-btn img{
+  width:20px;
+  height:20px;
+  display:block;
+}
+
+.account-btn{
+  background:#f59e0b;
+  color:#fff;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(245,158,11,.24);
+}
+
+.lang-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+
+.lang-btn{
+  background:#fff;
+  color:#111827;
+  font-size:15px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+}
+
+.lang-menu{
+  position:absolute;
+  top:54px;
+  right:0;
+  min-width:140px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:8px;
+  display:none;
+  z-index:7100;
+}
+
+.lang-menu.open{display:block}
+
+.lang-option{
+  width:100%;
+  border:none;
+  background:#fff;
+  color:#111827;
+  text-align:left;
+  padding:10px 12px;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.lang-option:hover,
+.lang-option.active{
+  background:#f1f5f9;
+}
+
+/* NOTIFICATION - EXACT BUY STYLE */
+.notification-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+
+.notification-btn{
+  position:relative;
+  background:#fff;
+  color:#111827;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+  transition:.2s;
+}
+
+.notification-btn:hover{
+  background:#f8fafc;
+  transform:translateY(-1px);
+}
+
+.notification-count{
+  position:absolute;
+  top:-2px;
+  right:-2px;
+  min-width:20px;
+  height:20px;
+  padding:0 6px;
+  border-radius:999px;
+  background:#ef4444;
+  color:#fff;
+  font-size:11px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 16px rgba(239,68,68,.28);
+}
+
+.notification-dropdown{
+  position:absolute;
+  top:54px;
+  right:0;
+  width:min(360px,calc(100vw - 24px));
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:20px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:10px;
+  display:none;
+  z-index:7150;
+}
+
+.notification-dropdown.open{
+  display:block;
+  animation:notificationPop .18s ease;
+}
+
+@keyframes notificationPop{
+  0%{opacity:0; transform:translateY(-8px)}
+  100%{opacity:1; transform:translateY(0)}
+}
+
+.notification-head{
+  padding:6px 8px 10px;
+  border-bottom:1px solid #f1f5f9;
+  font-size:15px;
+  font-weight:800;
+  color:#111827;
+}
+
+.notification-list{
+  max-height:380px;
+  overflow:auto;
+  padding:8px 2px 2px;
+}
+
+.notification-list::-webkit-scrollbar{width:6px}
+.notification-list::-webkit-scrollbar-thumb{
+  background:#d6dee7;
+  border-radius:999px;
+}
+
+.notification-empty{
+  padding:18px 12px;
+  text-align:center;
+  color:#64748b;
+  font-size:14px;
+  font-weight:700;
+}
+
+.notification-card{
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:14px 16px;
+  border-radius:16px;
+  background:#fff;
+  margin-bottom:10px;
+  transition:.2s;
+  cursor:pointer;
+  overflow:hidden;
+  touch-action:pan-y;
+}
+
+.notification-card:hover{background:#f8fafc}
+.notification-card.unread{background:#f0f9ff}
+.notification-card.swiping{transition:none}
+
+.notification-card::after{
+  content:"🗑 Delete";
+  position:absolute;
+  right:0;
+  top:0;
+  bottom:0;
+  width:100px;
+  background:#ef4444;
+  color:#fff;
+  font-size:14px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  opacity:0;
+  transition:.2s;
+}
+
+.notification-card.show-delete::after{opacity:1}
+
+.notification-avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:contain;
+}
+
+.notification-body{
+  flex:1;
+  min-width:0;
+}
+
+.notification-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.notification-user{
+  font-size:15px;
+  font-weight:700;
+  color:#111827;
+}
+
+.notification-time{
+  font-size:12px;
+  color:#6b7280;
+  white-space:nowrap;
+}
+
+.notification-message{
+  font-size:14px;
+  font-weight:600;
+  color:#111827;
+  margin-top:2px;
+}
+
+.notification-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:4px;
+  gap:10px;
+}
+
+.notification-product{
+  font-size:13px;
+  color:#6b7280;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:80%;
+}
+
+.notification-dot{
+  width:8px;
+  height:8px;
+  background:#ef4444;
+  border-radius:50%;
+}
+
+/* DRAWER - EXACT BUY STYLE */
+.sidebar-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.42);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+  z-index:7800;
+}
+
+.sidebar-overlay.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.sidebar-drawer{
+  position:fixed;
+  top:0;
+  left:0;
+  width:min(330px,90vw);
+  height:100vh;
+  background:#fff;
+  transform:translateX(-100%);
+  transition:transform .28s ease;
+  z-index:7900;
+  box-shadow:24px 0 50px rgba(15,23,42,.22);
+  display:flex;
+  flex-direction:column;
+  overflow-y:auto;
+}
+
+.sidebar-drawer.open{transform:translateX(0)}
+
+.sidebar-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 18px 14px;
+  border-bottom:1px solid #eef2f6;
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:2;
+}
+
+.sidebar-head .menu-btn{background:#f8fafc}
+
+.sidebar-brand b{
+  display:block;
+  font-size:22px;
+  color:#146c2e;
+  line-height:1.1;
+}
+
+.sidebar-brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+}
+
+.sidebar-section{
+  padding:12px 14px;
+  border-bottom:1px solid #f1f5f9;
+}
+
+.sidebar-label{
+  font-size:13px;
+  color:#64748b;
+  font-weight:800;
+  margin:4px 10px 10px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.drawer-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px 14px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#111827;
+  font-weight:700;
+  margin-bottom:4px;
+  transition:background .2s ease, transform .2s ease;
+}
+
+.drawer-link:hover{
+  background:#f8fafc;
+  transform:translateX(2px);
+}
+
+.drawer-link.active{
+  background:#111827;
+  color:#fff;
+}
+
+.drawer-icon{
+  width:22px;
+  text-align:center;
+  font-size:18px;
+  flex-shrink:0;
+}
+
+/* PAGE */
+.ticker-shell{
+  position:sticky;
+  top:72px;
+  z-index:6000;
+  background:#fff;
+  border-bottom:1px solid #eef2f6;
+}
+
+.top-ticker-wrap{
+  background:linear-gradient(90deg,#fff8e4,#fff2cb);
+  border-top:2px solid #f1c24a;
+  border-bottom:2px solid #f1c24a;
+  overflow:hidden;
+  height:46px;
+  display:flex;
+  align-items:center;
+}
+
+.ticker-track{
+  display:flex;
+  width:max-content;
+  min-width:max-content;
+  will-change:transform;
+  animation:marquee 24s linear infinite;
+}
+
+.ticker-item{
+  flex:0 0 auto;
+  padding-right:54px;
+  font-weight:700;
+  color:#222;
+  font-size:15px;
+}
+
+@keyframes marquee{
+  0%{transform:translate3d(0,0,0)}
+  100%{transform:translate3d(-50%,0,0)}
+}
+
+.page-shell{
+  max-width:1180px;
+  margin:18px auto 28px;
+  padding:0 14px 28px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+}
+
+.hero-card{
+  position:relative;
+  overflow:hidden;
+  padding:22px;
+  background:
+    radial-gradient(circle at top right, rgba(255,255,255,.16), transparent 28%),
+    linear-gradient(135deg,#1f8f52 0%, #13663a 58%, #0e4d2d 100%);
+  color:#fff;
+}
+
+.hero-card::before{
+  content:"";
+  position:absolute;
+  right:-36px;
+  top:-36px;
+  width:190px;
+  height:190px;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+}
+
+.hero-content{
+  position:relative;
+  z-index:1;
+}
+
+.live-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.18);
+  font-weight:700;
+  font-size:14px;
+}
+
+.live-badge::before{
+  content:"";
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#6dff95;
+  box-shadow:0 0 0 6px rgba(109,255,149,.18);
+}
+
+.hero-title{
+  margin:16px 0 0;
+  font-size:36px;
+  line-height:1.08;
+  letter-spacing:-.02em;
+  max-width:520px;
+}
+
+.hero-stats{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  margin-top:22px;
+}
+
+.stat-box{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:22px;
+  padding:16px;
+  backdrop-filter:blur(8px);
+}
+
+.stat-box span{
+  display:block;
+  font-size:30px;
+  line-height:1;
+  font-weight:800;
+}
+
+.stat-box small{
+  display:block;
+  margin-top:8px;
+  color:rgba(255,255,255,.86);
+  font-size:13px;
+}
+
+.filter-card{
+  margin-top:16px;
+  padding:16px;
+}
+
+.toolbar-block + .toolbar-block{
+  margin-top:14px;
+}
+
+.toolbar-title{
+  margin:0 0 10px;
+  font-size:14px;
+  font-weight:800;
+  color:#475569;
+}
+
+.filter-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.filter-chip{
+  border:none;
+  min-height:44px;
+  padding:0 16px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:800;
+  background:#f3f6fb;
+  color:#415063;
+  transition:all .18s ease;
+}
+
+.filter-chip.active{
+  background:linear-gradient(135deg,#1f8f52,#13663a);
+  color:#fff;
+  box-shadow:0 10px 20px rgba(19,102,58,.18);
+}
+
+.filter-chip.secondary.active{
+  background:#111827;
+  color:#fff;
+  box-shadow:none;
+}
+
+.search-wrap{
+  position:relative;
+  margin-top:14px;
+}
+
+.search-wrap span{
+  position:absolute;
+  left:16px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:20px;
+  color:#7b8796;
+}
+
+.search-wrap input{
+  width:100%;
+  height:56px;
+  border:none;
+  outline:none;
+  border-radius:18px;
+  background:#f4f8fb;
+  border:1px solid #e7eef6;
+  padding:0 16px 0 50px;
+  color:var(--black);
+  font-size:16px;
+}
+
+.results-card{
+  margin-top:16px;
+}
+
+.results-head{
+  padding:18px 20px 14px;
+  border-bottom:1px solid #edf2f7;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.results-head h2{
+  margin:0;
+  font-size:26px;
+  line-height:1.1;
+}
+
+.results-head p{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.live-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:#f7fafc;
+  color:#344054;
+  font-weight:700;
+  border:1px solid #ebeff5;
+  white-space:nowrap;
+}
+
+.live-pill::before{
+  content:"";
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#f44336;
+  box-shadow:0 0 0 5px rgba(244,67,54,.12);
+}
+
+.listings-grid{
+  padding:16px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.listing-card{
+  position:relative;
+  border:1px solid #e8eef5;
+  border-radius:28px;
+  background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
+  box-shadow:0 10px 22px rgba(15,23,42,.04);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+.listing-card.deleted{
+  border-color:#fde2e2;
+  background:linear-gradient(180deg,#fff8f8 0%, #fffefe 100%);
+}
+
+.deleted-ribbon{
+  position:absolute;
+  top:14px;
+  left:14px;
+  z-index:6;
+  background:#111827;
+  color:#fff;
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.media-shell{
+  position:relative;
+  height:230px;
+  overflow:hidden;
+  background:linear-gradient(135deg,#d9c2c2,#d8d87a);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.media-shell::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:inherit;
+  filter:blur(22px) scale(1.12);
+  transform:scale(1.08);
+  z-index:0;
+}
+
+.media-link,
+.media-top,
+.media-counter,
+.media-dots{
+  position:relative;
+  z-index:2;
+}
+
+.media-link{
+  display:block;
+  width:100%;
+  height:100%;
+  text-decoration:none;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(2px);
+}
+
+.media-slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;   /* cover ऐवजी contain */
+  opacity:0;
+  transition:opacity .35s ease;
+  background:transparent;
+  padding:14px;
+  display:block;
+  margin:auto;
+}
+
+.media-slide.active{opacity:1}
+
+.media-top{
+  position:absolute;
+  top:12px;
+  left:12px;
+  right:12px;
+  z-index:3;
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  align-items:flex-start;
+}
+/* Company filter horizontal scroll */
+#companyFilters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;        /* 🔥 wrap बंद */
+  overflow-x: auto;         /* 🔥 horizontal scroll */
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+}
+
+/* scrollbar hide (optional clean UI) */
+#companyFilters::-webkit-scrollbar {
+  display: none;
+}
+
+#companyFilters {
+  scrollbar-width: none; /* Firefox */
+}
+#companyFilters .filter-chip {
+  flex: 0 0 auto;  /* 🔥 button compress होणार नाही */
+}
+
+.media-badge{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:0 10px;
+  border-radius:999px;
+  background:rgba(17,24,39,.76);
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  backdrop-filter:blur(8px);
+}
+
+.media-counter{
+  position:absolute;
+  right:12px;
+  bottom:12px;
+  z-index:3;
+  background:rgba(17,24,39,.72);
+  color:#fff;
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:800;
+  backdrop-filter:blur(8px);
+}
+
+.media-dots{
+  position:absolute;
+  left:12px;
+  bottom:12px;
+  z-index:3;
+  display:flex;
+  gap:6px;
+}
+
+.media-dots button{
+  width:8px;
+  height:8px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,.45);
+  padding:0;
+  cursor:pointer;
+}
+
+.media-dots button.active{background:#fff}
+
+.card-body{
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  flex:1;
+}
+
+.card-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.card-price{
+  font-size:28px;
+  color:#2e7d32;
+  font-weight:800;
+  line-height:1;
+}
+
+.card-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:flex-end;
+}
+
+.mini-tag{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:0 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.mini-tag.green{
+  background:#eaf8ef;
+  color:#19693b;
+}
+
+.mini-tag.blue{
+  background:#eef5ff;
+  color:#1859a8;
+}
+
+.card-title{
+  margin:0;
+  font-size:21px;
+  line-height:1.25;
+  color:#111827;
+}
+
+.card-title a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.card-company{
+  color:#1d4ed8;
+  font-size:14px;
+  font-weight:800;
+}
+
+.card-location{
+  color:#64748b;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.5;
+}
+
+.card-desc{
+  color:#5b6574;
+  font-size:14px;
+  line-height:1.7;
+  margin:0;
+  min-height:48px;
+}
+
+.meta-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.meta-box{
+  background:#f8fafc;
+  border:1px solid #edf2f7;
+  border-radius:18px;
+  padding:12px;
+}
+
+.meta-box span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-bottom:6px;
+  font-weight:700;
+}
+
+.meta-box strong{
+  display:block;
+  color:#111827;
+  font-size:14px;
+  word-break:break-word;
+}
+
+.card-actions{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:auto;
+}
+
+.action-btn{
+  border:none;
+  border-radius:16px;
+  padding:13px 12px;
+  font-weight:800;
+  font-size:14px;
+  cursor:pointer;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+}
+
+.action-btn.view{
+  background:linear-gradient(135deg,#2e7d32,#1b5e20);
+  color:#fff;
+}
+
+.action-btn.edit{
+  background:#eaf4ff;
+  color:#1d4ed8;
+}
+
+.action-btn.stock{
+  background:#fff8e1;
+  color:#9a6700;
+}
+
+.action-btn.delete{
+  background:#fde8e8;
+  color:#dc2626;
+}
+
+.action-btn.restore{
+  background:#eaf8ef;
+  color:#19693b;
+}
+
+.action-btn:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+
+.empty-state{
+  padding:26px 18px 28px;
+}
+
+.empty-box{
+  background:linear-gradient(180deg,#fbfdfc 0%, #f6f9fb 100%);
+  border:1px dashed #dce6f0;
+  border-radius:24px;
+  padding:28px 18px;
+  text-align:center;
+}
+
+.empty-box strong{
+  display:block;
+  font-size:24px;
+  line-height:1.2;
+}
+
+.empty-box p{
+  margin:10px auto 0;
+  max-width:560px;
+  color:var(--muted);
+  line-height:1.7;
+  font-size:15px;
+}
+
+/* MODALS */
+.popup-backdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.46);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  z-index:9000;
+}
+
+.popup-card{
+  width:min(720px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:28px;
+  box-shadow:0 24px 50px rgba(0,0,0,.22);
+  padding:18px;
+}
+
+.popup-card.small{
+  width:min(520px,100%);
+}
+
+.popup-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.popup-title{
+  margin:0 0 6px;
+  font-size:24px;
+  color:#111827;
+}
+
+.popup-text{
+  margin:0;
+  color:#64748b;
+  line-height:1.7;
+  font-size:15px;
+}
+
+.popup-close{
+  border:none;
+  background:#f3f4f6;
+  color:#111827;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  font-size:24px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.form-full{
+  grid-column:1 / -1;
+}
+
+.field-label{
+  display:block;
+  margin-bottom:6px;
+  font-size:13px;
+  color:#111827;
+  font-weight:800;
+}
+
+.input,
+.textarea,
+.select{
+  width:100%;
+  padding:13px 14px;
+  border-radius:14px;
+  border:1px solid #d7dee7;
+  outline:none;
+  background:#fff;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus{
+  border-color:#2e7d32;
+  box-shadow:0 0 0 3px rgba(46,125,50,.10);
+}
+
+.textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+.help-text{
+  margin-top:6px;
+  color:#64748b;
+  font-size:12px;
+  line-height:1.6;
+}
+
+.popup-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:18px;
+}
+
+.primary-btn,
+.secondary-btn{
+  border:none;
+  border-radius:16px;
+  padding:13px 14px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.primary-btn{
+  background:linear-gradient(135deg,#2e7d32,#1b5e20);
+  color:#fff;
+}
+
+.primary-btn.warn{
+  background:linear-gradient(135deg,#dc2626,#b91c1c);
+}
+
+.primary-btn.stock{
+  background:linear-gradient(135deg,#f59e0b,#d97706);
+  color:#fff;
+}
+
+.secondary-btn{
+  background:#f3f4f6;
+  color:#111827;
+}
+
+/* TOAST */
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:24px;
+  transform:translateX(-50%) translateY(20px);
+  background:#111827;
+  color:#fff;
+  padding:12px 16px;
+  border-radius:14px;
+  font-size:14px;
+  font-weight:700;
+  z-index:9300;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+  box-shadow:0 18px 38px rgba(0,0,0,.22);
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* FOOTER */
+.footer{
+  background:#1b5e20;
+  color:#fff;
+  text-align:center;
+  padding:18px 10px;
+  margin-top:25px;
+  font-size:14px;
+}
+
+.footer a{
+  color:#fff;
+  text-decoration:none;
+  margin:0 10px;
+  font-weight:700;
+}
+
+.footer a:hover{text-decoration:underline}
+
+@media (max-width:1080px){
+  .listings-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media (max-width:980px){
+  .hero-stats{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width:768px){
+  .header-inner{
+    padding:10px;
+    min-height:66px;
+  }
+
+  .logo{
+    width:46px;
+    height:46px;
+    border-radius:13px;
+  }
+
+  .brand{
+    max-width:170px;
+  }
+
+  .brand b{
+    font-size:18px;
+  }
+
+  .brand span{
+    font-size:11px;
+  }
+
+  .status-pill{
+    padding:10px 12px;
+    font-size:13px;
+  }
+
+  .icon-circle{
+    width:40px;
+    height:40px;
+  }
+
+  .ticker-shell{
+    top:66px;
+  }
+
+  .page-shell{
+    padding:0 10px 24px;
+  }
+
+  .hero-title{
+    font-size:29px;
+  }
+
+  .results-head{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .listings-grid{
+    grid-template-columns:1fr;
+  }
+
+  .card-actions{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .popup-actions{
+    grid-template-columns:1fr;
+  }
+
+  .notification-dropdown{
+    width:min(340px,calc(100vw - 24px));
+  }
+}
+
+@media (max-width:560px){
+  .header-inner{
+    gap:8px;
+    padding:8px 10px;
+  }
+
+  .header-left{gap:8px}
+  .header-right{gap:6px}
+
+  .menu-btn{
+    width:38px;
+    height:38px;
+    font-size:22px;
+  }
+
+  .logo{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+  }
+
+  .brand{
+    max-width:130px;
+  }
+
+  .brand b{
+    font-size:16px;
+  }
+
+  .brand span{
+    display:block;
+    font-size:10px;
+  }
+
+  .status-pill{
+    padding:8px 8px;
+    font-size:10px;
+    gap:5px;
+    min-height:38px;
+  }
+
+  .icon-circle{
+    width:36px;
+    height:36px;
+  }
+
+  .whatsapp-btn img{
+    width:17px;
+    height:17px;
+  }
+
+  .hero-card,
+  .filter-card{
+    padding:16px;
+  }
+
+  .hero-stats{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .stat-box{
+    padding:14px;
+    border-radius:18px;
+  }
+
+  .stat-box span{
+    font-size:24px;
+  }
+
+  .media-shell{
+    height:210px;
+  }
+
+  .meta-grid{
+    grid-template-columns:1fr;
+  }
+
+  .card-actions{
+    grid-template-columns:1fr;
+  }
+
+  .notification-dropdown{
+    right:-52px;
+    width:min(320px,calc(100vw - 16px));
+  }
+}
+
+@media (max-width:390px){
+  .brand{
+    max-width:112px;
+  }
+
+  .brand b{
+    font-size:15px;
+  }
+
+  .brand span{
+    display:block;
+    font-size:9px;
+  }
+
+  .status-pill{
+    padding:7px 7px;
+    font-size:9px;
+  }
+
+  .menu-btn,
+  .icon-circle{
+    width:34px;
+    height:34px;
+  }
+
+  .notification-dropdown{
+    right:-84px;
+    width:calc(100vw - 14px);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="yt-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <button class="menu-btn" id="menuToggle" aria-label="Open menu" type="button">☰</button>
+
+      <a class="brand-link" href="index.html">
+        <div class="logo"><img src="logo_1.png" alt="BanaNetwork Logo"></div>
+        <div class="brand">
+          <b>BanaNetwork</b>
+          <span id="brandSubtitle">रोप खोडवा खरेदी विक्री</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="header-right">
+      <a class="status-pill" id="loginStatusBtn" href="login.html">
+        <span id="loginStatusIcon">🔑</span>
+        <span id="loginStatusText">Login</span>
+      </a>
+
+      <div class="lang-wrap">
+        <button class="icon-circle lang-btn" id="langToggle" type="button" aria-label="Change language" aria-expanded="false">म</button>
+        <div class="lang-menu" id="langMenu">
+          <button class="lang-option" type="button" data-lang="mr">मराठी</button>
+          <button class="lang-option" type="button" data-lang="hi">हिंदी</button>
+          <button class="lang-option" type="button" data-lang="en">English</button>
+        </div>
+      </div>
+
+      <div class="notification-wrap hidden" id="notificationWrap">
+        <button id="notificationBtn" class="icon-circle notification-btn" type="button" aria-label="Notifications" aria-expanded="false">
+          <span>🔔</span>
+          <span id="notificationCount" class="notification-count hidden">0</span>
+        </button>
+        <div id="notificationDropdown" class="notification-dropdown">
+          <div class="notification-head" id="notificationTitle">Notifications</div>
+          <div class="notification-list" id="notificationList">
+            <div class="notification-empty">No notifications</div>
+          </div>
+        </div>
+      </div>
+
+      <a class="icon-circle whatsapp-btn" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </a>
+
+      <a class="icon-circle account-btn" id="accountBtn" href="login.html" title="My Account">👤</a>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<aside class="sidebar-drawer" id="sidebarDrawer">
+  <div class="sidebar-head">
+    <button class="menu-btn" id="drawerClose" aria-label="Close menu" type="button">☰</button>
+    <div class="sidebar-brand">
+      <b>BanaNetwork</b>
+      <span id="drawerSubtitle">केळी संबंधित सर्व सेवा</span>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelMain">मुख्य</div>
+    <a class="drawer-link" data-route="home" href="index.html"><span class="drawer-icon">🏠</span><span id="drawerHome">Home</span></a>
+    <a class="drawer-link" data-route="plant-buy" href="buy.html"><span class="drawer-icon">🌱</span><span id="drawerBuy">केळी रोप खरेदी</span></a>
+    <a class="drawer-link" data-route="plant-sell" href="sell.html"><span class="drawer-icon">💰</span><span id="drawerSell">केळी रोप विक्री</span></a>
+    <a class="drawer-link" data-route="khodwa-buy" href="buy.html"><span class="drawer-icon">🌿</span><span id="drawerKhatBuy">केळी खोडवा खरेदी</span></a>
+    <a class="drawer-link" data-route="khodwa-sell" href="sell.html"><span class="drawer-icon">🚜</span><span id="drawerKhatSell">केळी खोडवा विक्री</span></a>
+    <a class="drawer-link" data-route="burhanpur" href="index.html"><span class="drawer-icon">🍌</span><span id="drawerBurhanpur">बुरहानपूर केळी भाव</span></a>
+    <a class="drawer-link" data-route="jalgaon" href="jalgaon.html"><span class="drawer-icon">📍</span><span id="drawerJalgaon">जळगाव केळी भाव</span></a>
+    <a class="drawer-link" data-route="chopda" href="chopda.html"><span class="drawer-icon">📍</span><span id="drawerChopda">चोपडा केळी भाव</span></a>
+    <a class="drawer-link" data-route="raver" href="raver.html"><span class="drawer-icon">📍</span><span id="drawerRaver">रावेर केळी भाव</span></a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelAccount">खाते</div>
+    <a class="drawer-link" data-protected-route="account.html" href="account.html"><span class="drawer-icon">👤</span><span id="drawerAccount">My Account</span></a>
+    <a class="drawer-link" data-protected-route="chat.html" href="chat.html"><span class="drawer-icon">💬</span><span id="drawerChat">My Chat</span></a>
+    <a class="drawer-link" data-protected-route="mylistings.html" href="mylistings.html"><span class="drawer-icon">📜</span><span id="drawerListingHistory">My Listing History</span></a>
+    <a class="drawer-link" data-protected-route="inbox.html" href="inbox.html"><span class="drawer-icon">📥</span><span id="drawerInbox">My Inbox</span></a>
+    <a class="drawer-link" id="drawerSignupLink" href="login.html?mode=signup">
+      <span class="drawer-icon">📝</span>
+      <span id="drawerSignup">Signup</span>
+    </a>
+    <a class="drawer-link" id="drawerAuthLink" href="login.html"><span class="drawer-icon" id="drawerAuthIcon">🔑</span><span id="drawerLoginText">Login</span></a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelInfo">माहिती</div>
+    <a class="drawer-link" href="about.html"><span class="drawer-icon">ℹ️</span><span id="drawerAbout">About Us</span></a>
+    <a class="drawer-link" href="privacy.html"><span class="drawer-icon">🔒</span><span id="drawerPrivacy">Privacy Policy</span></a>
+    <a class="drawer-link" href="terms.html"><span class="drawer-icon">📄</span><span id="drawerTerms">Terms & Conditions</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">📞</span><span id="drawerContact">Contact Us</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">🤝</span><span id="drawerAgentHelp">प्रतिनिधी मदत</span></a>
+    <a class="drawer-link" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer">
+      <span class="drawer-icon whatsapp-drawer-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </span>
+      <span id="drawerWhatsapp">WhatsApp Group</span>
+    </a>
+  </div>
+</aside>
+
+<div class="ticker-shell">
+  <div class="top-ticker-wrap">
+    <div class="ticker-track">
+      <div class="ticker-item" id="tickerTextA">📦 तुमच्या listings वर company filter वापरा | ✏ listing केल्यानंतर 48 तास full edit available आहे | 📊 stock available any time update करा | ♻ delete केल्यावर 48 तास restore करू शकता</div>
+      <div class="ticker-item" id="tickerTextB">📦 तुमच्या listings वर company filter वापरा | ✏ listing केल्यानंतर 48 तास full edit available आहे | 📊 stock available any time update करा | ♻ delete केल्यावर 48 तास restore करू शकता</div>
+    </div>
+  </div>
+</div>
+
+<main class="page-shell">
+  <section class="hero-card card">
+    <div class="hero-content">
+      <div class="live-badge" id="heroBadge">लाईव्ह लिस्टिंग अपडेट</div>
+      <h1 class="hero-title" id="heroTitle">📦 My Listings Dashboard</h1>
+
+      <div class="hero-stats">
+        <div class="stat-box">
+          <span id="statTotal">0</span>
+          <small id="statTotalLabel">एकूण Listings</small>
+        </div>
+
+        <div class="stat-box">
+          <span id="statActive">0</span>
+          <small id="statActiveLabel">Active</small>
+        </div>
+
+        <div class="stat-box">
+          <span id="statPending">0</span>
+          <small id="statPendingLabel">Pending</small>
+        </div>
+
+        <div class="stat-box">
+          <span id="statSold">0</span>
+          <small id="statSoldLabel">Sold</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="filter-card card">
+    <div class="toolbar-block">
+      <div class="toolbar-title" id="primaryFilterTitle">Category</div>
+      <div class="filter-row" id="primaryFilters">
+        <button class="filter-chip active" type="button" data-primary="all" id="primaryAllBtn">All</button>
+        <button class="filter-chip" type="button" data-primary="rop" id="primaryRopBtn">रोप</button>
+        <button class="filter-chip" type="button" data-primary="khodwa" id="primaryKhodwaBtn">खोडवा</button>
+      </div>
+    </div>
+
+    <div class="toolbar-block">
+      <div class="toolbar-title" id="companyFilterTitle">Company</div>
+      <div class="filter-row" id="companyFilters"></div>
+    </div>
+
+    <div class="search-wrap">
+      <span>🔎</span>
+      <input id="searchInput" type="text" placeholder="Product, company, गाव किंवा ID शोधा">
+    </div>
+
+    <div class="toolbar-block">
+      <div class="toolbar-title" id="statusFilterTitle">Status</div>
+      <div class="filter-row" id="statusFilters">
+        <button class="filter-chip secondary active" type="button" data-status="all" id="statusAllBtn">All</button>
+        <button class="filter-chip secondary" type="button" data-status="active" id="statusActiveBtn">Active</button>
+        <button class="filter-chip secondary" type="button" data-status="pending" id="statusPendingBtn">Pending</button>
+        <button class="filter-chip secondary" type="button" data-status="sold" id="statusSoldBtn">Sold</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="results-card card">
+    <div class="results-head">
+      <div>
+        <h2 id="resultsTitle">तुमच्या Listings</h2>
+        <p id="resultsMeta">लोड होत आहे...</p>
+      </div>
+
+      <div class="live-pill" id="livePill">सतत अपडेट</div>
+    </div>
+
+    <div class="listings-grid" id="listingsGrid"></div>
+
+    <div class="empty-state hidden" id="emptyState">
+      <div class="empty-box">
+        <strong id="emptyTitle">Listing सापडली नाही</strong>
+        <p id="emptyText">तुमच्या filter, company किंवा search नुसार कोणतीही listing दिसत नाही.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div>© 2026 BanaNetwork</div>
+    <div id="footerMade">Made for Banana Farmers 🍌</div>
+    <div style="margin-top:8px;">
+      <a href="privacy.html" id="footerPrivacy">Privacy</a> |
+      <a href="terms.html" id="footerTerms">T&C</a> |
+      <a href="contact.html" id="footerContact">Contact</a> |
+      <a href="about.html" id="footerAbout">About</a>
+    </div>
+  </div>
+</main>
+
+<div class="popup-backdrop hidden" id="noticeModal">
+  <div class="popup-card small">
+    <div class="popup-head">
+      <div>
+        <h3 class="popup-title" id="noticeTitle">Notice</h3>
+        <p class="popup-text" id="noticeText">Text</p>
+      </div>
+      <button class="popup-close" id="noticeClose" type="button">×</button>
+    </div>
+
+    <div class="popup-actions">
+      <button class="secondary-btn" id="noticeSecondaryBtn" type="button">Back</button>
+      <button class="primary-btn" id="noticePrimaryBtn" type="button">OK</button>
+    </div>
+  </div>
+</div>
+
+<div class="popup-backdrop hidden" id="editModal">
+  <div class="popup-card">
+    <div class="popup-head">
+      <div>
+        <h3 class="popup-title" id="editModalTitle">Listing Edit</h3>
+        <p class="popup-text" id="editModalText">48 तासांच्या validity मध्ये तुम्ही संपूर्ण listing edit करू शकता.</p>
+      </div>
+      <button class="popup-close" id="editClose" type="button">×</button>
+    </div>
+
+    <form id="editForm">
+      <div class="form-grid">
+        <div>
+          <label class="field-label" id="fieldTitleLabel" for="editTitle">Product Title</label>
+          <input class="input" id="editTitle" type="text" required>
+        </div>
+
+        <div>
+          <label class="field-label" id="fieldCategoryLabel" for="editCategory">Category</label>
+          <select class="select" id="editCategory" required>
+            <option value="rop">रोप</option>
+            <option value="khodwa">खोडवा</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="field-label" id="fieldCompanyLabel" for="editCompany">Company</label>
+          <input class="input" id="editCompany" type="text">
+        </div>
+
+        <div>
+          <label class="field-label" id="fieldPriceLabel" for="editPrice">Price</label>
+          <input class="input" id="editPrice" type="number" min="0" required>
+        </div>
+
+        <div>
+          <label class="field-label" for="editStockType">Stock Type</label>
+          <select class="select" id="editStockType">
+            <option value="unlimited">Unlimited</option>
+            <option value="limited">Limited</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="field-label" for="editStockNumber">Stock Number (Optional)</label>
+          <input class="input" id="editStockNumber" type="number" min="0">
+        </div>
+
+        <div>
+          <label class="field-label" id="fieldVillageLabel" for="editVillage">Village</label>
+          <input class="input" id="editVillage" type="text">
+        </div>
+
+        <div>
+          <label class="field-label" id="fieldTalukaLabel" for="editTaluka">Taluka</label>
+          <input class="input" id="editTaluka" type="text">
+        </div>
+
+        <div>
+          <label class="field-label" id="fieldDistrictLabel" for="editDistrict">District</label>
+          <input class="input" id="editDistrict" type="text">
+        </div>
+
+        <div>
+          <label class="field-label" id="fieldStatusLabel" for="editStatus">Status</label>
+          <select class="select" id="editStatus">
+            <option value="active">Active</option>
+            <option value="pending">Pending</option>
+            <option value="sold">Sold</option>
+          </select>
+        </div>
+
+        <div class="form-full">
+          <label class="field-label" id="fieldDescriptionLabel" for="editDescription">Description</label>
+          <textarea class="textarea" id="editDescription"></textarea>
+        </div>
+
+        <div class="form-full">
+          <label class="field-label" id="fieldImagesLabel" for="editImages">Image URLs</label>
+          <textarea class="textarea" id="editImages"></textarea>
+          <div class="help-text" id="imagesHelp">प्रत्येक image URL comma किंवा new line ने टाका.</div>
+        </div>
+      </div>
+
+      <div class="popup-actions">
+        <button class="secondary-btn" id="editBackBtn" type="button">Back</button>
+        <button class="primary-btn" id="editSaveBtn" type="submit">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="popup-backdrop hidden" id="stockModal">
+  <div class="popup-card small">
+    <div class="popup-head">
+      <div>
+        <h3 class="popup-title" id="stockModalTitle">Stock Available Edit</h3>
+        <p class="popup-text" id="stockModalText">हा भाग तुम्ही any time update करू शकता.</p>
+      </div>
+      <button class="popup-close" id="stockClose" type="button">×</button>
+    </div>
+
+    <form id="stockForm">
+      <label class="field-label" for="stockTypeUpdate">Stock Type</label>
+      <select class="select" id="stockTypeUpdate">
+        <option value="unlimited">Unlimited</option>
+        <option value="limited">Limited</option>
+      </select>
+
+      <label class="field-label" for="stockNumberUpdate">Stock Number (Optional)</label>
+      <input class="input" id="stockNumberUpdate" type="number" min="0">
+
+      <label class="field-label" for="stockPriceUpdate">Price Update</label>
+      <input class="input" id="stockPriceUpdate" type="number" min="0">
+
+      <div class="popup-actions">
+        <button class="secondary-btn" id="stockBackBtn" type="button">Back</button>
+        <button class="primary-btn stock" id="stockSaveBtn" type="submit">Update Stock</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+  doc,
+  updateDoc,
+  onSnapshot,
+  arrayUnion
+} from "https://www.gstatic.com/firebasejs/12.2.0/firebase-firestore.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.2.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBACccl0d8dMcssyF7Z1ol8vgOxsCJwYmE",
+  authDomain: "bananetwork-f8e1f.firebaseapp.com",
+  projectId: "bananetwork-f8e1f",
+  storageBucket: "bananetwork-f8e1f.firebasestorage.app",
+  messagingSenderId: "382838460721",
+  appId: "1:382838460721:web:f6a4a902786d4a8d5fe010"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+const EDIT_WINDOW_MS = 48 * 60 * 60 * 1000;
+const RESTORE_WINDOW_MS = 48 * 60 * 60 * 1000;
+
+const LANG_SHORT = { mr:"म", hi:"हि", en:"E" };
+const localeMap = { mr:"mr-IN", hi:"hi-IN", en:"en-IN" };
+
+const translations = {
+  mr:{
+    page_title:"My Listings | BanaNetwork",
+    meta_description:"BanaNetwork वर तुमचे सर्व product listings, company filters, stock update, edit validity आणि restore options एकाच page वर manage करा.",
+    meta_keywords:"banana my listings, listing history, listing dashboard, BanaNetwork seller listings",
+    og_description:"तुमचे सर्व product listings manage करा | BanaNetwork",
+    brand_subtitle:"रोप खोडवा खरेदी विक्री",
+    drawer_subtitle:"केळी संबंधित सर्व सेवा",
+    label_main:"मुख्य",
+    label_account:"खाते",
+    label_info:"माहिती",
+    nav_home:"Home",
+    nav_buy:"केळी रोप खरेदी",
+    nav_sell:"केळी रोप विक्री",
+    nav_khat_buy:"केळी खोडवा खरेदी",
+    nav_khat_sell:"केळी खोडवा विक्री",
+    nav_burhanpur_rates:"बुरहानपूर केळी भाव",
+    nav_jalgaon_rates:"जळगाव केळी भाव",
+    nav_chopda_rates:"चोपडा केळी भाव",
+    nav_raver_rates:"रावेर केळी भाव",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    footer_terms:"T&C",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधी मदत",
+    info_whatsapp_group:"WhatsApp Group",
+    status_login:"Login",
+    status_account:"खाते",
+    notification_title:"सूचना",
+    notification_empty:"कोणतीही सूचना नाही",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    notification_today:"आज",
+    notification_earlier:"मागील",
+    ticker:"📦 तुमच्या listings वर company filter वापरा | ✏ listing केल्यानंतर 48 तास full edit available आहे | 📊 stock available any time update करा | ♻ delete केल्यावर 48 तास restore करू शकता",
+    hero_badge:"लाईव्ह लिस्टिंग अपडेट",
+    hero_title:"📦 My Listings Dashboard",
+    stat_total:"एकूण Listings",
+    stat_active:"Active",
+    stat_pending:"Pending",
+    stat_sold:"Sold",
+    primary_filter:"Category",
+    primary_all:"All",
+    primary_rop:"रोप",
+    primary_khodwa:"खोडवा",
+    company_filter:"Company",
+    company_all:"All",
+    search_placeholder:"Product, company, गाव किंवा ID शोधा",
+    status_filter:"Status",
+    status_all:"All",
+    status_active:"Active",
+    status_pending:"Pending",
+    status_sold:"Sold",
+    results_title:"तुमच्या Listings",
+    results_meta:(count)=>`${count} listings दिसत आहेत`,
+    live_pill:"सतत अपडेट",
+    empty_title:"Listing सापडली नाही",
+    empty_text:"तुमच्या filter, company किंवा search नुसार कोणतीही listing दिसत नाही.",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_about:"About",
+    listing_rop:"रोप",
+    listing_khodwa:"खोडवा",
+    listing_deleted:(time)=>`Deleted • ${time}`,
+    active:"Active",
+    pending:"Pending",
+    sold:"Sold",
+    deleted:"Deleted",
+    price_na:"किंमत उपलब्ध नाही",
+    stock_available:"Stock Available",
+    created:"Created",
+    product_id:"Product ID",
+    status_label:"Status",
+    view:"View",
+    edit:"Edit",
+    stock_edit:"Stock",
+    delete:"Delete",
+    restore:"Restore",
+    edit_modal_title:"Listing Edit",
+    edit_modal_text:"48 तासांच्या validity मध्ये तुम्ही संपूर्ण listing edit करू शकता.",
+    stock_modal_title:"Stock Available Edit",
+    stock_modal_text:"हा भाग तुम्ही any time update करू शकता.",
+    field_title:"Product Title",
+    field_category:"Category",
+    field_company:"Company",
+    field_price:"Price",
+    field_village:"Village",
+    field_taluka:"Taluka",
+    field_district:"District",
+    field_status:"Status",
+    field_description:"Description",
+    field_images:"Image URLs",
+    images_help:"प्रत्येक image URL comma किंवा new line ने टाका.",
+    field_stock:"Stock Available",
+    save_changes:"Save Changes",
+    update_stock:"Update Stock",
+    back:"Back",
+    contact_team:"Contact Page",
+    edit_expired_title:"Edit validity संपली",
+    edit_expired_text:"तुम्ही आता full listing edit करू शकत नाही. validity मुदत संपली आहे. जर तुम्हाला आता edit करायचे असेल तर BanaNetwork team शी contact करा.",
+    delete_title:"Delete Listing?",
+    delete_text:"ही listing delete केल्यावर ती ताबडतोब hide होईल, पण पुढील 48 तास तुम्ही restore करू शकता.",
+    delete_confirm:"Delete Now",
+    delete_done:"Listing delete झाली.",
+    restore_done:"Listing restore झाली.",
+    update_done:"Listing update झाली.",
+    stock_done:"Stock update झाला.",
+    load_error:"Listings load होत नाहीत. पुन्हा प्रयत्न करा.",
+    login_first:"कृपया आधी login करा.",
+    hours_left:(value)=>`${value} तास restore बाकी`,
+    just_now:"आताच"
+  },
+  hi:{
+    page_title:"My Listings | BanaNetwork",
+    meta_description:"BanaNetwork पर अपने सभी product listings, company filters, stock update, edit validity और restore options एक ही page पर manage करें.",
+    meta_keywords:"banana my listings, listing history, listing dashboard, BanaNetwork seller listings",
+    og_description:"अपने सभी product listings manage करें | BanaNetwork",
+    brand_subtitle:"रोप खोडवा खरीद बिक्री",
+    drawer_subtitle:"केले से जुड़ी सभी सेवाएं",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"केला रोप खरीद",
+    nav_sell:"केला रोप बिक्री",
+    nav_khat_buy:"केला खोडवा खरीद",
+    nav_khat_sell:"केला खोडवा बिक्री",
+    nav_burhanpur_rates:"बुरहानपुर केला भाव",
+    nav_jalgaon_rates:"जलगांव केला भाव",
+    nav_chopda_rates:"चोपडा केला भाव",
+    nav_raver_rates:"रावेर केला भाव",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    footer_terms:"T&C",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधि सहायता",
+    info_whatsapp_group:"WhatsApp Group",
+    status_login:"Login",
+    status_account:"खाता",
+    notification_title:"Notifications",
+    notification_empty:"No notifications",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    notification_today:"Today",
+    notification_earlier:"Earlier",
+    ticker:"📦 अपनी listings पर company filter उपयोग करें | ✏ listing के बाद 48 घंटे full edit available है | 📊 stock available को any time update करें | ♻ delete के बाद 48 घंटे restore कर सकते हैं",
+    hero_badge:"लाईव listing अपडेट",
+    hero_title:"📦 My Listings Dashboard",
+    stat_total:"कुल Listings",
+    stat_active:"Active",
+    stat_pending:"Pending",
+    stat_sold:"Sold",
+    primary_filter:"Category",
+    primary_all:"All",
+    primary_rop:"रोप",
+    primary_khodwa:"खोडवा",
+    company_filter:"Company",
+    company_all:"All",
+    search_placeholder:"Product, company, गांव या ID खोजें",
+    status_filter:"Status",
+    status_all:"All",
+    status_active:"Active",
+    status_pending:"Pending",
+    status_sold:"Sold",
+    results_title:"आपकी Listings",
+    results_meta:(count)=>`${count} listings दिखाई दे रही हैं`,
+    live_pill:"लगातार अपडेट",
+    empty_title:"Listing नहीं मिली",
+    empty_text:"आपके filter, company या search के अनुसार कोई listing नहीं मिली.",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_about:"About",
+    listing_rop:"रोप",
+    listing_khodwa:"खोडवा",
+    listing_deleted:(time)=>`Deleted • ${time}`,
+    active:"Active",
+    pending:"Pending",
+    sold:"Sold",
+    deleted:"Deleted",
+    price_na:"Price उपलब्ध नहीं",
+    stock_available:"Stock Available",
+    created:"Created",
+    product_id:"Product ID",
+    status_label:"Status",
+    view:"View",
+    edit:"Edit",
+    stock_edit:"Stock",
+    delete:"Delete",
+    restore:"Restore",
+    edit_modal_title:"Listing Edit",
+    edit_modal_text:"48 घंटे की validity में आप पूरी listing edit कर सकते हैं.",
+    stock_modal_title:"Stock Available Edit",
+    stock_modal_text:"इस भाग को आप any time update कर सकते हैं.",
+    field_title:"Product Title",
+    field_category:"Category",
+    field_company:"Company",
+    field_price:"Price",
+    field_village:"Village",
+    field_taluka:"Taluka",
+    field_district:"District",
+    field_status:"Status",
+    field_description:"Description",
+    field_images:"Image URLs",
+    images_help:"हर image URL को comma या new line से डालें.",
+    field_stock:"Stock Available",
+    save_changes:"Save Changes",
+    update_stock:"Update Stock",
+    back:"Back",
+    contact_team:"Contact Page",
+    edit_expired_title:"Edit validity समाप्त हो गई",
+    edit_expired_text:"अब आप full listing edit नहीं कर सकते. validity अवधि समाप्त हो गई है. अगर अब edit करना है तो BanaNetwork team से contact करें.",
+    delete_title:"Delete Listing?",
+    delete_text:"Listing delete करने के बाद यह तुरंत hide हो जाएगी, लेकिन अगले 48 घंटे तक आप restore कर सकते हैं.",
+    delete_confirm:"Delete Now",
+    delete_done:"Listing delete हो गई.",
+    restore_done:"Listing restore हो गई.",
+    update_done:"Listing update हो गई.",
+    stock_done:"Stock update हो गया.",
+    load_error:"Listings लोड नहीं हो रही हैं. फिर से कोशिश करें.",
+    login_first:"कृपया पहले login करें.",
+    hours_left:(value)=>`${value} घंटे restore बाकी`,
+    just_now:"अभी"
+  },
+  en:{
+    page_title:"My Listings | BanaNetwork",
+    meta_description:"Manage all your product listings, company filters, stock updates, edit validity, and restore options on one BanaNetwork page.",
+    meta_keywords:"banana my listings, listing history, listing dashboard, BanaNetwork seller listings",
+    og_description:"Manage all your product listings | BanaNetwork",
+    brand_subtitle:"Plant Khodwa Buy Sell",
+    drawer_subtitle:"All Banana Related Services",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"Banana Plant Buy",
+    nav_sell:"Banana Plant Sell",
+    nav_khat_buy:"Banana Khodwa Buy",
+    nav_khat_sell:"Banana Khodwa Sell",
+    nav_burhanpur_rates:"Burhanpur Banana Rate",
+    nav_jalgaon_rates:"Jalgaon Banana Rate",
+    nav_chopda_rates:"Chopda Banana Rate",
+    nav_raver_rates:"Raver Banana Rate",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    info_contact:"Contact Us",
+    info_agent_help:"Agent Help",
+    info_whatsapp_group:"WhatsApp Group",
+    status_login:"Login",
+    status_account:"Account",
+    notification_title:"Notifications",
+    notification_empty:"No notifications",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    notification_today:"Today",
+    notification_earlier:"Earlier",
+    ticker:"📦 Use company filters on your listings | ✏ Full edit is available for 48 hours after listing | 📊 Update stock available any time | ♻ After delete you can restore within 48 hours",
+    hero_badge:"Live Listing Update",
+    hero_title:"📦 My Listings Dashboard",
+    stat_total:"Total Listings",
+    stat_active:"Active",
+    stat_pending:"Pending",
+    stat_sold:"Sold",
+    primary_filter:"Category",
+    primary_all:"All",
+    primary_rop:"Plant",
+    primary_khodwa:"Khodwa",
+    company_filter:"Company",
+    company_all:"All",
+    search_placeholder:"Search product, company, village, or ID",
+    status_filter:"Status",
+    status_all:"All",
+    status_active:"Active",
+    status_pending:"Pending",
+    status_sold:"Sold",
+    results_title:"Your Listings",
+    results_meta:(count)=>`${count} listings shown`,
+    live_pill:"Live updates",
+    empty_title:"No listing found",
+    empty_text:"No listing matches your filter, company, or search.",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_about:"About",
+    listing_rop:"Plant",
+    listing_khodwa:"Khodwa",
+    listing_deleted:(time)=>`Deleted • ${time}`,
+    active:"Active",
+    pending:"Pending",
+    sold:"Sold",
+    deleted:"Deleted",
+    price_na:"Price not available",
+    stock_available:"Stock Available",
+    created:"Created",
+    product_id:"Product ID",
+    status_label:"Status",
+    view:"View",
+    edit:"Edit",
+    stock_edit:"Stock",
+    delete:"Delete",
+    restore:"Restore",
+    edit_modal_title:"Listing Edit",
+    edit_modal_text:"You can fully edit the listing within 48 hours of validity.",
+    stock_modal_title:"Stock Available Edit",
+    stock_modal_text:"You can update this part any time.",
+    field_title:"Product Title",
+    field_category:"Category",
+    field_company:"Company",
+    field_price:"Price",
+    field_village:"Village",
+    field_taluka:"Taluka",
+    field_district:"District",
+    field_status:"Status",
+    field_description:"Description",
+    field_images:"Image URLs",
+    images_help:"Enter each image URL with a comma or new line.",
+    field_stock:"Stock Available",
+    save_changes:"Save Changes",
+    update_stock:"Update Stock",
+    back:"Back",
+    contact_team:"Contact Page",
+    edit_expired_title:"Edit validity expired",
+    edit_expired_text:"You can no longer fully edit this listing. The validity period has ended. If you still want to edit it, please contact the BanaNetwork team.",
+    delete_title:"Delete Listing?",
+    delete_text:"After deleting, the listing will be hidden immediately, but you can restore it within the next 48 hours.",
+    delete_confirm:"Delete Now",
+    delete_done:"Listing deleted.",
+    restore_done:"Listing restored.",
+    update_done:"Listing updated.",
+    stock_done:"Stock updated.",
+    load_error:"Listings could not be loaded. Please try again.",
+    login_first:"Please log in first.",
+    hours_left:(value)=>`${value}h left to restore`,
+    just_now:"Just now"
+  }
+};
+
+let currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+let currentUser = null;
+window.currentMyListingsUser = null;
+
+let notificationUnsubscribe = null;
+let notificationsCache = [];
+
+let allListings = [];
+let activePrimary = "all";
+let activeCompany = "all";
+let activeStatus = "all";
+let currentEditId = "";
+let currentStockId = "";
+let noticePrimaryAction = null;
+let sliderTimers = [];
+
+const metaDescription = document.getElementById("metaDescription");
+const metaKeywords = document.getElementById("metaKeywords");
+const ogDescription = document.getElementById("ogDescription");
+
+const menuToggle = document.getElementById("menuToggle");
+const drawerClose = document.getElementById("drawerClose");
+const sidebarDrawer = document.getElementById("sidebarDrawer");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+
+const loginStatusBtn = document.getElementById("loginStatusBtn");
+const loginStatusIcon = document.getElementById("loginStatusIcon");
+const loginStatusText = document.getElementById("loginStatusText");
+const accountBtn = document.getElementById("accountBtn");
+
+const langToggle = document.getElementById("langToggle");
+const langMenu = document.getElementById("langMenu");
+const langOptions = [...document.querySelectorAll(".lang-option")];
+
+const notificationWrap = document.getElementById("notificationWrap");
+const notificationBtn = document.getElementById("notificationBtn");
+const notificationCountEl = document.getElementById("notificationCount");
+const notificationDropdown = document.getElementById("notificationDropdown");
+const notificationTitle = document.getElementById("notificationTitle");
+const notificationListEl = document.getElementById("notificationList");
+
+const drawerAuthLink = document.getElementById("drawerAuthLink");
+const drawerAuthIcon = document.getElementById("drawerAuthIcon");
+const drawerLoginText = document.getElementById("drawerLoginText");
+
+const primaryFilters = document.getElementById("primaryFilters");
+const companyFilters = document.getElementById("companyFilters");
+const statusFilters = document.getElementById("statusFilters");
+const searchInput = document.getElementById("searchInput");
+const listingsGrid = document.getElementById("listingsGrid");
+const emptyState = document.getElementById("emptyState");
+const resultsMeta = document.getElementById("resultsMeta");
+
+const statTotal = document.getElementById("statTotal");
+const statActive = document.getElementById("statActive");
+const statPending = document.getElementById("statPending");
+const statSold = document.getElementById("statSold");
+
+const noticeModal = document.getElementById("noticeModal");
+const noticeTitle = document.getElementById("noticeTitle");
+const noticeText = document.getElementById("noticeText");
+const noticePrimaryBtn = document.getElementById("noticePrimaryBtn");
+const noticeSecondaryBtn = document.getElementById("noticeSecondaryBtn");
+const noticeClose = document.getElementById("noticeClose");
+
+const editModal = document.getElementById("editModal");
+const editClose = document.getElementById("editClose");
+const editBackBtn = document.getElementById("editBackBtn");
+const editForm = document.getElementById("editForm");
+const editTitle = document.getElementById("editTitle");
+const editCategory = document.getElementById("editCategory");
+const editCompany = document.getElementById("editCompany");
+const editPrice = document.getElementById("editPrice");
+const editStockType = document.getElementById("editStockType");
+const editStockNumber = document.getElementById("editStockNumber");
+const editVillage = document.getElementById("editVillage");
+const editTaluka = document.getElementById("editTaluka");
+const editDistrict = document.getElementById("editDistrict");
+const editStatus = document.getElementById("editStatus");
+const editDescription = document.getElementById("editDescription");
+const editImages = document.getElementById("editImages");
+const footerTerms = document.getElementById("footerTerms");
+const stockModal = document.getElementById("stockModal");
+const stockClose = document.getElementById("stockClose");
+const stockBackBtn = document.getElementById("stockBackBtn");
+const stockForm = document.getElementById("stockForm");
+const stockTypeUpdate = document.getElementById("stockTypeUpdate");
+const stockNumberUpdate = document.getElementById("stockNumberUpdate");
+const stockPriceUpdate = document.getElementById("stockPriceUpdate");
+
+const toast = document.getElementById("toast");
+
+function t(key, ...args){
+  const value = translations[currentLanguage]?.[key] ?? translations.mr[key] ?? key;
+  return typeof value === "function" ? value(...args) : value;
+}
+
+function escapeHtml(value){
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function preserveLanguageAndClearStorage(){
+  const savedLanguage = localStorage.getItem("siteLanguage") || currentLanguage || "mr";
+  localStorage.clear();
+  localStorage.setItem("siteLanguage", savedLanguage);
+}
+
+function showToast(message){
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(()=>{
+    toast.classList.remove("show");
+  }, 2400);
+}
+
+function syncBodyLock(){
+  const anyOpen =
+    sidebarDrawer.classList.contains("open") ||
+    !noticeModal.classList.contains("hidden") ||
+    !editModal.classList.contains("hidden") ||
+    !stockModal.classList.contains("hidden");
+  document.body.style.overflow = anyOpen ? "hidden" : "";
+}
+
+function toggleSidebar(show){
+  if(show){
+    sidebarDrawer.classList.add("open");
+    sidebarOverlay.classList.add("open");
+  }else{
+    sidebarDrawer.classList.remove("open");
+    sidebarOverlay.classList.remove("open");
+  }
+  syncBodyLock();
+}
+
+function openLangMenu(){
+  langMenu.classList.add("open");
+  langToggle.setAttribute("aria-expanded", "true");
+}
+
+function closeLangMenu(){
+  langMenu.classList.remove("open");
+  langToggle.setAttribute("aria-expanded", "false");
+}
+
+function openNotificationDropdown(){
+  if(notificationWrap.classList.contains("hidden")) return;
+  notificationDropdown.classList.add("open");
+  notificationBtn.setAttribute("aria-expanded", "true");
+}
+
+function closeNotificationDropdown(){
+  notificationDropdown.classList.remove("open");
+  notificationBtn.setAttribute("aria-expanded", "false");
+}
+
+function toggleNotificationDropdown(){
+  if(notificationDropdown.classList.contains("open")){
+    closeNotificationDropdown();
+  }else{
+    openNotificationDropdown();
+  }
+}
+
+function protectRouteUrl(url){
+  const hasUser = !!window.currentMyListingsUser || !!localStorage.getItem("userId");
+  if(!hasUser){
+    window.location.href = "login.html";
+    return;
+  }
+  window.location.href = url;
+}
+
+async function logoutUser(){
+  if(typeof window.performMyListingsLogout === "function"){
+    await window.performMyListingsLogout();
+    return;
+  }
+  preserveLanguageAndClearStorage();
+  window.location.href = "index.html";
+}
+
+function getCurrentPage(){
+  const page = window.location.pathname.split("/").pop();
+  return page || "mylistings.html";
+}
+
+function setActiveNav(){
+  const currentPage = getCurrentPage();
+
+  document.querySelectorAll(".drawer-link").forEach(link=>{
+    link.classList.remove("active");
+  });
+
+  document.querySelectorAll(".drawer-link[data-route]").forEach(link=>{
+    let active = false;
+
+    if(currentPage === "index.html"){
+      active = link.dataset.route === "home";
+    }else if(currentPage === "buy.html"){
+      active = link.dataset.route === "plant-buy" || link.dataset.route === "khodwa-buy";
+    }else if(currentPage === "sell.html"){
+      active = link.dataset.route === "plant-sell" || link.dataset.route === "khodwa-sell";
+    }else if(currentPage === "jalgaon.html"){
+      active = link.dataset.route === "jalgaon";
+    }else if(currentPage === "chopda.html"){
+      active = link.dataset.route === "chopda";
+    }else if(currentPage === "raver.html"){
+      active = link.dataset.route === "raver";
+    }
+
+    link.classList.toggle("active", active);
+  });
+
+  const protectedActive = document.querySelector(`.drawer-link[data-protected-route="${currentPage}"]`);
+  if(protectedActive){
+    protectedActive.classList.add("active");
+  }
+}
+
+function updateHeaderAuthState(user = window.currentMyListingsUser){
+  const userName = user?.displayName || localStorage.getItem("userName") || "";
+  const userId = user?.uid || localStorage.getItem("userId") || "";
+  const isLoggedIn = !!userId;
+
+  if(isLoggedIn){
+    loginStatusBtn.href = "account.html";
+    loginStatusIcon.textContent = "👤";
+    loginStatusText.textContent = t("status_account");
+    accountBtn.href = "account.html";
+    accountBtn.textContent = userName.trim().charAt(0).toUpperCase() || "👤";
+
+    drawerAuthLink.href = "index.html";
+    drawerAuthLink.onclick = function(event){
+      event.preventDefault();
+      logoutUser();
+    };
+    drawerAuthIcon.textContent = "🚪";
+    drawerLoginText.textContent = t("nav_logout");
+
+    notificationWrap.classList.remove("hidden");
+  }else{
+    loginStatusBtn.href = "login.html";
+    loginStatusIcon.textContent = "🔑";
+    loginStatusText.textContent = t("status_login");
+    accountBtn.href = "login.html";
+    accountBtn.textContent = "👤";
+
+    drawerAuthLink.href = "login.html";
+    drawerAuthLink.onclick = null;
+    drawerAuthIcon.textContent = "🔑";
+    drawerLoginText.textContent = t("nav_login");
+
+    notificationWrap.classList.add("hidden");
+    notificationCountEl.textContent = "0";
+    notificationCountEl.classList.add("hidden");
+    closeNotificationDropdown();
+  }
+}
+
+function getField(data, keys, fallback = ""){
+  for(const key of keys){
+    if(data && data[key] !== undefined && data[key] !== null && data[key] !== ""){
+      return data[key];
+    }
+  }
+  return fallback;
+}
+
+function extractImages(data){
+  const list = [];
+  ["images","imageUrls","photos","gallery","media"].forEach(key=>{
+    if(Array.isArray(data?.[key])) list.push(...data[key]);
+  });
+  ["image","imageUrl","photo","photoUrl","img","imgUrl","image1","image2","image3","image4","image5","photo1","photo2","photo3","photo4"].forEach(key=>{
+    if(data?.[key]) list.push(data[key]);
+  });
+  return [...new Set(list.filter(Boolean))];
+}
+
+function normalizeCategory(data){
+  const probe = [
+    data.listingMode,
+    data.mode,
+    data.itemType,
+    data.category,
+    data.subCategory,
+    data.type,
+    data.productType,
+    data.title,
+    data.name
+  ].filter(Boolean).join(" ").toLowerCase();
+
+  if(probe.includes("khodwa") || probe.includes("खोडवा")) return "khodwa";
+  if(probe.includes("rop") || probe.includes("रोप") || probe.includes("plant")) return "rop";
+  return "other";
+}
+
+function normalizeStatus(data){
+  const raw = String(data.status || "active").toLowerCase().trim();
+  if(raw === "sold" || raw === "completed" || raw === "success") return "sold";
+  if(raw === "pending") return "pending";
+  return "active";
+}
+
+function getTimestampValue(value){
+  if(!value) return 0;
+  try{
+    if(typeof value.toDate === "function") return value.toDate().getTime();
+    if(value.seconds) return value.seconds * 1000;
+    const date = new Date(value);
+    return isNaN(date.getTime()) ? 0 : date.getTime();
+  }catch(error){
+    return 0;
+  }
+}
+
+function getCreatedMs(data){
+  return getTimestampValue(getField(data, ["createdAt","postedAt","timestamp","date"], ""));
+}
+
+function getDeletedAtMs(data){
+  return getTimestampValue(data.deletedAt);
+}
+
+function formatDate(ms){
+  if(!ms) return t("just_now");
+  return new Intl.DateTimeFormat(localeMap[currentLanguage] || "en-IN", {
+    day:"numeric",
+    month:"short",
+    year:"numeric"
+  }).format(new Date(ms));
+}
+
+function formatPrice(value){
+  const num = Number(value || 0);
+  if(!num) return t("price_na");
+  return `₹${num.toLocaleString("en-IN")}`;
+}
+
+function shortText(value, max = 110){
+  const text = String(value || "").trim();
+  if(!text) return "-";
+  return text.length > max ? text.slice(0, max) + "..." : text;
+}
+
+function categoryLabel(key){
+  if(key === "khodwa") return t("listing_khodwa");
+  return t("listing_rop");
+}
+
+function statusLabel(key){
+  if(key === "pending") return t("pending");
+  if(key === "sold") return t("sold");
+  if(key === "deleted") return t("deleted");
+  return t("active");
+}
+
+function remainingHoursText(targetMs){
+  const leftMs = Math.max(targetMs - Date.now(), 0);
+  const hours = Math.ceil(leftMs / (60 * 60 * 1000));
+  return t("hours_left", hours);
+}
+
+function isEditAllowed(item){
+  if(!item.createdMs) return true;
+  return Date.now() - item.createdMs <= EDIT_WINDOW_MS;
+}
+
+function isDeletedRecoverable(item){
+  if(!item.deleted || !item.deletedAtMs) return false;
+  return Date.now() - item.deletedAtMs <= RESTORE_WINDOW_MS;
+}
+
+function isDeletedExpired(item){
+  if(!item.deleted || !item.deletedAtMs) return false;
+  return Date.now() - item.deletedAtMs > RESTORE_WINDOW_MS;
+}
+
+function normalizeListing(docData){
+  const categoryKey = normalizeCategory(docData);
+  return {
+    id:docData.id,
+    title:getField(docData, ["title","productName","name","productType"], "Product"),
+    company:getField(docData, ["companyName","company","brand"], ""),
+    price:Number(getField(docData, ["price","amount"], 0)),
+    village:getField(docData, ["village","area"], "-"),
+    taluka:getField(docData, ["taluka","tehsil"], "-"),
+    district:getField(docData, ["district","city"], "-"),
+    description:getField(docData, ["description","desc","details","moreInfo"], ""),
+    stockAvailable:getField(docData, ["stockAvailable","stock","quantity"], ""),
+    status:normalizeStatus(docData),
+    categoryKey,
+    createdMs:getCreatedMs(docData),
+    deleted:!!docData.deleted,
+    deletedAtMs:getDeletedAtMs(docData),
+    images:extractImages(docData),
+    raw:docData
+  };
+}
+
+async function fetchUserListings(userId){
+  const merged = new Map();
+  const fields = ["userId","uid","sellerId","ownerId"];
+
+  await Promise.all(fields.map(async field=>{
+    try{
+      const snap = await getDocs(query(collection(db, "listings"), where(field, "==", userId)));
+      snap.forEach(docSnap=>{
+        merged.set(docSnap.id, { id:docSnap.id, ...docSnap.data() });
+      });
+    }catch(error){
+    }
+  }));
+
+  return [...merged.values()].map(normalizeListing).filter(item=>item.categoryKey !== "other");
+}
+
+async function reloadListings(){
+  if(!currentUser?.uid) return;
+  try{
+    allListings = await fetchUserListings(currentUser.uid);
+    renderEverything();
+  }catch(error){
+    console.error(error);
+    showToast(t("load_error"));
+  }
+}
+
+function getBaseListings(){
+  return allListings.filter(item=>!isDeletedExpired(item));
+}
+
+function getStatsSource(){
+  return getBaseListings().filter(item=>!item.deleted);
+}
+
+function updateStats(){
+  const source = getStatsSource();
+  statTotal.textContent = source.length;
+  statActive.textContent = source.filter(item=>item.status === "active").length;
+  statPending.textContent = source.filter(item=>item.status === "pending").length;
+  statSold.textContent = source.filter(item=>item.status === "sold").length;
+}
+
+function getCompanyOptions(){
+  const source = getBaseListings().filter(item=>{
+    if(item.deleted) return false;
+    if(activePrimary === "all") return true;
+    return item.categoryKey === activePrimary;
+  });
+
+  const companies = [...new Set(source.map(item=>String(item.company || "").trim()).filter(Boolean))];
+  companies.sort((a,b)=>a.localeCompare(b));
+  return companies;
+}
+
+function renderCompanyFilters(){
+  const companies = getCompanyOptions();
+  if(activeCompany !== "all" && !companies.includes(activeCompany)){
+    activeCompany = "all";
+  }
+
+  const buttons = [
+    `<button class="filter-chip secondary ${activeCompany === "all" ? "active" : ""}" type="button" data-company="all">${escapeHtml(t("company_all"))}</button>`
+  ];
+
+  companies.forEach(company=>{
+    buttons.push(`<button class="filter-chip secondary ${activeCompany === company ? "active" : ""}" type="button" data-company="${escapeHtml(company)}">${escapeHtml(company)}</button>`);
+  });
+
+  companyFilters.innerHTML = buttons.join("");
+}
+
+function getFilteredListings(){
+  const search = searchInput.value.trim().toLowerCase();
+
+  return getBaseListings().filter(item=>{
+    if(activePrimary !== "all" && item.categoryKey !== activePrimary) return false;
+    if(activeCompany !== "all" && item.company !== activeCompany) return false;
+    if(activeStatus !== "all"){
+      if(item.deleted) return false;
+      if(item.status !== activeStatus) return false;
+    }
+
+    if(search){
+      const haystack = [
+        item.title,
+        item.company,
+        item.village,
+        item.taluka,
+        item.district,
+        item.id,
+        item.description,
+        item.stockAvailable
+      ].join(" ").toLowerCase();
+
+      if(!haystack.includes(search)) return false;
+    }
+
+    return true;
+  }).sort((a,b)=>{
+    const aRef = a.deletedAtMs || a.createdMs || 0;
+    const bRef = b.deletedAtMs || b.createdMs || 0;
+    return bRef - aRef;
+  });
+}
+
+function clearSliderTimers(){
+  sliderTimers.forEach(timer=>clearInterval(timer));
+  sliderTimers = [];
+}
+
+function setupSliders(){
+  clearSliderTimers();
+
+  document.querySelectorAll(".media-shell").forEach(shell=>{
+    const slides = [...shell.querySelectorAll(".media-slide")];
+    const dots = [...shell.querySelectorAll(".media-dots button")];
+    const counter = shell.querySelector(".media-counter");
+
+    if(slides.length <= 1) return;
+
+    let currentIndex = 0;
+
+    const setSlide = index=>{
+      currentIndex = (index + slides.length) % slides.length;
+      slides.forEach((slide, idx)=>slide.classList.toggle("active", idx === currentIndex));
+      dots.forEach((dot, idx)=>dot.classList.toggle("active", idx === currentIndex));
+      if(counter){
+        counter.textContent = `${currentIndex + 1}/${slides.length}`;
+      }
+    };
+
+    dots.forEach((dot, idx)=>{
+      dot.addEventListener("click", event=>{
+        event.preventDefault();
+        event.stopPropagation();
+        setSlide(idx);
+      });
+    });
+
+    const timer = setInterval(()=>{
+      setSlide(currentIndex + 1);
+    }, 3000);
+
+    sliderTimers.push(timer);
+  });
+}
+
+function renderListings(){
+  const items = getFilteredListings();
+  resultsMeta.textContent = t("results_meta", items.length);
+
+  if(!items.length){
+    listingsGrid.innerHTML = "";
+    emptyState.classList.remove("hidden");
+    return;
+  }
+
+  emptyState.classList.add("hidden");
+
+  listingsGrid.innerHTML = items.map(item=>{
+    const images = item.images.length ? item.images : ["ropphoto.jpeg"];
+    const deletedRibbon = isDeletedRecoverable(item)
+      ? `<div class="deleted-ribbon">${escapeHtml(t("listing_deleted", remainingHoursText(item.deletedAtMs + RESTORE_WINDOW_MS)))}</div>`
+      : "";
+
+    return `
+      <article class="listing-card ${item.deleted ? "deleted" : ""}">
+        ${deletedRibbon}
+
+        <div class="media-shell" data-slider-id="${escapeHtml(item.id)}">
+          <a class="media-link" href="product.html?id=${encodeURIComponent(item.id)}">
+            ${images.map((src, index)=>`
+              <img class="media-slide ${index === 0 ? "active" : ""}" src="${escapeHtml(src)}" alt="${escapeHtml(item.title)}">
+            `).join("")}
+
+            <div class="media-top">
+              <span class="media-badge">${escapeHtml(categoryLabel(item.categoryKey))}</span>
+              <span class="media-badge">${escapeHtml(item.deleted ? statusLabel("deleted") : statusLabel(item.status))}</span>
+            </div>
+
+            ${images.length > 1 ? `<div class="media-counter">1/${images.length}</div>` : ""}
+          </a>
+
+          ${images.length > 1 ? `
+            <div class="media-dots">
+              ${images.map((_, index)=>`<button type="button" class="${index === 0 ? "active" : ""}" aria-label="Slide ${index + 1}"></button>`).join("")}
+            </div>
+          ` : ""}
+        </div>
+
+        <div class="card-body">
+          <div class="card-top">
+            <div>
+              <div class="card-price">${escapeHtml(formatPrice(item.price))}</div>
+            </div>
+
+            <div class="card-tags">
+              ${item.company ? `<span class="mini-tag blue">${escapeHtml(item.company)}</span>` : ""}
+              <span class="mini-tag green">${escapeHtml(categoryLabel(item.categoryKey))}</span>
+            </div>
+          </div>
+
+          <h3 class="card-title">
+            <a href="product.html?id=${encodeURIComponent(item.id)}">${escapeHtml(item.title)}</a>
+          </h3>
+
+          <div class="card-company">${escapeHtml(item.company || "-")}</div>
+          <div class="card-location">📍 ${escapeHtml([item.village, item.taluka, item.district].filter(Boolean).join(", "))}</div>
+          <p class="card-desc">${escapeHtml(shortText(item.description, 120))}</p>
+
+          <div class="meta-grid">
+            <div class="meta-box">
+              <span>${escapeHtml(t("stock_available"))}</span>
+              <strong>${escapeHtml(String(item.stockAvailable || "-"))}</strong>
+            </div>
+
+            <div class="meta-box">
+              <span>${escapeHtml(t("created"))}</span>
+              <strong>${escapeHtml(formatDate(item.createdMs))}</strong>
+            </div>
+
+            <div class="meta-box">
+              <span>${escapeHtml(t("product_id"))}</span>
+              <strong>${escapeHtml(item.id)}</strong>
+            </div>
+
+            <div class="meta-box">
+              <span>${escapeHtml(t("status_label"))}</span>
+              <strong>${escapeHtml(item.deleted ? statusLabel("deleted") : statusLabel(item.status))}</strong>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <a class="action-btn view" href="product.html?id=${encodeURIComponent(item.id)}">👁 ${escapeHtml(t("view"))}</a>
+
+            ${item.deleted
+              ? `<button class="action-btn restore" type="button" data-action="restore" data-id="${escapeHtml(item.id)}">♻ ${escapeHtml(t("restore"))}</button>`
+              : `<button class="action-btn edit" type="button" data-action="edit" data-id="${escapeHtml(item.id)}">✏ ${escapeHtml(t("edit"))}</button>`
+            }
+
+            <button class="action-btn stock" type="button" data-action="stock" data-id="${escapeHtml(item.id)}">📊 ${escapeHtml(t("stock_edit"))}</button>
+
+            ${item.deleted
+              ? `<button class="action-btn delete" type="button" disabled>⏳ ${escapeHtml(t("deleted"))}</button>`
+              : `<button class="action-btn delete" type="button" data-action="delete" data-id="${escapeHtml(item.id)}">🗑 ${escapeHtml(t("delete"))}</button>`
+            }
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  setupSliders();
+}
+
+function renderEverything(){
+  updateStats();
+  renderCompanyFilters();
+  renderListings();
+}
+
+function openNotice({ title, text, primaryLabel, primaryClass = "", secondaryLabel, onPrimary }){
+  noticeTitle.textContent = title;
+  noticeText.textContent = text;
+  noticePrimaryBtn.textContent = primaryLabel;
+  noticeSecondaryBtn.textContent = secondaryLabel || t("back");
+  noticePrimaryBtn.className = `primary-btn ${primaryClass}`.trim();
+  noticePrimaryAction = onPrimary;
+  noticeModal.classList.remove("hidden");
+  syncBodyLock();
+}
+
+function closeNotice(){
+  noticeModal.classList.add("hidden");
+  noticePrimaryAction = null;
+  syncBodyLock();
+}
+
+function openEditModal(item){
+  currentEditId = item.id;
+  editTitle.value = item.title || "";
+  editCategory.value = item.categoryKey || "rop";
+  editCompany.value = item.company || "";
+  editPrice.value = item.price || 0;
+  editStockType.value = item.raw.stockType || "unlimited";
+  editStockNumber.value = item.raw.stockNumber || "";
+  editVillage.value = item.village || "";
+  editTaluka.value = item.taluka || "";
+  editDistrict.value = item.district || "";
+  editStatus.value = item.status || "active";
+  editDescription.value = item.description || "";
+  editImages.value = item.images.join("\n");
+  editModal.classList.remove("hidden");
+  syncBodyLock();
+}
+
+function closeEditModal(){
+  editModal.classList.add("hidden");
+  currentEditId = "";
+  syncBodyLock();
+}
+
+function openStockModal(item){
+  currentStockId = item.id;
+
+  stockTypeUpdate.value = item.raw.stockType || "unlimited";
+  stockNumberUpdate.value = item.raw.stockNumber || "";
+  stockPriceUpdate.value = item.price || "";
+
+  stockModal.classList.remove("hidden");
+  syncBodyLock();
+}
+
+function closeStockModal(){
+  stockModal.classList.add("hidden");
+  currentStockId = "";
+  syncBodyLock();
+}
+
+function handleEdit(item){
+  if(!isEditAllowed(item)){
+    openNotice({
+      title:t("edit_expired_title"),
+      text:t("edit_expired_text"),
+      primaryLabel:t("contact_team"),
+      secondaryLabel:t("back"),
+      onPrimary:()=>{
+        window.location.href = "contact.html";
+      }
+    });
+    return;
+  }
+
+  openEditModal(item);
+}
+
+function handleDelete(item){
+  openNotice({
+    title:t("delete_title"),
+    text:t("delete_text"),
+    primaryLabel:t("delete_confirm"),
+    secondaryLabel:t("back"),
+    primaryClass:"warn",
+    onPrimary:async ()=>{
+      await updateDoc(doc(db, "listings", item.id), {
+        deleted:true,
+        deletedAt:new Date().toISOString()
+      });
+      closeNotice();
+      showToast(t("delete_done"));
+      await reloadListings();
+    }
+  });
+}
+
+async function handleRestore(item){
+  await updateDoc(doc(db, "listings", item.id), {
+    deleted:false,
+    deletedAt:null
+  });
+  showToast(t("restore_done"));
+  await reloadListings();
+}
+
+function formatDateTime(value){
+  if(!value) return t("just_now");
+
+  try{
+    let date;
+    if(typeof value.toDate === "function"){
+      date = value.toDate();
+    }else if(value.seconds){
+      date = new Date(value.seconds * 1000);
+    }else{
+      date = new Date(value);
+    }
+
+    if(!date || isNaN(date.getTime())) return t("just_now");
+
+    const now = Date.now();
+    const diff = now - date.getTime();
+
+    const sec = Math.floor(diff / 1000);
+    const min = Math.floor(sec / 60);
+    const hr = Math.floor(min / 60);
+    const day = Math.floor(hr / 24);
+
+    if(sec < 60) return t("just_now");
+    if(min < 60) return `${min}m ago`;
+    if(hr < 24) return `${hr}h ago`;
+    if(day === 1) return "Yesterday";
+    if(day < 7) return `${day}d ago`;
+    return date.toLocaleDateString("en-IN");
+  }catch(error){
+    return t("just_now");
+  }
+}
+
+function normalizeNotification(docSnap){
+  const data = docSnap.data() || {};
+
+  let message = String(data.message || "").trim();
+
+  if(data.type === "order_request"){
+    message = t("notification_new_order");
+  }else if(data.type === "order_accept"){
+    message = t("notification_order_accept");
+  }else if(data.type === "order_reject"){
+    message = t("notification_order_reject");
+  }else{
+    message = message || t("notification_new_message");
+  }
+
+  const hiddenFor = Array.isArray(data.hiddenFor) ? data.hiddenFor.map(String) : [];
+
+  return {
+    id:docSnap.id,
+    type:String(data.type || ""),
+    roomId:String(data.roomId || ""),
+    senderId:String(data.senderId || ""),
+    userName:String(data.userName || data.senderName || "User"),
+    photoURL:String(data.photoURL || data.senderPhoto || ""),
+    productName:String(data.productName || data.productTitle || ""),
+    message,
+    read:!!data.read,
+    hiddenFor,
+    createdMs:getTimestampValue(data.createdAt),
+    timeLabel:formatDateTime(data.createdAt)
+  };
+}
+
+function getVisibleNotifications(){
+  const uid = currentUser?.uid || localStorage.getItem("userId") || "";
+  return notificationsCache
+    .filter(item => !item.hiddenFor.includes(uid))
+    .sort((a,b) => b.createdMs - a.createdMs);
+}
+
+function updateNotificationBadge(){
+  const unread = getVisibleNotifications().filter(item => !item.read).length;
+  notificationCountEl.textContent = unread > 99 ? "99+" : String(unread);
+  notificationCountEl.classList.toggle("hidden", unread === 0);
+}
+
+function enableSwipeToDelete(){
+  document.querySelectorAll(".notification-card").forEach(card=>{
+    if(card.dataset.swipeAttached) return;
+    card.dataset.swipeAttached = "true";
+
+    let startX = 0;
+    let currentX = 0;
+    let isSwiping = false;
+    let isMoved = false;
+
+    card.addEventListener("touchstart", event=>{
+      startX = event.touches[0].clientX;
+      currentX = startX;
+      isSwiping = true;
+      isMoved = false;
+      card.style.transition = "none";
+    }, { passive:true });
+
+    card.addEventListener("touchmove", event=>{
+      if(!isSwiping) return;
+
+      currentX = event.touches[0].clientX;
+      const diff = currentX - startX;
+
+      if(diff < 0){
+        isMoved = true;
+        card.style.transform = `translateX(${diff}px)`;
+
+        if(Math.abs(diff) > 70){
+          card.classList.add("show-delete");
+        }else{
+          card.classList.remove("show-delete");
+        }
+      }
+    }, { passive:true });
+
+    card.addEventListener("touchend", async event=>{
+      isSwiping = false;
+      const diff = currentX - startX;
+      card.style.transition = "transform .25s ease";
+
+      if(isMoved){
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      if(Math.abs(diff) > 120){
+        card.style.transform = "translateX(-100%)";
+
+        setTimeout(async ()=>{
+          const id = card.dataset.id;
+          const uid = currentUser?.uid || localStorage.getItem("userId");
+
+          try{
+            await updateDoc(doc(db, "notifications", id), {
+              hiddenFor:arrayUnion(uid)
+            });
+          }catch(error){
+            console.error(error);
+          }
+        }, 200);
+      }else{
+        card.style.transform = "translateX(0)";
+        card.classList.remove("show-delete");
+      }
+    }, { passive:false });
+  });
+}
+
+function renderNotifications(){
+  const items = getVisibleNotifications();
+
+  if(!items.length){
+    notificationListEl.innerHTML = `<div class="notification-empty">${escapeHtml(t("notification_empty"))}</div>`;
+    updateNotificationBadge();
+    return;
+  }
+
+  const today = [];
+  const older = [];
+
+  items.forEach(item=>{
+    const diff = Date.now() - item.createdMs;
+    if(diff < 86400000){
+      today.push(item);
+    }else{
+      older.push(item);
+    }
+  });
+
+  function renderGroup(title, list){
+    if(!list.length) return "";
+
+    return `
+      <div style="font-weight:800; padding:8px 12px; color:#64748b;">
+        ${escapeHtml(title)}
+      </div>
+
+      ${list.map(item => `
+        <div class="notification-card ${item.read ? "" : "unread"}" data-id="${escapeHtml(item.id)}">
+          <img class="notification-avatar" src="${escapeHtml(item.photoURL || ("https://ui-avatars.com/api/?name=" + encodeURIComponent(item.userName || "U")))}" alt="${escapeHtml(item.userName || "User")}">
+
+          <div class="notification-body">
+            <div class="notification-top">
+              <div class="notification-user">${escapeHtml(item.userName || "User")}</div>
+              <div class="notification-time">${escapeHtml(item.timeLabel)}</div>
+            </div>
+
+            <div class="notification-message">${escapeHtml(item.message)}</div>
+
+            <div class="notification-meta">
+              <div class="notification-product">${escapeHtml(item.productName || "")}</div>
+              ${!item.read ? `<div class="notification-dot"></div>` : ""}
+            </div>
+          </div>
+        </div>
+      `).join("")}
+    `;
+  }
+
+  notificationListEl.innerHTML =
+    renderGroup(t("notification_today"), today) +
+    renderGroup(t("notification_earlier"), older);
+
+  notificationListEl.onclick = async event=>{
+    const card = event.target.closest(".notification-card");
+    if(!card) return;
+
+    const id = card.dataset.id;
+    const item = notificationsCache.find(notification => notification.id === id);
+    if(!item) return;
+
+    if(!item.read){
+      try{
+        await updateDoc(doc(db, "notifications", id), { read:true });
+      }catch(error){
+        console.error(error);
+      }
+    }
+
+    const qs = item.roomId ? `?room=${item.roomId}` : "";
+    window.location.href = `chat.html${qs}`;
+  };
+
+  updateNotificationBadge();
+  enableSwipeToDelete();
+}
+
+function subscribeNotifications(user){
+  if(notificationUnsubscribe){
+    notificationUnsubscribe();
+    notificationUnsubscribe = null;
+  }
+
+  notificationsCache = [];
+  renderNotifications();
+
+  if(!user?.uid) return;
+
+  const notificationsQuery = query(
+    collection(db, "notifications"),
+    where("receiverId", "==", user.uid)
+  );
+
+  const unsubscribe = onSnapshot(notificationsQuery, snap=>{
+    notificationsCache = snap.docs
+      .map(docSnap => normalizeNotification(docSnap))
+      .filter(item => item.senderId !== user.uid);
+
+    renderNotifications();
+  });
+
+  notificationUnsubscribe = ()=>{
+    unsubscribe();
+  };
+}
+
+function applyLanguage(){
+  document.documentElement.lang = currentLanguage;
+  document.title = t("page_title");
+  metaDescription.content = t("meta_description");
+  metaKeywords.content = t("meta_keywords");
+  ogDescription.content = t("og_description");
+
+  document.getElementById("brandSubtitle").textContent = t("brand_subtitle");
+  document.getElementById("drawerSubtitle").textContent = t("drawer_subtitle");
+  document.getElementById("labelMain").textContent = t("label_main");
+  document.getElementById("labelAccount").textContent = t("label_account");
+  document.getElementById("labelInfo").textContent = t("label_info");
+  document.getElementById("drawerHome").textContent = t("nav_home");
+  document.getElementById("drawerBuy").textContent = t("nav_buy");
+  document.getElementById("drawerSell").textContent = t("nav_sell");
+  document.getElementById("drawerKhatBuy").textContent = t("nav_khat_buy");
+  document.getElementById("drawerKhatSell").textContent = t("nav_khat_sell");
+  document.getElementById("drawerBurhanpur").textContent = t("nav_burhanpur_rates");
+  document.getElementById("drawerJalgaon").textContent = t("nav_jalgaon_rates");
+  document.getElementById("drawerChopda").textContent = t("nav_chopda_rates");
+  document.getElementById("drawerRaver").textContent = t("nav_raver_rates");
+  document.getElementById("drawerAccount").textContent = t("nav_account");
+  document.getElementById("drawerChat").textContent = t("nav_my_chat");
+  document.getElementById("drawerListingHistory").textContent = t("nav_listing_history");
+  document.getElementById("drawerInbox").textContent = t("nav_inbox");
+  document.getElementById("drawerSignup").textContent = t("nav_signup");
+  document.getElementById("drawerAbout").textContent = t("info_about");
+  document.getElementById("drawerPrivacy").textContent = t("info_privacy");
+  document.getElementById("drawerTerms").textContent = t("info_terms");
+  document.getElementById("drawerContact").textContent = t("info_contact");
+  document.getElementById("drawerAgentHelp").textContent = t("info_agent_help");
+  document.getElementById("drawerWhatsapp").textContent = t("info_whatsapp_group");
+
+  notificationTitle.textContent = t("notification_title");
+  notificationBtn.setAttribute("aria-label", t("notification_title"));
+
+  document.getElementById("tickerTextA").textContent = t("ticker");
+  document.getElementById("tickerTextB").textContent = t("ticker");
+  document.getElementById("heroBadge").textContent = t("hero_badge");
+  document.getElementById("heroTitle").textContent = t("hero_title");
+  document.getElementById("statTotalLabel").textContent = t("stat_total");
+  document.getElementById("statActiveLabel").textContent = t("stat_active");
+  document.getElementById("statPendingLabel").textContent = t("stat_pending");
+  document.getElementById("statSoldLabel").textContent = t("stat_sold");
+  document.getElementById("primaryFilterTitle").textContent = t("primary_filter");
+  document.getElementById("primaryAllBtn").textContent = t("primary_all");
+  document.getElementById("primaryRopBtn").textContent = t("primary_rop");
+  document.getElementById("primaryKhodwaBtn").textContent = t("primary_khodwa");
+  document.getElementById("companyFilterTitle").textContent = t("company_filter");
+  document.getElementById("statusFilterTitle").textContent = t("status_filter");
+  document.getElementById("statusAllBtn").textContent = t("status_all");
+  document.getElementById("statusActiveBtn").textContent = t("status_active");
+  document.getElementById("statusPendingBtn").textContent = t("status_pending");
+  document.getElementById("statusSoldBtn").textContent = t("status_sold");
+  searchInput.placeholder = t("search_placeholder");
+  document.getElementById("resultsTitle").textContent = t("results_title");
+  document.getElementById("livePill").textContent = t("live_pill");
+  document.getElementById("emptyTitle").textContent = t("empty_title");
+  document.getElementById("emptyText").textContent = t("empty_text");
+  document.getElementById("editModalTitle").textContent = t("edit_modal_title");
+  document.getElementById("editModalText").textContent = t("edit_modal_text");
+  document.getElementById("stockModalTitle").textContent = t("stock_modal_title");
+  document.getElementById("stockModalText").textContent = t("stock_modal_text");
+  document.getElementById("fieldTitleLabel").textContent = t("field_title");
+  document.getElementById("fieldCategoryLabel").textContent = t("field_category");
+  document.getElementById("fieldCompanyLabel").textContent = t("field_company");
+  document.getElementById("fieldPriceLabel").textContent = t("field_price");
+  document.getElementById("fieldVillageLabel").textContent = t("field_village");
+  document.getElementById("fieldTalukaLabel").textContent = t("field_taluka");
+  document.getElementById("fieldDistrictLabel").textContent = t("field_district");
+  document.getElementById("fieldStatusLabel").textContent = t("field_status");
+  document.getElementById("fieldDescriptionLabel").textContent = t("field_description");
+  document.getElementById("fieldImagesLabel").textContent = t("field_images");
+  document.getElementById("imagesHelp").textContent = t("images_help");
+  document.getElementById("stockFieldLabel").textContent = t("field_stock");
+  document.getElementById("editSaveBtn").textContent = t("save_changes");
+  document.getElementById("stockSaveBtn").textContent = t("update_stock");
+  document.getElementById("editBackBtn").textContent = t("back");
+  document.getElementById("stockBackBtn").textContent = t("back");
+  document.getElementById("footerMade").textContent = t("footer_made");
+  document.getElementById("footerPrivacy").textContent = t("footer_privacy");
+  document.getElementById("footerContact").textContent = t("footer_contact");
+  document.getElementById("footerAbout").textContent = t("footer_about");
+  footerTerms.textContent = t("footer_terms");
+
+  const currentCategoryValue = editCategory.value || "rop";
+  const currentStatusValue = editStatus.value || "active";
+
+  editCategory.innerHTML = `
+    <option value="rop">${escapeHtml(t("listing_rop"))}</option>
+    <option value="khodwa">${escapeHtml(t("listing_khodwa"))}</option>
+  `;
+
+  editStatus.innerHTML = `
+    <option value="active">${escapeHtml(t("active"))}</option>
+    <option value="pending">${escapeHtml(t("pending"))}</option>
+    <option value="sold">${escapeHtml(t("sold"))}</option>
+  `;
+
+  editCategory.value = currentCategoryValue;
+  editStatus.value = currentStatusValue;
+
+  langToggle.textContent = LANG_SHORT[currentLanguage] || "म";
+  langOptions.forEach(option=>{
+    option.classList.toggle("active", option.dataset.lang === currentLanguage);
+  });
+
+  updateHeaderAuthState(currentUser);
+  setActiveNav();
+  renderEverything();
+  renderNotifications();
+}
+
+window.performMyListingsLogout = async function(){
+  try{
+    await signOut(auth);
+  }catch(error){
+    console.error(error);
+  }
+
+  const savedLanguage = localStorage.getItem("siteLanguage") || "mr";
+  localStorage.clear();
+  localStorage.setItem("siteLanguage", savedLanguage);
+
+  currentUser = null;
+  window.currentMyListingsUser = null;
+
+  if(notificationUnsubscribe){
+    notificationUnsubscribe();
+    notificationUnsubscribe = null;
+  }
+
+  notificationsCache = [];
+  allListings = [];
+  renderNotifications();
+  renderEverything();
+  updateHeaderAuthState(null);
+
+  window.location.href = "index.html";
+};
+
+window.refreshMyListingsPage = function(){
+  renderEverything();
+  renderNotifications();
+  setActiveNav();
+};
+
+menuToggle.addEventListener("click", ()=>toggleSidebar(true));
+drawerClose.addEventListener("click", ()=>toggleSidebar(false));
+sidebarOverlay.addEventListener("click", ()=>toggleSidebar(false));
+
+langToggle.addEventListener("click", event=>{
+  event.stopPropagation();
+  if(langMenu.classList.contains("open")){
+    closeLangMenu();
+  }else{
+    openLangMenu();
+  }
+});
+
+notificationBtn.addEventListener("click", event=>{
+  event.stopPropagation();
+  toggleNotificationDropdown();
+});
+
+notificationDropdown.addEventListener("click", event=>{
+  event.stopPropagation();
+});
+
+document.addEventListener("click", event=>{
+  if(!event.target.closest(".lang-wrap")){
+    closeLangMenu();
+  }
+  if(!event.target.closest(".notification-wrap")){
+    closeNotificationDropdown();
+  }
+});
+
+document.addEventListener("keydown", event=>{
+  if(event.key === "Escape"){
+    toggleSidebar(false);
+    closeLangMenu();
+    closeNotificationDropdown();
+    closeNotice();
+    closeEditModal();
+    closeStockModal();
+  }
+});
+
+langOptions.forEach(option=>{
+  option.addEventListener("click", ()=>{
+    currentLanguage = option.dataset.lang;
+    localStorage.setItem("siteLanguage", currentLanguage);
+    applyLanguage();
+    closeLangMenu();
+  });
+});
+
+document.querySelectorAll("[data-protected-route]").forEach(link=>{
+  link.addEventListener("click", event=>{
+    event.preventDefault();
+    protectRouteUrl(link.dataset.protectedRoute);
+  });
+});
+
+noticeClose.addEventListener("click", closeNotice);
+noticeSecondaryBtn.addEventListener("click", closeNotice);
+noticeModal.addEventListener("click", event=>{
+  if(event.target === noticeModal) closeNotice();
+});
+
+noticePrimaryBtn.addEventListener("click", async ()=>{
+  if(typeof noticePrimaryAction === "function"){
+    await noticePrimaryAction();
+  }
+});
+
+editClose.addEventListener("click", closeEditModal);
+editBackBtn.addEventListener("click", closeEditModal);
+editModal.addEventListener("click", event=>{
+  if(event.target === editModal) closeEditModal();
+});
+
+editForm.addEventListener("submit", async event=>{
+  event.preventDefault();
+
+  const item = allListings.find(listing=>listing.id === currentEditId);
+  if(!item) return;
+
+  const category = editCategory.value;
+  const listingMode = category === "khodwa" ? "khodwa_sell" : "rop_sell";
+  const images = editImages.value.split(/\n|,/).map(url=>url.trim()).filter(Boolean);
+
+  await updateDoc(doc(db, "listings", item.id), {
+    title:editTitle.value.trim(),
+    productName:editTitle.value.trim(),
+    name:editTitle.value.trim(),
+    price:Number(editPrice.value || 0),
+    stockType:editStockType.value,
+    stockNumber:editStockType.value === "limited"
+      ? Number(editStockNumber.value || 0)
+      : "",
+    amount:Number(editPrice.value || 0),
+    companyName:editCompany.value.trim(),
+    company:editCompany.value.trim(),
+    brand:editCompany.value.trim(),
+    village:editVillage.value.trim(),
+    taluka:editTaluka.value.trim(),
+    district:editDistrict.value.trim(),
+    status:editStatus.value,
+    description:editDescription.value.trim(),
+    desc:editDescription.value.trim(),
+    category,
+    type:category,
+    listingMode,
+    productType:editTitle.value.trim(),
+    images,
+    image:images[0] || "",
+    imageUrl:images[0] || ""
+  });
+
+  closeEditModal();
+  showToast(t("update_done"));
+  await reloadListings();
+});
+
+stockClose.addEventListener("click", closeStockModal);
+stockBackBtn.addEventListener("click", closeStockModal);
+stockModal.addEventListener("click", event=>{
+  if(event.target === stockModal) closeStockModal();
+});
+
+stockForm.addEventListener("submit", async event=>{
+  event.preventDefault();
+  if(!currentStockId) return;
+
+  await updateDoc(doc(db, "listings", currentStockId), {
+    stockType:stockTypeUpdate.value,
+    stockNumber:stockTypeUpdate.value === "limited"
+      ? Number(stockNumberUpdate.value || 0)
+      : "",
+    stockAvailable:
+      stockTypeUpdate.value === "unlimited"
+        ? "Unlimited"
+        : (stockNumberUpdate.value || ""),
+    price:Number(stockPriceUpdate.value || 0),
+    amount:Number(stockPriceUpdate.value || 0)
+  });
+
+  closeStockModal();
+  showToast(t("stock_done"));
+  await reloadListings();
+});
+
+listingsGrid.addEventListener("click", async event=>{
+  const button = event.target.closest("[data-action]");
+  if(!button) return;
+
+  const id = button.dataset.id;
+  const item = allListings.find(listing=>listing.id === id);
+  if(!item) return;
+
+  const action = button.dataset.action;
+  if(action === "edit") handleEdit(item);
+  if(action === "stock") openStockModal(item);
+  if(action === "delete") handleDelete(item);
+  if(action === "restore") await handleRestore(item);
+});
+
+primaryFilters.addEventListener("click", event=>{
+  const button = event.target.closest("[data-primary]");
+  if(!button) return;
+
+  activePrimary = button.dataset.primary;
+  activeCompany = "all";
+
+  [...primaryFilters.querySelectorAll("[data-primary]")].forEach(btn=>{
+    btn.classList.toggle("active", btn === button);
+  });
+
+  renderEverything();
+});
+
+companyFilters.addEventListener("click", event=>{
+  const button = event.target.closest("[data-company]");
+  if(!button) return;
+
+  activeCompany = button.dataset.company;
+
+  [...companyFilters.querySelectorAll("[data-company]")].forEach(btn=>{
+    btn.classList.toggle("active", btn === button);
+  });
+
+  renderListings();
+});
+
+statusFilters.addEventListener("click", event=>{
+  const button = event.target.closest("[data-status]");
+  if(!button) return;
+
+  activeStatus = button.dataset.status;
+
+  [...statusFilters.querySelectorAll("[data-status]")].forEach(btn=>{
+    btn.classList.toggle("active", btn === button);
+  });
+
+  renderListings();
+});
+
+searchInput.addEventListener("input", renderListings);
+
+window.addEventListener("focus", ()=>updateHeaderAuthState(currentUser));
+window.addEventListener("storage", ()=>{
+  currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+  applyLanguage();
+});
+
+onAuthStateChanged(auth, async user=>{
+  currentUser = user || null;
+  window.currentMyListingsUser = user || null;
+
+  if(user){
+    localStorage.setItem("userId", user.uid);
+    localStorage.setItem("userName", user.displayName || localStorage.getItem("userName") || "User");
+    if(user.photoURL){
+      localStorage.setItem("userPhoto", user.photoURL);
+    }
+  }else{
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userPhoto");
+  }
+
+  updateHeaderAuthState(user);
+  subscribeNotifications(user);
+
+  if(!user){
+    showToast(t("login_first"));
+    setTimeout(()=>{
+      window.location.href = "login.html";
+    }, 800);
+    return;
+  }
+
+  await reloadListings();
+});
+
+setActiveNav();
+renderEverything();
+renderNotifications();
+applyLanguage();
+</script>
+
+</body>
+</html>
