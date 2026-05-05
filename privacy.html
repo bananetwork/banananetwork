@@ -1,168 +1,2641 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
-    <meta charset="UTF-8">
-    <title>Privacy Policy | BananaNetwork</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>Privacy Policy – BanaNetwork</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta id="metaDescription" name="description" content="Read BanaNetwork Privacy Policy. Know how we collect, use, display, store, and protect user data on our banana marketplace platform.">
+<meta id="metaKeywords" name="keywords" content="BanaNetwork privacy policy, banana marketplace privacy, user data policy, marketplace privacy, farmer app privacy">
+<link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJ69GK381P"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-FJ69GK381P');
-    </script>
+<meta property="og:title" content="Privacy Policy – BanaNetwork">
+<meta id="ogDescription" property="og:description" content="Read BanaNetwork Privacy Policy and understand how user data, listings, chats, and account information are handled.">
+<meta property="og:image" content="https://bananetwork.in/share.png">
+<meta property="og:url" content="https://bananetwork.in/privacy.html">
+<meta property="og:type" content="website">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJ69GK381P"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FJ69GK381P');
+</script>
 
-    <style>
-        body{
-            font-family: Arial, sans-serif;
-            background:#f4f6f8;
-            margin:0;
-            padding:20px;
-            line-height:1.8;
-        }
-        .container{
-            max-width:900px;
-            margin:auto;
-            background:#fff;
-            padding:25px;
-            border-radius:8px;
-        }
-        h1,h2{
-            color:#2e7d32;
-        }
-        p{
-            color:#333;
-            font-size:15px;
-        }
-        ul{
-            margin-left:20px;
-        }
-        .note{
-            font-size:14px;
-            color:#555;
-        }
+<style>
+:root{
+  --green:#2e7d32;
+  --green-dark:#1b5e20;
+  --yellow:#f1c24a;
+  --muted:#64748b;
+  --border:#e5e7eb;
+  --border-strong:#d8e3eb;
+  --shadow:0 10px 28px rgba(15,23,42,.08);
+  --shadow-lg:0 22px 48px rgba(15,23,42,.16);
+  --danger:#b91c1c;
+  --danger-soft:#fff1f2;
+  --warning:#92400e;
+  --warning-soft:#fff8eb;
+  --info:#0f766e;
+  --info-soft:#ecfeff;
+  --bg:#f4f6f8;
+}
 
-        /* Clean round Home + Back icons */
-        .top-icon{
-            position: fixed;
-            top: 15px;
-            z-index: 1000;
-            font-size:18px;
-            text-decoration:none;
-            background:white;
-            padding:7px 10px;
-            border-radius:50%;
-            box-shadow:0 2px 6px rgba(0,0,0,0.15);
-        }
-        .home-icon{
-            left:15px;
-        }
-        .back-icon{
-            left:55px;
-        }
-    </style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Arial,sans-serif;
+  background:#f4f6f8;
+  color:#111;
+  overflow-x:hidden;
+}
+
+.hidden{display:none !important}
+
+.yt-header{
+  position:sticky;
+  top:0;
+  z-index:7000;
+  background:linear-gradient(180deg,#cfeecd 0%, #b7e2b4 100%);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #a7d3a3;
+  box-shadow:0 8px 20px rgba(46,125,50,.14);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 14px;
+  min-height:72px;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  flex:1;
+}
+
+.menu-btn{
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  background:#fff;
+  color:#111;
+  font-size:26px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .2s ease, transform .2s ease;
+  flex-shrink:0;
+}
+
+.menu-btn:hover{
+  background:#f1f5f9;
+  transform:translateY(-1px);
+}
+
+.brand-link{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  text-decoration:none;
+  color:#111;
+  flex:1;
+}
+
+.logo{
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  border:1px solid #d9f4db;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:4px;
+  background:#fff;
+}
+
+.brand{
+  min-width:0;
+  flex:1;
+  max-width:260px;
+}
+
+.brand b{
+  display:block;
+  font-size:23px;
+  line-height:1.05;
+  color:#146c2e;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-shrink:0;
+  flex-wrap:nowrap;
+}
+
+.status-pill{
+  background:#f1f5f9;
+  color:#111827;
+  font-weight:800;
+  padding:11px 16px;
+  border-radius:999px;
+  font-size:14px;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-height:44px;
+  transition:background .2s ease, transform .2s ease;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+.status-pill:hover{
+  background:#e8eef5;
+  transform:translateY(-1px);
+}
+
+.icon-circle{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:transform .2s ease, background .2s ease;
+  flex-shrink:0;
+}
+
+.icon-circle:hover{transform:translateY(-1px)}
+
+.whatsapp-btn{
+  background:#25D366;
+  box-shadow:0 8px 18px rgba(37,211,102,.22);
+}
+
+.whatsapp-btn img{
+  width:20px;
+  height:20px;
+  display:block;
+}
+
+.account-btn{
+  background:#f59e0b;
+  color:#fff;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(245,158,11,.24);
+}
+
+.lang-wrap,
+.notification-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+
+.lang-btn{
+  background:#fff;
+  color:#111827;
+  font-size:15px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+}
+
+.lang-menu{
+  position:absolute;
+  top:54px;
+  right:0;
+  min-width:140px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:8px;
+  display:none;
+  z-index:7100;
+}
+
+.lang-menu.open{display:block}
+
+.lang-option{
+  width:100%;
+  border:none;
+  background:#fff;
+  color:#111827;
+  text-align:left;
+  padding:10px 12px;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.lang-option:hover,
+.lang-option.active{
+  background:#f1f5f9;
+}
+
+.notification-btn{
+  position:relative;
+  background:#fff;
+  color:#111827;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+  transition:.2s;
+}
+
+.notification-btn:hover{
+  background:#f8fafc;
+  transform:translateY(-1px);
+}
+
+.notification-count{
+  position:absolute;
+  top:-2px;
+  right:-2px;
+  min-width:20px;
+  height:20px;
+  padding:0 6px;
+  border-radius:999px;
+  background:#ef4444;
+  color:#fff;
+  font-size:11px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 16px rgba(239,68,68,.28);
+}
+
+.notification-dropdown{
+  position:absolute;
+  top:54px;
+  right:0;
+  width:min(360px,calc(100vw - 24px));
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:20px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:10px;
+  display:none;
+  z-index:7150;
+}
+
+.notification-dropdown.open{
+  display:block;
+  animation:notificationPop .18s ease;
+}
+
+@keyframes notificationPop{
+  0%{opacity:0; transform:translateY(-8px)}
+  100%{opacity:1; transform:translateY(0)}
+}
+
+.notification-head{
+  padding:6px 8px 10px;
+  border-bottom:1px solid #f1f5f9;
+  font-size:15px;
+  font-weight:800;
+  color:#111827;
+}
+
+.notification-list{
+  max-height:380px;
+  overflow:auto;
+  padding:8px 2px 2px;
+}
+
+.notification-list::-webkit-scrollbar{
+  width:6px;
+}
+
+.notification-list::-webkit-scrollbar-thumb{
+  background:#d6dee7;
+  border-radius:999px;
+}
+
+.notification-empty{
+  padding:18px 12px;
+  text-align:center;
+  color:#64748b;
+  font-size:14px;
+  font-weight:700;
+}
+
+.notification-card{
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:14px 16px;
+  border-radius:16px;
+  background:#fff;
+  margin-bottom:10px;
+  transition:.2s;
+  cursor:pointer;
+  overflow:hidden;
+  touch-action:pan-y;
+}
+
+.notification-card:hover{
+  background:#f8fafc;
+}
+
+.notification-card.unread{
+  background:#f0f9ff;
+}
+
+.notification-avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.notification-body{
+  flex:1;
+  min-width:0;
+}
+
+.notification-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+}
+
+.notification-user{
+  font-size:15px;
+  font-weight:700;
+  color:#111827;
+}
+
+.notification-time{
+  font-size:12px;
+  color:#6b7280;
+  white-space:nowrap;
+}
+
+.notification-message{
+  font-size:14px;
+  font-weight:600;
+  color:#111827;
+  margin-top:2px;
+}
+
+.notification-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:4px;
+  gap:8px;
+}
+
+.notification-product{
+  font-size:13px;
+  color:#6b7280;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:80%;
+}
+
+.notification-dot{
+  width:8px;
+  height:8px;
+  background:#ef4444;
+  border-radius:50%;
+}
+
+.notification-card::after{
+  content:"🗑 Delete";
+  position:absolute;
+  right:0;
+  top:0;
+  bottom:0;
+  width:100px;
+  background:#ef4444;
+  color:#fff;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  opacity:0;
+  transition:.2s;
+  font-size:14px;
+}
+
+.notification-card.show-delete::after{
+  opacity:1;
+}
+
+.notification-phone{
+  font-size:13px;
+  font-weight:700;
+  color:#15803d;
+  margin-top:4px;
+}
+
+.sidebar-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.42);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+  z-index:7800;
+}
+
+.sidebar-overlay.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.sidebar-drawer{
+  position:fixed;
+  top:0;
+  left:0;
+  width:min(330px,90vw);
+  height:100vh;
+  background:#fff;
+  transform:translateX(-100%);
+  transition:transform .28s ease;
+  z-index:7900;
+  box-shadow:24px 0 50px rgba(15,23,42,.22);
+  display:flex;
+  flex-direction:column;
+  overflow-y:auto;
+}
+
+.sidebar-drawer.open{transform:translateX(0)}
+
+.sidebar-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 18px 14px;
+  border-bottom:1px solid #eef2f6;
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:2;
+}
+
+.sidebar-head .menu-btn{background:#f8fafc}
+
+.sidebar-brand b{
+  display:block;
+  font-size:22px;
+  color:#146c2e;
+  line-height:1.1;
+}
+
+.sidebar-brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+}
+
+.sidebar-section{
+  padding:12px 14px;
+  border-bottom:1px solid #f1f5f9;
+}
+
+.sidebar-label{
+  font-size:13px;
+  color:#64748b;
+  font-weight:800;
+  margin:4px 10px 10px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.drawer-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px 14px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#111827;
+  font-weight:700;
+  margin-bottom:4px;
+  transition:background .2s ease, transform .2s ease;
+}
+
+.drawer-link:hover{
+  background:#f8fafc;
+  transform:translateX(2px);
+}
+
+.drawer-link.active{
+  background:#111827;
+  color:#fff;
+}
+
+.drawer-icon{
+  width:22px;
+  text-align:center;
+  font-size:18px;
+  flex-shrink:0;
+}
+
+.page-content{
+  padding:22px 14px 80px;
+}
+
+.privacy-wrap{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.hero-card{
+  background:
+    radial-gradient(circle at top right, rgba(15,118,110,.12), transparent 35%),
+    linear-gradient(180deg,#ffffff,#fbfcff);
+  border:1px solid #edf1f5;
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  padding:28px;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#ecfeff;
+  color:#0f766e;
+  border:1px solid #a5f3fc;
+  border-radius:999px;
+  padding:8px 14px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.hero-title{
+  margin:16px 0 10px;
+  font-size:36px;
+  line-height:1.15;
+  color:#111827;
+}
+
+.hero-lead{
+  margin:0;
+  max-width:860px;
+  color:#475569;
+  line-height:1.8;
+  font-size:16px;
+}
+
+.hero-meta{
+  margin-top:18px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.meta-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  background:#f8fafc;
+  color:#475569;
+  border:1px solid #e2e8f0;
+  border-radius:999px;
+  padding:10px 14px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.notice-card{
+  margin-top:18px;
+  background:linear-gradient(180deg,#f8fdff,#eefcff);
+  border:1px solid #a5f3fc;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:20px;
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+}
+
+.notice-icon{
+  width:52px;
+  height:52px;
+  border-radius:18px;
+  background:#fff;
+  color:#0f766e;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  box-shadow:0 8px 18px rgba(15,23,42,.08);
+  flex-shrink:0;
+}
+
+.notice-content h2{
+  margin:0;
+  font-size:22px;
+  color:#0f766e;
+}
+
+.notice-content p{
+  margin:8px 0 0;
+  color:#155e75;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.privacy-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  margin-top:18px;
+}
+
+.privacy-card{
+  background:#fff;
+  border:1px solid #edf1f5;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:22px;
+}
+
+.privacy-card.important{
+  border-color:#fecaca;
+  background:linear-gradient(180deg,#fffefe,#fff6f6);
+}
+
+.privacy-card.info{
+  border-color:#a5f3fc;
+  background:linear-gradient(180deg,#fbfeff,#f1fdff);
+}
+
+.privacy-card-head{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.section-pill{
+  min-width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#ecfeff;
+  color:#0f766e;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:14px;
+  flex-shrink:0;
+}
+
+.privacy-card.important .section-pill{
+  background:#fee2e2;
+  color:#b91c1c;
+}
+
+.privacy-card h2{
+  margin:2px 0 0;
+  font-size:22px;
+  line-height:1.3;
+  color:#111827;
+}
+
+.section-text{
+  margin:0 0 12px;
+  color:#475569;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.privacy-list{
+  margin:0;
+  padding-left:22px;
+  color:#475569;
+}
+
+.privacy-list li{
+  margin:0 0 10px;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.legal-callout{
+  margin-top:14px;
+  padding:16px 18px;
+  border-radius:18px;
+  background:var(--danger-soft);
+  border:1px solid #fecdd3;
+  color:var(--danger);
+  font-weight:800;
+  line-height:1.7;
+  font-size:15px;
+}
+
+.info-callout{
+  margin-top:14px;
+  padding:16px 18px;
+  border-radius:18px;
+  background:var(--info-soft);
+  border:1px solid #a5f3fc;
+  color:var(--info);
+  font-weight:800;
+  line-height:1.7;
+  font-size:15px;
+}
+
+.contact-box{
+  margin-top:14px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:12px 14px;
+  border-radius:16px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  font-weight:800;
+  color:#334155;
+}
+
+.contact-box a{
+  color:#166534;
+  text-decoration:none;
+}
+
+.contact-box a:hover{text-decoration:underline}
+
+.privacy-banner{
+  margin-top:18px;
+  background:linear-gradient(135deg,#111827,#1f2937);
+  color:#fff;
+  border-radius:28px;
+  padding:24px;
+  box-shadow:var(--shadow-lg);
+}
+
+.privacy-banner h2{
+  margin:0 0 10px;
+  font-size:26px;
+  line-height:1.2;
+}
+
+.privacy-banner p{
+  margin:0;
+  line-height:1.9;
+  color:#e5e7eb;
+  font-size:15px;
+}
+
+.footer{
+  background:#1b5e20;
+  color:#fff;
+  text-align:center;
+  padding:18px 10px;
+  margin-top:25px;
+  font-size:14px;
+  border-radius:22px;
+}
+
+.footer a{
+  color:#fff;
+  text-decoration:none;
+  margin:0 10px;
+  font-weight:700;
+}
+
+.footer a:hover{text-decoration:underline}
+
+@media (max-width:980px){
+  .privacy-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:768px){
+  .header-inner{
+    padding:10px;
+    min-height:66px;
+  }
+
+  .logo{
+    width:46px;
+    height:46px;
+    border-radius:13px;
+  }
+
+  .brand{
+    max-width:170px;
+  }
+
+  .brand b{
+    font-size:18px;
+  }
+
+  .brand span{
+    font-size:11px;
+  }
+
+  .status-pill{
+    padding:10px 12px;
+    font-size:13px;
+  }
+
+  .icon-circle{
+    width:40px;
+    height:40px;
+  }
+
+  .notification-dropdown{
+    width:min(340px,calc(100vw - 24px));
+  }
+
+  .hero-card,
+  .privacy-card,
+  .notice-card,
+  .privacy-banner{
+    padding:18px;
+  }
+
+  .hero-title{
+    font-size:28px;
+  }
+}
+
+@media (max-width:560px){
+  .header-inner{
+    gap:8px;
+    padding:8px 10px;
+  }
+
+  .header-left{gap:8px}
+  .header-right{gap:6px}
+
+  .menu-btn{
+    width:38px;
+    height:38px;
+    font-size:22px;
+  }
+
+  .logo{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+  }
+
+  .brand{
+    max-width:130px;
+  }
+
+  .brand b{
+    font-size:16px;
+  }
+
+  .brand span{
+    display:block;
+    font-size:10px;
+  }
+
+  .status-pill{
+    padding:8px 8px;
+    font-size:10px;
+    gap:5px;
+    min-height:38px;
+  }
+
+  .icon-circle{
+    width:36px;
+    height:36px;
+  }
+
+  .whatsapp-btn img{
+    width:17px;
+    height:17px;
+  }
+
+  .notification-dropdown{
+    right:-52px;
+    width:min(320px,calc(100vw - 16px));
+  }
+
+  .hero-title{
+    font-size:24px;
+  }
+
+  .page-content{
+    padding:16px 10px 60px;
+  }
+
+  .notice-card{
+    flex-direction:column;
+  }
+}
+
+@media (max-width:390px){
+  .brand{
+    max-width:112px;
+  }
+
+  .brand b{
+    font-size:15px;
+  }
+
+  .brand span{
+    display:block;
+    font-size:9px;
+  }
+
+  .status-pill{
+    padding:7px 7px;
+    font-size:9px;
+  }
+
+  .menu-btn,
+  .icon-circle{
+    width:34px;
+    height:34px;
+  }
+
+  .notification-dropdown{
+    right:-84px;
+    width:calc(100vw - 14px);
+  }
+}
+</style>
 </head>
+
 <body>
 
-<!-- Home Button -->
-<a href="index.html" class="top-icon home-icon">🏠</a>
+<header class="yt-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <button class="menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
 
-<!-- Back Button -->
-<a href="javascript:history.back()" class="top-icon back-icon">←</a>
+      <a class="brand-link" href="index.html">
+        <div class="logo"><img src="logo_1.png" alt="BanaNetwork Logo"></div>
+        <div class="brand">
+          <b>BanaNetwork</b>
+          <span id="brandSubtitle">रोप खोडवा खरेदी विक्री</span>
+        </div>
+      </a>
+    </div>
 
-<div class="container">
+    <div class="header-right">
+      <a class="status-pill" id="loginStatusBtn" href="login.html">
+        <span id="loginStatusIcon">🔑</span>
+        <span id="loginStatusText">Login</span>
+      </a>
 
-<h1>Privacy Policy</h1>
+      <div class="lang-wrap">
+        <button class="icon-circle lang-btn" id="langToggle" type="button" aria-label="Change language" aria-expanded="false">म</button>
+        <div class="lang-menu" id="langMenu">
+          <button class="lang-option" type="button" data-lang="mr">मराठी</button>
+          <button class="lang-option" type="button" data-lang="hi">हिंदी</button>
+          <button class="lang-option" type="button" data-lang="en">English</button>
+        </div>
+      </div>
 
-<p>
-ही Privacy Policy <strong>BananaNetwork</strong> (bananetwork.in) या वेबसाइटसाठी लागू आहे.
-आम्ही आमच्या वापरकर्त्यांच्या गोपनीयतेचा (Privacy) पूर्ण आदर करतो.
-</p>
+      <div class="notification-wrap hidden" id="notificationWrap">
+        <button id="notificationBtn" class="icon-circle notification-btn" type="button" aria-label="Notifications" aria-expanded="false">
+          <span>🔔</span>
+          <span id="notificationCount" class="notification-count hidden">0</span>
+        </button>
 
-<h2>📌 आम्ही कोणती माहिती गोळा करतो?</h2>
-<p>
-BananaNetwork ही माहितीपर वेबसाइट आहे. येथे:
-</p>
-<ul>
-    <li>वापरकर्त्यांकडून कोणतीही जबरदस्तीची वैयक्तिक माहिती घेतली जात नाही.</li>
-    <li>जर वापरकर्ता स्वतःहून संपर्क फॉर्म / enquiry box मध्ये माहिती पाठवतो,
-        तेव्हाच नाव किंवा संदेश मिळतो.</li>
-    <li>WhatsApp ग्रुप जॉईन करणे पूर्णपणे ऐच्छिक आहे.</li>
-</ul>
+        <div id="notificationDropdown" class="notification-dropdown">
+          <div class="notification-head" id="notificationTitle">Notifications</div>
+          <div class="notification-list" id="notificationList">
+            <div class="notification-empty">No notifications</div>
+          </div>
+        </div>
+      </div>
 
-<h2>🍪 Cookies</h2>
-<p>
-आमची वेबसाइट Cookies वापरू शकते.
-Cookies चा वापर खालील कारणांसाठी होतो:
-</p>
-<ul>
-    <li>वेबसाइटचा अनुभव (User Experience) सुधारण्यासाठी</li>
-    <li>Analytics आणि Ads साठी</li>
-</ul>
-<p>
-वापरकर्ता आपल्या browser मधून cookies disable करू शकतो.
-</p>
+      <a class="icon-circle whatsapp-btn" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </a>
 
-<h2>📢 Google AdSense</h2>
-<p>
-BananaNetwork भविष्यात Google AdSense वापरू शकते.
-</p>
-<ul>
-    <li>Google हा third-party vendor आहे.</li>
-    <li>Google cookies (DART cookies सहित) वापरून वापरकर्त्याला
-        त्यांच्या आवडीप्रमाणे जाहिराती दाखवतो.</li>
-    <li>वापरकर्ता Google Ad Settings मध्ये जाऊन personalized ads बंद करू शकतो.</li>
-</ul>
+      <a class="icon-circle account-btn" id="accountBtn" href="login.html" title="My Account">👤</a>
+    </div>
+  </div>
+</header>
 
-<h2>🎥 YouTube Videos</h2>
-<p>
-आमच्या वेबसाइटवर YouTube वरून embed केलेले videos असू शकतात.
-</p>
-<ul>
-    <li>हे videos YouTube चे स्वतःचे नियम आणि Privacy Policy फॉलो करतात.</li>
-    <li>YouTube च्या data collection वर आमचा थेट नियंत्रण नाही.</li>
-</ul>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-<h2>🔗 External Links</h2>
-<p>
-आमच्या वेबसाइटवर WhatsApp, YouTube किंवा इतर external websites च्या links असू शकतात.
-</p>
-<ul>
-    <li>त्या वेबसाइट्सच्या content किंवा privacy policies साठी
-        BananaNetwork जबाबदार नाही.</li>
-</ul>
+<aside class="sidebar-drawer" id="sidebarDrawer">
+  <div class="sidebar-head">
+    <button class="menu-btn" id="drawerClose" aria-label="Close menu">☰</button>
+    <div class="sidebar-brand">
+      <b>BanaNetwork</b>
+      <span id="drawerSubtitle">केळी संबंधित सर्व सेवा</span>
+    </div>
+  </div>
 
-<h2>👶 Children Information</h2>
-<p>
-BananaNetwork ही वेबसाइट खास 13 वर्षांखालील मुलांसाठी बनवलेली नाही.
-</p>
-<ul>
-    <li>आम्ही जाणूनबुजून कोणतीही बालकांची वैयक्तिक माहिती गोळा करत नाही.</li>
-</ul>
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelMain">मुख्य</div>
+    <a class="drawer-link" data-route="home" href="index.html"><span class="drawer-icon">🏠</span><span id="drawerHome">Home</span></a>
+    <a class="drawer-link" data-route="plant-buy" href="buy.html"><span class="drawer-icon">🌱</span><span id="drawerBuy">केळी रोप खरेदी</span></a>
+    <a class="drawer-link" data-route="plant-sell" href="sell.html"><span class="drawer-icon">💰</span><span id="drawerSell">केळी रोप विक्री</span></a>
+    <a class="drawer-link" data-route="khodwa-buy" href="buy.html"><span class="drawer-icon">🌿</span><span id="drawerKhatBuy">केळी खोडवा खरेदी</span></a>
+    <a class="drawer-link" data-route="khodwa-sell" href="sell.html"><span class="drawer-icon">🚜</span><span id="drawerKhatSell">केळी खोडवा विक्री</span></a>
+    <a class="drawer-link" data-route="burhanpur" href="index.html"><span class="drawer-icon">🍌</span><span id="drawerBurhanpur">बुरहानपूर केळी भाव</span></a>
+    <a class="drawer-link" data-route="jalgaon" href="jalgaon.html"><span class="drawer-icon">📍</span><span id="drawerJalgaon">जळगाव केळी भाव</span></a>
+    <a class="drawer-link" data-route="chopda" href="chopda.html"><span class="drawer-icon">📍</span><span id="drawerChopda">चोपडा केळी भाव</span></a>
+    <a class="drawer-link" data-route="raver" href="raver.html"><span class="drawer-icon">📍</span><span id="drawerRaver">रावेर केळी भाव</span></a>
+  </div>
 
-<h2>🔄 Privacy Policy Updates</h2>
-<p>
-ही Privacy Policy भविष्यात अपडेट केली जाऊ शकते.
-</p>
-<ul>
-    <li>कोणताही बदल या पेजवर टाकला जाईल.</li>
-</ul>
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelAccount">खाते</div>
+    <a class="drawer-link" data-protected-route="account.html" href="account.html"><span class="drawer-icon">👤</span><span id="drawerAccount">My Account</span></a>
+    <a class="drawer-link" data-protected-route="chat.html" href="chat.html"><span class="drawer-icon">💬</span><span id="drawerChat">My Chat</span></a>
+    <a class="drawer-link" data-protected-route="mylistings.html" href="mylistings.html"><span class="drawer-icon">📜</span><span id="drawerListingHistory">My Listing History</span></a>
+    <a class="drawer-link" data-protected-route="inbox.html" href="inbox.html"><span class="drawer-icon">📥</span><span id="drawerInbox">My Inbox</span></a>
+    <a class="drawer-link" id="drawerSignupLink" href="login.html?mode=signup">
+      <span class="drawer-icon">📝</span>
+      <span id="drawerSignup">Signup</span>
+    </a>
+    <a class="drawer-link" id="drawerAuthLink" href="login.html"><span class="drawer-icon" id="drawerAuthIcon">🔑</span><span id="drawerLoginText">Login</span></a>
+  </div>
 
-<h2>📧 Contact</h2>
-<p>
-Privacy Policy संदर्भात काही प्रश्न असल्यास:
-</p>
-<p>
-<strong>Email:</strong> contact@bananetwork.in
-</p>
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelInfo">माहिती</div>
+    <a class="drawer-link" href="about.html"><span class="drawer-icon">ℹ️</span><span id="drawerAbout">About Us</span></a>
+    <a class="drawer-link active" data-route="privacy" href="privacy.html"><span class="drawer-icon">🔒</span><span id="drawerPrivacy">Privacy Policy</span></a>
+    <a class="drawer-link" href="terms.html"><span class="drawer-icon">📄</span><span id="drawerTerms">Terms & Conditions</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">📞</span><span id="drawerContact">Contact Us</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">🤝</span><span id="drawerAgentHelp">प्रतिनिधी मदत</span></a>
+    <a class="drawer-link" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer">
+      <span class="drawer-icon whatsapp-drawer-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </span>
+      <span id="drawerWhatsapp">WhatsApp Group</span>
+    </a>
+  </div>
+</aside>
 
-<p class="note">
-ही Privacy Policy BananaNetwork च्या वापरासाठी लागू आहे.
-</p>
+<div class="page-content">
+  <div class="privacy-wrap">
+    <section class="hero-card">
+      <div class="hero-badge" id="heroBadge">🔒 Privacy & Data Protection</div>
+      <h1 class="hero-title" id="pageHeading">Privacy Policy – BanaNetwork</h1>
+      <p class="hero-lead" id="pageLead">BanaNetwork वर तुमची माहिती कशी collect, use, display आणि protect केली जाते हे या Privacy Policy मध्ये स्पष्ट केले आहे.</p>
 
+      <div class="hero-meta">
+        <div class="meta-chip" id="updatedText">Last Updated: 26 April 2026</div>
+        <div class="meta-chip" id="platformRoleChip">User Data & Privacy Rules</div>
+      </div>
+    </section>
+
+    <section class="notice-card">
+      <div class="notice-icon">🛡️</div>
+      <div class="notice-content">
+        <h2 id="noticeTitle">Important Privacy Notice</h2>
+        <p id="noticeText">BanaNetwork user experience, safety आणि marketplace communication साठी काही माहिती वापरते. पण users ने public information share करताना स्वतःची safety आणि privacy देखील लक्षात ठेवावी.</p>
+      </div>
+    </section>
+
+    <div class="privacy-grid" id="privacySections">
+      <section class="privacy-card">
+        <div class="privacy-card-head">
+          <span class="section-pill">1</span>
+          <h2>Introduction</h2>
+        </div>
+        <p class="section-text">ही Privacy Policy BanaNetwork platform वापरणाऱ्या सर्व users साठी लागू आहे.</p>
+        <p class="section-text">Website, listings, chat, contact forms आणि account related features वापरताना तुमची माहिती कशी handle केली जाते हे या page वर दिलेले आहे.</p>
+      </section>
+
+      <section class="privacy-card">
+        <div class="privacy-card-head">
+          <span class="section-pill">2</span>
+          <h2>What Data We Collect</h2>
+        </div>
+        <ul class="privacy-list">
+          <li>Name, mobile number, profile photo, email यासारखी account information.</li>
+          <li>Listing details जसे product title, price, location, images, description.</li>
+          <li>Chat messages, order request activity आणि platform usage related information.</li>
+        </ul>
+      </section>
+
+      <section class="privacy-card info">
+        <div class="privacy-card-head">
+          <span class="section-pill">3</span>
+          <h2>How We Use Data</h2>
+        </div>
+        <ul class="privacy-list">
+          <li>Users connect करण्यासाठी आणि marketplace सुविधा चालवण्यासाठी.</li>
+          <li>Listing display, communication, notifications आणि support देण्यासाठी.</li>
+          <li>Security, abuse prevention आणि service improvement साठी.</li>
+        </ul>
+      </section>
+
+      <section class="privacy-card">
+        <div class="privacy-card-head">
+          <span class="section-pill">4</span>
+          <h2>Public Listing Information</h2>
+        </div>
+        <ul class="privacy-list">
+          <li>तुम्ही listing मध्ये दिलेली काही माहिती इतर users ला visible होऊ शकते.</li>
+          <li>यामध्ये product images, company name, area, description, contact details यांचा समावेश असू शकतो.</li>
+          <li>Public listing मध्ये टाकलेली माहिती share करण्यापूर्वी काळजीपूर्वक verify करा.</li>
+        </ul>
+      </section>
+
+      <section class="privacy-card">
+        <div class="privacy-card-head">
+          <span class="section-pill">5</span>
+          <h2>Chats & Communication</h2>
+        </div>
+        <ul class="privacy-list">
+          <li>Buyer-seller chat messages, order requests आणि notification records platform वर store होऊ शकतात.</li>
+          <li>हे records conversation continuity, dispute reference आणि support साठी वापरले जाऊ शकतात.</li>
+        </ul>
+      </section>
+
+      <section class="privacy-card">
+        <div class="privacy-card-head">
+          <span class="section-pill">6</span>
+          <h2>Cookies & Local Storage</h2>
+        </div>
+        <ul class="privacy-list">
+          <li>Website cookies किंवा local storage वापरू शकते.</li>
+          <li>Language preference, login state आणि better user experience साठी browser storage वापरले जाऊ शकते.</li>
+        </ul>
+      </section>
+
+      <section class="privacy-card">
+        <div class="privacy-card-head">
+          <span class="section-pill">7</span>
+          <h2>Third-Party Services</h2>
+        </div>
+        <ul class="privacy-list">
+          <li>Platform वर WhatsApp, YouTube, Firebase, Cloudinary किंवा इतर third-party tools वापरले जाऊ शकतात.</li>
+          <li>त्या services त्यांच्या स्वतःच्या privacy rules नुसार data process करू शकतात.</li>
+        </ul>
+      </section>
+
+      <section class="privacy-card">
+        <div class="privacy-card-head">
+          <span class="section-pill">8</span>
+          <h2>Data Sharing</h2>
+        </div>
+        <ul class="privacy-list">
+          <li>We do not sell your personal data as a commercial data product.</li>
+          <li>But some data may be visible to other users where platform functionality requires it.</li>
+          <li>Legal requirement, fraud prevention किंवा safety reasons मुळे information authorities किंवा service providers सोबत share केली जाऊ शकते.</li>
+        </ul>
+      </section>
+
+      <section class="privacy-card info">
+        <div class="privacy-card-head">
+          <span class="section-pill">9</span>
+          <h2>User Choices</h2>
+        </div>
+        <ul class="privacy-list">
+          <li>तुम्ही चुकीची माहिती update किंवा remove करण्याची विनंती करू शकता.</li>
+          <li>Cookies browser settings मधून disable करता येऊ शकतात.</li>
+          <li>Public listing मध्ये काय share करायचे याचा निर्णय user चाच असेल.</li>
+        </ul>
+      </section>
+
+      <section class="privacy-card important">
+        <div class="privacy-card-head">
+          <span class="section-pill">10</span>
+          <h2>Data Security</h2>
+        </div>
+        <p class="section-text">आम्ही reasonable security measures वापरण्याचा प्रयत्न करतो. पण internet transmission किंवा third-party systems 100% secure असतील याची absolute guarantee दिली जात नाही.</p>
+        <div class="legal-callout">Users should avoid sharing unnecessary sensitive personal, banking, or confidential information on public listings or unsecured chats.</div>
+      </section>
+
+      <section class="privacy-card">
+        <div class="privacy-card-head">
+          <span class="section-pill">11</span>
+          <h2>Children's Privacy</h2>
+        </div>
+        <p class="section-text">BanaNetwork खास 13 वर्षांखालील मुलांसाठी design केलेले नाही. आम्ही जाणूनबुजून children data collect करण्याचा हेतू ठेवत नाही.</p>
+      </section>
+
+      <section class="privacy-card">
+        <div class="privacy-card-head">
+          <span class="section-pill">12</span>
+          <h2>Policy Updates</h2>
+        </div>
+        <p class="section-text">ही Privacy Policy भविष्यात update केली जाऊ शकते. Updated version website वर publish झाल्यापासून लागू होईल.</p>
+      </section>
+
+      <section class="privacy-card">
+        <div class="privacy-card-head">
+          <span class="section-pill">13</span>
+          <h2>Contact</h2>
+        </div>
+        <p class="section-text">Privacy Policy किंवा data use संदर्भात काही प्रश्न असल्यास खालील email वर संपर्क साधा.</p>
+        <div class="contact-box">
+          <span>Email:</span>
+          <a href="mailto:bananetwork.in@gmail.com">bananetwork.in@gmail.com</a>
+        </div>
+      </section>
+    </div>
+
+    <section class="privacy-banner">
+      <h2 id="privacyBannerTitle">Privacy Reminder</h2>
+      <p id="privacyBannerText">Public marketplace वर share केलेली माहिती इतर users पाहू शकतात. Users should use BanaNetwork carefully and share only necessary information.</p>
+    </section>
+
+    <div class="footer">
+      <div>© 2026 BanaNetwork</div>
+      <div id="footerMade">Made for Banana Farmers 🍌</div>
+      <div style="margin-top:8px;">
+        <a href="privacy.html" id="footerPrivacy">Privacy</a> |
+        <a href="contact.html" id="footerContact">Contact</a> |
+        <a href="terms.html" id="footerTerms">Terms</a>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+const metaDescription = document.getElementById("metaDescription");
+const metaKeywords = document.getElementById("metaKeywords");
+const ogDescription = document.getElementById("ogDescription");
+
+const brandSubtitle = document.getElementById("brandSubtitle");
+const drawerSubtitle = document.getElementById("drawerSubtitle");
+const labelMain = document.getElementById("labelMain");
+const labelAccount = document.getElementById("labelAccount");
+const labelInfo = document.getElementById("labelInfo");
+const drawerHome = document.getElementById("drawerHome");
+const drawerBuy = document.getElementById("drawerBuy");
+const drawerSell = document.getElementById("drawerSell");
+const drawerKhatBuy = document.getElementById("drawerKhatBuy");
+const drawerKhatSell = document.getElementById("drawerKhatSell");
+const drawerBurhanpur = document.getElementById("drawerBurhanpur");
+const drawerJalgaon = document.getElementById("drawerJalgaon");
+const drawerChopda = document.getElementById("drawerChopda");
+const drawerRaver = document.getElementById("drawerRaver");
+const drawerAccount = document.getElementById("drawerAccount");
+const drawerChat = document.getElementById("drawerChat");
+const drawerListingHistory = document.getElementById("drawerListingHistory");
+const drawerInbox = document.getElementById("drawerInbox");
+const drawerSignup = document.getElementById("drawerSignup");
+const drawerAbout = document.getElementById("drawerAbout");
+const drawerPrivacy = document.getElementById("drawerPrivacy");
+const drawerTerms = document.getElementById("drawerTerms");
+const drawerContact = document.getElementById("drawerContact");
+const drawerAgentHelp = document.getElementById("drawerAgentHelp");
+const drawerWhatsapp = document.getElementById("drawerWhatsapp");
+
+const menuToggle = document.getElementById("menuToggle");
+const sidebarDrawer = document.getElementById("sidebarDrawer");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+const drawerClose = document.getElementById("drawerClose");
+const loginStatusBtn = document.getElementById("loginStatusBtn");
+const loginStatusIcon = document.getElementById("loginStatusIcon");
+const loginStatusText = document.getElementById("loginStatusText");
+const accountBtn = document.getElementById("accountBtn");
+const drawerAuthLink = document.getElementById("drawerAuthLink");
+const drawerAuthIcon = document.getElementById("drawerAuthIcon");
+const drawerLoginText = document.getElementById("drawerLoginText");
+
+const langToggle = document.getElementById("langToggle");
+const langMenu = document.getElementById("langMenu");
+const langOptions = [...document.querySelectorAll(".lang-option")];
+
+const notificationWrap = document.getElementById("notificationWrap");
+const notificationBtn = document.getElementById("notificationBtn");
+const notificationCount = document.getElementById("notificationCount");
+const notificationDropdown = document.getElementById("notificationDropdown");
+const notificationTitle = document.getElementById("notificationTitle");
+
+const heroBadge = document.getElementById("heroBadge");
+const pageHeading = document.getElementById("pageHeading");
+const pageLead = document.getElementById("pageLead");
+const updatedText = document.getElementById("updatedText");
+const platformRoleChip = document.getElementById("platformRoleChip");
+const noticeTitle = document.getElementById("noticeTitle");
+const noticeText = document.getElementById("noticeText");
+const privacySections = document.getElementById("privacySections");
+const privacyBannerTitle = document.getElementById("privacyBannerTitle");
+const privacyBannerText = document.getElementById("privacyBannerText");
+const footerMade = document.getElementById("footerMade");
+const footerPrivacy = document.getElementById("footerPrivacy");
+const footerContact = document.getElementById("footerContact");
+const footerTerms = document.getElementById("footerTerms");
+
+const LANG_SHORT = { mr:"म", hi:"हि", en:"E" };
+
+const privacyTemplates = {
+  mr: `
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">1</span>
+        <h2>Introduction</h2>
+      </div>
+      <p class="section-text">ही Privacy Policy BanaNetwork platform वापरणाऱ्या सर्व users साठी लागू आहे.</p>
+      <p class="section-text">Website, listings, chat, contact forms आणि account related features वापरताना तुमची माहिती कशी handle केली जाते हे या page वर दिलेले आहे.</p>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">2</span>
+        <h2>What Data We Collect</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>Name, mobile number, profile photo, email यासारखी account information.</li>
+        <li>Listing details जसे product title, price, location, images, description.</li>
+        <li>Chat messages, order request activity आणि platform usage related information.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card info">
+      <div class="privacy-card-head">
+        <span class="section-pill">3</span>
+        <h2>How We Use Data</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>Users connect करण्यासाठी आणि marketplace सुविधा चालवण्यासाठी.</li>
+        <li>Listing display, communication, notifications आणि support देण्यासाठी.</li>
+        <li>Security, abuse prevention आणि service improvement साठी.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">4</span>
+        <h2>Public Listing Information</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>तुम्ही listing मध्ये दिलेली काही माहिती इतर users ला visible होऊ शकते.</li>
+        <li>यामध्ये product images, company name, area, description, contact details यांचा समावेश असू शकतो.</li>
+        <li>Public listing मध्ये टाकलेली माहिती share करण्यापूर्वी काळजीपूर्वक verify करा.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">5</span>
+        <h2>Chats & Communication</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>Buyer-seller chat messages, order requests आणि notification records platform वर store होऊ शकतात.</li>
+        <li>हे records conversation continuity, dispute reference आणि support साठी वापरले जाऊ शकतात.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">6</span>
+        <h2>Cookies & Local Storage</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>Website cookies किंवा local storage वापरू शकते.</li>
+        <li>Language preference, login state आणि better user experience साठी browser storage वापरले जाऊ शकते.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">7</span>
+        <h2>Third-Party Services</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>Platform वर WhatsApp, YouTube, Firebase, Cloudinary किंवा इतर third-party tools वापरले जाऊ शकतात.</li>
+        <li>त्या services त्यांच्या स्वतःच्या privacy rules नुसार data process करू शकतात.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">8</span>
+        <h2>Data Sharing</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>We do not sell your personal data as a commercial data product.</li>
+        <li>But some data may be visible to other users where platform functionality requires it.</li>
+        <li>Legal requirement, fraud prevention किंवा safety reasons मुळे information authorities किंवा service providers सोबत share केली जाऊ शकते.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card info">
+      <div class="privacy-card-head">
+        <span class="section-pill">9</span>
+        <h2>User Choices</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>तुम्ही चुकीची माहिती update किंवा remove करण्याची विनंती करू शकता.</li>
+        <li>Cookies browser settings मधून disable करता येऊ शकतात.</li>
+        <li>Public listing मध्ये काय share करायचे याचा निर्णय user चाच असेल.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card important">
+      <div class="privacy-card-head">
+        <span class="section-pill">10</span>
+        <h2>Data Security</h2>
+      </div>
+      <p class="section-text">आम्ही reasonable security measures वापरण्याचा प्रयत्न करतो. पण internet transmission किंवा third-party systems 100% secure असतील याची absolute guarantee दिली जात नाही.</p>
+      <div class="legal-callout">Users should avoid sharing unnecessary sensitive personal, banking, or confidential information on public listings or unsecured chats.</div>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">11</span>
+        <h2>Children's Privacy</h2>
+      </div>
+      <p class="section-text">BanaNetwork खास 13 वर्षांखालील मुलांसाठी design केलेले नाही. आम्ही जाणूनबुजून children data collect करण्याचा हेतू ठेवत नाही.</p>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">12</span>
+        <h2>Policy Updates</h2>
+      </div>
+      <p class="section-text">ही Privacy Policy भविष्यात update केली जाऊ शकते. Updated version website वर publish झाल्यापासून लागू होईल.</p>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">13</span>
+        <h2>Contact</h2>
+      </div>
+      <p class="section-text">Privacy Policy किंवा data use संदर्भात काही प्रश्न असल्यास खालील email वर संपर्क साधा.</p>
+      <div class="contact-box">
+        <span>Email:</span>
+        <a href="mailto:bananetwork.in@gmail.com">bananetwork.in@gmail.com</a>
+      </div>
+    </section>
+  `,
+  hi: `
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">1</span>
+        <h2>Introduction</h2>
+      </div>
+      <p class="section-text">यह Privacy Policy BanaNetwork platform use करने वाले सभी users पर लागू होती है.</p>
+      <p class="section-text">Website, listings, chat, contact forms और account related features use करते समय data कैसे handle किया जाता है, यह यहां बताया गया है.</p>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">2</span>
+        <h2>What Data We Collect</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>Name, mobile number, profile photo, email जैसी account information.</li>
+        <li>Listing details जैसे product title, price, location, images, description.</li>
+        <li>Chat messages, order request activity और platform usage related information.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card info">
+      <div class="privacy-card-head">
+        <span class="section-pill">3</span>
+        <h2>How We Use Data</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>Users को connect करने और marketplace services चलाने के लिए.</li>
+        <li>Listing display, communication, notifications और support देने के लिए.</li>
+        <li>Security, abuse prevention और service improvement के लिए.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">4</span>
+        <h2>Public Listing Information</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>आप listing में जो information देते हैं उसका कुछ हिस्सा दूसरे users को visible हो सकता है.</li>
+        <li>इसमें product images, company name, area, description, contact details शामिल हो सकते हैं.</li>
+        <li>Public listing में information डालने से पहले carefully verify करें.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">5</span>
+        <h2>Chats & Communication</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>Buyer-seller chat messages, order requests और notification records platform पर store हो सकते हैं.</li>
+        <li>यह records conversation continuity, dispute reference और support के लिए use किए जा सकते हैं.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">6</span>
+        <h2>Cookies & Local Storage</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>Website cookies या local storage use कर सकती है.</li>
+        <li>Language preference, login state और better user experience के लिए browser storage use किया जा सकता है.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">7</span>
+        <h2>Third-Party Services</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>Platform पर WhatsApp, YouTube, Firebase, Cloudinary या अन्य third-party tools use हो सकते हैं.</li>
+        <li>वे services अपने privacy rules के अनुसार data process कर सकती हैं.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">8</span>
+        <h2>Data Sharing</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>We do not sell your personal data as a commercial data product.</li>
+        <li>But some data may be visible to other users where platform functionality requires it.</li>
+        <li>Legal requirement, fraud prevention या safety reasons से information authorities या service providers के साथ share की जा सकती है.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card info">
+      <div class="privacy-card-head">
+        <span class="section-pill">9</span>
+        <h2>User Choices</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>आप गलत information update या remove करने की request कर सकते हैं.</li>
+        <li>Cookies browser settings से disable की जा सकती हैं.</li>
+        <li>Public listing में क्या share करना है इसका decision user का अपना होगा.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card important">
+      <div class="privacy-card-head">
+        <span class="section-pill">10</span>
+        <h2>Data Security</h2>
+      </div>
+      <p class="section-text">हम reasonable security measures use करने का प्रयास करते हैं, लेकिन internet transmission या third-party systems 100% secure होंगे इसकी absolute guarantee नहीं दी जाती.</p>
+      <div class="legal-callout">Users should avoid sharing unnecessary sensitive personal, banking, or confidential information on public listings or unsecured chats.</div>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">11</span>
+        <h2>Children's Privacy</h2>
+      </div>
+      <p class="section-text">BanaNetwork खास 13 साल से कम उम्र के बच्चों के लिए design नहीं किया गया है. हम जानबूझकर children data collect नहीं करते.</p>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">12</span>
+        <h2>Policy Updates</h2>
+      </div>
+      <p class="section-text">यह Privacy Policy भविष्य में update की जा सकती है. Updated version website पर publish होते ही लागू मानी जाएगी.</p>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">13</span>
+        <h2>Contact</h2>
+      </div>
+      <p class="section-text">Privacy Policy या data use से जुड़े किसी भी सवाल के लिए नीचे दिए गए email पर contact करें.</p>
+      <div class="contact-box">
+        <span>Email:</span>
+        <a href="mailto:bananetwork.in@gmail.com">bananetwork.in@gmail.com</a>
+      </div>
+    </section>
+  `,
+  en: `
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">1</span>
+        <h2>Introduction</h2>
+      </div>
+      <p class="section-text">This Privacy Policy applies to all users of the BanaNetwork platform.</p>
+      <p class="section-text">This page explains how data is handled when you use the website, listings, chat, contact forms, and account-related features.</p>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">2</span>
+        <h2>What Data We Collect</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>Account information such as name, mobile number, profile photo, and email.</li>
+        <li>Listing details such as product title, price, location, images, and description.</li>
+        <li>Chat messages, order request activity, and platform usage related information.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card info">
+      <div class="privacy-card-head">
+        <span class="section-pill">3</span>
+        <h2>How We Use Data</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>To connect users and operate the marketplace services.</li>
+        <li>To provide listing display, communication, notifications, and support.</li>
+        <li>To improve security, prevent abuse, and improve the service.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">4</span>
+        <h2>Public Listing Information</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>Some information you add in listings may be visible to other users.</li>
+        <li>This may include product images, company name, area, description, and contact details.</li>
+        <li>Please verify carefully before posting any public information.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">5</span>
+        <h2>Chats & Communication</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>Buyer-seller chat messages, order requests, and notification records may be stored on the platform.</li>
+        <li>These records may be used for conversation continuity, dispute reference, and support.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">6</span>
+        <h2>Cookies & Local Storage</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>The website may use cookies or local storage.</li>
+        <li>Browser storage may be used for language preference, login state, and better user experience.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">7</span>
+        <h2>Third-Party Services</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>The platform may use WhatsApp, YouTube, Firebase, Cloudinary, or other third-party tools.</li>
+        <li>Those services may process data according to their own privacy rules.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">8</span>
+        <h2>Data Sharing</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>We do not sell your personal data as a commercial data product.</li>
+        <li>But some data may be visible to other users where platform functionality requires it.</li>
+        <li>Information may be shared with authorities or service providers for legal, fraud prevention, or safety reasons.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card info">
+      <div class="privacy-card-head">
+        <span class="section-pill">9</span>
+        <h2>User Choices</h2>
+      </div>
+      <ul class="privacy-list">
+        <li>You may request correction or removal of incorrect information.</li>
+        <li>Cookies may be disabled through browser settings.</li>
+        <li>Users decide what to share in public listings.</li>
+      </ul>
+    </section>
+
+    <section class="privacy-card important">
+      <div class="privacy-card-head">
+        <span class="section-pill">10</span>
+        <h2>Data Security</h2>
+      </div>
+      <p class="section-text">We use reasonable security measures, but absolute security cannot be guaranteed for internet transmission or third-party systems.</p>
+      <div class="legal-callout">Users should avoid sharing unnecessary sensitive personal, banking, or confidential information on public listings or unsecured chats.</div>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">11</span>
+        <h2>Children's Privacy</h2>
+      </div>
+      <p class="section-text">BanaNetwork is not specifically designed for children under 13 years of age. We do not knowingly collect children's data.</p>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">12</span>
+        <h2>Policy Updates</h2>
+      </div>
+      <p class="section-text">This Privacy Policy may be updated in the future. The updated version becomes effective once published on the website.</p>
+    </section>
+
+    <section class="privacy-card">
+      <div class="privacy-card-head">
+        <span class="section-pill">13</span>
+        <h2>Contact</h2>
+      </div>
+      <p class="section-text">For any questions related to Privacy Policy or data use, contact us on the email below.</p>
+      <div class="contact-box">
+        <span>Email:</span>
+        <a href="mailto:bananetwork.in@gmail.com">bananetwork.in@gmail.com</a>
+      </div>
+    </section>
+  `
+};
+
+const translations = {
+  mr:{
+    page_title:"Privacy Policy – BanaNetwork",
+    meta_description:"Read BanaNetwork Privacy Policy. Know how we collect, use, display, store, and protect user data on our banana marketplace platform.",
+    meta_keywords:"BanaNetwork privacy policy, banana marketplace privacy, user data policy, marketplace privacy, farmer app privacy",
+    og_description:"Read BanaNetwork Privacy Policy and understand how user data, listings, chats, and account information are handled.",
+    brand_subtitle:"रोप खोडवा खरेदी विक्री",
+    drawer_subtitle:"केळी संबंधित सर्व सेवा",
+    label_main:"मुख्य",
+    label_account:"खाते",
+    label_info:"माहिती",
+    nav_home:"Home",
+    nav_buy:"केळी रोप खरेदी",
+    nav_sell:"केळी रोप विक्री",
+    nav_khat_buy:"केळी खोडवा खरेदी",
+    nav_khat_sell:"केळी खोडवा विक्री",
+    nav_burhanpur_rates:"बुरहानपूर केळी भाव",
+    nav_jalgaon_rates:"जळगाव केळी भाव",
+    nav_chopda_rates:"चोपडा केळी भाव",
+    nav_raver_rates:"रावेर केळी भाव",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधी मदत",
+    info_whatsapp_group:"WhatsApp Group",
+    status_login:"Login",
+    status_account:"खाते",
+    notification_title:"सूचना",
+    notification_empty:"कोणतीही सूचना नाही",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    today:"Today",
+    earlier:"Earlier",
+    hero_badge:"🔒 Privacy & Data Protection",
+    page_heading:"Privacy Policy – BanaNetwork",
+    page_lead:"BanaNetwork वर तुमची माहिती कशी collect, use, display आणि protect केली जाते हे या Privacy Policy मध्ये स्पष्ट केले आहे.",
+    updated_text:"Last Updated: 26 April 2026",
+    platform_role_chip:"User Data & Privacy Rules",
+    notice_title:"Important Privacy Notice",
+    notice_text:"BanaNetwork user experience, safety आणि marketplace communication साठी काही माहिती वापरते. पण users ने public information share करताना स्वतःची safety आणि privacy देखील लक्षात ठेवावी.",
+    privacy_banner_title:"Privacy Reminder",
+    privacy_banner_text:"Public marketplace वर share केलेली माहिती इतर users पाहू शकतात. Users should use BanaNetwork carefully and share only necessary information.",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_terms:"Terms"
+  },
+  hi:{
+    page_title:"Privacy Policy – BanaNetwork",
+    meta_description:"Read BanaNetwork Privacy Policy. Know how we collect, use, display, store, and protect user data on our banana marketplace platform.",
+    meta_keywords:"BanaNetwork privacy policy, banana marketplace privacy, user data policy, marketplace privacy, farmer app privacy",
+    og_description:"Read BanaNetwork Privacy Policy and understand how user data, listings, chats, and account information are handled.",
+    brand_subtitle:"रोप खोडवा खरीद बिक्री",
+    drawer_subtitle:"केले से जुड़ी सभी सेवाएं",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"केला रोप खरीद",
+    nav_sell:"केला रोप बिक्री",
+    nav_khat_buy:"केला खोडवा खरीद",
+    nav_khat_sell:"केला खोडवा बिक्री",
+    nav_burhanpur_rates:"बुरहानपुर केला भाव",
+    nav_jalgaon_rates:"जलगांव केला भाव",
+    nav_chopda_rates:"चोपडा केला भाव",
+    nav_raver_rates:"रावेर केला भाव",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधि सहायता",
+    info_whatsapp_group:"WhatsApp Group",
+    status_login:"Login",
+    status_account:"खाता",
+    notification_title:"Notifications",
+    notification_empty:"No notifications",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    today:"Today",
+    earlier:"Earlier",
+    hero_badge:"🔒 Privacy & Data Protection",
+    page_heading:"Privacy Policy – BanaNetwork",
+    page_lead:"BanaNetwork पर आपकी information कैसे collect, use, display और protect की जाती है, यह इस Privacy Policy में बताया गया है.",
+    updated_text:"Last Updated: 26 April 2026",
+    platform_role_chip:"User Data & Privacy Rules",
+    notice_title:"Important Privacy Notice",
+    notice_text:"BanaNetwork user experience, safety और marketplace communication के लिए कुछ information use करता है. लेकिन users को public information share करते समय अपनी safety और privacy का ध्यान रखना चाहिए.",
+    privacy_banner_title:"Privacy Reminder",
+    privacy_banner_text:"Public marketplace पर shared information दूसरे users देख सकते हैं. Users should use BanaNetwork carefully and share only necessary information.",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_terms:"Terms"
+  },
+  en:{
+    page_title:"Privacy Policy – BanaNetwork",
+    meta_description:"Read BanaNetwork Privacy Policy. Know how we collect, use, display, store, and protect user data on our banana marketplace platform.",
+    meta_keywords:"BanaNetwork privacy policy, banana marketplace privacy, user data policy, marketplace privacy, farmer app privacy",
+    og_description:"Read BanaNetwork Privacy Policy and understand how user data, listings, chats, and account information are handled.",
+    brand_subtitle:"Plant Khodwa Buy Sell",
+    drawer_subtitle:"All Banana Related Services",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"Banana Plant Buy",
+    nav_sell:"Banana Plant Sell",
+    nav_khat_buy:"Banana Khodwa Buy",
+    nav_khat_sell:"Banana Khodwa Sell",
+    nav_burhanpur_rates:"Burhanpur Banana Rate",
+    nav_jalgaon_rates:"Jalgaon Banana Rate",
+    nav_chopda_rates:"Chopda Banana Rate",
+    nav_raver_rates:"Raver Banana Rate",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    info_contact:"Contact Us",
+    info_agent_help:"Agent Help",
+    info_whatsapp_group:"WhatsApp Group",
+    status_login:"Login",
+    status_account:"Account",
+    notification_title:"Notifications",
+    notification_empty:"No notifications",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    today:"Today",
+    earlier:"Earlier",
+    hero_badge:"🔒 Privacy & Data Protection",
+    page_heading:"Privacy Policy – BanaNetwork",
+    page_lead:"This Privacy Policy explains how your information is collected, used, displayed, and protected on BanaNetwork.",
+    updated_text:"Last Updated: 26 April 2026",
+    platform_role_chip:"User Data & Privacy Rules",
+    notice_title:"Important Privacy Notice",
+    notice_text:"BanaNetwork uses some information to provide user experience, safety, and marketplace communication. Users should also protect their own safety and privacy while sharing public information.",
+    privacy_banner_title:"Privacy Reminder",
+    privacy_banner_text:"Information shared on a public marketplace may be visible to other users. Users should use BanaNetwork carefully and share only necessary information.",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_terms:"Terms"
+  }
+};
+
+let currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+window.currentPrivacyUser = null;
+
+function t(key){
+  return translations[currentLanguage]?.[key] || translations.mr[key] || key;
+}
+
+function preserveLanguageAndClearStorage(){
+  const savedLanguage = localStorage.getItem("siteLanguage") || currentLanguage || "mr";
+  localStorage.clear();
+  localStorage.setItem("siteLanguage", savedLanguage);
+}
+
+function protectRouteUrl(url){
+  const hasUser = !!window.currentPrivacyUser || !!localStorage.getItem("userId") || !!localStorage.getItem("userName");
+  if(!hasUser){
+    window.location.href = "login.html";
+    return;
+  }
+  window.location.href = url;
+}
+
+async function logoutUser(){
+  if(typeof window.performPrivacyLogout === "function"){
+    await window.performPrivacyLogout();
+    return;
+  }
+  preserveLanguageAndClearStorage();
+  window.location.href = "index.html";
+}
+
+window.protectRouteUrl = protectRouteUrl;
+window.logoutUser = logoutUser;
+
+function toggleSidebar(show){
+  if(show){
+    sidebarDrawer.classList.add("open");
+    sidebarOverlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }else{
+    sidebarDrawer.classList.remove("open");
+    sidebarOverlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+}
+
+function openLangMenu(){
+  langMenu.classList.add("open");
+  langToggle.setAttribute("aria-expanded", "true");
+}
+
+function closeLangMenu(){
+  langMenu.classList.remove("open");
+  langToggle.setAttribute("aria-expanded", "false");
+}
+
+function openNotificationDropdown(){
+  if(notificationWrap.classList.contains("hidden")) return;
+  notificationDropdown.classList.add("open");
+  notificationBtn.setAttribute("aria-expanded", "true");
+}
+
+function closeNotificationDropdown(){
+  notificationDropdown.classList.remove("open");
+  notificationBtn.setAttribute("aria-expanded", "false");
+}
+
+function toggleNotificationDropdown(){
+  if(notificationDropdown.classList.contains("open")){
+    closeNotificationDropdown();
+  }else{
+    openNotificationDropdown();
+  }
+}
+
+window.closePrivacyNotificationDropdown = closeNotificationDropdown;
+
+menuToggle.addEventListener("click", () => toggleSidebar(true));
+drawerClose.addEventListener("click", () => toggleSidebar(false));
+sidebarOverlay.addEventListener("click", () => toggleSidebar(false));
+
+langToggle.addEventListener("click", event => {
+  event.stopPropagation();
+  if(langMenu.classList.contains("open")){
+    closeLangMenu();
+  }else{
+    openLangMenu();
+  }
+});
+
+notificationBtn.addEventListener("click", event => {
+  event.stopPropagation();
+  toggleNotificationDropdown();
+});
+
+notificationDropdown.addEventListener("click", event => {
+  event.stopPropagation();
+});
+
+document.addEventListener("click", event => {
+  if(!event.target.closest(".lang-wrap")){
+    closeLangMenu();
+  }
+});
+
+document.addEventListener("click", event => {
+  if(!event.target.closest(".notification-wrap")){
+    closeNotificationDropdown();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if(event.key === "Escape"){
+    toggleSidebar(false);
+    closeLangMenu();
+    closeNotificationDropdown();
+  }
+});
+
+langOptions.forEach(button => {
+  button.addEventListener("click", () => {
+    currentLanguage = button.dataset.lang;
+    localStorage.setItem("siteLanguage", currentLanguage);
+    applyLanguage();
+    closeLangMenu();
+  });
+});
+
+document.querySelectorAll("[data-protected-route]").forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+    protectRouteUrl(link.dataset.protectedRoute);
+  });
+});
+
+function getCurrentPage(){
+  const page = window.location.pathname.split("/").pop();
+  return page || "privacy.html";
+}
+
+function setActiveNav(){
+  const currentPage = getCurrentPage();
+
+  document.querySelectorAll(".drawer-link[data-route]").forEach(link => {
+    let active = false;
+
+    if(currentPage === "index.html"){
+      active = link.dataset.route === "home";
+    }else if(currentPage === "buy.html"){
+      active = link.dataset.route === "plant-buy" || link.dataset.route === "khodwa-buy";
+    }else if(currentPage === "sell.html"){
+      active = link.dataset.route === "plant-sell" || link.dataset.route === "khodwa-sell";
+    }else if(currentPage === "jalgaon.html"){
+      active = link.dataset.route === "jalgaon";
+    }else if(currentPage === "chopda.html"){
+      active = link.dataset.route === "chopda";
+    }else if(currentPage === "raver.html"){
+      active = link.dataset.route === "raver";
+    }else if(currentPage === "privacy.html"){
+      active = link.dataset.route === "privacy";
+    }
+
+    link.classList.toggle("active", active);
+  });
+}
+
+function updateHeaderAuthState(user = window.currentPrivacyUser){
+  const userName = user?.displayName || localStorage.getItem("userName") || "";
+  const userId = user?.uid || localStorage.getItem("userId") || "";
+  const isLoggedIn = !!(userId || userName);
+
+  if(isLoggedIn){
+    loginStatusBtn.href = "account.html";
+    loginStatusIcon.textContent = "👤";
+    loginStatusText.innerText = t("status_account");
+    accountBtn.href = "account.html";
+    accountBtn.textContent = userName.trim().charAt(0).toUpperCase() || "👤";
+
+    drawerAuthLink.href = "index.html";
+    drawerAuthLink.onclick = function(event){
+      event.preventDefault();
+      logoutUser();
+    };
+    drawerAuthIcon.textContent = "🚪";
+    drawerLoginText.textContent = t("nav_logout");
+
+    notificationWrap.classList.remove("hidden");
+  }else{
+    loginStatusBtn.href = "login.html";
+    loginStatusIcon.textContent = "🔑";
+    loginStatusText.innerText = t("status_login");
+    accountBtn.href = "login.html";
+    accountBtn.textContent = "👤";
+
+    drawerAuthLink.href = "login.html";
+    drawerAuthLink.onclick = null;
+    drawerAuthIcon.textContent = "🔑";
+    drawerLoginText.textContent = t("nav_login");
+
+    notificationWrap.classList.add("hidden");
+    notificationCount.textContent = "0";
+    notificationCount.classList.add("hidden");
+    closeNotificationDropdown();
+  }
+}
+
+window.updateHeaderAuthState = updateHeaderAuthState;
+
+function renderPrivacyContent(){
+  privacySections.innerHTML = privacyTemplates[currentLanguage] || privacyTemplates.mr;
+}
+
+function applyLanguage(){
+  document.documentElement.lang = currentLanguage;
+  document.title = t("page_title");
+  metaDescription.content = t("meta_description");
+  metaKeywords.content = t("meta_keywords");
+  ogDescription.content = t("og_description");
+
+  brandSubtitle.textContent = t("brand_subtitle");
+  drawerSubtitle.textContent = t("drawer_subtitle");
+  labelMain.textContent = t("label_main");
+  labelAccount.textContent = t("label_account");
+  labelInfo.textContent = t("label_info");
+  drawerHome.textContent = t("nav_home");
+  drawerBuy.textContent = t("nav_buy");
+  drawerSell.textContent = t("nav_sell");
+  drawerKhatBuy.textContent = t("nav_khat_buy");
+  drawerKhatSell.textContent = t("nav_khat_sell");
+  drawerBurhanpur.textContent = t("nav_burhanpur_rates");
+  drawerJalgaon.textContent = t("nav_jalgaon_rates");
+  drawerChopda.textContent = t("nav_chopda_rates");
+  drawerRaver.textContent = t("nav_raver_rates");
+  drawerAccount.textContent = t("nav_account");
+  drawerChat.textContent = t("nav_my_chat");
+  drawerListingHistory.textContent = t("nav_listing_history");
+  drawerInbox.textContent = t("nav_inbox");
+  drawerSignup.textContent = t("nav_signup");
+  drawerAbout.textContent = t("info_about");
+  drawerPrivacy.textContent = t("info_privacy");
+  drawerTerms.textContent = t("info_terms");
+  drawerContact.textContent = t("info_contact");
+  drawerAgentHelp.textContent = t("info_agent_help");
+  drawerWhatsapp.textContent = t("info_whatsapp_group");
+
+  notificationTitle.textContent = t("notification_title");
+  langToggle.textContent = LANG_SHORT[currentLanguage] || "म";
+
+  heroBadge.textContent = t("hero_badge");
+  pageHeading.textContent = t("page_heading");
+  pageLead.textContent = t("page_lead");
+  updatedText.textContent = t("updated_text");
+  platformRoleChip.textContent = t("platform_role_chip");
+  noticeTitle.textContent = t("notice_title");
+  noticeText.textContent = t("notice_text");
+  privacyBannerTitle.textContent = t("privacy_banner_title");
+  privacyBannerText.textContent = t("privacy_banner_text");
+  footerMade.textContent = t("footer_made");
+  footerPrivacy.textContent = t("footer_privacy");
+  footerContact.textContent = t("footer_contact");
+  footerTerms.textContent = t("footer_terms");
+
+  langOptions.forEach(option => {
+    option.classList.toggle("active", option.dataset.lang === currentLanguage);
+  });
+
+  renderPrivacyContent();
+  updateHeaderAuthState(window.currentPrivacyUser);
+  setActiveNav();
+}
+
+window.privacyI18n = {
+  t,
+  currentLanguage: () => currentLanguage
+};
+
+window.addEventListener("load", () => {
+  updateHeaderAuthState(window.currentPrivacyUser);
+  setActiveNav();
+  applyLanguage();
+});
+
+window.addEventListener("focus", () => updateHeaderAuthState(window.currentPrivacyUser));
+window.addEventListener("storage", () => {
+  currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+  applyLanguage();
+});
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  onSnapshot,
+  doc,
+  updateDoc,
+  arrayUnion
+} from "https://www.gstatic.com/firebasejs/12.2.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBACccl0d8dMcssyF7Z1ol8vgOxsCJwYmE",
+  authDomain: "bananetwork-f8e1f.firebaseapp.com",
+  projectId: "bananetwork-f8e1f",
+  storageBucket: "bananetwork-f8e1f.firebasestorage.app",
+  messagingSenderId: "382838460721",
+  appId: "1:382838460721:web:f6a4a902786d4a8d5fe010",
+  measurementId: "G-85BR8H32TC"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+const i18n = window.privacyI18n;
+
+const notificationListEl = document.getElementById("notificationList");
+const notificationCountEl = document.getElementById("notificationCount");
+
+let currentUser = null;
+let notificationUnsubscribe = null;
+let notificationsCache = [];
+
+function tv(value){
+  return String(value ?? "").trim();
+}
+
+function escapeHtml(value){
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function getTimestampValue(value){
+  if(!value) return 0;
+  try{
+    if(typeof value.toDate === "function") return value.toDate().getTime();
+    if(value.seconds) return value.seconds * 1000;
+    const d = new Date(value);
+    return isNaN(d.getTime()) ? 0 : d.getTime();
+  }catch(error){
+    return 0;
+  }
+}
+
+function formatDateTime(value){
+  if(!value) return "Now";
+
+  try{
+    let date;
+
+    if(typeof value.toDate === "function"){
+      date = value.toDate();
+    }else if(value.seconds){
+      date = new Date(value.seconds * 1000);
+    }else{
+      date = new Date(value);
+    }
+
+    if(!date || isNaN(date.getTime())) return "Now";
+
+    const now = Date.now();
+    const diff = now - date.getTime();
+
+    const sec = Math.floor(diff / 1000);
+    const min = Math.floor(sec / 60);
+    const hr = Math.floor(min / 60);
+    const day = Math.floor(hr / 24);
+
+    if(sec < 60) return "Just now";
+    if(min < 60) return `${min}m ago`;
+    if(hr < 24) return `${hr}h ago`;
+    if(day === 1) return "Yesterday";
+    if(day < 7) return `${day}d ago`;
+
+    return date.toLocaleDateString("en-IN");
+  }catch(error){
+    return "Now";
+  }
+}
+
+function normalizeNotification(docSnap){
+  const data = docSnap.data() || {};
+
+  let message = tv(data.message);
+
+  if(data.type === "order_request"){
+    message = i18n.t("notification_new_order");
+  }else if(data.type === "order_accept"){
+    message = i18n.t("notification_order_accept");
+  }else if(data.type === "order_reject"){
+    message = i18n.t("notification_order_reject");
+  }else{
+    message = tv(data.message) || i18n.t("notification_new_message");
+  }
+
+  return {
+    id: docSnap.id,
+    type: tv(data.type),
+    roomId: tv(data.roomId),
+    senderId: tv(data.senderId),
+    userName: tv(data.userName) || tv(data.senderName) || "User",
+    photoURL: tv(data.photoURL) || tv(data.senderPhoto) || "",
+    productName: tv(data.productName) || tv(data.productTitle) || "",
+    userPhone: tv(data.userPhone) || tv(data.senderPhone) || "",
+    message,
+    read: !!data.read,
+    hiddenFor: Array.isArray(data.hiddenFor) ? data.hiddenFor.map(String) : [],
+    createdMs: getTimestampValue(data.createdAt),
+    timeLabel: formatDateTime(data.createdAt)
+  };
+}
+
+function getVisibleNotifications(){
+  const uid = currentUser?.uid || localStorage.getItem("userId") || "";
+  return notificationsCache
+    .filter(item => !item.hiddenFor.includes(uid))
+    .sort((a,b) => b.createdMs - a.createdMs);
+}
+
+function updateNotificationBadge(){
+  const unread = getVisibleNotifications().filter(item => !item.read).length;
+  notificationCountEl.textContent = unread > 99 ? "99+" : String(unread);
+  notificationCountEl.classList.toggle("hidden", unread === 0);
+}
+
+function enableSwipeToDelete(){
+  document.querySelectorAll(".notification-card").forEach(card => {
+    if(card.dataset.swipeAttached) return;
+    card.dataset.swipeAttached = "true";
+
+    let startX = 0;
+    let currentX = 0;
+    let isSwiping = false;
+    let isMoved = false;
+
+    card.addEventListener("touchstart", e => {
+      startX = e.touches[0].clientX;
+      currentX = startX;
+      isSwiping = true;
+      isMoved = false;
+      card.style.transition = "none";
+    }, { passive:true });
+
+    card.addEventListener("touchmove", e => {
+      if(!isSwiping) return;
+
+      currentX = e.touches[0].clientX;
+      let diff = currentX - startX;
+
+      if(diff < 0){
+        isMoved = true;
+        card.style.transform = `translateX(${diff}px)`;
+
+        if(Math.abs(diff) > 70){
+          card.classList.add("show-delete");
+        }else{
+          card.classList.remove("show-delete");
+        }
+      }
+    }, { passive:true });
+
+    card.addEventListener("touchend", async e => {
+      isSwiping = false;
+      let diff = currentX - startX;
+      card.style.transition = "transform .25s ease";
+
+      if(isMoved){
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      if(Math.abs(diff) > 120){
+        card.style.transform = "translateX(-100%)";
+
+        setTimeout(async () => {
+          const id = card.dataset.notificationId;
+          const uid = currentUser?.uid || localStorage.getItem("userId");
+
+          try{
+            await updateDoc(doc(db, "notifications", id), {
+              hiddenFor: arrayUnion(uid)
+            });
+          }catch(err){
+            console.error(err);
+          }
+        }, 200);
+
+      }else{
+        card.style.transform = "translateX(0)";
+        card.classList.remove("show-delete");
+      }
+    });
+  });
+}
+
+function renderNotifications(){
+  const items = getVisibleNotifications();
+
+  if(!items.length){
+    notificationListEl.innerHTML = `
+      <div class="notification-empty">
+        ${escapeHtml(i18n.t("notification_empty"))}
+      </div>`;
+    updateNotificationBadge();
+    return;
+  }
+
+  const today = [];
+  const older = [];
+
+  items.forEach(item => {
+    const diff = Date.now() - item.createdMs;
+    if(diff < 86400000){
+      today.push(item);
+    }else{
+      older.push(item);
+    }
+  });
+
+  function renderGroup(title, list){
+    if(!list.length) return "";
+
+    return `
+      <div style="font-weight:800; padding:8px 12px; color:#64748b;">
+        ${escapeHtml(title)}
+      </div>
+
+      ${list.map(item => `
+        <div class="notification-card ${item.read ? "" : "unread"}" data-notification-id="${escapeHtml(item.id)}">
+          <img class="notification-avatar" src="${escapeHtml(item.photoURL || ('https://ui-avatars.com/api/?name=' + encodeURIComponent(item.userName || 'U')))}" alt="${escapeHtml(item.userName || 'User')}">
+
+          <div class="notification-body">
+            <div class="notification-top">
+              <div class="notification-user">${escapeHtml(item.userName || "User")}</div>
+              <div class="notification-time">${escapeHtml(item.timeLabel)}</div>
+            </div>
+
+            <div class="notification-message">${escapeHtml(item.message)}</div>
+
+            ${item.userPhone ? `
+              <div class="notification-phone">
+                ☎ ${escapeHtml(item.userPhone)}
+              </div>
+            ` : ""}
+
+            <div class="notification-meta">
+              <div class="notification-product">${escapeHtml(item.productName || "")}</div>
+              ${!item.read ? `<div class="notification-dot"></div>` : ""}
+            </div>
+          </div>
+        </div>
+      `).join("")}
+    `;
+  }
+
+  notificationListEl.innerHTML =
+    renderGroup(i18n.t("today"), today) +
+    renderGroup(i18n.t("earlier"), older);
+
+  enableSwipeToDelete();
+  updateNotificationBadge();
+}
+
+notificationListEl.addEventListener("click", async e => {
+  const card = e.target.closest(".notification-card");
+  if(!card) return;
+
+  const id = card.dataset.notificationId;
+  const item = notificationsCache.find(n => n.id === id);
+  if(!item) return;
+
+  if(!item.read){
+    try{
+      await updateDoc(doc(db, "notifications", id), { read:true });
+    }catch(err){
+      console.error(err);
+    }
+  }
+
+  if(typeof window.closePrivacyNotificationDropdown === "function"){
+    window.closePrivacyNotificationDropdown();
+  }
+
+  const roomId = item.roomId;
+  const qs = roomId ? `?room=${encodeURIComponent(roomId)}` : "";
+  window.location.href = `chat.html${qs}`;
+});
+
+function subscribeNotifications(user){
+  if(notificationUnsubscribe){
+    notificationUnsubscribe();
+    notificationUnsubscribe = null;
+  }
+
+  notificationsCache = [];
+  renderNotifications();
+
+  if(!user?.uid) return;
+
+  const q = query(
+    collection(db, "notifications"),
+    where("receiverId", "==", user.uid)
+  );
+
+  const unsubscribe = onSnapshot(q, snap => {
+    notificationsCache = snap.docs
+      .map(docSnap => normalizeNotification(docSnap))
+      .filter(item => item.senderId !== user.uid);
+
+    renderNotifications();
+  }, error => {
+    console.error(error);
+    notificationsCache = [];
+    renderNotifications();
+  });
+
+  notificationUnsubscribe = () => {
+    unsubscribe();
+  };
+}
+
+window.performPrivacyLogout = async function(){
+  try{
+    await signOut(auth);
+  }catch(error){
+    console.error(error);
+  }
+
+  const savedLanguage = localStorage.getItem("siteLanguage") || "mr";
+  localStorage.clear();
+  localStorage.setItem("siteLanguage", savedLanguage);
+
+  currentUser = null;
+  window.currentPrivacyUser = null;
+
+  if(notificationUnsubscribe){
+    notificationUnsubscribe();
+    notificationUnsubscribe = null;
+  }
+
+  notificationsCache = [];
+  renderNotifications();
+
+  if(typeof window.updateHeaderAuthState === "function"){
+    window.updateHeaderAuthState(null);
+  }
+
+  window.location.href = "index.html";
+};
+
+onAuthStateChanged(auth, user => {
+  currentUser = user;
+  window.currentPrivacyUser = user;
+
+  if(user){
+    localStorage.setItem("userId", user.uid);
+    if(user.displayName){
+      localStorage.setItem("userName", user.displayName);
+    }
+    if(user.photoURL){
+      localStorage.setItem("userPhoto", user.photoURL);
+    }
+  }else{
+    localStorage.removeItem("userId");
+  }
+
+  if(typeof window.updateHeaderAuthState === "function"){
+    window.updateHeaderAuthState(user);
+  }
+
+  subscribeNotifications(user);
+});
+
+renderNotifications();
+</script>
 
 </body>
 </html>
