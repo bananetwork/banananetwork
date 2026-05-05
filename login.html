@@ -1,0 +1,2442 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<title>Login | BanaNetwork</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta id="metaDescription" name="description" content="BanaNetwork Login आणि Signup system with Google Sign-In, mobile + password auth, Firestore user save, आणि support contact.">
+<meta id="metaKeywords" name="keywords" content="BanaNetwork login, banana farmers login, Firebase auth, mobile password login">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<meta property="og:title" content="BanaNetwork">
+<meta id="ogDescription" property="og:description" content="Secure BanaNetwork login and signup for banana farmers">
+<meta property="og:image" content="https://bananetwork.in/share.png">
+<meta property="og:url" content="https://bananetwork.in">
+<meta property="og:type" content="website">
+
+<style>
+:root{
+  --green:#2e7d32;
+  --green-dark:#1b5e20;
+  --soft:#f6f7f9;
+  --muted:#64748b;
+  --border:#e5e7eb;
+  --shadow:0 10px 28px rgba(15,23,42,.08);
+  --success-bg:#eaf7ed;
+  --success-text:#19692c;
+  --success-line:#cae8d0;
+  --error-bg:#fff1f1;
+  --error-text:#b42318;
+  --error-line:#f3c9c9;
+}
+
+*{box-sizing:border-box}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f4f6f8;
+  margin:0;
+  color:#111;
+  overflow-x:hidden;
+}
+
+.hidden{display:none !important}
+
+.yt-header{
+  position:sticky;
+  top:0;
+  z-index:7000;
+  background:linear-gradient(180deg,#cfeecd 0%, #b7e2b4 100%);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #a7d3a3;
+  box-shadow:0 8px 20px rgba(46,125,50,.14);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 14px;
+  min-height:72px;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  flex:1;
+}
+
+.menu-btn{
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  background:#fff;
+  color:#111;
+  font-size:26px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .2s ease, transform .2s ease;
+  flex-shrink:0;
+}
+
+.menu-btn:hover{
+  background:#f1f5f9;
+  transform:translateY(-1px);
+}
+
+.brand-link{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  text-decoration:none;
+  color:#111;
+  flex:1;
+}
+
+.logo{
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  border:1px solid #d9f4db;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:4px;
+  background:#fff;
+}
+
+.brand{
+  min-width:0;
+  flex:1;
+  max-width:260px;
+}
+
+.brand b{
+  display:block;
+  font-size:23px;
+  line-height:1.05;
+  color:#146c2e;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-shrink:0;
+  flex-wrap:nowrap;
+}
+
+.status-pill{
+  background:#f1f5f9;
+  color:#111827;
+  font-weight:800;
+  padding:11px 16px;
+  border-radius:999px;
+  font-size:14px;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-height:44px;
+  transition:background .2s ease, transform .2s ease;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+.status-pill:hover{
+  background:#e8eef5;
+  transform:translateY(-1px);
+}
+
+.icon-circle{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:transform .2s ease, background .2s ease;
+  flex-shrink:0;
+}
+
+.icon-circle:hover{transform:translateY(-1px)}
+
+.whatsapp-btn{
+  background:#25D366;
+  box-shadow:0 8px 18px rgba(37,211,102,.22);
+}
+
+.whatsapp-btn img{
+  width:20px;
+  height:20px;
+  display:block;
+}
+
+.account-btn{
+  background:#f59e0b;
+  color:#fff;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(245,158,11,.24);
+}
+
+.lang-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+
+.lang-btn{
+  background:#ffffff;
+  color:#111827;
+  font-size:15px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+}
+
+.lang-menu{
+  position:absolute;
+  top:54px;
+  right:0;
+  min-width:140px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:8px;
+  display:none;
+  z-index:7100;
+}
+
+.lang-menu.open{display:block}
+
+.lang-option{
+  width:100%;
+  border:none;
+  background:#fff;
+  color:#111827;
+  text-align:left;
+  padding:10px 12px;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.lang-option:hover,
+.lang-option.active{
+  background:#f1f5f9;
+}
+
+.sidebar-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.42);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+  z-index:7800;
+}
+
+.sidebar-overlay.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.sidebar-drawer{
+  position:fixed;
+  top:0;
+  left:0;
+  width:min(330px,90vw);
+  height:100vh;
+  background:#fff;
+  transform:translateX(-100%);
+  transition:transform .28s ease;
+  z-index:7900;
+  box-shadow:24px 0 50px rgba(15,23,42,.22);
+  display:flex;
+  flex-direction:column;
+  overflow-y:auto;
+}
+
+.sidebar-drawer.open{transform:translateX(0)}
+
+.sidebar-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 18px 14px;
+  border-bottom:1px solid #eef2f6;
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:2;
+}
+
+.sidebar-head .menu-btn{background:#f8fafc}
+
+.sidebar-brand b{
+  display:block;
+  font-size:22px;
+  color:#146c2e;
+  line-height:1.1;
+}
+
+.sidebar-brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+}
+
+.sidebar-section{
+  padding:12px 14px;
+  border-bottom:1px solid #f1f5f9;
+}
+
+.sidebar-label{
+  font-size:13px;
+  color:#64748b;
+  font-weight:800;
+  margin:4px 10px 10px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.drawer-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px 14px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#111827;
+  font-weight:700;
+  margin-bottom:4px;
+  transition:background .2s ease, transform .2s ease;
+}
+
+.drawer-link:hover{
+  background:#f8fafc;
+  transform:translateX(2px);
+}
+
+.drawer-link.active{
+  background:#111827;
+  color:#fff;
+}
+
+.drawer-icon{
+  width:22px;
+  text-align:center;
+  font-size:18px;
+  flex-shrink:0;
+}
+
+.whatsapp-drawer-icon{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.whatsapp-drawer-icon img{
+  width:20px;
+  height:20px;
+  display:block;
+}
+
+
+.ticker-wrap{
+  background:linear-gradient(90deg,#fff8e4,#fff2cb);
+  border-top:2px solid #f1c24a;
+  border-bottom:2px solid #f1c24a;
+  overflow:hidden;
+  white-space:nowrap;
+  padding:10px 0;
+}
+
+.ticker{
+  display:inline-block;
+  padding-left:100%;
+  animation:ticker 18s linear infinite;
+  font-weight:700;
+  color:#222;
+  font-size:16px;
+}
+
+@keyframes ticker{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-100%)}
+}
+
+.page-content{
+  min-height:calc(100vh - 160px);
+}
+
+.login-shell{
+  padding:22px 14px 0;
+  background:
+    radial-gradient(circle at top right, rgba(46,125,50,.10), transparent 24%),
+    radial-gradient(circle at bottom left, rgba(245,158,11,.10), transparent 20%);
+}
+
+.login-wrap{
+  max-width:520px;
+  margin:0 auto;
+}
+
+.login-card{
+  background:linear-gradient(180deg,#ffffff,#fbfcff);
+  border:1px solid #eef1f5;
+  box-shadow:0 16px 38px rgba(32,55,91,.08);
+  border-radius:24px;
+  padding:24px 18px 18px;
+  position:relative;
+  overflow:hidden;
+}
+
+.login-card::before{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  top:-120px;
+  right:-70px;
+  background:radial-gradient(circle, rgba(46,125,50,.14) 0%, rgba(46,125,50,0) 72%);
+  pointer-events:none;
+}
+
+.login-card > *{
+  position:relative;
+  z-index:1;
+}
+
+.login-top{
+  text-align:center;
+}
+
+.login-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#edf8ee;
+  color:#146c2e;
+  border:1px solid #dff0e1;
+  border-radius:999px;
+  padding:9px 14px;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:14px;
+}
+
+.login-top h1{
+  margin:0;
+  color:#146c2e;
+  font-size:32px;
+  line-height:1.08;
+}
+
+.login-top p{
+  margin:10px auto 0;
+  color:#64748b;
+  font-size:14px;
+  line-height:1.7;
+  max-width:400px;
+}
+
+.status-box{
+  display:none;
+  padding:12px 14px;
+  border-radius:16px;
+  margin-top:18px;
+  margin-bottom:14px;
+  font-size:14px;
+  line-height:1.6;
+}
+
+.status-box.show{display:block}
+
+.status-box.success{
+  background:var(--success-bg);
+  color:var(--success-text);
+  border:1px solid var(--success-line);
+}
+
+.status-box.error{
+  background:var(--error-bg);
+  color:var(--error-text);
+  border:1px solid var(--error-line);
+}
+
+.google-btn{
+  width:100%;
+  border:1px solid #dbe3ea;
+  padding:14px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  cursor:pointer;
+  font-weight:800;
+  background:#fff;
+  font-size:15px;
+  transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow:0 6px 16px rgba(15,23,42,.04);
+}
+
+.google-btn:hover{
+  background:#f8fafc;
+  transform:translateY(-1px);
+  box-shadow:0 10px 20px rgba(15,23,42,.08);
+}
+
+.google-btn:disabled{
+  opacity:.7;
+  cursor:not-allowed;
+  transform:none;
+}
+
+.secure-line{
+  margin-top:12px;
+  text-align:center;
+  font-size:12px;
+  color:#64748b;
+}
+
+.divider{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:18px 0;
+  color:#64748b;
+  font-size:13px;
+  font-weight:700;
+}
+
+.divider::before,
+.divider::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:#e2e8f0;
+}
+
+.mode-switch{
+  display:flex;
+  background:#eef5ef;
+  border-radius:16px;
+  padding:4px;
+  gap:4px;
+  margin-bottom:18px;
+}
+
+.mode-btn{
+  flex:1;
+  border:none;
+  background:transparent;
+  padding:12px;
+  border-radius:12px;
+  font-weight:800;
+  cursor:pointer;
+  color:#245129;
+  transition:background .2s ease, color .2s ease;
+}
+
+.mode-btn.active{
+  background:#111827;
+  color:#fff;
+}
+
+.mode-btn:disabled{
+  opacity:.7;
+  cursor:not-allowed;
+}
+
+.form-grid{
+  display:grid;
+  gap:14px;
+}
+
+.field label{
+  display:block;
+  font-size:14px;
+  font-weight:800;
+  color:#27462c;
+  margin-bottom:7px;
+}
+
+.input{
+  width:100%;
+  box-sizing:border-box;
+  padding:13px 14px;
+  border-radius:16px;
+  border:1px solid #d6e3d8;
+  font-size:15px;
+  outline:none;
+  background:#fff;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+
+.input:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 3px rgba(46,125,50,.10);
+}
+
+.password-wrap{
+  position:relative;
+}
+
+.show-btn{
+  position:absolute;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+  border:none;
+  background:transparent;
+  color:var(--green);
+  font-weight:800;
+  cursor:pointer;
+  padding:0;
+}
+
+.terms-accept{
+  margin-top:10px;
+  font-size:13px;
+  color:#344054;
+}
+
+.terms-accept label{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex-wrap:wrap;
+  cursor:pointer;
+}
+
+.terms-accept input{
+  cursor:pointer;
+}
+
+.terms-accept a{
+  color:#2e7d32;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.terms-accept a:hover{
+  text-decoration:underline;
+}
+
+.helper-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:12px;
+  margin-bottom:12px;
+  flex-wrap:wrap;
+}
+
+.helper-text{
+  font-size:13px;
+  color:#67776a;
+  line-height:1.5;
+}
+
+.support-link{
+  border:none;
+  background:transparent;
+  color:var(--green);
+  font-weight:800;
+  cursor:pointer;
+  padding:0;
+  text-decoration:none;
+}
+
+.support-link:hover{
+  text-decoration:underline;
+}
+
+.submit-btn{
+  width:100%;
+  border:none;
+  background:linear-gradient(135deg,var(--green),var(--green-dark));
+  color:#fff;
+  padding:14px;
+  border-radius:16px;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+  margin-top:4px;
+  box-shadow:0 12px 24px rgba(46,125,50,.20);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.submit-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 16px 28px rgba(46,125,50,.24);
+}
+
+.submit-btn:disabled{
+  opacity:.7;
+  cursor:not-allowed;
+  transform:none;
+}
+
+.note{
+  margin-top:16px;
+  background:#f7faf7;
+  border:1px solid #e4ece4;
+  border-radius:16px;
+  padding:12px 14px;
+  font-size:13px;
+  color:#5f6f63;
+  line-height:1.7;
+}
+
+.note code{
+  background:#eef5ef;
+  padding:2px 6px;
+  border-radius:8px;
+  color:#1b5e20;
+}
+
+.terms{
+  margin-top:12px;
+  font-size:12px;
+  color:#888;
+  text-align:center;
+  line-height:1.6;
+}
+
+.footer{
+  background:#1b5e20;
+  color:#fff;
+  text-align:center;
+  padding:18px 10px;
+  margin-top:25px;
+  font-size:14px;
+}
+
+.footer a{
+  color:#fff;
+  text-decoration:none;
+  margin:0 10px;
+  font-weight:700;
+}
+
+.footer a:hover{
+  text-decoration:underline;
+}
+
+.popup-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(6px);
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+  z-index:9999;
+  animation:fadeIn .25s ease;
+}
+
+.popup-box{
+  width:100%;
+  max-width:500px;
+  background:#fff;
+  border-radius:20px 20px 0 0;
+  padding:16px;
+  animation:slideUp .3s ease;
+}
+
+.popup-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border-bottom:1px solid #eee;
+  padding-bottom:10px;
+}
+
+.popup-header h3{
+  margin:0;
+  font-size:18px;
+  color:#1b5e20;
+}
+
+.back-btn{
+  border:none;
+  background:#f1f5f9;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.popup-content{
+  padding:12px 0;
+  font-size:14px;
+  color:#444;
+  line-height:1.6;
+}
+
+.terms-link{
+  display:block;
+  margin-top:10px;
+  color:#2e7d32;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.terms-link:hover{
+  text-decoration:underline;
+}
+
+.popup-actions{
+  margin-top:10px;
+}
+
+.agree-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg,#2e7d32,#1b5e20);
+  color:#fff;
+  font-weight:800;
+  font-size:15px;
+  cursor:pointer;
+}
+
+@keyframes slideUp{
+  from{ transform:translateY(100%); }
+  to{ transform:translateY(0); }
+}
+
+@keyframes fadeIn{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+
+@media (max-width:768px){
+  .header-inner{
+    padding:10px;
+    min-height:66px;
+  }
+
+  .logo{
+    width:46px;
+    height:46px;
+    border-radius:13px;
+  }
+
+  .brand{
+    max-width:170px;
+  }
+
+  .brand b{
+    font-size:18px;
+  }
+
+  .brand span{
+    font-size:11px;
+  }
+
+  .status-pill{
+    padding:10px 11px;
+    font-size:13px;
+  }
+
+  .icon-circle{
+    width:40px;
+    height:40px;
+  }
+
+  .sticky-shell{
+    top:66px;
+  }
+
+  .ticker{
+    font-size:15px;
+  }
+
+  .login-shell{
+    padding:18px 12px 0;
+  }
+
+  .login-card{
+    padding:22px 15px 16px;
+  }
+
+  .login-top h1{
+    font-size:28px;
+  }
+}
+
+@media (max-width:560px){
+  .header-inner{
+    gap:8px;
+    padding:8px 10px;
+  }
+
+  .header-left{gap:8px}
+  .header-right{gap:6px}
+
+  .menu-btn{
+    width:38px;
+    height:38px;
+    font-size:22px;
+  }
+
+  .logo{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+  }
+
+  .brand{
+    max-width:130px;
+  }
+
+  .brand b{
+    font-size:16px;
+  }
+
+  .brand span{
+    display:block;
+    font-size:10px;
+  }
+
+  .status-pill{
+    padding:8px 8px;
+    font-size:10px;
+    gap:5px;
+    min-height:38px;
+  }
+
+  .icon-circle{
+    width:36px;
+    height:36px;
+  }
+
+  .whatsapp-btn img{
+    width:17px;
+    height:17px;
+  }
+
+  .nav-chip{
+    padding:10px 13px;
+    font-size:13px;
+  }
+
+  .login-card{
+    border-radius:20px;
+  }
+
+  .login-top h1{
+    font-size:24px;
+  }
+}
+
+@media (max-width:390px){
+  .brand{
+    max-width:112px;
+  }
+
+  .brand b{
+    font-size:15px;
+  }
+
+  .brand span{
+    display:block;
+    font-size:9px;
+  }
+
+  .status-pill{
+    padding:7px 7px;
+    font-size:9px;
+  }
+
+  .menu-btn,
+  .icon-circle{
+    width:34px;
+    height:34px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="yt-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <button class="menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
+
+      <a class="brand-link" href="index.html">
+        <div class="logo"><img src="logo_1.png" alt="BanaNetwork Logo"></div>
+        <div class="brand">
+          <b>BanaNetwork</b>
+          <span id="brandSubtitle">Login आणि Signup</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="header-right">
+      <a class="status-pill" id="loginStatusBtn" href="login.html">
+        <span id="loginStatusIcon">🔑</span>
+        <span id="loginStatusText">Login</span>
+      </a>
+
+      <div class="lang-wrap">
+        <button class="icon-circle lang-btn" id="langToggle" type="button" aria-label="Change language" aria-expanded="false">म</button>
+        <div class="lang-menu" id="langMenu">
+          <button class="lang-option" type="button" data-lang="mr">मराठी</button>
+          <button class="lang-option" type="button" data-lang="hi">हिंदी</button>
+          <button class="lang-option" type="button" data-lang="en">English</button>
+        </div>
+      </div>
+
+      <a class="icon-circle whatsapp-btn" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </a>
+
+      <a class="icon-circle account-btn" id="accountBtn" href="login.html" title="My Account">👤</a>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<aside class="sidebar-drawer" id="sidebarDrawer">
+  <div class="sidebar-head">
+    <button class="menu-btn" id="drawerClose" aria-label="Close menu">☰</button>
+    <div class="sidebar-brand">
+      <b>BanaNetwork</b>
+      <span id="drawerSubtitle">केळी संबंधित सर्व सेवा</span>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelMain">मुख्य</div>
+    <a class="drawer-link" data-route="home" href="index.html"><span class="drawer-icon">🏠</span><span id="drawerHome">Home</span></a>
+    <a class="drawer-link" data-route="plant-buy" href="buy.html"><span class="drawer-icon">🌱</span><span id="drawerBuy">केळी रोप खरेदी</span></a>
+    <a class="drawer-link" data-route="plant-sell" href="sell.html"><span class="drawer-icon">💰</span><span id="drawerSell">केळी रोप विक्री</span></a>
+    <a class="drawer-link" data-route="khodwa-buy" href="buy.html"><span class="drawer-icon">🌿</span><span id="drawerKhatBuy">केळी खोडवा खरेदी</span></a>
+    <a class="drawer-link" data-route="khodwa-sell" href="sell.html"><span class="drawer-icon">🚜</span><span id="drawerKhatSell">केळी खोडवा विक्री</span></a>
+    <a class="drawer-link" data-route="burhanpur" href="index.html"><span class="drawer-icon">🍌</span><span id="drawerBurhanpur">बुरहानपूर केळी भाव</span></a>
+    <a class="drawer-link" data-route="jalgaon" href="jalgaon.html"><span class="drawer-icon">📍</span><span id="drawerJalgaon">जळगाव केळी भाव</span></a>
+    <a class="drawer-link" data-route="chopda" href="chopda.html"><span class="drawer-icon">📍</span><span id="drawerChopda">चोपडा केळी भाव</span></a>
+    <a class="drawer-link" data-route="raver" href="raver.html"><span class="drawer-icon">📍</span><span id="drawerRaver">रावेर केळी भाव</span></a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelAccount">खाते</div>
+    <a class="drawer-link" data-protected-route="account.html" href="account.html"><span class="drawer-icon">👤</span><span id="drawerAccount">My Account</span></a>
+    <a class="drawer-link" data-protected-route="chat.html" href="chat.html"><span class="drawer-icon">💬</span><span id="drawerChat">My Chat</span></a>
+    <a class="drawer-link" data-protected-route="mylistings.html" href="mylistings.html"><span class="drawer-icon">📜</span><span id="drawerListingHistory">My Listing History</span></a>
+    <a class="drawer-link" data-protected-route="inbox.html" href="inbox.html"><span class="drawer-icon">📥</span><span id="drawerInbox">My Inbox</span></a>
+    <a class="drawer-link" id="drawerSignupLink" href="login.html?mode=signup">
+      <span class="drawer-icon">📝</span>
+      <span id="drawerSignup">Signup</span>
+    </a>
+    <a class="drawer-link" id="drawerAuthLink" href="login.html"><span class="drawer-icon" id="drawerAuthIcon">🔑</span><span id="drawerLoginText">Login</span></a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelInfo">माहिती</div>
+    <a class="drawer-link" href="about.html"><span class="drawer-icon">ℹ️</span><span id="drawerAbout">About Us</span></a>
+    <a class="drawer-link" href="privacy.html"><span class="drawer-icon">🔒</span><span id="drawerPrivacy">Privacy Policy</span></a>
+    <a class="drawer-link" href="terms.html"><span class="drawer-icon">📄</span><span id="drawerTerms">Terms & Conditions</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">📞</span><span id="drawerContact">Contact Us</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">🤝</span><span id="drawerAgentHelp">प्रतिनिधी मदत</span></a>
+    <a class="drawer-link" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer">
+      <span class="drawer-icon whatsapp-drawer-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </span>
+      <span id="drawerWhatsapp">WhatsApp Group</span>
+    </a>
+  </div>
+</aside>
+
+<div class="ticker-wrap">
+  <div class="ticker" id="topTicker">🚨 BanaNetwork Login सुरक्षित आहे | 🔐 Firebase secure authentication | 📱 Mobile login system | 🌱 Banana farmers साठी खास platform</div>
+</div>
+
+<div class="page-content">
+  <div class="login-shell">
+    <div class="login-wrap">
+      <div class="login-card">
+        <div class="login-top">
+          <div class="login-badge" id="loginBadge">🔐 Secure Farmer Login</div>
+          <h1 id="loginTitle">BanaNetwork Login</h1>
+          <p id="loginSubtitle">Google किंवा Mobile number + Password वापरून account तयार करा</p>
+        </div>
+
+        <div class="status-box" id="statusBox"></div>
+
+        <button class="google-btn" type="button" id="googleBtn">
+          <img src="https://developers.google.com/identity/images/g-logo.png" width="20" height="20" alt="Google">
+          <span id="googleBtnText">Continue with Google</span>
+        </button>
+
+        <div class="secure-line" id="secureLine">🔒 Secure authentication powered by Firebase</div>
+
+        <div class="divider">
+          <span id="dividerText">किंवा</span>
+        </div>
+
+        <div class="mode-switch">
+          <button type="button" class="mode-btn active" id="signupModeBtn">Signup</button>
+          <button type="button" class="mode-btn" id="loginModeBtn">Login</button>
+        </div>
+
+        <div class="terms-accept">
+          <label>
+            <input type="checkbox" id="termsCheckbox">
+            <span id="termsAgreePrefix">I agree to</span>
+            <a href="privacy.html" target="_blank" id="termsAgreePrivacy">Privacy</a>
+            <span id="termsAgreeAnd">&</span>
+            <a href="terms.html" target="_blank" id="termsAgreeTerms">Terms & Conditions</a>
+          </label>
+        </div>
+
+        <form id="authForm" novalidate>
+          <div class="form-grid">
+            <div class="field" id="nameField">
+              <label for="fullName" id="fullNameLabel">पूर्ण नाव</label>
+              <input class="input" id="fullName" type="text" placeholder="तुमचे नाव" autocomplete="name">
+            </div>
+
+            <div class="field">
+              <label for="mobile" id="mobileLabel">मोबाइल नंबर</label>
+              <input class="input" id="mobile" type="tel" inputmode="numeric" maxlength="10" placeholder="उदा. 9876543210" required>
+            </div>
+
+            <div class="field">
+              <label for="password" id="passwordLabel">Password</label>
+              <div class="password-wrap">
+                <input class="input" id="password" type="password" placeholder="किमान 6 अक्षरे" required minlength="6">
+                <button class="show-btn" type="button" id="togglePasswordBtn">Show</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="helper-row">
+            <div class="helper-text" id="helperText">Account आधीपासून असेल तर Login वर click करा.</div>
+            <a class="support-link" id="supportLink" href="contact.html">Password विसरलात? Contact Support</a>
+          </div>
+
+          <button class="submit-btn" id="submitBtn" type="submit">Signup करा</button>
+        </form>
+
+        <div class="note" id="noteBox">
+          Mobile login साठी तुमचा mobile number internally Firebase email format मध्ये convert होतो.
+          उदाहरण: <code>9876543210</code> → <code>9876543210@bananetwork.in</code>
+        </div>
+
+        <div class="terms" id="termsText">
+          By continuing you agree to our Terms & Privacy Policy
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>© 2026 BanaNetwork</div>
+    <div id="footerMade">Made for Banana Farmers 🍌</div>
+    <div style="margin-top:8px;">
+      <a href="privacy.html" id="footerPrivacy">Privacy</a> |
+      <a href="terms.html" id="footerTerms">T&C</a> |
+      <a href="contact.html" id="footerContact">Contact</a> |
+      <a href="about.html" id="footerAbout">About</a>
+    </div>
+  </div>
+</div>
+
+<div id="termsPopup" class="popup-overlay">
+  <div class="popup-box">
+    <div class="popup-header">
+      <button id="closePopup" class="back-btn" type="button">←</button>
+      <h3 id="termsPopupTitle">महत्वाची सूचना</h3>
+    </div>
+
+    <div class="popup-content">
+      <p id="termsPopupText1">Account तयार करण्यासाठी तुम्हाला Terms & Conditions accept करणे आवश्यक आहे.</p>
+      <p id="termsPopupText2">तुम्ही खाली दिलेल्या link वर click करून वाचू शकता आणि नंतर I Agree करा.</p>
+      <a href="terms.html" target="_blank" class="terms-link" id="termsPopupLink">📄 Terms & Conditions वाचा</a>
+    </div>
+
+    <div class="popup-actions">
+      <button id="agreeBtn" class="agree-btn" type="button">I Agree करा</button>
+    </div>
+  </div>
+</div>
+
+<div id="passwordPopup" class="popup-overlay">
+  <div class="popup-box">
+    <div class="popup-header">
+      <button id="closePasswordPopup" class="back-btn" type="button">←</button>
+      <h3 id="passwordPopupTitle">पासवर्ड सूचना</h3>
+    </div>
+
+    <div class="popup-content">
+      <p id="passwordPopupMessage">सुरक्षित login साठी योग्य password टाकणे आवश्यक आहे.</p>
+      <p id="passwordPopupText2">कृपया किमान 6 अक्षरांचा Password टाका किंवा योग्य login details वापरा.</p>
+    </div>
+
+    <div class="popup-actions">
+      <button id="focusPasswordBtn" class="agree-btn" type="button">Password टाका</button>
+    </div>
+  </div>
+</div>
+
+<div id="mobilePopup" class="popup-overlay">
+  <div class="popup-box">
+    <div class="popup-header">
+      <button id="closeMobilePopup" class="back-btn" type="button">←</button>
+      <h3 id="mobilePopupTitle">मोबाइल नंबर सूचना</h3>
+    </div>
+
+    <div class="popup-content">
+      <p id="mobilePopupMessage">Account तयार करण्यासाठी योग्य mobile number आवश्यक आहे.</p>
+      <p id="mobilePopupText2">कृपया 10 अंकी valid mobile number टाका.</p>
+    </div>
+
+    <div class="popup-actions">
+      <button id="focusMobileBtn" class="agree-btn" type="button">मोबाइल नंबर टाका</button>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-app.js";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+  onAuthStateChanged,
+  fetchSignInMethodsForEmail,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.2.0/firebase-auth.js";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.2.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBACccl0d8dMcssyF7Z1ol8vgOxsCJwYmE",
+  authDomain: "bananetwork-f8e1f.firebaseapp.com",
+  projectId: "bananetwork-f8e1f",
+  storageBucket: "bananetwork-f8e1f.firebasestorage.app",
+  messagingSenderId: "382838460721",
+  appId: "1:382838460721:web:f6a4a902786d4a8d5fe010",
+  measurementId: "G-85BR8H32TC"
+};
+
+const DEFAULT_PHOTO = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+
+const metaDescription = document.getElementById("metaDescription");
+const metaKeywords = document.getElementById("metaKeywords");
+const ogDescription = document.getElementById("ogDescription");
+
+const brandSubtitle = document.getElementById("brandSubtitle");
+const drawerSubtitle = document.getElementById("drawerSubtitle");
+const labelMain = document.getElementById("labelMain");
+const labelAccount = document.getElementById("labelAccount");
+const labelInfo = document.getElementById("labelInfo");
+
+const drawerHome = document.getElementById("drawerHome");
+const drawerBuy = document.getElementById("drawerBuy");
+const drawerSell = document.getElementById("drawerSell");
+const drawerKhatBuy = document.getElementById("drawerKhatBuy");
+const drawerKhatSell = document.getElementById("drawerKhatSell");
+const drawerBurhanpur = document.getElementById("drawerBurhanpur");
+const drawerJalgaon = document.getElementById("drawerJalgaon");
+const drawerChopda = document.getElementById("drawerChopda");
+const drawerRaver = document.getElementById("drawerRaver");
+const drawerAccount = document.getElementById("drawerAccount");
+const drawerChat = document.getElementById("drawerChat");
+const drawerListingHistory = document.getElementById("drawerListingHistory");
+const drawerInbox = document.getElementById("drawerInbox");
+const drawerSignup = document.getElementById("drawerSignup");
+const drawerAbout = document.getElementById("drawerAbout");
+const drawerPrivacy = document.getElementById("drawerPrivacy");
+const drawerTerms = document.getElementById("drawerTerms");
+const drawerContact = document.getElementById("drawerContact");
+const drawerAgentHelp = document.getElementById("drawerAgentHelp");
+const drawerWhatsapp = document.getElementById("drawerWhatsapp");
+const drawerSignupLink = document.getElementById("drawerSignupLink");
+const drawerAuthLink = document.getElementById("drawerAuthLink");
+const drawerAuthIcon = document.getElementById("drawerAuthIcon");
+const drawerLoginText = document.getElementById("drawerLoginText");
+const topTicker = document.getElementById("topTicker");
+
+const footerMade = document.getElementById("footerMade");
+const footerPrivacy = document.getElementById("footerPrivacy");
+const footerTerms = document.getElementById("footerTerms");
+const footerContact = document.getElementById("footerContact");
+const footerAbout = document.getElementById("footerAbout");
+
+const menuToggle = document.getElementById("menuToggle");
+const sidebarDrawer = document.getElementById("sidebarDrawer");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+const drawerClose = document.getElementById("drawerClose");
+
+const loginStatusBtn = document.getElementById("loginStatusBtn");
+const loginStatusIcon = document.getElementById("loginStatusIcon");
+const loginStatusText = document.getElementById("loginStatusText");
+const accountBtn = document.getElementById("accountBtn");
+
+const langToggle = document.getElementById("langToggle");
+const langMenu = document.getElementById("langMenu");
+const langOptions = [...document.querySelectorAll(".lang-option")];
+
+const googleBtn = document.getElementById("googleBtn");
+const googleBtnText = document.getElementById("googleBtnText");
+const authForm = document.getElementById("authForm");
+const signupModeBtn = document.getElementById("signupModeBtn");
+const loginModeBtn = document.getElementById("loginModeBtn");
+const loginBadge = document.getElementById("loginBadge");
+const loginTitle = document.getElementById("loginTitle");
+const loginSubtitle = document.getElementById("loginSubtitle");
+const secureLine = document.getElementById("secureLine");
+const dividerText = document.getElementById("dividerText");
+const nameField = document.getElementById("nameField");
+const fullNameLabel = document.getElementById("fullNameLabel");
+const fullNameInput = document.getElementById("fullName");
+const mobileLabel = document.getElementById("mobileLabel");
+const mobileInput = document.getElementById("mobile");
+const passwordLabel = document.getElementById("passwordLabel");
+const passwordInput = document.getElementById("password");
+const togglePasswordBtn = document.getElementById("togglePasswordBtn");
+const helperText = document.getElementById("helperText");
+const supportLink = document.getElementById("supportLink");
+const submitBtn = document.getElementById("submitBtn");
+const noteBox = document.getElementById("noteBox");
+const termsText = document.getElementById("termsText");
+const statusBox = document.getElementById("statusBox");
+
+const termsCheckbox = document.getElementById("termsCheckbox");
+const termsAgreePrefix = document.getElementById("termsAgreePrefix");
+const termsAgreePrivacy = document.getElementById("termsAgreePrivacy");
+const termsAgreeAnd = document.getElementById("termsAgreeAnd");
+const termsAgreeTerms = document.getElementById("termsAgreeTerms");
+
+const termsPopup = document.getElementById("termsPopup");
+const closePopup = document.getElementById("closePopup");
+const agreeBtn = document.getElementById("agreeBtn");
+const termsPopupTitle = document.getElementById("termsPopupTitle");
+const termsPopupText1 = document.getElementById("termsPopupText1");
+const termsPopupText2 = document.getElementById("termsPopupText2");
+const termsPopupLink = document.getElementById("termsPopupLink");
+
+const passwordPopup = document.getElementById("passwordPopup");
+const closePasswordPopup = document.getElementById("closePasswordPopup");
+const focusPasswordBtn = document.getElementById("focusPasswordBtn");
+const passwordPopupTitle = document.getElementById("passwordPopupTitle");
+const passwordPopupMessage = document.getElementById("passwordPopupMessage");
+const passwordPopupText2 = document.getElementById("passwordPopupText2");
+
+const mobilePopup = document.getElementById("mobilePopup");
+const closeMobilePopup = document.getElementById("closeMobilePopup");
+const focusMobileBtn = document.getElementById("focusMobileBtn");
+const mobilePopupTitle = document.getElementById("mobilePopupTitle");
+const mobilePopupMessage = document.getElementById("mobilePopupMessage");
+const mobilePopupText2 = document.getElementById("mobilePopupText2");
+
+const LANG_SHORT = { mr:"म", hi:"हि", en:"E" };
+const pageOrder = ["index.html","buy.html","sell.html","jalgaon.html","chopda.html","raver.html"];
+
+const translations = {
+  mr:{
+    page_title:"Login | BanaNetwork",
+    meta_description:"BanaNetwork Login आणि Signup system with Google Sign-In, mobile + password auth, Firestore user save, आणि support contact.",
+    meta_keywords:"BanaNetwork login, banana farmers login, Firebase auth, mobile password login",
+    og_description:"Secure BanaNetwork login and signup for banana farmers",
+    brand_subtitle:"Login आणि Signup",
+    drawer_subtitle:"केळी संबंधित सर्व सेवा",
+    label_main:"मुख्य",
+    label_account:"खाते",
+    label_info:"माहिती",
+    nav_home:"Home",
+    nav_buy:"केळी रोप खरेदी",
+    nav_sell:"केळी रोप विक्री",
+    nav_khat_buy:"केळी खोडवा खरेदी",
+    nav_khat_sell:"केळी खोडवा विक्री",
+    nav_burhanpur_rates:"बुरहानपूर केळी भाव",
+    nav_jalgaon_rates:"जळगाव केळी भाव",
+    nav_chopda_rates:"चोपडा केळी भाव",
+    nav_raver_rates:"रावेर केळी भाव",
+    nav_account:"My Account",
+    nav_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधी मदत",
+    info_whatsapp_group:"WhatsApp Group",
+    chip_rates:"भाव",
+    chip_buy:"केळी रोप खोडवा खरेदी विक्री",
+    chip_services:"🛠Services",
+    top_ticker:"🚨 BanaNetwork Login सुरक्षित आहे | 🔐 Firebase secure authentication | 📱 Mobile login system | 🌱 Banana farmers साठी खास platform",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_terms:"T&C",
+    footer_about:"About",
+    status_login:"Login",
+    status_account:"खाते",
+    login_badge:"🔐 Secure Farmer Login",
+    login_title:"BanaNetwork Login",
+    login_subtitle_signup:"Google किंवा Mobile number + Password वापरून account तयार करा",
+    login_subtitle_login:"Google किंवा Mobile number + Password वापरून login करा",
+    google_cta:"Continue with Google",
+    secure_line:"🔒 Secure authentication powered by Firebase",
+    divider:"किंवा",
+    mode_signup:"Signup",
+    mode_login:"Login",
+    name_label:"पूर्ण नाव",
+    mobile_label:"मोबाइल नंबर",
+    password_label:"Password",
+    placeholder_name:"तुमचे नाव",
+    placeholder_mobile:"उदा. 9876543210",
+    placeholder_password:"किमान 6 अक्षरे",
+    helper_signup:"Account आधीपासून असेल तर Login वर click करा.",
+    helper_login:"पहिल्यांदा account बनवत असाल तर Signup वर click करा.",
+    support_text:"Password विसरलात? Contact Support",
+    submit_signup:"Signup करा",
+    submit_login:"Login करा",
+    submit_signup_loading:"Signup होत आहे...",
+    submit_login_loading:"Login होत आहे...",
+    note_text:"Mobile login साठी तुमचा mobile number internally Firebase email format मध्ये convert होतो. उदाहरण: <code>9876543210</code> → <code>9876543210@bananetwork.in</code>",
+    terms_text:"By continuing you agree to our Terms & Privacy Policy",
+    terms_inline_prefix:"I agree to",
+    terms_inline_privacy:"Privacy",
+    terms_inline_and:"&",
+    terms_inline_terms:"Terms & Conditions",
+    show_text:"Show",
+    hide_text:"Hide",
+    google_success:"Google login successful. Account page open होत आहे...",
+    signup_success:"Signup successful. Account page open होत आहे...",
+    login_success:"Login successful. Account page open होत आहे...",
+    session_restore_error:"Session restore मध्ये problem आला. पुन्हा login करा.",
+    error_invalid_mobile:"कृपया valid 10 digit mobile number टाका.",
+    error_account_exists:"या mobile नंबरवर account आधीच आहे. Login करा.",
+    error_login_invalid:"Login details चुकीचे आहेत.",
+    error_wrong_password:"Password चुकीचा आहे.",
+    error_user_not_found:"या mobile नंबरवर account सापडला नाही. आधी Signup करा.",
+    error_weak_password:"Password किमान 6 अक्षरांचा असावा.",
+    error_network:"Internet connection तपासा.",
+    error_too_many:"खूप प्रयत्न झाले. थोड्या वेळाने पुन्हा करा.",
+    error_operation:"Firebase मध्ये Sign-In methods enable करा.",
+    error_popup_closed:"Google popup बंद झाला.",
+    error_popup_blocked:"Browser ने Google popup block केला.",
+    error_generic:"काहीतरी error झाला. पुन्हा प्रयत्न करा.",
+    error_full_name:"Signup साठी पूर्ण नाव टाका.",
+    error_terms_required:"Please accept Terms & Conditions",
+    terms_popup_title:"महत्वाची सूचना",
+    terms_popup_text1:"Account तयार करण्यासाठी तुम्हाला Terms & Conditions accept करणे आवश्यक आहे.",
+    terms_popup_text2:"तुम्ही खाली दिलेल्या link वर click करून वाचू शकता आणि नंतर I Agree करा.",
+    terms_popup_link:"📄 Terms & Conditions वाचा",
+    terms_popup_agree:"I Agree करा",
+    password_popup_title:"पासवर्ड सूचना",
+    password_popup_text2:"कृपया किमान 6 अक्षरांचा Password टाका किंवा योग्य login details वापरा.",
+    password_popup_action:"Password टाका",
+    password_popup_invalid:"तुमचा Password किंवा Login details चुकीचे आहेत. कृपया पुन्हा तपासा.",
+    password_popup_short:"तुमचा Password किमान 6 अक्षरांचा असावा.",
+    mobile_popup_title:"मोबाइल नंबर सूचना",
+    mobile_popup_text2:"कृपया 10 अंकी valid mobile number टाका.",
+    mobile_popup_action:"मोबाइल नंबर टाका",
+    mobile_popup_invalid:"Account तयार करण्यासाठी योग्य mobile number आवश्यक आहे."
+  },
+  hi:{
+    page_title:"Login | BanaNetwork",
+    meta_description:"BanaNetwork Login और Signup system with Google Sign-In, mobile + password auth, Firestore user save, और support contact.",
+    meta_keywords:"BanaNetwork login, banana farmers login, Firebase auth, mobile password login",
+    og_description:"Secure BanaNetwork login and signup for banana farmers",
+    brand_subtitle:"Login और Signup",
+    drawer_subtitle:"केले से जुड़ी सभी सेवाएं",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"केला रोप खरीद",
+    nav_sell:"केला रोप बिक्री",
+    nav_khat_buy:"केला खोडवा खरीद",
+    nav_khat_sell:"केला खोडवा बिक्री",
+    nav_burhanpur_rates:"बुरहानपुर केला भाव",
+    nav_jalgaon_rates:"जलगांव केला भाव",
+    nav_chopda_rates:"चोपडा केला भाव",
+    nav_raver_rates:"रावेर केला भाव",
+    nav_account:"My Account",
+    nav_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधि सहायता",
+    info_whatsapp_group:"WhatsApp Group",
+    chip_rates:"भाव",
+    chip_buy:"केला रोप खोडवा खरीद बिक्री",
+    chip_services:"🛠Services",
+    top_ticker:"🚨 BanaNetwork Login सुरक्षित है | 🔐 Firebase secure authentication | 📱 Mobile login system | 🌱 Banana farmers के लिए खास platform",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_terms:"T&C",
+    footer_about:"About",
+    status_login:"Login",
+    status_account:"Account",
+    login_badge:"🔐 Secure Farmer Login",
+    login_title:"BanaNetwork Login",
+    login_subtitle_signup:"Google या Mobile number + Password से account बनाएं",
+    login_subtitle_login:"Google या Mobile number + Password से login करें",
+    google_cta:"Continue with Google",
+    secure_line:"🔒 Secure authentication powered by Firebase",
+    divider:"या",
+    mode_signup:"Signup",
+    mode_login:"Login",
+    name_label:"पूरा नाम",
+    mobile_label:"मोबाइल नंबर",
+    password_label:"Password",
+    placeholder_name:"अपना नाम",
+    placeholder_mobile:"जैसे 9876543210",
+    placeholder_password:"कम से कम 6 अक्षर",
+    helper_signup:"अगर आपका account पहले से है तो Login पर click करें.",
+    helper_login:"अगर आप पहली बार account बना रहे हैं तो Signup पर click करें.",
+    support_text:"Password भूल गए? Contact Support",
+    submit_signup:"Signup करें",
+    submit_login:"Login करें",
+    submit_signup_loading:"Signup हो रहा है...",
+    submit_login_loading:"Login हो रहा है...",
+    note_text:"Mobile login के लिए आपका number internally Firebase email format में convert होता है. उदाहरण: <code>9876543210</code> → <code>9876543210@bananetwork.in</code>",
+    terms_text:"By continuing you agree to our Terms & Privacy Policy",
+    terms_inline_prefix:"I agree to",
+    terms_inline_privacy:"Privacy",
+    terms_inline_and:"&",
+    terms_inline_terms:"Terms & Conditions",
+    show_text:"Show",
+    hide_text:"Hide",
+    google_success:"Google login successful. Account page open हो रहा है...",
+    signup_success:"Signup successful. Account page open हो रहा है...",
+    login_success:"Login successful. Account page open हो रहा है...",
+    session_restore_error:"Session restore में problem आया. कृपया फिर से login करें.",
+    error_invalid_mobile:"कृपया valid 10 digit mobile number डालें.",
+    error_account_exists:"इस mobile नंबर पर account पहले से है. Login करें.",
+    error_login_invalid:"Login details गलत हैं.",
+    error_wrong_password:"Password गलत है.",
+    error_user_not_found:"इस mobile नंबर पर account नहीं मिला. पहले Signup करें.",
+    error_weak_password:"Password कम से कम 6 अक्षरों का होना चाहिए.",
+    error_network:"Internet connection चेक करें.",
+    error_too_many:"बहुत कोशिशें हो चुकी हैं. थोड़ी देर बाद फिर से करें.",
+    error_operation:"Firebase में Sign-In methods enable करें.",
+    error_popup_closed:"Google popup बंद हो गया.",
+    error_popup_blocked:"Browser ने Google popup block कर दिया.",
+    error_generic:"कुछ error हुआ. कृपया फिर से कोशिश करें.",
+    error_full_name:"Signup के लिए पूरा नाम डालें.",
+    error_terms_required:"Please accept Terms & Conditions",
+    terms_popup_title:"महत्वपूर्ण सूचना",
+    terms_popup_text1:"Account बनाने के लिए आपको Terms & Conditions accept करना जरूरी है.",
+    terms_popup_text2:"आप नीचे दिए गए link पर click करके पढ़ सकते हैं और फिर I Agree करें.",
+    terms_popup_link:"📄 Terms & Conditions पढ़ें",
+    terms_popup_agree:"I Agree करें",
+    password_popup_title:"पासवर्ड सूचना",
+    password_popup_text2:"कृपया कम से कम 6 अक्षरों का Password डालें या सही login details इस्तेमाल करें.",
+    password_popup_action:"Password डालें",
+    password_popup_invalid:"आपका Password या Login details गलत हैं. कृपया फिर से जांचें.",
+    password_popup_short:"आपका Password कम से कम 6 अक्षरों का होना चाहिए.",
+    mobile_popup_title:"मोबाइल नंबर सूचना",
+    mobile_popup_text2:"कृपया 10 अंकों का valid mobile number डालें.",
+    mobile_popup_action:"मोबाइल नंबर डालें",
+    mobile_popup_invalid:"Account बनाने के लिए सही mobile number जरूरी है."
+  },
+  en:{
+    page_title:"Login | BanaNetwork",
+    meta_description:"BanaNetwork Login and Signup system with Google Sign-In, mobile + password auth, Firestore user save, and support contact.",
+    meta_keywords:"BanaNetwork login, banana farmers login, Firebase auth, mobile password login",
+    og_description:"Secure BanaNetwork login and signup for banana farmers",
+    brand_subtitle:"Login and Signup",
+    drawer_subtitle:"All Banana Related Services",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"Banana Plant Buy",
+    nav_sell:"Banana Plant Sell",
+    nav_khat_buy:"Banana Khodwa Buy",
+    nav_khat_sell:"Banana Khodwa Sell",
+    nav_burhanpur_rates:"Burhanpur Banana Rate",
+    nav_jalgaon_rates:"Jalgaon Banana Rate",
+    nav_chopda_rates:"Chopda Banana Rate",
+    nav_raver_rates:"Raver Banana Rate",
+    nav_account:"My Account",
+    nav_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    info_contact:"Contact Us",
+    info_agent_help:"Agent Help",
+    info_whatsapp_group:"WhatsApp Group",
+    chip_rates:"Rates",
+    chip_buy:"Banana Plant Khodwa Buy Sell",
+    chip_services:"🛠Services",
+    top_ticker:"🚨 BanaNetwork Login is secure | 🔐 Firebase secure authentication | 📱 Mobile login system | 🌱 A platform built for banana farmers",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_terms:"T&C",
+    footer_about:"About",
+    status_login:"Login",
+    status_account:"Account",
+    login_badge:"🔐 Secure Farmer Login",
+    login_title:"BanaNetwork Login",
+    login_subtitle_signup:"Create your account using Google or Mobile number + Password",
+    login_subtitle_login:"Log in using Google or Mobile number + Password",
+    google_cta:"Continue with Google",
+    secure_line:"🔒 Secure authentication powered by Firebase",
+    divider:"or",
+    mode_signup:"Signup",
+    mode_login:"Login",
+    name_label:"Full Name",
+    mobile_label:"Mobile Number",
+    password_label:"Password",
+    placeholder_name:"Your name",
+    placeholder_mobile:"e.g. 9876543210",
+    placeholder_password:"Minimum 6 characters",
+    helper_signup:"If you already have an account, click Login.",
+    helper_login:"If this is your first time here, click Signup.",
+    support_text:"Forgot password? Contact Support",
+    submit_signup:"Signup",
+    submit_login:"Login",
+    submit_signup_loading:"Signing up...",
+    submit_login_loading:"Logging in...",
+    note_text:"For mobile login, your number is internally converted to Firebase email format. Example: <code>9876543210</code> → <code>9876543210@bananetwork.in</code>",
+    terms_text:"By continuing you agree to our Terms & Privacy Policy",
+    terms_inline_prefix:"I agree to",
+    terms_inline_privacy:"Privacy",
+    terms_inline_and:"&",
+    terms_inline_terms:"Terms & Conditions",
+    show_text:"Show",
+    hide_text:"Hide",
+    google_success:"Google login successful. Opening account page...",
+    signup_success:"Signup successful. Opening account page...",
+    login_success:"Login successful. Opening account page...",
+    session_restore_error:"There was a problem restoring the session. Please log in again.",
+    error_invalid_mobile:"Please enter a valid 10-digit mobile number.",
+    error_account_exists:"An account already exists for this mobile number. Please log in.",
+    error_login_invalid:"Login details are incorrect.",
+    error_wrong_password:"Password is incorrect.",
+    error_user_not_found:"No account was found for this mobile number. Please sign up first.",
+    error_weak_password:"Password must be at least 6 characters long.",
+    error_network:"Please check your internet connection.",
+    error_too_many:"Too many attempts were made. Please try again later.",
+    error_operation:"Enable Sign-In methods in Firebase.",
+    error_popup_closed:"Google popup was closed.",
+    error_popup_blocked:"The browser blocked the Google popup.",
+    error_generic:"Something went wrong. Please try again.",
+    error_full_name:"Please enter your full name for signup.",
+    error_terms_required:"Please accept Terms & Conditions",
+    terms_popup_title:"Important Notice",
+    terms_popup_text1:"You must accept the Terms & Conditions to create an account.",
+    terms_popup_text2:"You can open the link below, read it, and then tap I Agree.",
+    terms_popup_link:"📄 Read Terms & Conditions",
+    terms_popup_agree:"I Agree",
+    password_popup_title:"Password Notice",
+    password_popup_text2:"Please enter a password with at least 6 characters or use correct login details.",
+    password_popup_action:"Enter Password",
+    password_popup_invalid:"Your password or login details are incorrect. Please check again.",
+    password_popup_short:"Your password must be at least 6 characters long.",
+    mobile_popup_title:"Mobile Number Notice",
+    mobile_popup_text2:"Please enter a valid 10-digit mobile number.",
+    mobile_popup_action:"Enter Mobile Number",
+    mobile_popup_invalid:"A valid mobile number is required to create an account."
+  }
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const provider = new GoogleAuthProvider();
+
+let currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+const urlMode = new URLSearchParams(window.location.search).get("mode");
+let mode = urlMode === "login" ? "login" : "signup";
+let isSubmitting = false;
+let currentUser = null;
+let hasHandledInitialAuthState = false;
+
+function t(key){
+  return translations[currentLanguage]?.[key] || translations.mr[key] || key;
+}
+
+function preserveLanguageAndClearStorage(){
+  const savedLanguage = localStorage.getItem("siteLanguage") || currentLanguage || "mr";
+  localStorage.clear();
+  localStorage.setItem("siteLanguage", savedLanguage);
+}
+
+function clearStoredUser(){
+  [
+    "userId",
+    "userName",
+    "userPhone",
+    "userMobile",
+    "userPhoto",
+    "userEmail",
+    "userLoginType",
+    "userData"
+  ].forEach(key => localStorage.removeItem(key));
+}
+
+function isUserLoggedIn(){
+  return !!(currentUser || localStorage.getItem("userId"));
+}
+
+function syncBodyLock(){
+  const anyOpen =
+    sidebarDrawer.classList.contains("open") ||
+    langMenu.classList.contains("open") ||
+    termsPopup.style.display === "flex" ||
+    passwordPopup.style.display === "flex" ||
+    mobilePopup.style.display === "flex";
+  document.body.style.overflow = anyOpen ? "hidden" : "";
+}
+
+function protectRouteUrl(url){
+  if(!isUserLoggedIn()){
+    window.location.href = `login.html?redirect=${encodeURIComponent(url)}`;
+    return;
+  }
+  window.location.href = url;
+}
+
+async function logoutUser(){
+  try{
+    await signOut(auth);
+  }catch(error){}
+
+  preserveLanguageAndClearStorage();
+  currentUser = null;
+  window.location.href = "index.html";
+}
+
+function getCurrentPage(){
+  const page = window.location.pathname.split("/").pop();
+  return page || "login.html";
+}
+
+function toggleSidebar(show){
+  sidebarDrawer.classList.toggle("open", show);
+  sidebarOverlay.classList.toggle("open", show);
+  syncBodyLock();
+}
+
+function openLangMenu(){
+  langMenu.classList.add("open");
+  langToggle.setAttribute("aria-expanded", "true");
+  syncBodyLock();
+}
+
+function closeLangMenu(){
+  langMenu.classList.remove("open");
+  langToggle.setAttribute("aria-expanded", "false");
+  syncBodyLock();
+}
+
+function showOverlay(el){
+  el.style.display = "flex";
+  syncBodyLock();
+}
+
+function hideOverlay(el){
+  el.style.display = "none";
+  syncBodyLock();
+}
+
+function showTermsPopup(){
+  showOverlay(termsPopup);
+}
+
+function showPasswordPopup(message){
+  passwordPopupMessage.textContent = message;
+  showOverlay(passwordPopup);
+}
+
+function showMobilePopup(message){
+  mobilePopupMessage.textContent = message;
+  showOverlay(mobilePopup);
+}
+
+function setActiveNav(){
+  const currentPage = getCurrentPage();
+
+  document.querySelectorAll(".drawer-link[data-route]").forEach(link => {
+    let active = false;
+
+    if(currentPage === "index.html"){
+      active = link.dataset.route === "home";
+    }else if(currentPage === "buy.html"){
+      active = link.dataset.route === "plant-buy" || link.dataset.route === "khodwa-buy";
+    }else if(currentPage === "sell.html"){
+      active = link.dataset.route === "plant-sell" || link.dataset.route === "khodwa-sell";
+    }else if(currentPage === "jalgaon.html"){
+      active = link.dataset.route === "jalgaon";
+    }else if(currentPage === "chopda.html"){
+      active = link.dataset.route === "chopda";
+    }else if(currentPage === "raver.html"){
+      active = link.dataset.route === "raver";
+    }
+
+    link.classList.toggle("active", active);
+  });
+
+  if(!isUserLoggedIn()){
+    drawerSignupLink.classList.toggle("active", currentPage === "login.html" && mode === "signup");
+    drawerAuthLink.classList.toggle("active", currentPage === "login.html" && mode === "login");
+  }else{
+    drawerSignupLink.classList.remove("active");
+    drawerAuthLink.classList.remove("active");
+  }
+}
+
+function updateHeaderAuthState(){
+  const userName = currentUser?.displayName || localStorage.getItem("userName") || "";
+
+  if(isUserLoggedIn()){
+    loginStatusBtn.href = "account.html";
+    loginStatusIcon.textContent = "👤";
+    loginStatusText.textContent = t("status_account");
+    accountBtn.href = "account.html";
+    accountBtn.textContent = userName.trim().charAt(0).toUpperCase() || "U";
+
+    drawerAuthLink.href = "index.html";
+    drawerAuthLink.onclick = async event => {
+      event.preventDefault();
+      await logoutUser();
+    };
+    drawerAuthIcon.textContent = "🚪";
+    drawerLoginText.textContent = t("nav_logout");
+    drawerSignupLink.style.display = "none";
+  }else{
+    loginStatusBtn.href = "login.html";
+    loginStatusIcon.textContent = "🔑";
+    loginStatusText.textContent = t("status_login");
+    accountBtn.href = "login.html";
+    accountBtn.textContent = "👤";
+
+    drawerAuthLink.href = "login.html";
+    drawerAuthLink.onclick = null;
+    drawerAuthIcon.textContent = "🔑";
+    drawerLoginText.textContent = t("nav_login");
+    drawerSignupLink.style.display = "";
+  }
+}
+
+function updatePasswordToggleText(){
+  togglePasswordBtn.textContent = passwordInput.type === "password" ? t("show_text") : t("hide_text");
+}
+
+function showStatus(message, type = "error"){
+  statusBox.className = `status-box show ${type}`;
+  statusBox.textContent = message;
+}
+
+function hideStatus(){
+  statusBox.className = "status-box";
+  statusBox.textContent = "";
+}
+
+function renderMode(){
+  const isSignup = mode === "signup";
+
+  signupModeBtn.classList.toggle("active", isSignup);
+  loginModeBtn.classList.toggle("active", !isSignup);
+  nameField.classList.toggle("hidden", !isSignup);
+  fullNameInput.required = isSignup;
+
+  loginSubtitle.textContent = isSignup ? t("login_subtitle_signup") : t("login_subtitle_login");
+  helperText.textContent = isSignup ? t("helper_signup") : t("helper_login");
+
+  if(isSubmitting){
+    submitBtn.textContent = isSignup ? t("submit_signup_loading") : t("submit_login_loading");
+  }else{
+    submitBtn.textContent = isSignup ? t("submit_signup") : t("submit_login");
+  }
+}
+
+function applyLanguage(){
+  document.documentElement.lang = currentLanguage;
+  document.title = t("page_title");
+  metaDescription.content = t("meta_description");
+  metaKeywords.content = t("meta_keywords");
+  ogDescription.content = t("og_description");
+
+  brandSubtitle.textContent = t("brand_subtitle");
+  drawerSubtitle.textContent = t("drawer_subtitle");
+  labelMain.textContent = t("label_main");
+  labelAccount.textContent = t("label_account");
+  labelInfo.textContent = t("label_info");
+
+  drawerHome.textContent = t("nav_home");
+  drawerBuy.textContent = t("nav_buy");
+  drawerSell.textContent = t("nav_sell");
+  drawerKhatBuy.textContent = t("nav_khat_buy");
+  drawerKhatSell.textContent = t("nav_khat_sell");
+  drawerBurhanpur.textContent = t("nav_burhanpur_rates");
+  drawerJalgaon.textContent = t("nav_jalgaon_rates");
+  drawerChopda.textContent = t("nav_chopda_rates");
+  drawerRaver.textContent = t("nav_raver_rates");
+  drawerAccount.textContent = t("nav_account");
+  drawerChat.textContent = t("nav_chat");
+  drawerListingHistory.textContent = t("nav_listing_history");
+  drawerInbox.textContent = t("nav_inbox");
+  drawerSignup.textContent = t("nav_signup");
+  drawerAbout.textContent = t("info_about");
+  drawerPrivacy.textContent = t("info_privacy");
+  drawerTerms.textContent = t("info_terms");
+  drawerContact.textContent = t("info_contact");
+  drawerAgentHelp.textContent = t("info_agent_help");
+  drawerWhatsapp.textContent = t("info_whatsapp_group");
+
+  topTicker.textContent = t("top_ticker");
+
+  footerMade.textContent = t("footer_made");
+  footerPrivacy.textContent = t("footer_privacy");
+  footerTerms.textContent = t("footer_terms");
+  footerContact.textContent = t("footer_contact");
+  footerAbout.textContent = t("footer_about");
+
+  loginBadge.textContent = t("login_badge");
+  loginTitle.textContent = t("login_title");
+  googleBtnText.textContent = t("google_cta");
+  secureLine.textContent = t("secure_line");
+  dividerText.textContent = t("divider");
+  signupModeBtn.textContent = t("mode_signup");
+  loginModeBtn.textContent = t("mode_login");
+  fullNameLabel.textContent = t("name_label");
+  mobileLabel.textContent = t("mobile_label");
+  passwordLabel.textContent = t("password_label");
+  fullNameInput.placeholder = t("placeholder_name");
+  mobileInput.placeholder = t("placeholder_mobile");
+  passwordInput.placeholder = t("placeholder_password");
+  supportLink.textContent = t("support_text");
+  noteBox.innerHTML = t("note_text");
+  termsText.textContent = t("terms_text");
+
+  termsAgreePrefix.textContent = t("terms_inline_prefix");
+  termsAgreePrivacy.textContent = t("terms_inline_privacy");
+  termsAgreeAnd.textContent = t("terms_inline_and");
+  termsAgreeTerms.textContent = t("terms_inline_terms");
+
+  termsPopupTitle.textContent = t("terms_popup_title");
+  termsPopupText1.textContent = t("terms_popup_text1");
+  termsPopupText2.textContent = t("terms_popup_text2");
+  termsPopupLink.textContent = t("terms_popup_link");
+  agreeBtn.textContent = t("terms_popup_agree");
+
+  passwordPopupTitle.textContent = t("password_popup_title");
+  passwordPopupText2.textContent = t("password_popup_text2");
+  focusPasswordBtn.textContent = t("password_popup_action");
+
+  mobilePopupTitle.textContent = t("mobile_popup_title");
+  mobilePopupText2.textContent = t("mobile_popup_text2");
+  focusMobileBtn.textContent = t("mobile_popup_action");
+
+  langToggle.textContent = LANG_SHORT[currentLanguage] || "म";
+
+  langOptions.forEach(option => {
+    option.classList.toggle("active", option.dataset.lang === currentLanguage);
+  });
+
+  updatePasswordToggleText();
+  updateHeaderAuthState();
+  renderMode();
+  setActiveNav();
+}
+
+function setMode(nextMode){
+  mode = nextMode;
+  hideStatus();
+  renderMode();
+  setActiveNav();
+}
+
+function setLoading(loading){
+  isSubmitting = loading;
+  googleBtn.disabled = loading;
+  submitBtn.disabled = loading;
+  signupModeBtn.disabled = loading;
+  loginModeBtn.disabled = loading;
+  renderMode();
+}
+
+function normalizeMobile(raw){
+  const digits = String(raw || "").replace(/\D/g, "");
+  if(digits.length !== 10){
+    showMobilePopup(t("mobile_popup_invalid"));
+    throw new Error(t("error_invalid_mobile"));
+  }
+  return digits;
+}
+
+function mobileToEmail(mobile){
+  return `${mobile}@bananetwork.in`;
+}
+
+function firebaseErrorMessage(error){
+  const code = error?.code || "";
+
+  if(code === "auth/email-already-in-use") return t("error_account_exists");
+  if(code === "auth/invalid-credential"){
+    showPasswordPopup(t("password_popup_invalid"));
+    return t("error_login_invalid");
+  }
+  if(code === "auth/wrong-password") return t("error_wrong_password");
+  if(code === "auth/user-not-found") return t("error_user_not_found");
+  if(code === "auth/weak-password") return t("error_weak_password");
+  if(code === "auth/network-request-failed") return t("error_network");
+  if(code === "auth/too-many-requests") return t("error_too_many");
+  if(code === "auth/operation-not-allowed") return t("error_operation");
+  if(code === "auth/popup-closed-by-user") return t("error_popup_closed");
+  if(code === "auth/popup-blocked") return t("error_popup_blocked");
+
+  return error?.message || t("error_generic");
+}
+
+async function upsertUserDoc(user, userData){
+  const userRef = doc(db, "users", user.uid);
+  const snap = await getDoc(userRef);
+  const existing = snap.exists() ? snap.data() : {};
+
+  const payload = {
+    name: userData.name || existing.name || user.displayName || "User",
+    phone: userData.phone || existing.phone || "",
+    photo: userData.photo || existing.photo || user.photoURL || DEFAULT_PHOTO,
+    email: user.email || existing.email || "",
+    provider: userData.provider || existing.provider || "mobile-password",
+    updatedAt: serverTimestamp()
+  };
+
+  if(!snap.exists()){
+    payload.createdAt = serverTimestamp();
+  }
+
+  await setDoc(userRef, payload, { merge:true });
+
+  return {
+    ...existing,
+    ...payload
+  };
+}
+
+function saveUserToLocalStorage(user, userDocData){
+  const data = {
+    uid: user.uid,
+    name: userDocData.name || user.displayName || "User",
+    phone: userDocData.phone || "",
+    photo: userDocData.photo || user.photoURL || DEFAULT_PHOTO,
+    email: user.email || "",
+    provider: userDocData.provider || "mobile-password"
+  };
+
+  localStorage.setItem("userId", data.uid);
+  localStorage.setItem("userName", data.name);
+  localStorage.setItem("userPhone", data.phone);
+  localStorage.setItem("userMobile", data.phone);
+  localStorage.setItem("userPhoto", data.photo);
+  localStorage.setItem("userEmail", data.email);
+  localStorage.setItem("userLoginType", data.provider);
+  localStorage.setItem("userData", JSON.stringify(data));
+
+  updateHeaderAuthState();
+}
+
+function getRedirectTarget(){
+  const redirect = new URLSearchParams(window.location.search).get("redirect");
+
+  if(!redirect) return "account.html";
+
+  try{
+    const url = new URL(redirect, window.location.origin);
+    if(url.origin !== window.location.origin) return "account.html";
+    if(url.pathname.endsWith("/login.html") || url.pathname === "/login.html") return "account.html";
+    return url.pathname.replace(/^\//, "") + url.search + url.hash;
+  }catch(error){
+    return "account.html";
+  }
+}
+
+function redirectAfterSuccess(){
+  const target = getRedirectTarget();
+  setTimeout(() => {
+    window.location.href = target;
+  }, 700);
+}
+
+function initPageSwipe(){
+  const swipeArea = document.querySelector(".page-content");
+  if(!swipeArea) return;
+
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+
+  swipeArea.addEventListener("touchstart", event => {
+    const touch = event.changedTouches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  }, { passive:true });
+
+  swipeArea.addEventListener("touchend", event => {
+    const touch = event.changedTouches[0];
+    touchEndX = touch.clientX;
+    touchEndY = touch.clientY;
+
+    const diffX = touchStartX - touchEndX;
+    const diffY = Math.abs(touchStartY - touchEndY);
+
+    if(Math.abs(diffX) < 70) return;
+    if(Math.abs(diffX) <= diffY) return;
+
+    const currentPage = getCurrentPage();
+    const currentIndex = pageOrder.indexOf(currentPage);
+    if(currentIndex === -1) return;
+
+    if(diffX > 0 && currentIndex < pageOrder.length - 1){
+      window.location.href = pageOrder[currentIndex + 1];
+    }else if(diffX < 0 && currentIndex > 0){
+      window.location.href = pageOrder[currentIndex - 1];
+    }
+  }, { passive:true });
+}
+
+document.querySelectorAll("[data-protected-route]").forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+    protectRouteUrl(link.dataset.protectedRoute);
+  });
+});
+
+menuToggle.addEventListener("click", () => toggleSidebar(true));
+drawerClose.addEventListener("click", () => toggleSidebar(false));
+sidebarOverlay.addEventListener("click", () => toggleSidebar(false));
+
+langToggle.addEventListener("click", event => {
+  event.stopPropagation();
+  if(langMenu.classList.contains("open")){
+    closeLangMenu();
+  }else{
+    openLangMenu();
+  }
+});
+
+agreeBtn.addEventListener("click", () => {
+  termsCheckbox.checked = true;
+  hideOverlay(termsPopup);
+  hideStatus();
+});
+
+closePopup.addEventListener("click", () => hideOverlay(termsPopup));
+termsPopup.addEventListener("click", event => {
+  if(event.target === termsPopup){
+    hideOverlay(termsPopup);
+  }
+});
+
+focusPasswordBtn.addEventListener("click", () => {
+  hideOverlay(passwordPopup);
+  hideStatus();
+  passwordInput.focus();
+});
+
+closePasswordPopup.addEventListener("click", () => {
+  hideOverlay(passwordPopup);
+  hideStatus();
+});
+
+passwordPopup.addEventListener("click", event => {
+  if(event.target === passwordPopup){
+    hideOverlay(passwordPopup);
+  }
+});
+
+focusMobileBtn.addEventListener("click", () => {
+  hideOverlay(mobilePopup);
+  hideStatus();
+  mobileInput.focus();
+});
+
+closeMobilePopup.addEventListener("click", () => {
+  hideOverlay(mobilePopup);
+  hideStatus();
+});
+
+mobilePopup.addEventListener("click", event => {
+  if(event.target === mobilePopup){
+    hideOverlay(mobilePopup);
+    hideStatus();
+  }
+});
+
+document.addEventListener("click", event => {
+  if(!event.target.closest(".lang-wrap")){
+    closeLangMenu();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if(event.key === "Escape"){
+    toggleSidebar(false);
+    closeLangMenu();
+    hideOverlay(termsPopup);
+    hideOverlay(passwordPopup);
+    hideOverlay(mobilePopup);
+  }
+});
+
+langOptions.forEach(button => {
+  button.addEventListener("click", () => {
+    currentLanguage = button.dataset.lang;
+    localStorage.setItem("siteLanguage", currentLanguage);
+    applyLanguage();
+    closeLangMenu();
+  });
+});
+
+window.addEventListener("focus", updateHeaderAuthState);
+window.addEventListener("storage", () => {
+  currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+  applyLanguage();
+});
+
+signupModeBtn.addEventListener("click", () => setMode("signup"));
+loginModeBtn.addEventListener("click", () => setMode("login"));
+
+togglePasswordBtn.addEventListener("click", () => {
+  passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+  updatePasswordToggleText();
+});
+
+googleBtn.addEventListener("click", async () => {
+  hideStatus();
+
+  if(!termsCheckbox.checked){
+    showStatus(t("error_terms_required"), "error");
+    showTermsPopup();
+    return;
+  }
+
+  try{
+    setLoading(true);
+
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+
+    const userDocData = await upsertUserDoc(user, {
+      name: user.displayName || "Google User",
+      phone: "",
+      photo: user.photoURL || DEFAULT_PHOTO,
+      provider: "google"
+    });
+
+    saveUserToLocalStorage(user, userDocData);
+    showStatus(t("google_success"), "success");
+    redirectAfterSuccess();
+  }catch(error){
+    showStatus(firebaseErrorMessage(error), "error");
+  }finally{
+    setLoading(false);
+  }
+});
+
+authForm.addEventListener("submit", async event => {
+  event.preventDefault();
+  hideStatus();
+
+  try{
+    setLoading(true);
+
+    const mobile = normalizeMobile(mobileInput.value.trim());
+    const password = passwordInput.value.trim();
+    const fullName = fullNameInput.value.trim();
+    const email = mobileToEmail(mobile);
+
+    if(!termsCheckbox.checked){
+      showStatus(t("error_terms_required"), "error");
+      showTermsPopup();
+      setLoading(false);
+      return;
+    }
+
+    if(password.length < 6){
+      showStatus(t("error_weak_password"), "error");
+      showPasswordPopup(t("password_popup_short"));
+      setLoading(false);
+      return;
+    }
+
+    if(mode === "signup"){
+      if(!fullName){
+        throw new Error(t("error_full_name"));
+      }
+
+      const existingMethods = await fetchSignInMethodsForEmail(auth, email);
+      if(existingMethods.length){
+        throw new Error(t("error_account_exists"));
+      }
+
+      const result = await createUserWithEmailAndPassword(auth, email, password);
+
+      await updateProfile(result.user, {
+        displayName: fullName,
+        photoURL: DEFAULT_PHOTO
+      });
+
+      const userDocData = await upsertUserDoc(result.user, {
+        name: fullName,
+        phone: mobile,
+        photo: DEFAULT_PHOTO,
+        provider: "mobile-password"
+      });
+
+      saveUserToLocalStorage(result.user, userDocData);
+      showStatus(t("signup_success"), "success");
+      redirectAfterSuccess();
+    }else{
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      const userRef = doc(db, "users", result.user.uid);
+      const userSnap = await getDoc(userRef);
+
+      let userDocData;
+      if(userSnap.exists()){
+        userDocData = userSnap.data();
+      }else{
+        userDocData = await upsertUserDoc(result.user, {
+          name: result.user.displayName || `User ${mobile}`,
+          phone: mobile,
+          photo: result.user.photoURL || DEFAULT_PHOTO,
+          provider: "mobile-password"
+        });
+      }
+
+      saveUserToLocalStorage(result.user, userDocData);
+      showStatus(t("login_success"), "success");
+      redirectAfterSuccess();
+    }
+  }catch(error){
+    const isFirebaseAuthError = typeof error?.code === "string" && error.code.startsWith("auth/");
+    if(error instanceof Error && !isFirebaseAuthError){
+      showStatus(error.message, "error");
+    }else{
+      showStatus(firebaseErrorMessage(error), "error");
+    }
+  }finally{
+    setLoading(false);
+  }
+});
+
+onAuthStateChanged(auth, async user => {
+  currentUser = user || null;
+
+  if(user){
+    try{
+      const userRef = doc(db, "users", user.uid);
+      const userSnap = await getDoc(userRef);
+
+      let userDocData;
+      if(userSnap.exists()){
+        userDocData = userSnap.data();
+      }else{
+        userDocData = await upsertUserDoc(user, {
+          name: user.displayName || "User",
+          phone: localStorage.getItem("userMobile") || "",
+          photo: user.photoURL || DEFAULT_PHOTO,
+          provider: user.providerData?.[0]?.providerId === "google.com" ? "google" : "mobile-password"
+        });
+      }
+
+      saveUserToLocalStorage(user, userDocData);
+
+      if(!hasHandledInitialAuthState){
+        hasHandledInitialAuthState = true;
+        window.location.href = getRedirectTarget();
+        return;
+      }
+    }catch(error){
+      showStatus(t("session_restore_error"), "error");
+    }
+  }else{
+    clearStoredUser();
+  }
+
+  hasHandledInitialAuthState = true;
+  updateHeaderAuthState();
+  setActiveNav();
+});
+
+applyLanguage();
+renderMode();
+updateHeaderAuthState();
+setActiveNav();
+initPageSwipe();
+</script>
+
+</body>
+</html>
