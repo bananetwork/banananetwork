@@ -1,133 +1,2434 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
-    <meta charset="UTF-8">
-    <title>About Us | BananaNetwork</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>About Us – BanaNetwork</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta id="metaDescription" name="description" content="Learn about BanaNetwork, our mission, platform purpose, information sources, and future vision for the banana farming and trading ecosystem.">
+<meta id="metaKeywords" name="keywords" content="BanaNetwork about, banana marketplace, farmer platform, banana rates, banana trading platform, about BanaNetwork">
+<link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJ69GK381P"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-FJ69GK381P');
-    </script>
+<meta property="og:title" content="About Us – BanaNetwork">
+<meta id="ogDescription" property="og:description" content="Know BanaNetwork's mission, independent platform role, information sources, and future vision for banana farmers and traders.">
+<meta property="og:image" content="https://bananetwork.in/share.png">
+<meta property="og:url" content="https://bananetwork.in/about.html">
+<meta property="og:type" content="website">
 
-    <style>
-        body{
-            font-family: Arial, sans-serif;
-            background:#f4f6f8;
-            margin:0;
-            padding:20px;
-            line-height:1.7;
-        }
-        .container{
-            max-width:900px;
-            margin:auto;
-            background:#fff;
-            padding:25px;
-            border-radius:8px;
-        }
-        h1{
-            color:#2e7d32;
-        }
-        h2{
-            color:#1b5e20;
-            margin-top:25px;
-        }
+<style>
+:root{
+  --green:#2e7d32;
+  --green-dark:#1b5e20;
+  --yellow:#f1c24a;
+  --muted:#64748b;
+  --shadow:0 10px 28px rgba(15,23,42,.08);
+  --shadow-lg:0 22px 48px rgba(15,23,42,.16);
+  --danger:#b91c1c;
+  --danger-soft:#fff1f2;
+  --info:#0f766e;
+  --info-soft:#ecfeff;
+  --bg:#f4f6f8;
+}
 
-        /* Home + Back round icons */
-        .top-icon{
-            position: fixed;
-            top: 15px;
-            z-index: 1000;
-            font-size:18px;
-            text-decoration:none;
-            background:white;
-            padding:7px 10px;
-            border-radius:50%;
-            box-shadow:0 2px 6px rgba(0,0,0,0.15);
-        }
-        .home-icon{
-            left:15px;
-        }
-        .back-icon{
-            left:55px;
-        }
-    </style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Arial,sans-serif;
+  background:#f4f6f8;
+  color:#111;
+  overflow-x:hidden;
+}
+
+.hidden{display:none !important}
+
+.yt-header{
+  position:sticky;
+  top:0;
+  z-index:7000;
+  background:linear-gradient(180deg,#cfeecd 0%, #b7e2b4 100%);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #a7d3a3;
+  box-shadow:0 8px 20px rgba(46,125,50,.14);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 14px;
+  min-height:72px;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  flex:1;
+}
+
+.menu-btn{
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  background:#fff;
+  color:#111;
+  font-size:26px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .2s ease, transform .2s ease;
+  flex-shrink:0;
+}
+
+.menu-btn:hover{
+  background:#f1f5f9;
+  transform:translateY(-1px);
+}
+
+.brand-link{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  text-decoration:none;
+  color:#111;
+  flex:1;
+}
+
+.logo{
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  border:1px solid #d9f4db;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:4px;
+  background:#fff;
+}
+
+.brand{
+  min-width:0;
+  flex:1;
+  max-width:260px;
+}
+
+.brand b{
+  display:block;
+  font-size:23px;
+  line-height:1.05;
+  color:#146c2e;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-shrink:0;
+  flex-wrap:nowrap;
+}
+
+.status-pill{
+  background:#f1f5f9;
+  color:#111827;
+  font-weight:800;
+  padding:11px 16px;
+  border-radius:999px;
+  font-size:14px;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-height:44px;
+  transition:background .2s ease, transform .2s ease;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+.status-pill:hover{
+  background:#e8eef5;
+  transform:translateY(-1px);
+}
+
+.icon-circle{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:transform .2s ease, background .2s ease;
+  flex-shrink:0;
+}
+
+.icon-circle:hover{transform:translateY(-1px)}
+
+.whatsapp-btn{
+  background:#25D366;
+  box-shadow:0 8px 18px rgba(37,211,102,.22);
+}
+
+.whatsapp-btn img{
+  width:20px;
+  height:20px;
+  display:block;
+}
+
+.account-btn{
+  background:#f59e0b;
+  color:#fff;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(245,158,11,.24);
+}
+
+.lang-wrap,
+.notification-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+
+.lang-btn{
+  background:#fff;
+  color:#111827;
+  font-size:15px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+}
+
+.lang-menu{
+  position:absolute;
+  top:54px;
+  right:0;
+  min-width:140px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:8px;
+  display:none;
+  z-index:7100;
+}
+
+.lang-menu.open{display:block}
+
+.lang-option{
+  width:100%;
+  border:none;
+  background:#fff;
+  color:#111827;
+  text-align:left;
+  padding:10px 12px;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.lang-option:hover,
+.lang-option.active{
+  background:#f1f5f9;
+}
+
+.notification-btn{
+  position:relative;
+  background:#fff;
+  color:#111827;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+  transition:.2s;
+}
+
+.notification-btn:hover{
+  background:#f8fafc;
+  transform:translateY(-1px);
+}
+
+.notification-count{
+  position:absolute;
+  top:-2px;
+  right:-2px;
+  min-width:20px;
+  height:20px;
+  padding:0 6px;
+  border-radius:999px;
+  background:#ef4444;
+  color:#fff;
+  font-size:11px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 16px rgba(239,68,68,.28);
+}
+
+.notification-dropdown{
+  position:absolute;
+  top:54px;
+  right:0;
+  width:min(360px,calc(100vw - 24px));
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:20px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:10px;
+  display:none;
+  z-index:7150;
+}
+
+.notification-dropdown.open{
+  display:block;
+  animation:notificationPop .18s ease;
+}
+
+@keyframes notificationPop{
+  0%{opacity:0; transform:translateY(-8px)}
+  100%{opacity:1; transform:translateY(0)}
+}
+
+.notification-head{
+  padding:6px 8px 10px;
+  border-bottom:1px solid #f1f5f9;
+  font-size:15px;
+  font-weight:800;
+  color:#111827;
+}
+
+.notification-list{
+  max-height:380px;
+  overflow:auto;
+  padding:8px 2px 2px;
+}
+
+.notification-list::-webkit-scrollbar{width:6px}
+.notification-list::-webkit-scrollbar-thumb{
+  background:#d6dee7;
+  border-radius:999px;
+}
+
+.notification-empty{
+  padding:18px 12px;
+  text-align:center;
+  color:#64748b;
+  font-size:14px;
+  font-weight:700;
+}
+
+.notification-card{
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:14px 16px;
+  border-radius:16px;
+  background:#fff;
+  margin-bottom:10px;
+  transition:.2s;
+  cursor:pointer;
+  overflow:hidden;
+  touch-action:pan-y;
+}
+
+.notification-card:hover{background:#f8fafc}
+.notification-card.unread{background:#f0f9ff}
+
+.notification-avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.notification-body{
+  flex:1;
+  min-width:0;
+}
+
+.notification-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+}
+
+.notification-user{
+  font-size:15px;
+  font-weight:700;
+  color:#111827;
+}
+
+.notification-time{
+  font-size:12px;
+  color:#6b7280;
+  white-space:nowrap;
+}
+
+.notification-message{
+  font-size:14px;
+  font-weight:600;
+  color:#111827;
+  margin-top:2px;
+}
+
+.notification-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:4px;
+  gap:8px;
+}
+
+.notification-product{
+  font-size:13px;
+  color:#6b7280;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:80%;
+}
+
+.notification-dot{
+  width:8px;
+  height:8px;
+  background:#ef4444;
+  border-radius:50%;
+}
+
+.notification-card::after{
+  content:"Delete";
+  position:absolute;
+  right:0;
+  top:0;
+  bottom:0;
+  width:100px;
+  background:#ef4444;
+  color:#fff;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  opacity:0;
+  transition:.2s;
+  font-size:14px;
+}
+.notification-phone{
+  font-size:13px;
+  font-weight:700;
+  color:#166534;
+  margin-top:4px;
+}
+
+.notification-card.show-delete::after{opacity:1}
+
+.sidebar-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.42);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+  z-index:7800;
+}
+
+.sidebar-overlay.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.sidebar-drawer{
+  position:fixed;
+  top:0;
+  left:0;
+  width:min(330px,90vw);
+  height:100vh;
+  background:#fff;
+  transform:translateX(-100%);
+  transition:transform .28s ease;
+  z-index:7900;
+  box-shadow:24px 0 50px rgba(15,23,42,.22);
+  display:flex;
+  flex-direction:column;
+  overflow-y:auto;
+}
+
+.sidebar-drawer.open{transform:translateX(0)}
+
+.sidebar-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 18px 14px;
+  border-bottom:1px solid #eef2f6;
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:2;
+}
+
+.sidebar-head .menu-btn{background:#f8fafc}
+
+.sidebar-brand b{
+  display:block;
+  font-size:22px;
+  color:#146c2e;
+  line-height:1.1;
+}
+
+.sidebar-brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+}
+
+.sidebar-section{
+  padding:12px 14px;
+  border-bottom:1px solid #f1f5f9;
+}
+
+.sidebar-label{
+  font-size:13px;
+  color:#64748b;
+  font-weight:800;
+  margin:4px 10px 10px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.drawer-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px 14px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#111827;
+  font-weight:700;
+  margin-bottom:4px;
+  transition:background .2s ease, transform .2s ease;
+}
+
+.drawer-link:hover{
+  background:#f8fafc;
+  transform:translateX(2px);
+}
+
+.drawer-link.active{
+  background:#111827;
+  color:#fff;
+}
+
+.drawer-icon{
+  width:22px;
+  text-align:center;
+  font-size:18px;
+  flex-shrink:0;
+}
+
+.page-content{
+  padding:22px 14px 80px;
+}
+
+.about-wrap{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.hero-card{
+  background:
+    radial-gradient(circle at top right, rgba(46,125,50,.12), transparent 35%),
+    linear-gradient(180deg,#ffffff,#fbfcff);
+  border:1px solid #edf1f5;
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  padding:28px;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#ecfdf3;
+  color:#166534;
+  border:1px solid #d1fae5;
+  border-radius:999px;
+  padding:8px 14px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.hero-title{
+  margin:16px 0 10px;
+  font-size:36px;
+  line-height:1.15;
+  color:#111827;
+}
+
+.hero-lead{
+  margin:0;
+  max-width:860px;
+  color:#475569;
+  line-height:1.8;
+  font-size:16px;
+}
+
+.hero-meta{
+  margin-top:18px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.meta-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  background:#f8fafc;
+  color:#475569;
+  border:1px solid #e2e8f0;
+  border-radius:999px;
+  padding:10px 14px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.notice-card{
+  margin-top:18px;
+  background:linear-gradient(180deg,#fffdf7,#fff8eb);
+  border:1px solid #fde68a;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:20px;
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+}
+
+.notice-icon{
+  width:52px;
+  height:52px;
+  border-radius:18px;
+  background:#fff;
+  color:#a16207;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  box-shadow:0 8px 18px rgba(15,23,42,.08);
+  flex-shrink:0;
+}
+
+.notice-content h2{
+  margin:0;
+  font-size:22px;
+  color:#92400e;
+}
+
+.notice-content p{
+  margin:8px 0 0;
+  color:#7c2d12;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  margin-top:18px;
+}
+
+.about-card{
+  background:#fff;
+  border:1px solid #edf1f5;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:22px;
+}
+
+.about-card.important{
+  border-color:#fecaca;
+  background:linear-gradient(180deg,#fffefe,#fff6f6);
+}
+
+.about-card.info{
+  border-color:#d1fae5;
+  background:linear-gradient(180deg,#fbfffc,#f1fcf4);
+}
+
+.about-card-head{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.section-pill{
+  min-width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#ecfdf3;
+  color:#166534;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:14px;
+  flex-shrink:0;
+}
+
+.about-card.important .section-pill{
+  background:#fee2e2;
+  color:#b91c1c;
+}
+
+.about-card h2{
+  margin:2px 0 0;
+  font-size:22px;
+  line-height:1.3;
+  color:#111827;
+}
+
+.section-text{
+  margin:0 0 12px;
+  color:#475569;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.about-list{
+  margin:0;
+  padding-left:22px;
+  color:#475569;
+}
+
+.about-list li{
+  margin:0 0 10px;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.legal-callout{
+  margin-top:14px;
+  padding:16px 18px;
+  border-radius:18px;
+  background:var(--danger-soft);
+  border:1px solid #fecdd3;
+  color:var(--danger);
+  font-weight:800;
+  line-height:1.7;
+  font-size:15px;
+}
+
+.info-callout{
+  margin-top:14px;
+  padding:16px 18px;
+  border-radius:18px;
+  background:var(--info-soft);
+  border:1px solid #a5f3fc;
+  color:var(--info);
+  font-weight:800;
+  line-height:1.7;
+  font-size:15px;
+}
+
+.contact-box{
+  margin-top:14px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:12px 14px;
+  border-radius:16px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  font-weight:800;
+  color:#334155;
+}
+
+.contact-box a{
+  color:#166534;
+  text-decoration:none;
+}
+
+.contact-box a:hover{text-decoration:underline}
+
+.vision-banner{
+  margin-top:18px;
+  background:linear-gradient(135deg,#1b5e20,#255f2b,#0f172a);
+  color:#fff;
+  border-radius:28px;
+  padding:24px;
+  box-shadow:var(--shadow-lg);
+}
+
+.vision-banner h2{
+  margin:0 0 10px;
+  font-size:26px;
+  line-height:1.2;
+}
+
+.vision-banner p{
+  margin:0;
+  line-height:1.9;
+  color:#e5e7eb;
+  font-size:15px;
+}
+
+.footer{
+  background:#1b5e20;
+  color:#fff;
+  text-align:center;
+  padding:18px 10px;
+  margin-top:25px;
+  font-size:14px;
+  border-radius:22px;
+}
+
+.footer a{
+  color:#fff;
+  text-decoration:none;
+  margin:0 10px;
+  font-weight:700;
+}
+
+.footer a:hover{text-decoration:underline}
+
+@media (max-width:980px){
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:768px){
+  .header-inner{
+    padding:10px;
+    min-height:66px;
+  }
+
+  .logo{
+    width:46px;
+    height:46px;
+    border-radius:13px;
+  }
+
+  .brand{
+    max-width:170px;
+  }
+
+  .brand b{font-size:18px}
+  .brand span{font-size:11px}
+
+  .status-pill{
+    padding:10px 12px;
+    font-size:13px;
+  }
+
+  .icon-circle{
+    width:40px;
+    height:40px;
+  }
+
+  .notification-dropdown{
+    width:min(340px,calc(100vw - 24px));
+  }
+
+  .hero-card,
+  .about-card,
+  .notice-card,
+  .vision-banner{
+    padding:18px;
+  }
+
+  .hero-title{font-size:28px}
+}
+
+@media (max-width:560px){
+  .header-inner{
+    gap:8px;
+    padding:8px 10px;
+  }
+
+  .header-left{gap:8px}
+  .header-right{gap:6px}
+
+  .menu-btn{
+    width:38px;
+    height:38px;
+    font-size:22px;
+  }
+
+  .logo{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+  }
+
+  .brand{max-width:130px}
+  .brand b{font-size:16px}
+  .brand span{
+    display:block;
+    font-size:10px;
+  }
+
+  .status-pill{
+    padding:8px 8px;
+    font-size:10px;
+    gap:5px;
+    min-height:38px;
+  }
+
+  .icon-circle{
+    width:36px;
+    height:36px;
+  }
+
+  .whatsapp-btn img{
+    width:17px;
+    height:17px;
+  }
+
+  .notification-dropdown{
+    right:-52px;
+    width:min(320px,calc(100vw - 16px));
+  }
+
+  .hero-title{font-size:24px}
+
+  .page-content{
+    padding:16px 10px 60px;
+  }
+
+  .notice-card{
+    flex-direction:column;
+  }
+}
+
+@media (max-width:390px){
+  .brand{max-width:112px}
+  .brand b{font-size:15px}
+  .brand span{
+    display:block;
+    font-size:9px;
+  }
+
+  .status-pill{
+    padding:7px 7px;
+    font-size:9px;
+  }
+
+  .menu-btn,
+  .icon-circle{
+    width:34px;
+    height:34px;
+  }
+
+  .notification-dropdown{
+    right:-84px;
+    width:calc(100vw - 14px);
+  }
+}
+</style>
 </head>
+
 <body>
 
-<!-- Home -->
-<a href="index.html" class="top-icon home-icon">🏠</a>
+<header class="yt-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <button class="menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
 
-<!-- Back -->
-<a href="javascript:history.back()" class="top-icon back-icon">←</a>
+      <a class="brand-link" href="index.html">
+        <div class="logo"><img src="logo_1.png" alt="BanaNetwork Logo"></div>
+        <div class="brand">
+          <b>BanaNetwork</b>
+          <span id="brandSubtitle">रोप खोडवा खरेदी विक्री</span>
+        </div>
+      </a>
+    </div>
 
-<div class="container">
+    <div class="header-right">
+      <a class="status-pill" id="loginStatusBtn" href="login.html">
+        <span id="loginStatusIcon">🔑</span>
+        <span id="loginStatusText">Login</span>
+      </a>
 
-<h1>About BananaNetwork</h1>
+      <div class="lang-wrap">
+        <button class="icon-circle lang-btn" id="langToggle" type="button" aria-label="Change language" aria-expanded="false">म</button>
+        <div class="lang-menu" id="langMenu">
+          <button class="lang-option" type="button" data-lang="mr">मराठी</button>
+          <button class="lang-option" type="button" data-lang="hi">हिंदी</button>
+          <button class="lang-option" type="button" data-lang="en">English</button>
+        </div>
+      </div>
 
-<p>
-<strong>BananaNetwork</strong> ही एक स्वतंत्र डिजिटल प्लॅटफॉर्म आहे, 
-जिचा मुख्य उद्देश <strong>केळी शेती व बाजारभावाशी संबंधित अचूक आणि वेळेवर माहिती</strong> 
-योग्य लोकांपर्यंत पोहोचवणे हा आहे.
-</p>
+      <div class="notification-wrap hidden" id="notificationWrap">
+        <button id="notificationBtn" class="icon-circle notification-btn" type="button" aria-label="Notifications" aria-expanded="false">
+          <span>🔔</span>
+          <span id="notificationCount" class="notification-count hidden">0</span>
+        </button>
 
-<h2>आमचा उद्देश (Purpose)</h2>
-<p>
-ज्या शेतकरी, व्यापारी व इतर संबंधित घटकांना केळी बाजारभावाची गरज आहे,
-त्यांच्यापर्यंत <strong>भव वेळेवर आणि एका ठिकाणी</strong> पोहोचवणे हा आमचा मुख्य उद्देश आहे.
-</p>
+        <div id="notificationDropdown" class="notification-dropdown">
+          <div class="notification-head" id="notificationTitle">Notifications</div>
+          <div class="notification-list" id="notificationList">
+            <div class="notification-empty">No notifications</div>
+          </div>
+        </div>
+      </div>
 
-<p>
-वेगवेगळ्या ठिकाणांवरून (WhatsApp ग्रुप्स, मंडी पावत्या, स्थानिक माहिती)
-मिळणारी माहिती <strong>एकाच प्लॅटफॉर्मवर एकत्र</strong> करून,
-शेतकऱ्यांना आणि व्यापाऱ्यांना निर्णय घेणे सोपे व्हावे यासाठी BananaNetwork कार्यरत आहे.
-</p>
+      <a class="icon-circle whatsapp-btn" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </a>
 
-<h2>ही वेबसाइट कोणासाठी आहे?</h2>
-<p>
-ही वेबसाइट <strong>शेतकरी, व्यापारी, खरेदीदार तसेच केळी शेतीशी संबंधित सर्व घटकांसाठी</strong> आहे.
-ज्यांना केळी बाजारभाव, मंडी माहिती, विश्लेषण, व शेतीविषयक अपडेट्स हवे आहेत,
-त्यांच्यासाठी ही एक उपयुक्त माहितीची जागा आहे.
-</p>
+      <a class="icon-circle account-btn" id="accountBtn" href="login.html" title="My Account">👤</a>
+    </div>
+  </div>
+</header>
 
-<h2>वेबसाइट कोण चालवत आहे?</h2>
-<p>
-BananaNetwork ही वेबसाइट <strong>एक स्वतंत्र व्यक्ती</strong> चालवत आहे.
-ही कोणत्याही सरकारी संस्था किंवा खासगी कंपनीशी थेट संलग्न नाही.
-</p>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-<h2>माहिती कुठून येते?</h2>
-<p>
-या वेबसाइटवरील माहिती खालील स्त्रोतांवर आधारित आहे:
-</p>
-<ul>
-    <li>स्थानिक मंडीमधील उपलब्ध बाजारभाव</li>
-    <li>मूळ मंडी पावत्या (Proof स्वरूपात)</li>
-    <li>YouTube व इतर सार्वजनिक माध्यमांवरील शेतीविषयक माहिती</li>
-    <li>WhatsApp ग्रुप्स व स्थानिक संपर्कांद्वारे मिळणारी माहिती</li>
-</ul>
+<aside class="sidebar-drawer" id="sidebarDrawer">
+  <div class="sidebar-head">
+    <button class="menu-btn" id="drawerClose" aria-label="Close menu">☰</button>
+    <div class="sidebar-brand">
+      <b>BanaNetwork</b>
+      <span id="drawerSubtitle">केळी संबंधित सर्व सेवा</span>
+    </div>
+  </div>
 
-<p>
-ही सर्व माहिती <strong>फक्त संदर्भ व माहितीपुरती</strong> देण्यात येते.
-</p>
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelMain">मुख्य</div>
+    <a class="drawer-link" data-route="home" href="index.html"><span class="drawer-icon">🏠</span><span id="drawerHome">Home</span></a>
+    <a class="drawer-link" data-route="plant-buy" href="buy.html"><span class="drawer-icon">🌱</span><span id="drawerBuy">केळी रोप खरेदी</span></a>
+    <a class="drawer-link" data-route="plant-sell" href="sell.html"><span class="drawer-icon">💰</span><span id="drawerSell">केळी रोप विक्री</span></a>
+    <a class="drawer-link" data-route="khodwa-buy" href="buy.html"><span class="drawer-icon">🌿</span><span id="drawerKhatBuy">केळी खोडवा खरेदी</span></a>
+    <a class="drawer-link" data-route="khodwa-sell" href="sell.html"><span class="drawer-icon">🚜</span><span id="drawerKhatSell">केळी खोडवा विक्री</span></a>
+    <a class="drawer-link" data-route="burhanpur" href="index.html"><span class="drawer-icon">🍌</span><span id="drawerBurhanpur">बुरहानपूर केळी भाव</span></a>
+    <a class="drawer-link" data-route="jalgaon" href="jalgaon.html"><span class="drawer-icon">📍</span><span id="drawerJalgaon">जळगाव केळी भाव</span></a>
+    <a class="drawer-link" data-route="chopda" href="chopda.html"><span class="drawer-icon">📍</span><span id="drawerChopda">चोपडा केळी भाव</span></a>
+    <a class="drawer-link" data-route="raver" href="raver.html"><span class="drawer-icon">📍</span><span id="drawerRaver">रावेर केळी भाव</span></a>
+  </div>
 
-<h2>भविष्यातील दृष्टी (Future Vision)</h2>
-<p>
-BananaNetwork ही वेबसाइट सध्या बाजारभाव व विश्लेषणावर केंद्रित आहे.
-भविष्यात येथे <strong>मूळ व नवीन फीचर्स</strong> जोडण्याची योजना आहे,
-ज्या सध्या विकसित होत आहेत.
-</p>
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelAccount">खाते</div>
+    <a class="drawer-link" data-protected-route="account.html" href="account.html"><span class="drawer-icon">👤</span><span id="drawerAccount">My Account</span></a>
+    <a class="drawer-link" data-protected-route="chat.html" href="chat.html"><span class="drawer-icon">💬</span><span id="drawerChat">My Chat</span></a>
+    <a class="drawer-link" data-protected-route="mylistings.html" href="mylistings.html"><span class="drawer-icon">📜</span><span id="drawerListingHistory">My Listing History</span></a>
+    <a class="drawer-link" data-protected-route="inbox.html" href="inbox.html"><span class="drawer-icon">📥</span><span id="drawerInbox">My Inbox</span></a>
+    <a class="drawer-link" id="drawerSignupLink" href="login.html?mode=signup">
+      <span class="drawer-icon">📝</span>
+      <span id="drawerSignup">Signup</span>
+    </a>
+    <a class="drawer-link" id="drawerAuthLink" href="login.html"><span class="drawer-icon" id="drawerAuthIcon">🔑</span><span id="drawerLoginText">Login</span></a>
+  </div>
 
-<p>
-आमचा उद्देश एक असा <strong>Banana Platform</strong> तयार करणे आहे,
-जिथे केळी शेतीशी संबंधित सर्व माहिती आणि सुविधा एकाच ठिकाणी उपलब्ध होतील.
-</p>
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelInfo">माहिती</div>
+    <a class="drawer-link active" data-route="about" href="about.html"><span class="drawer-icon">ℹ️</span><span id="drawerAbout">About Us</span></a>
+    <a class="drawer-link" href="privacy.html"><span class="drawer-icon">🔒</span><span id="drawerPrivacy">Privacy Policy</span></a>
+    <a class="drawer-link" href="terms.html"><span class="drawer-icon">📄</span><span id="drawerTerms">Terms & Conditions</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">📞</span><span id="drawerContact">Contact Us</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">🤝</span><span id="drawerAgentHelp">प्रतिनिधी मदत</span></a>
+    <a class="drawer-link" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer">
+      <span class="drawer-icon whatsapp-drawer-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </span>
+      <span id="drawerWhatsapp">WhatsApp Group</span>
+    </a>
+  </div>
+</aside>
 
+<div class="page-content">
+  <div class="about-wrap">
+    <section class="hero-card">
+      <div class="hero-badge" id="heroBadge">🌿 About BanaNetwork</div>
+      <h1 class="hero-title" id="pageHeading">About Us – BanaNetwork</h1>
+      <p class="hero-lead" id="pageLead">BanaNetwork हा banana farming, market rates, buyer-seller connection आणि useful field information एकाच ठिकाणी आणण्याचा प्रयत्न करणारा independent digital platform आहे.</p>
+
+      <div class="hero-meta">
+        <div class="meta-chip" id="updatedText">Last Updated: 26 April 2026</div>
+        <div class="meta-chip" id="platformRoleChip">Independent Banana Platform</div>
+      </div>
+    </section>
+
+    <section class="notice-card">
+      <div class="notice-icon">⚠️</div>
+      <div class="notice-content">
+        <h2 id="noticeTitle">Independent Platform Notice</h2>
+        <p id="noticeText">BanaNetwork ही independent platform initiative आहे. ही कोणत्याही सरकारी संस्था किंवा मोठ्या private company ची official website नाही. येथे दिलेली माहिती reference आणि practical support साठी आहे.</p>
+      </div>
+    </section>
+
+    <div class="about-grid" id="aboutSections">
+      <section class="about-card">
+        <div class="about-card-head">
+          <span class="section-pill">1</span>
+          <h2>About BanaNetwork</h2>
+        </div>
+        <p class="section-text">BanaNetwork ही एक independent digital platform आहे जिचा मुख्य उद्देश banana ecosystem मधील लोकांना useful माहिती आणि practical connection देणे आहे.</p>
+        <p class="section-text">Farmers, traders, buyers, sellers आणि banana business शी related लोकांना एकाच जागी rates, updates आणि communication tools मिळावेत हा यामागचा core idea आहे.</p>
+      </section>
+
+      <section class="about-card info">
+        <div class="about-card-head">
+          <span class="section-pill">2</span>
+          <h2>Our Purpose</h2>
+        </div>
+        <ul class="about-list">
+          <li>केळी बाजारभाव, rates आणि field related updates वेळेवर देणे.</li>
+          <li>Buyer आणि seller यांना easier communication space देणे.</li>
+          <li>Banana sector मधील माहिती एकाच platform वर आणणे.</li>
+        </ul>
+      </section>
+
+      <section class="about-card">
+        <div class="about-card-head">
+          <span class="section-pill">3</span>
+          <h2>Who This Platform Is For</h2>
+        </div>
+        <ul class="about-list">
+          <li>Banana farmers</li>
+          <li>Traders and commission agents</li>
+          <li>Buyers, sellers and nursery-related users</li>
+          <li>Banana farming ecosystem मधील इतर interested people</li>
+        </ul>
+      </section>
+
+      <section class="about-card">
+        <div class="about-card-head">
+          <span class="section-pill">4</span>
+          <h2>Who Runs BanaNetwork</h2>
+        </div>
+        <p class="section-text">BanaNetwork ही website independent effort म्हणून चालवली जाते. ही कोणत्याही सरकारी विभागाशी, मंडी board शी किंवा private corporate network शी officialरित्या directly attached नाही.</p>
+      </section>
+
+      <section class="about-card">
+        <div class="about-card-head">
+          <span class="section-pill">5</span>
+          <h2>Where Information Comes From</h2>
+        </div>
+        <ul class="about-list">
+          <li>Local mandi market rates</li>
+          <li>Mandi receipts किंवा proof-based market inputs</li>
+          <li>WhatsApp groups आणि local network updates</li>
+          <li>YouTube किंवा public sources मधील relevant agriculture information</li>
+          <li>User submitted listings आणि market-side communication</li>
+        </ul>
+      </section>
+
+      <section class="about-card important">
+        <div class="about-card-head">
+          <span class="section-pill">6</span>
+          <h2>Important Disclaimer</h2>
+        </div>
+        <p class="section-text">BanaNetwork वर दिसणारी माहिती helpful आणि reference purpose साठी आहे. Final business decision, deal confirmation किंवा price agreement करण्यापूर्वी user ने independent verification करणे आवश्यक आहे.</p>
+        <div class="legal-callout">Market rates, availability, product quality आणि deal conditions time-to-time बदलू शकतात. Users should verify before taking action.</div>
+      </section>
+
+      <section class="about-card info">
+        <div class="about-card-head">
+          <span class="section-pill">7</span>
+          <h2>Current Focus</h2>
+        </div>
+        <ul class="about-list">
+          <li>Banana market rate information</li>
+          <li>Buy-sell related listing support</li>
+          <li>Chat, inquiry आणि notification tools</li>
+          <li>User-friendly access for banana trade ecosystem</li>
+        </ul>
+      </section>
+
+      <section class="about-card">
+        <div class="about-card-head">
+          <span class="section-pill">8</span>
+          <h2>Future Vision</h2>
+        </div>
+        <p class="section-text">आमचा long-term उद्देश एक strong Banana Ecosystem Platform तयार करणे आहे जिथे rates, listings, buyer-seller networking, updates, guidance आणि more agriculture support एकाच ठिकाणी उपलब्ध असेल.</p>
+        <div class="info-callout">We want BanaNetwork to become one practical and trusted digital place for banana farmers and traders.</div>
+      </section>
+
+      <section class="about-card">
+        <div class="about-card-head">
+          <span class="section-pill">9</span>
+          <h2>Contact & Collaboration</h2>
+        </div>
+        <p class="section-text">Support, suggestion, correction किंवा collaboration साठी खालील email वापरू शकता.</p>
+        <div class="contact-box">
+          <span>Email:</span>
+          <a href="mailto:bananetwork.in@gmail.com">bananetwork.in@gmail.com</a>
+        </div>
+      </section>
+    </div>
+
+    <section class="vision-banner">
+      <h2 id="visionBannerTitle">Banana Ecosystem Vision</h2>
+      <p id="visionBannerText">BanaNetwork चे goal फक्त माहिती देणे नाही, तर banana farming आणि trade ecosystem साठी एक useful, trusted आणि easy-to-access digital space तयार करणे आहे.</p>
+    </section>
+
+    <div class="footer">
+      <div>© 2026 BanaNetwork</div>
+      <div id="footerMade">Made for Banana Farmers 🍌</div>
+      <div style="margin-top:8px;">
+        <a href="privacy.html" id="footerPrivacy">Privacy</a> |
+        <a href="contact.html" id="footerContact">Contact</a> |
+        <a href="terms.html" id="footerTerms">Terms</a>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+const metaDescription = document.getElementById("metaDescription");
+const metaKeywords = document.getElementById("metaKeywords");
+const ogDescription = document.getElementById("ogDescription");
+
+const brandSubtitle = document.getElementById("brandSubtitle");
+const drawerSubtitle = document.getElementById("drawerSubtitle");
+const labelMain = document.getElementById("labelMain");
+const labelAccount = document.getElementById("labelAccount");
+const labelInfo = document.getElementById("labelInfo");
+const drawerHome = document.getElementById("drawerHome");
+const drawerBuy = document.getElementById("drawerBuy");
+const drawerSell = document.getElementById("drawerSell");
+const drawerKhatBuy = document.getElementById("drawerKhatBuy");
+const drawerKhatSell = document.getElementById("drawerKhatSell");
+const drawerBurhanpur = document.getElementById("drawerBurhanpur");
+const drawerJalgaon = document.getElementById("drawerJalgaon");
+const drawerChopda = document.getElementById("drawerChopda");
+const drawerRaver = document.getElementById("drawerRaver");
+const drawerAccount = document.getElementById("drawerAccount");
+const drawerChat = document.getElementById("drawerChat");
+const drawerListingHistory = document.getElementById("drawerListingHistory");
+const drawerInbox = document.getElementById("drawerInbox");
+const drawerSignup = document.getElementById("drawerSignup");
+const drawerAbout = document.getElementById("drawerAbout");
+const drawerPrivacy = document.getElementById("drawerPrivacy");
+const drawerTerms = document.getElementById("drawerTerms");
+const drawerContact = document.getElementById("drawerContact");
+const drawerAgentHelp = document.getElementById("drawerAgentHelp");
+const drawerWhatsapp = document.getElementById("drawerWhatsapp");
+
+const menuToggle = document.getElementById("menuToggle");
+const sidebarDrawer = document.getElementById("sidebarDrawer");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+const drawerClose = document.getElementById("drawerClose");
+const loginStatusBtn = document.getElementById("loginStatusBtn");
+const loginStatusIcon = document.getElementById("loginStatusIcon");
+const loginStatusText = document.getElementById("loginStatusText");
+const accountBtn = document.getElementById("accountBtn");
+const drawerAuthLink = document.getElementById("drawerAuthLink");
+const drawerAuthIcon = document.getElementById("drawerAuthIcon");
+const drawerLoginText = document.getElementById("drawerLoginText");
+
+const langToggle = document.getElementById("langToggle");
+const langMenu = document.getElementById("langMenu");
+const langOptions = [...document.querySelectorAll(".lang-option")];
+
+const notificationWrap = document.getElementById("notificationWrap");
+const notificationBtn = document.getElementById("notificationBtn");
+const notificationCount = document.getElementById("notificationCount");
+const notificationDropdown = document.getElementById("notificationDropdown");
+const notificationTitle = document.getElementById("notificationTitle");
+
+const heroBadge = document.getElementById("heroBadge");
+const pageHeading = document.getElementById("pageHeading");
+const pageLead = document.getElementById("pageLead");
+const updatedText = document.getElementById("updatedText");
+const platformRoleChip = document.getElementById("platformRoleChip");
+const noticeTitle = document.getElementById("noticeTitle");
+const noticeText = document.getElementById("noticeText");
+const aboutSections = document.getElementById("aboutSections");
+const visionBannerTitle = document.getElementById("visionBannerTitle");
+const visionBannerText = document.getElementById("visionBannerText");
+const footerMade = document.getElementById("footerMade");
+const footerPrivacy = document.getElementById("footerPrivacy");
+const footerContact = document.getElementById("footerContact");
+const footerTerms = document.getElementById("footerTerms");
+
+const LANG_SHORT = { mr:"म", hi:"हि", en:"E" };
+
+const aboutTemplates = {
+  mr: `
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">1</span>
+        <h2>About BanaNetwork</h2>
+      </div>
+      <p class="section-text">BanaNetwork ही एक independent digital platform आहे जिचा मुख्य उद्देश banana ecosystem मधील लोकांना useful माहिती आणि practical connection देणे आहे.</p>
+      <p class="section-text">Farmers, traders, buyers, sellers आणि banana business शी related लोकांना एकाच जागी rates, updates आणि communication tools मिळावेत हा यामागचा core idea आहे.</p>
+    </section>
+
+    <section class="about-card info">
+      <div class="about-card-head">
+        <span class="section-pill">2</span>
+        <h2>Our Purpose</h2>
+      </div>
+      <ul class="about-list">
+        <li>केळी बाजारभाव, rates आणि field related updates वेळेवर देणे.</li>
+        <li>Buyer आणि seller यांना easier communication space देणे.</li>
+        <li>Banana sector मधील माहिती एकाच platform वर आणणे.</li>
+      </ul>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">3</span>
+        <h2>Who This Platform Is For</h2>
+      </div>
+      <ul class="about-list">
+        <li>Banana farmers</li>
+        <li>Traders and commission agents</li>
+        <li>Buyers, sellers and nursery-related users</li>
+        <li>Banana farming ecosystem मधील इतर interested people</li>
+      </ul>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">4</span>
+        <h2>Who Runs BanaNetwork</h2>
+      </div>
+      <p class="section-text">BanaNetwork ही website independent effort म्हणून चालवली जाते. ही कोणत्याही सरकारी विभागाशी, मंडी board शी किंवा private corporate network शी officialरित्या directly attached नाही.</p>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">5</span>
+        <h2>Where Information Comes From</h2>
+      </div>
+      <ul class="about-list">
+        <li>Local mandi market rates</li>
+        <li>Mandi receipts किंवा proof-based market inputs</li>
+        <li>WhatsApp groups आणि local network updates</li>
+        <li>YouTube किंवा public sources मधील relevant agriculture information</li>
+        <li>User submitted listings आणि market-side communication</li>
+      </ul>
+    </section>
+
+    <section class="about-card important">
+      <div class="about-card-head">
+        <span class="section-pill">6</span>
+        <h2>Important Disclaimer</h2>
+      </div>
+      <p class="section-text">BanaNetwork वर दिसणारी माहिती helpful आणि reference purpose साठी आहे. Final business decision, deal confirmation किंवा price agreement करण्यापूर्वी user ने independent verification करणे आवश्यक आहे.</p>
+      <div class="legal-callout">Market rates, availability, product quality आणि deal conditions time-to-time बदलू शकतात. Users should verify before taking action.</div>
+    </section>
+
+    <section class="about-card info">
+      <div class="about-card-head">
+        <span class="section-pill">7</span>
+        <h2>Current Focus</h2>
+      </div>
+      <ul class="about-list">
+        <li>Banana market rate information</li>
+        <li>Buy-sell related listing support</li>
+        <li>Chat, inquiry आणि notification tools</li>
+        <li>User-friendly access for banana trade ecosystem</li>
+      </ul>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">8</span>
+        <h2>Future Vision</h2>
+      </div>
+      <p class="section-text">आमचा long-term उद्देश एक strong Banana Ecosystem Platform तयार करणे आहे जिथे rates, listings, buyer-seller networking, updates, guidance आणि more agriculture support एकाच ठिकाणी उपलब्ध असेल.</p>
+      <div class="info-callout">We want BanaNetwork to become one practical and trusted digital place for banana farmers and traders.</div>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">9</span>
+        <h2>Contact & Collaboration</h2>
+      </div>
+      <p class="section-text">Support, suggestion, correction किंवा collaboration साठी खालील email वापरू शकता.</p>
+      <div class="contact-box">
+        <span>Email:</span>
+        <a href="mailto:bananetwork.in@gmail.com">bananetwork.in@gmail.com</a>
+      </div>
+    </section>
+  `,
+  hi: `
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">1</span>
+        <h2>About BanaNetwork</h2>
+      </div>
+      <p class="section-text">BanaNetwork एक independent digital platform है जिसका main purpose banana ecosystem के लोगों तक useful information और practical connection पहुंचाना है.</p>
+      <p class="section-text">Farmers, traders, buyers, sellers और banana business से जुड़े लोगों को एक ही जगह rates, updates और communication tools मिलें, यही इसका core idea है.</p>
+    </section>
+
+    <section class="about-card info">
+      <div class="about-card-head">
+        <span class="section-pill">2</span>
+        <h2>Our Purpose</h2>
+      </div>
+      <ul class="about-list">
+        <li>केले के market rates और field updates समय पर देना.</li>
+        <li>Buyer और seller को easier communication space देना.</li>
+        <li>Banana sector की information को एक ही platform पर लाना.</li>
+      </ul>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">3</span>
+        <h2>Who This Platform Is For</h2>
+      </div>
+      <ul class="about-list">
+        <li>Banana farmers</li>
+        <li>Traders and commission agents</li>
+        <li>Buyers, sellers and nursery-related users</li>
+        <li>Banana farming ecosystem से जुड़े अन्य interested people</li>
+      </ul>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">4</span>
+        <h2>Who Runs BanaNetwork</h2>
+      </div>
+      <p class="section-text">BanaNetwork website एक independent effort के रूप में चलाई जाती है. यह किसी सरकारी विभाग, mandi board या private corporate network से officially directly attached नहीं है.</p>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">5</span>
+        <h2>Where Information Comes From</h2>
+      </div>
+      <ul class="about-list">
+        <li>Local mandi market rates</li>
+        <li>Mandi receipts या proof-based market inputs</li>
+        <li>WhatsApp groups और local network updates</li>
+        <li>YouTube या public sources की relevant agriculture information</li>
+        <li>User submitted listings और market-side communication</li>
+      </ul>
+    </section>
+
+    <section class="about-card important">
+      <div class="about-card-head">
+        <span class="section-pill">6</span>
+        <h2>Important Disclaimer</h2>
+      </div>
+      <p class="section-text">BanaNetwork पर दिखाई गई information helpful और reference purpose के लिए है. Final business decision, deal confirmation या price agreement से पहले user को independent verification करना जरूरी है.</p>
+      <div class="legal-callout">Market rates, availability, product quality और deal conditions समय-समय पर बदल सकते हैं. Users should verify before taking action.</div>
+    </section>
+
+    <section class="about-card info">
+      <div class="about-card-head">
+        <span class="section-pill">7</span>
+        <h2>Current Focus</h2>
+      </div>
+      <ul class="about-list">
+        <li>Banana market rate information</li>
+        <li>Buy-sell related listing support</li>
+        <li>Chat, inquiry और notification tools</li>
+        <li>User-friendly access for banana trade ecosystem</li>
+      </ul>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">8</span>
+        <h2>Future Vision</h2>
+      </div>
+      <p class="section-text">हमारा long-term उद्देश्य एक strong Banana Ecosystem Platform बनाना है जहां rates, listings, buyer-seller networking, updates, guidance और more agriculture support एक ही जगह उपलब्ध हो.</p>
+      <div class="info-callout">We want BanaNetwork to become one practical and trusted digital place for banana farmers and traders.</div>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">9</span>
+        <h2>Contact & Collaboration</h2>
+      </div>
+      <p class="section-text">Support, suggestion, correction या collaboration के लिए नीचे दिया गया email use कर सकते हैं.</p>
+      <div class="contact-box">
+        <span>Email:</span>
+        <a href="mailto:bananetwork.in@gmail.com">bananetwork.in@gmail.com</a>
+      </div>
+    </section>
+  `,
+  en: `
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">1</span>
+        <h2>About BanaNetwork</h2>
+      </div>
+      <p class="section-text">BanaNetwork is an independent digital platform built to provide useful information and practical connections across the banana ecosystem.</p>
+      <p class="section-text">Its core idea is to bring rates, updates, and communication tools to farmers, traders, buyers, sellers, and banana business users in one place.</p>
+    </section>
+
+    <section class="about-card info">
+      <div class="about-card-head">
+        <span class="section-pill">2</span>
+        <h2>Our Purpose</h2>
+      </div>
+      <ul class="about-list">
+        <li>To provide timely banana market rate and field updates.</li>
+        <li>To give buyers and sellers an easier communication space.</li>
+        <li>To bring banana sector information together on one platform.</li>
+      </ul>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">3</span>
+        <h2>Who This Platform Is For</h2>
+      </div>
+      <ul class="about-list">
+        <li>Banana farmers</li>
+        <li>Traders and commission agents</li>
+        <li>Buyers, sellers, and nursery-related users</li>
+        <li>Others interested in the banana farming ecosystem</li>
+      </ul>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">4</span>
+        <h2>Who Runs BanaNetwork</h2>
+      </div>
+      <p class="section-text">BanaNetwork is run as an independent effort. It is not officially or directly attached to any government department, mandi board, or private corporate network.</p>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">5</span>
+        <h2>Where Information Comes From</h2>
+      </div>
+      <ul class="about-list">
+        <li>Local mandi market rates</li>
+        <li>Mandi receipts or proof-based market inputs</li>
+        <li>WhatsApp groups and local network updates</li>
+        <li>Relevant agriculture information from YouTube or other public sources</li>
+        <li>User submitted listings and market-side communication</li>
+      </ul>
+    </section>
+
+    <section class="about-card important">
+      <div class="about-card-head">
+        <span class="section-pill">6</span>
+        <h2>Important Disclaimer</h2>
+      </div>
+      <p class="section-text">Information shown on BanaNetwork is provided for helpful reference. Users must independently verify all important details before making final business decisions, deals, or price agreements.</p>
+      <div class="legal-callout">Market rates, availability, product quality, and deal conditions may change over time. Users should verify before taking action.</div>
+    </section>
+
+    <section class="about-card info">
+      <div class="about-card-head">
+        <span class="section-pill">7</span>
+        <h2>Current Focus</h2>
+      </div>
+      <ul class="about-list">
+        <li>Banana market rate information</li>
+        <li>Buy-sell related listing support</li>
+        <li>Chat, inquiry, and notification tools</li>
+        <li>User-friendly access for the banana trade ecosystem</li>
+      </ul>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">8</span>
+        <h2>Future Vision</h2>
+      </div>
+      <p class="section-text">Our long-term goal is to build a strong Banana Ecosystem Platform where rates, listings, buyer-seller networking, updates, guidance, and more agriculture support are available in one place.</p>
+      <div class="info-callout">We want BanaNetwork to become one practical and trusted digital place for banana farmers and traders.</div>
+    </section>
+
+    <section class="about-card">
+      <div class="about-card-head">
+        <span class="section-pill">9</span>
+        <h2>Contact & Collaboration</h2>
+      </div>
+      <p class="section-text">For support, suggestions, corrections, or collaboration, use the email below.</p>
+      <div class="contact-box">
+        <span>Email:</span>
+        <a href="mailto:bananetwork.in@gmail.com">bananetwork.in@gmail.com</a>
+      </div>
+    </section>
+  `
+};
+
+const translations = {
+  mr:{
+    page_title:"About Us – BanaNetwork",
+    meta_description:"Learn about BanaNetwork, our mission, platform purpose, information sources, and future vision for the banana farming and trading ecosystem.",
+    meta_keywords:"BanaNetwork about, banana marketplace, farmer platform, banana rates, banana trading platform, about BanaNetwork",
+    og_description:"Know BanaNetwork's mission, independent platform role, information sources, and future vision for banana farmers and traders.",
+    brand_subtitle:"रोप खोडवा खरेदी विक्री",
+    drawer_subtitle:"केळी संबंधित सर्व सेवा",
+    label_main:"मुख्य",
+    label_account:"खाते",
+    label_info:"माहिती",
+    nav_home:"Home",
+    nav_buy:"केळी रोप खरेदी",
+    nav_sell:"केळी रोप विक्री",
+    nav_khat_buy:"केळी खोडवा खरेदी",
+    nav_khat_sell:"केळी खोडवा विक्री",
+    nav_burhanpur_rates:"बुरहानपूर केळी भाव",
+    nav_jalgaon_rates:"जळगाव केळी भाव",
+    nav_chopda_rates:"चोपडा केळी भाव",
+    nav_raver_rates:"रावेर केळी भाव",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधी मदत",
+    info_whatsapp_group:"WhatsApp Group",
+    status_login:"Login",
+    status_account:"खाते",
+    notification_title:"सूचना",
+    notification_empty:"कोणतीही सूचना नाही",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    today:"Today",
+    earlier:"Earlier",
+    hero_badge:"🌿 About BanaNetwork",
+    page_heading:"About Us – BanaNetwork",
+    page_lead:"BanaNetwork हा banana farming, market rates, buyer-seller connection आणि useful field information एकाच ठिकाणी आणण्याचा प्रयत्न करणारा independent digital platform आहे.",
+    updated_text:"Last Updated: 26 April 2026",
+    platform_role_chip:"Independent Banana Platform",
+    notice_title:"Independent Platform Notice",
+    notice_text:"BanaNetwork ही independent platform initiative आहे. ही कोणत्याही सरकारी संस्था किंवा मोठ्या private company ची official website नाही. येथे दिलेली माहिती reference आणि practical support साठी आहे.",
+    vision_banner_title:"Banana Ecosystem Vision",
+    vision_banner_text:"BanaNetwork चे goal फक्त माहिती देणे नाही, तर banana farming आणि trade ecosystem साठी एक useful, trusted आणि easy-to-access digital space तयार करणे आहे.",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_terms:"Terms"
+  },
+  hi:{
+    page_title:"About Us – BanaNetwork",
+    meta_description:"Learn about BanaNetwork, our mission, platform purpose, information sources, and future vision for the banana farming and trading ecosystem.",
+    meta_keywords:"BanaNetwork about, banana marketplace, farmer platform, banana rates, banana trading platform, about BanaNetwork",
+    og_description:"Know BanaNetwork's mission, independent platform role, information sources, and future vision for banana farmers and traders.",
+    brand_subtitle:"रोप खोडवा खरीद बिक्री",
+    drawer_subtitle:"केले से जुड़ी सभी सेवाएं",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"केला रोप खरीद",
+    nav_sell:"केला रोप बिक्री",
+    nav_khat_buy:"केला खोडवा खरीद",
+    nav_khat_sell:"केला खोडवा बिक्री",
+    nav_burhanpur_rates:"बुरहानपुर केला भाव",
+    nav_jalgaon_rates:"जलगांव केला भाव",
+    nav_chopda_rates:"चोपडा केला भाव",
+    nav_raver_rates:"रावेर केला भाव",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधि सहायता",
+    info_whatsapp_group:"WhatsApp Group",
+    status_login:"Login",
+    status_account:"खाता",
+    notification_title:"Notifications",
+    notification_empty:"No notifications",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    today:"Today",
+    earlier:"Earlier",
+    hero_badge:"🌿 About BanaNetwork",
+    page_heading:"About Us – BanaNetwork",
+    page_lead:"BanaNetwork banana farming, market rates, buyer-seller connection और useful field information को एक ही जगह लाने की कोशिश करने वाला independent digital platform है.",
+    updated_text:"Last Updated: 26 April 2026",
+    platform_role_chip:"Independent Banana Platform",
+    notice_title:"Independent Platform Notice",
+    notice_text:"BanaNetwork एक independent platform initiative है. यह किसी सरकारी संस्था या बड़ी private company की official website नहीं है. यहां दी गई information reference और practical support के लिए है.",
+    vision_banner_title:"Banana Ecosystem Vision",
+    vision_banner_text:"BanaNetwork का goal सिर्फ information देना नहीं, बल्कि banana farming और trade ecosystem के लिए एक useful, trusted और easy-to-access digital space बनाना है.",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_terms:"Terms"
+  },
+  en:{
+    page_title:"About Us – BanaNetwork",
+    meta_description:"Learn about BanaNetwork, our mission, platform purpose, information sources, and future vision for the banana farming and trading ecosystem.",
+    meta_keywords:"BanaNetwork about, banana marketplace, farmer platform, banana rates, banana trading platform, about BanaNetwork",
+    og_description:"Know BanaNetwork's mission, independent platform role, information sources, and future vision for banana farmers and traders.",
+    brand_subtitle:"Plant Khodwa Buy Sell",
+    drawer_subtitle:"All Banana Related Services",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"Banana Plant Buy",
+    nav_sell:"Banana Plant Sell",
+    nav_khat_buy:"Banana Khodwa Buy",
+    nav_khat_sell:"Banana Khodwa Sell",
+    nav_burhanpur_rates:"Burhanpur Banana Rate",
+    nav_jalgaon_rates:"Jalgaon Banana Rate",
+    nav_chopda_rates:"Chopda Banana Rate",
+    nav_raver_rates:"Raver Banana Rate",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"Terms & Conditions",
+    info_contact:"Contact Us",
+    info_agent_help:"Agent Help",
+    info_whatsapp_group:"WhatsApp Group",
+    status_login:"Login",
+    status_account:"Account",
+    notification_title:"Notifications",
+    notification_empty:"No notifications",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New message",
+    today:"Today",
+    earlier:"Earlier",
+    hero_badge:"🌿 About BanaNetwork",
+    page_heading:"About Us – BanaNetwork",
+    page_lead:"BanaNetwork is an independent digital platform that aims to bring banana farming updates, market rates, buyer-seller connection, and useful field information into one place.",
+    updated_text:"Last Updated: 26 April 2026",
+    platform_role_chip:"Independent Banana Platform",
+    notice_title:"Independent Platform Notice",
+    notice_text:"BanaNetwork is an independent platform initiative. It is not an official website of any government institution or large private company. Information here is shared for reference and practical support.",
+    vision_banner_title:"Banana Ecosystem Vision",
+    vision_banner_text:"BanaNetwork aims not only to share information, but to build a useful, trusted, and easy-to-access digital space for the banana farming and trade ecosystem.",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_terms:"Terms"
+  }
+};
+
+let currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+window.currentAboutUser = null;
+
+function t(key){
+  return translations[currentLanguage]?.[key] || translations.mr[key] || key;
+}
+
+function preserveLanguageAndClearStorage(){
+  const savedLanguage = localStorage.getItem("siteLanguage") || currentLanguage || "mr";
+  localStorage.clear();
+  localStorage.setItem("siteLanguage", savedLanguage);
+}
+
+function protectRouteUrl(url){
+  const hasUser = !!window.currentAboutUser || !!localStorage.getItem("userId") || !!localStorage.getItem("userName");
+  if(!hasUser){
+    window.location.href = "login.html";
+    return;
+  }
+  window.location.href = url;
+}
+
+async function logoutUser(){
+  if(typeof window.performAboutLogout === "function"){
+    await window.performAboutLogout();
+    return;
+  }
+  preserveLanguageAndClearStorage();
+  window.location.href = "index.html";
+}
+
+window.protectRouteUrl = protectRouteUrl;
+window.logoutUser = logoutUser;
+
+function toggleSidebar(show){
+  if(show){
+    sidebarDrawer.classList.add("open");
+    sidebarOverlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }else{
+    sidebarDrawer.classList.remove("open");
+    sidebarOverlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+}
+
+function openLangMenu(){
+  langMenu.classList.add("open");
+  langToggle.setAttribute("aria-expanded", "true");
+}
+
+function closeLangMenu(){
+  langMenu.classList.remove("open");
+  langToggle.setAttribute("aria-expanded", "false");
+}
+
+function openNotificationDropdown(){
+  if(notificationWrap.classList.contains("hidden")) return;
+  notificationDropdown.classList.add("open");
+  notificationBtn.setAttribute("aria-expanded", "true");
+}
+
+function closeNotificationDropdown(){
+  notificationDropdown.classList.remove("open");
+  notificationBtn.setAttribute("aria-expanded", "false");
+}
+
+function toggleNotificationDropdown(){
+  if(notificationDropdown.classList.contains("open")){
+    closeNotificationDropdown();
+  }else{
+    openNotificationDropdown();
+  }
+}
+
+window.closeAboutNotificationDropdown = closeNotificationDropdown;
+
+menuToggle.addEventListener("click", () => toggleSidebar(true));
+drawerClose.addEventListener("click", () => toggleSidebar(false));
+sidebarOverlay.addEventListener("click", () => toggleSidebar(false));
+
+langToggle.addEventListener("click", event => {
+  event.stopPropagation();
+  if(langMenu.classList.contains("open")){
+    closeLangMenu();
+  }else{
+    openLangMenu();
+  }
+});
+
+notificationBtn.addEventListener("click", event => {
+  event.stopPropagation();
+  toggleNotificationDropdown();
+});
+
+notificationDropdown.addEventListener("click", event => {
+  event.stopPropagation();
+});
+
+document.addEventListener("click", event => {
+  if(!event.target.closest(".lang-wrap")){
+    closeLangMenu();
+  }
+});
+
+document.addEventListener("click", event => {
+  if(!event.target.closest(".notification-wrap")){
+    closeNotificationDropdown();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if(event.key === "Escape"){
+    toggleSidebar(false);
+    closeLangMenu();
+    closeNotificationDropdown();
+  }
+});
+
+langOptions.forEach(button => {
+  button.addEventListener("click", () => {
+    currentLanguage = button.dataset.lang;
+    localStorage.setItem("siteLanguage", currentLanguage);
+    applyLanguage();
+    closeLangMenu();
+  });
+});
+
+document.querySelectorAll("[data-protected-route]").forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+    protectRouteUrl(link.dataset.protectedRoute);
+  });
+});
+
+function getCurrentPage(){
+  const page = window.location.pathname.split("/").pop();
+  return page || "about.html";
+}
+
+function setActiveNav(){
+  const currentPage = getCurrentPage();
+
+  document.querySelectorAll(".drawer-link[data-route]").forEach(link => {
+    let active = false;
+
+    if(currentPage === "index.html"){
+      active = link.dataset.route === "home";
+    }else if(currentPage === "buy.html"){
+      active = link.dataset.route === "plant-buy" || link.dataset.route === "khodwa-buy";
+    }else if(currentPage === "sell.html"){
+      active = link.dataset.route === "plant-sell" || link.dataset.route === "khodwa-sell";
+    }else if(currentPage === "jalgaon.html"){
+      active = link.dataset.route === "jalgaon";
+    }else if(currentPage === "chopda.html"){
+      active = link.dataset.route === "chopda";
+    }else if(currentPage === "raver.html"){
+      active = link.dataset.route === "raver";
+    }else if(currentPage === "about.html"){
+      active = link.dataset.route === "about";
+    }
+
+    link.classList.toggle("active", active);
+  });
+}
+
+function updateHeaderAuthState(user = window.currentAboutUser){
+  const userName = user?.displayName || localStorage.getItem("userName") || "";
+  const userId = user?.uid || localStorage.getItem("userId") || "";
+  const isLoggedIn = !!(userId || userName);
+
+  if(isLoggedIn){
+    loginStatusBtn.href = "account.html";
+    loginStatusIcon.textContent = "👤";
+    loginStatusText.innerText = t("status_account");
+    accountBtn.href = "account.html";
+    accountBtn.textContent = userName.trim().charAt(0).toUpperCase() || "👤";
+
+    drawerAuthLink.href = "index.html";
+    drawerAuthLink.onclick = function(event){
+      event.preventDefault();
+      logoutUser();
+    };
+    drawerAuthIcon.textContent = "🚪";
+    drawerLoginText.textContent = t("nav_logout");
+
+    notificationWrap.classList.remove("hidden");
+  }else{
+    loginStatusBtn.href = "login.html";
+    loginStatusIcon.textContent = "🔑";
+    loginStatusText.innerText = t("status_login");
+    accountBtn.href = "login.html";
+    accountBtn.textContent = "👤";
+
+    drawerAuthLink.href = "login.html";
+    drawerAuthLink.onclick = null;
+    drawerAuthIcon.textContent = "🔑";
+    drawerLoginText.textContent = t("nav_login");
+
+    notificationWrap.classList.add("hidden");
+    notificationCount.textContent = "0";
+    notificationCount.classList.add("hidden");
+    closeNotificationDropdown();
+  }
+}
+
+window.updateHeaderAuthState = updateHeaderAuthState;
+
+function renderAboutContent(){
+  aboutSections.innerHTML = aboutTemplates[currentLanguage] || aboutTemplates.mr;
+}
+
+function applyLanguage(){
+  document.documentElement.lang = currentLanguage;
+  document.title = t("page_title");
+  metaDescription.content = t("meta_description");
+  metaKeywords.content = t("meta_keywords");
+  ogDescription.content = t("og_description");
+
+  brandSubtitle.textContent = t("brand_subtitle");
+  drawerSubtitle.textContent = t("drawer_subtitle");
+  labelMain.textContent = t("label_main");
+  labelAccount.textContent = t("label_account");
+  labelInfo.textContent = t("label_info");
+  drawerHome.textContent = t("nav_home");
+  drawerBuy.textContent = t("nav_buy");
+  drawerSell.textContent = t("nav_sell");
+  drawerKhatBuy.textContent = t("nav_khat_buy");
+  drawerKhatSell.textContent = t("nav_khat_sell");
+  drawerBurhanpur.textContent = t("nav_burhanpur_rates");
+  drawerJalgaon.textContent = t("nav_jalgaon_rates");
+  drawerChopda.textContent = t("nav_chopda_rates");
+  drawerRaver.textContent = t("nav_raver_rates");
+  drawerAccount.textContent = t("nav_account");
+  drawerChat.textContent = t("nav_my_chat");
+  drawerListingHistory.textContent = t("nav_listing_history");
+  drawerInbox.textContent = t("nav_inbox");
+  drawerSignup.textContent = t("nav_signup");
+  drawerAbout.textContent = t("info_about");
+  drawerPrivacy.textContent = t("info_privacy");
+  drawerTerms.textContent = t("info_terms");
+  drawerContact.textContent = t("info_contact");
+  drawerAgentHelp.textContent = t("info_agent_help");
+  drawerWhatsapp.textContent = t("info_whatsapp_group");
+
+  notificationTitle.textContent = t("notification_title");
+  langToggle.textContent = LANG_SHORT[currentLanguage] || "म";
+
+  heroBadge.textContent = t("hero_badge");
+  pageHeading.textContent = t("page_heading");
+  pageLead.textContent = t("page_lead");
+  updatedText.textContent = t("updated_text");
+  platformRoleChip.textContent = t("platform_role_chip");
+  noticeTitle.textContent = t("notice_title");
+  noticeText.textContent = t("notice_text");
+  visionBannerTitle.textContent = t("vision_banner_title");
+  visionBannerText.textContent = t("vision_banner_text");
+  footerMade.textContent = t("footer_made");
+  footerPrivacy.textContent = t("footer_privacy");
+  footerContact.textContent = t("footer_contact");
+  footerTerms.textContent = t("footer_terms");
+
+  langOptions.forEach(option => {
+    option.classList.toggle("active", option.dataset.lang === currentLanguage);
+  });
+
+  renderAboutContent();
+  updateHeaderAuthState(window.currentAboutUser);
+  setActiveNav();
+}
+
+window.aboutI18n = {
+  t,
+  currentLanguage: () => currentLanguage
+};
+
+window.addEventListener("load", () => {
+  updateHeaderAuthState(window.currentAboutUser);
+  setActiveNav();
+  applyLanguage();
+});
+
+window.addEventListener("focus", () => updateHeaderAuthState(window.currentAboutUser));
+window.addEventListener("storage", () => {
+  currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+  applyLanguage();
+});
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  onSnapshot,
+  doc,
+  updateDoc,
+  arrayUnion
+} from "https://www.gstatic.com/firebasejs/12.2.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBACccl0d8dMcssyF7Z1ol8vgOxsCJwYmE",
+  authDomain: "bananetwork-f8e1f.firebaseapp.com",
+  projectId: "bananetwork-f8e1f",
+  storageBucket: "bananetwork-f8e1f.firebasestorage.app",
+  messagingSenderId: "382838460721",
+  appId: "1:382838460721:web:f6a4a902786d4a8d5fe010",
+  measurementId: "G-85BR8H32TC"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+const i18n = window.aboutI18n;
+
+const notificationListEl = document.getElementById("notificationList");
+const notificationCountEl = document.getElementById("notificationCount");
+
+let currentUser = null;
+let notificationUnsubscribe = null;
+let notificationsCache = [];
+
+function tv(value){
+  return String(value ?? "").trim();
+}
+
+function escapeHtml(value){
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function getTimestampValue(value){
+  if(!value) return 0;
+  try{
+    if(typeof value.toDate === "function") return value.toDate().getTime();
+    if(value.seconds) return value.seconds * 1000;
+    const d = new Date(value);
+    return isNaN(d.getTime()) ? 0 : d.getTime();
+  }catch(error){
+    return 0;
+  }
+}
+
+function formatDateTime(value){
+  if(!value) return "Now";
+
+  try{
+    let date;
+
+    if(typeof value.toDate === "function"){
+      date = value.toDate();
+    }else if(value.seconds){
+      date = new Date(value.seconds * 1000);
+    }else{
+      date = new Date(value);
+    }
+
+    if(!date || isNaN(date.getTime())) return "Now";
+
+    const now = Date.now();
+    const diff = now - date.getTime();
+    const sec = Math.floor(diff / 1000);
+    const min = Math.floor(sec / 60);
+    const hr = Math.floor(min / 60);
+    const day = Math.floor(hr / 24);
+
+    if(sec < 60) return "Just now";
+    if(min < 60) return `${min}m ago`;
+    if(hr < 24) return `${hr}h ago`;
+    if(day === 1) return "Yesterday";
+    if(day < 7) return `${day}d ago`;
+
+    return date.toLocaleDateString("en-IN");
+  }catch(error){
+    return "Now";
+  }
+}
+
+function normalizeNotification(docSnap){
+  const data = docSnap.data() || {};
+  let message = String(data.message || "").trim();
+
+  if(data.type === "order_request"){
+    message = i18n.t("notification_new_order");
+  }else if(data.type === "order_accept"){
+    message = i18n.t("notification_order_accept");
+  }else if(data.type === "order_reject"){
+    message = i18n.t("notification_order_reject");
+  }else{
+    message = String(data.message || "").trim() || i18n.t("notification_new_message");
+  }
+
+  return {
+    id: docSnap.id,
+    type: String(data.type || "").trim(),
+    roomId: String(data.roomId || "").trim(),
+    senderId: String(data.senderId || "").trim(),
+    userName: String(data.userName || data.senderName || "User").trim(),
+    photoURL: String(data.photoURL || data.senderPhoto || "").trim(),
+    productName: String(data.productName || data.productTitle || "").trim(),
+    userPhone: tv(data.userPhone) || tv(data.senderPhone) || "",
+    message,
+    read: !!data.read,
+    hiddenFor: Array.isArray(data.hiddenFor) ? data.hiddenFor.map(String) : [],
+    createdMs: getTimestampValue(data.createdAt),
+    timeLabel: formatDateTime(data.createdAt)
+  };
+}
+
+function getVisibleNotifications(){
+  const uid = currentUser?.uid || localStorage.getItem("userId") || "";
+  return notificationsCache
+    .filter(item => !item.hiddenFor.includes(uid))
+    .sort((a,b) => b.createdMs - a.createdMs);
+}
+
+function updateNotificationBadge(){
+  const unread = getVisibleNotifications().filter(item => !item.read).length;
+  notificationCountEl.textContent = unread > 99 ? "99+" : String(unread);
+  notificationCountEl.classList.toggle("hidden", unread === 0);
+}
+
+function enableSwipeToDelete(){
+  document.querySelectorAll(".notification-card").forEach(card => {
+    if(card.dataset.swipeAttached) return;
+    card.dataset.swipeAttached = "true";
+
+    let startX = 0;
+    let currentX = 0;
+    let isSwiping = false;
+    let isMoved = false;
+
+    card.addEventListener("touchstart", e => {
+      startX = e.touches[0].clientX;
+      currentX = startX;
+      isSwiping = true;
+      isMoved = false;
+      card.style.transition = "none";
+    }, { passive:true });
+
+    card.addEventListener("touchmove", e => {
+      if(!isSwiping) return;
+
+      currentX = e.touches[0].clientX;
+      const diff = currentX - startX;
+
+      if(diff < 0){
+        isMoved = true;
+        card.style.transform = `translateX(${diff}px)`;
+
+        if(Math.abs(diff) > 70){
+          card.classList.add("show-delete");
+        }else{
+          card.classList.remove("show-delete");
+        }
+      }
+    }, { passive:true });
+
+    card.addEventListener("touchend", async e => {
+      isSwiping = false;
+      const diff = currentX - startX;
+      card.style.transition = "transform .25s ease";
+
+      if(isMoved){
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      if(Math.abs(diff) > 120){
+        card.style.transform = "translateX(-100%)";
+
+        setTimeout(async () => {
+          const id = card.dataset.notificationId;
+          const uid = currentUser?.uid || localStorage.getItem("userId");
+
+          try{
+            await updateDoc(doc(db, "notifications", id), {
+              hiddenFor: arrayUnion(uid)
+            });
+          }catch(err){
+            console.error(err);
+          }
+        }, 200);
+      }else{
+        card.style.transform = "translateX(0)";
+        card.classList.remove("show-delete");
+      }
+    });
+  });
+}
+
+function renderNotifications(){
+  const items = getVisibleNotifications();
+
+  if(!items.length){
+    notificationListEl.innerHTML = `
+      <div class="notification-empty">
+        ${escapeHtml(i18n.t("notification_empty"))}
+      </div>`;
+    updateNotificationBadge();
+    return;
+  }
+
+  const today = [];
+  const older = [];
+
+  items.forEach(item => {
+    const diff = Date.now() - item.createdMs;
+    if(diff < 86400000){
+      today.push(item);
+    }else{
+      older.push(item);
+    }
+  });
+
+  function renderGroup(title, list){
+    if(!list.length) return "";
+
+    return `
+      <div style="font-weight:800; padding:8px 12px; color:#64748b;">
+        ${escapeHtml(title)}
+      </div>
+
+      ${list.map(item => `
+        <div class="notification-card ${item.read ? "" : "unread"}" data-notification-id="${escapeHtml(item.id)}">
+          <img class="notification-avatar" src="${escapeHtml(item.photoURL || ("https://ui-avatars.com/api/?name=" + encodeURIComponent(item.userName || "U")))}" alt="${escapeHtml(item.userName || "User")}">
+
+          <div class="notification-body">
+            <div class="notification-top">
+              <div class="notification-user">${escapeHtml(item.userName || "User")}</div>
+              <div class="notification-time">${escapeHtml(item.timeLabel)}</div>
+            </div>
+
+            <div class="notification-message">${escapeHtml(item.message)}</div>
+
+            ${item.userPhone ? `
+              <div class="notification-phone">
+                ☎ ${escapeHtml(item.userPhone)}
+              </div>
+            ` : ""}
+
+            <div class="notification-meta">
+              <div class="notification-product">${escapeHtml(item.productName || "")}</div>
+              ${!item.read ? `<div class="notification-dot"></div>` : ""}
+            </div>
+          </div>
+        </div>
+      `).join("")}
+    `;
+  }
+
+  notificationListEl.innerHTML =
+    renderGroup(i18n.t("today"), today) +
+    renderGroup(i18n.t("earlier"), older);
+
+  enableSwipeToDelete();
+  updateNotificationBadge();
+}
+
+notificationListEl.addEventListener("click", async e => {
+  const card = e.target.closest(".notification-card");
+  if(!card) return;
+
+  const id = card.dataset.notificationId;
+  const item = notificationsCache.find(n => n.id === id);
+  if(!item) return;
+
+  if(!item.read){
+    try{
+      await updateDoc(doc(db, "notifications", id), { read:true });
+    }catch(err){
+      console.error(err);
+    }
+  }
+
+  if(typeof window.closeAboutNotificationDropdown === "function"){
+    window.closeAboutNotificationDropdown();
+  }
+
+  const roomId = item.roomId;
+  const qs = roomId ? `?room=${encodeURIComponent(roomId)}` : "";
+  window.location.href = `chat.html${qs}`;
+});
+
+function subscribeNotifications(user){
+  if(notificationUnsubscribe){
+    notificationUnsubscribe();
+    notificationUnsubscribe = null;
+  }
+
+  notificationsCache = [];
+  renderNotifications();
+
+  if(!user?.uid) return;
+
+  const q = query(
+    collection(db, "notifications"),
+    where("receiverId", "==", user.uid)
+  );
+
+  const unsubscribe = onSnapshot(q, snap => {
+    notificationsCache = snap.docs
+      .map(docSnap => normalizeNotification(docSnap))
+      .filter(item => item.senderId !== user.uid);
+
+    renderNotifications();
+  }, error => {
+    console.error(error);
+    notificationsCache = [];
+    renderNotifications();
+  });
+
+  notificationUnsubscribe = () => {
+    unsubscribe();
+  };
+}
+
+window.performAboutLogout = async function(){
+  try{
+    await signOut(auth);
+  }catch(error){
+    console.error(error);
+  }
+
+  const savedLanguage = localStorage.getItem("siteLanguage") || "mr";
+  localStorage.clear();
+  localStorage.setItem("siteLanguage", savedLanguage);
+
+  currentUser = null;
+  window.currentAboutUser = null;
+
+  if(notificationUnsubscribe){
+    notificationUnsubscribe();
+    notificationUnsubscribe = null;
+  }
+
+  notificationsCache = [];
+  renderNotifications();
+
+  if(typeof window.updateHeaderAuthState === "function"){
+    window.updateHeaderAuthState(null);
+  }
+
+  window.location.href = "index.html";
+};
+
+onAuthStateChanged(auth, user => {
+  currentUser = user;
+  window.currentAboutUser = user;
+
+  if(user){
+    localStorage.setItem("userId", user.uid);
+    if(user.displayName){
+      localStorage.setItem("userName", user.displayName);
+    }
+    if(user.photoURL){
+      localStorage.setItem("userPhoto", user.photoURL);
+    }
+  }else{
+    localStorage.removeItem("userId");
+  }
+
+  if(typeof window.updateHeaderAuthState === "function"){
+    window.updateHeaderAuthState(user);
+  }
+
+  subscribeNotifications(user);
+});
+
+renderNotifications();
+</script>
 
 </body>
 </html>
