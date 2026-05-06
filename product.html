@@ -324,7 +324,7 @@ body{
   box-shadow:0 18px 40px rgba(15,23,42,.16);
   padding:10px;
   display:none;
-  z-index:7150;
+  z-index:8200;
 }
 
 .notification-dropdown.open{
@@ -2282,6 +2282,32 @@ div{
     width:calc(100vw - 14px);
   }
 }
+
+@media (max-width:560px){
+  .notification-dropdown{
+    position:fixed;
+    top:58px;
+    left:8px;
+    right:8px;
+    width:auto;
+    max-height:calc(100vh - 76px);
+    overflow:hidden;
+    z-index:8200;
+  }
+
+  .notification-list{
+    max-height:calc(100vh - 138px);
+  }
+}
+
+@media (max-width:390px){
+  .notification-dropdown{
+    left:7px;
+    right:7px;
+    width:auto;
+  }
+}
+
 </style>
 </head>
 <body>
