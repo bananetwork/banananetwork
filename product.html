@@ -1386,6 +1386,52 @@ main{
 }
 
 /* MODALS */
+/* FULL PHOTO MODAL BACK BUTTON FIX */
+.image-modal{
+  z-index:9000 !important;
+}
+
+.modal-top-btn{
+  position:fixed !important;
+  top:14px !important;
+  z-index:9100 !important;
+  width:46px;
+  height:46px;
+  background:rgba(17,24,39,.78) !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 12px 28px rgba(0,0,0,.28);
+}
+
+.modal-back-btn{
+  left:14px !important;
+}
+
+.modal-close-btn{
+  right:14px !important;
+}
+
+@media (max-width:600px){
+  .image-modal{
+    z-index:9000 !important;
+    padding-top:64px !important;
+  }
+
+  .modal-top-btn{
+    top:12px !important;
+    width:42px;
+    height:42px;
+    font-size:24px;
+  }
+
+  .modal-back-btn{
+    left:12px !important;
+  }
+
+  .modal-close-btn{
+    right:12px !important;
+  }
+}
 
 .image-modal,
 .sheet-backdrop,
