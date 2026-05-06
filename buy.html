@@ -10,17 +10,10 @@
 
 <meta property="og:title" content="BanaNetwork Buy">
 <meta id="ogDescription" property="og:description" content="रोप खोडवा खरेदी विक्री | Smart filters | Premium cards | BanaNetwork">
-<meta property="og:image" content="https://bananetwork.in/ropphoto.jpeg">
+<meta property="og:image" content="https://bananetwork.in/share.png">
 <meta property="og:url" content="https://bananetwork.in/buy.html">
 <meta property="og:type" content="website">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJ69GK381P"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-FJ69GK381P');
-</script>
+
 <style>
 :root{
   --green:#2e7d32;
@@ -315,8 +308,9 @@ body{
   box-shadow:0 18px 40px rgba(15,23,42,.16);
   padding:10px;
   display:none;
-  z-index:7150;
+  z-index:8200;
 }
+
 
 .notification-dropdown.open{
   display:block;
@@ -1560,6 +1554,10 @@ body{
   .notification-dropdown{
     width:min(340px,calc(100vw - 24px));
   }
+  .notification-dropdown.open{
+    animation:notificationPop .2s ease;
+  } 
+
 }
 
 @media (max-width:560px){
@@ -1636,10 +1634,8 @@ body{
     grid-template-columns:repeat(2,1fr);
     gap:10px;
   }
-
   .notification-dropdown{
-    right:-52px;
-    width:min(320px,calc(100vw - 16px));
+    width:calc(100vw - 20px);
   }
 }
 
@@ -1668,10 +1664,6 @@ body{
     height:34px;
   }
 
-  .notification-dropdown{
-    right:-84px;
-    width:calc(100vw - 14px);
-  }
 }
 
 .filter-preview-card{
@@ -1713,6 +1705,32 @@ body{
 .filter-preview-btn.active .filter-preview-arrow{
   transform:rotate(180deg);
 }
+
+@media (max-width:560px){
+  .notification-dropdown{
+    position:fixed;
+    top:58px;
+    left:8px;
+    right:8px;
+    width:auto;
+    max-height:calc(100vh - 76px);
+    overflow:hidden;
+    z-index:8200;
+  }
+
+  .notification-list{
+    max-height:calc(100vh - 138px);
+  }
+}
+
+@media (max-width:390px){
+  .notification-dropdown{
+    left:7px;
+    right:7px;
+    width:auto;
+  }
+}
+
 </style>
 </head>
 
