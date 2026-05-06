@@ -730,7 +730,18 @@ body{
 .hero-slide img{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
+  position:relative;
+  z-index:2;
+}
+
+.hero-slide::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:inherit;
+  filter:blur(20px);
+  z-index:1;
 }
 
 #pavtiImg{
@@ -774,11 +785,9 @@ body{
 }
 
 .mode-row{
-  display:flex;
+  display:grid;
+  grid-template-columns:1fr 1fr;
   gap:10px;
-  overflow-x:auto;
-  scrollbar-width:none;
-  white-space:nowrap;
 }
 
 .mode-row::-webkit-scrollbar{display:none}
