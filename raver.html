@@ -1,452 +1,2663 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="mr">
 <head>
 <meta charset="UTF-8">
-<title>रावेर आजचा केळी भाव | केळी बाजार भाव | BanaNetwork</title>
+<title>रावेर आजचा केळी भाव | केळी बाजार भाव Live | BanaNetwork</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta id="metaDescription" name="description" content="रावेर आजचा केळी बाजार भाव, नवती 1 आणि नवती 2 दररोज Live अपडेट BanaNetwork वर पहा.">
+<meta id="metaKeywords" name="keywords" content="Raver banana rate, Raver mandi bhav, रावेर बाजार केळी भाव">
 <link rel="icon" type="image/png" href="favicon.png">
 
 <meta property="og:title" content="BanaNetwork">
-<meta property="og:description" content="केळी बाजार भाव, मंडी अपडेट्स, शेती माहिती">
+<meta id="ogDescription" property="og:description" content="केळी बाजार भाव, मंडी अपडेट्स, शेती माहिती">
 <meta property="og:image" content="https://bananetwork.in/share.png">
-<meta property="og:url" content="https://bananetwork.in">
+<meta property="og:url" content="https://bananetwork.in/raver.html">
 <meta property="og:type" content="website">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJ69GK381P"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-FJ69GK381P');
+gtag("js", new Date());
+gtag("config", "G-FJ69GK381P");
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
 
 <style>
-body{font-family:Arial;background:#f4f6f8;margin:0}
+:root{
+  --green:#2e7d32;
+  --green-dark:#1b5e20;
+  --soft:#f6f7f9;
+  --muted:#64748b;
+  --border:#e5e7eb;
+  --shadow:0 10px 28px rgba(15,23,42,.08);
+}
 
-/* ===== NEW PRO HEADER START ===== */
-header{
-  background:linear-gradient(135deg,#2e7d32,#1b5e20);
-  color:#fff;
-  padding:12px 15px;
+*{
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f4f6f8;
+  margin:0;
+  color:#111;
+  overflow-x:hidden;
+}
+
+.hidden{
+  display:none !important;
+}
+
+.yt-header{
+  position:sticky;
+  top:0;
+  z-index:7000;
+  background:linear-gradient(180deg,#cfeecd 0%, #b7e2b4 100%);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #a7d3a3;
+  box-shadow:0 8px 20px rgba(46,125,50,.14);
+}
+
+.header-inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  position:relative;
+  gap:10px;
+  padding:10px 14px;
+  min-height:72px;
 }
 
-.left{
+.header-left{
   display:flex;
   align-items:center;
   gap:10px;
-}
-.logo{
-  width:50px;height:50px;border-radius:12px;background:#fff;
-  display:flex;align-items:center;justify-content:center;overflow:hidden;
-}
-.logo img{width:100%}
-.brand{display:flex;flex-direction:column}
-.brand b{font-size:20px}
-.brand span{font-size:12px;opacity:.8}
-
-.live{
-  background:#ffeb3b;color:#000;font-weight:bold;
-  padding:6px 12px;border-radius:20px;font-size:13px;
+  min-width:0;
+  flex:1;
 }
 
-.right{display:flex;align-items:center;gap:12px}
-
-.join{
-  background:#25D366;
-  padding:6px 12px;
-  border-radius:20px;
+.menu-btn{
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  background:#fff;
+  color:#111;
+  font-size:26px;
+  cursor:pointer;
   display:flex;
   align-items:center;
-  gap:5px;
-  font-weight:bold;
-  color:#fff;
+  justify-content:center;
+  transition:background .2s ease, transform .2s ease;
+  flex-shrink:0;
+}
+
+.menu-btn:hover{
+  background:#f1f5f9;
+  transform:translateY(-1px);
+}
+
+.brand-link{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
   text-decoration:none;
+  color:#111;
+  flex:1;
 }
 
-.menu-btn{font-size:24px;cursor:pointer}
-
-.menu{
- position:absolute;top:70px;right:10px;
- background:#fff;border-radius:12px;
- box-shadow:0 10px 30px rgba(0,0,0,.25);
- display:none;width:200px;overflow:hidden
+.logo{
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  border:1px solid #d9f4db;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex-shrink:0;
 }
-.menu a{display:block;padding:12px;text-decoration:none;color:#333}
-.menu a:hover{background:#f1f8e9}
-/* ===== NEW PRO HEADER END ===== */
 
-/* ===== HEADLINE TICKER ===== */
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:4px;
+  background:#fff;
+}
+
+.brand{
+  min-width:0;
+  flex:1;
+  max-width:260px;
+}
+
+.brand b{
+  display:block;
+  font-size:23px;
+  line-height:1.05;
+  color:#146c2e;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-shrink:0;
+  flex-wrap:nowrap;
+}
+
+.status-pill{
+  background:#f1f5f9;
+  color:#111827;
+  font-weight:800;
+  padding:11px 16px;
+  border-radius:999px;
+  font-size:14px;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-height:44px;
+  transition:background .2s ease, transform .2s ease;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+.status-pill:hover{
+  background:#e8eef5;
+  transform:translateY(-1px);
+}
+
+.icon-circle{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:transform .2s ease, background .2s ease;
+  flex-shrink:0;
+}
+
+.icon-circle:hover{
+  transform:translateY(-1px);
+}
+
+.whatsapp-btn{
+  background:#25D366;
+  box-shadow:0 8px 18px rgba(37,211,102,.22);
+}
+
+.whatsapp-btn img{
+  width:20px;
+  height:20px;
+  display:block;
+}
+
+.account-btn{
+  background:#f59e0b;
+  color:#fff;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(245,158,11,.24);
+}
+
+.lang-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+
+.lang-btn{
+  background:#ffffff;
+  color:#111827;
+  font-size:15px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+}
+
+.lang-menu{
+  position:absolute;
+  top:54px;
+  right:0;
+  min-width:140px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:8px;
+  display:none;
+  z-index:7100;
+}
+
+.lang-menu.open{
+  display:block;
+}
+
+.lang-option{
+  width:100%;
+  border:none;
+  background:#fff;
+  color:#111827;
+  text-align:left;
+  padding:10px 12px;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.lang-option:hover,
+.lang-option.active{
+  background:#f1f5f9;
+}
+
+.notification-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+
+.notification-btn{
+  position:relative;
+  background:#fff;
+  color:#111827;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(15,23,42,.10);
+  transition:.2s;
+}
+
+.notification-btn:hover{
+  background:#f8fafc;
+  transform:translateY(-1px);
+}
+
+.notification-count{
+  position:absolute;
+  top:-2px;
+  right:-2px;
+  min-width:20px;
+  height:20px;
+  padding:0 6px;
+  border-radius:999px;
+  background:#ef4444;
+  color:#fff;
+  font-size:11px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 16px rgba(239,68,68,.28);
+}
+
+.notification-dropdown{
+  position:absolute;
+  top:54px;
+  right:0;
+  width:min(360px,calc(100vw - 24px));
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:20px;
+  box-shadow:0 18px 40px rgba(15,23,42,.16);
+  padding:10px;
+  display:none;
+  z-index:7150;
+}
+
+.notification-dropdown.open{
+  display:block;
+  animation:notificationPop .18s ease;
+}
+
+@keyframes notificationPop{
+  0%{opacity:0; transform:translateY(-8px)}
+  100%{opacity:1; transform:translateY(0)}
+}
+
+.notification-head{
+  padding:6px 8px 10px;
+  border-bottom:1px solid #f1f5f9;
+  font-size:15px;
+  font-weight:800;
+  color:#111827;
+}
+
+.notification-list{
+  max-height:380px;
+  overflow:auto;
+  padding:8px 2px 2px;
+}
+
+.notification-list::-webkit-scrollbar{
+  width:6px;
+}
+
+.notification-list::-webkit-scrollbar-thumb{
+  background:#d6dee7;
+  border-radius:999px;
+}
+
+.notification-empty{
+  padding:18px 12px;
+  text-align:center;
+  color:#64748b;
+  font-size:14px;
+  font-weight:700;
+}
+
+.notification-card{
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:14px 16px;
+  border-radius:16px;
+  background:#fff;
+  margin-bottom:10px;
+  transition:.2s;
+  cursor:pointer;
+  overflow:hidden;
+  touch-action:pan-y;
+}
+
+.notification-card:hover{
+  background:#f8fafc;
+}
+
+.notification-card.unread{
+  background:#f0f9ff;
+}
+
+.notification-card.swiping{
+  transition:none;
+}
+
+.notification-card::after{
+  content:"🗑 Delete";
+  position:absolute;
+  right:0;
+  top:0;
+  bottom:0;
+  width:100px;
+  background:#ef4444;
+  color:#fff;
+  font-size:14px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  opacity:0;
+  transition:.2s;
+}
+
+.notification-card.show-delete::after{
+  opacity:1;
+}
+
+.notification-avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.notification-body{
+  flex:1;
+  min-width:0;
+}
+
+.notification-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.notification-user{
+  font-size:15px;
+  font-weight:700;
+  color:#111827;
+}
+
+.notification-time{
+  font-size:12px;
+  color:#6b7280;
+  white-space:nowrap;
+}
+
+.notification-message{
+  font-size:14px;
+  font-weight:600;
+  color:#111827;
+  margin-top:2px;
+}
+
+.notification-phone{
+  font-size:13px;
+  font-weight:700;
+  color:#0f766e;
+  margin-top:3px;
+}
+
+.notification-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:4px;
+  gap:10px;
+}
+
+.notification-product{
+  font-size:13px;
+  color:#6b7280;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:80%;
+}
+
+.notification-dot{
+  width:8px;
+  height:8px;
+  background:#ef4444;
+  border-radius:50%;
+}
+
+.sidebar-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.42);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+  z-index:7800;
+}
+
+.sidebar-overlay.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.sidebar-drawer{
+  position:fixed;
+  top:0;
+  left:0;
+  width:min(330px,90vw);
+  height:100vh;
+  background:#fff;
+  transform:translateX(-100%);
+  transition:transform .28s ease;
+  z-index:7900;
+  box-shadow:24px 0 50px rgba(15,23,42,.22);
+  display:flex;
+  flex-direction:column;
+  overflow-y:auto;
+}
+
+.sidebar-drawer.open{
+  transform:translateX(0);
+}
+
+.sidebar-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 18px 14px;
+  border-bottom:1px solid #eef2f6;
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:2;
+}
+
+.sidebar-head .menu-btn{
+  background:#f8fafc;
+}
+
+.sidebar-brand b{
+  display:block;
+  font-size:22px;
+  color:#146c2e;
+  line-height:1.1;
+}
+
+.sidebar-brand span{
+  display:block;
+  font-size:12px;
+  color:#64748b;
+  margin-top:3px;
+}
+
+.sidebar-section{
+  padding:12px 14px;
+  border-bottom:1px solid #f1f5f9;
+}
+
+.sidebar-label{
+  font-size:13px;
+  color:#64748b;
+  font-weight:800;
+  margin:4px 10px 10px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.drawer-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px 14px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#111827;
+  font-weight:700;
+  margin-bottom:4px;
+  transition:background .2s ease, transform .2s ease;
+}
+
+.drawer-link:hover{
+  background:#f8fafc;
+  transform:translateX(2px);
+}
+
+.drawer-link.active{
+  background:#111827;
+  color:#fff;
+}
+
+.drawer-icon{
+  width:22px;
+  text-align:center;
+  font-size:18px;
+  flex-shrink:0;
+}
+
+.whatsapp-drawer-icon{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.whatsapp-drawer-icon img{
+  width:20px;
+  height:20px;
+  display:block;
+}
+
+.sticky-shell{
+  position:sticky;
+  top:72px;
+  z-index:6000;
+}
+
+.quick-nav-shell{
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #eef2f6;
+  box-shadow:0 6px 14px rgba(15,23,42,.03);
+}
+
+.quick-nav-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  overflow-x:auto;
+  white-space:nowrap;
+  padding:12px 14px;
+  scrollbar-width:none;
+}
+
+.quick-nav-row::-webkit-scrollbar{
+  display:none;
+}
+
+.nav-chip{
+  background:#f1f5f9;
+  color:#111827;
+  text-decoration:none;
+  border:none;
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:14px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  transition:background .2s ease, transform .2s ease, color .2s ease;
+}
+
+.nav-chip:hover{
+  background:#e9eef5;
+  transform:translateY(-1px);
+}
+
+.nav-chip.active{
+  background:#111827;
+  color:#fff;
+}
+
 .ticker-wrap{
- background:#fff8e1;
- border-top:2px solid #fbc02d;
- border-bottom:2px solid #fbc02d;
- overflow:hidden;
- white-space:nowrap;
- padding:10px 0;
- margin:10px 0;
+  background:linear-gradient(90deg,#fff8e4,#fff2cb);
+  border-top:2px solid #f1c24a;
+  border-bottom:2px solid #f1c24a;
+  overflow:hidden;
+  white-space:nowrap;
+  padding:10px 0;
 }
+
 .ticker{
- display:inline-block;
- padding-left:100%;
- animation: ticker 18s linear infinite;
- font-weight:bold;
- color:#333;
+  display:inline-block;
+  padding-left:100%;
+  animation:ticker 22s linear infinite;
+  font-weight:700;
+  color:#222;
+  font-size:15px;
 }
+
 @keyframes ticker{
- 0%{transform:translateX(0)}
- 100%{transform:translateX(-100%)}
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-100%)}
 }
 
-.box{background:#fff;margin:15px;padding:15px;border-radius:8px}
-  #marketData{
-  scroll-margin-top:120px;
+.page-content{
+  touch-action:pan-y;
 }
-.tabs{display:flex;overflow-x:auto;margin:15px}
+
+.receipt-box{
+  background:linear-gradient(180deg,#ffffff,#fbfcff);
+  border:1px solid #eef1f5;
+  box-shadow:0 8px 20px rgba(32,55,91,.05);
+}
+
+.receipt-slider{
+  position:relative;
+  width:100%;
+  height:360px;
+  overflow:hidden;
+  border-radius:16px;
+  background:linear-gradient(180deg,#eef4ff,#f8fbff);
+  border:1px solid #dfe8f4;
+}
+
+.box{
+  background:#fff;
+  margin:15px;
+  padding:15px;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+
+#marketData{
+  scroll-margin-top:190px;
+}
+
+.market-block{
+  margin-top:16px;
+}
+
+.market-block b{
+  display:block;
+  margin-bottom:6px;
+}
+
+.market-row{
+  line-height:1.8;
+  word-break:break-word;
+}
+
+.market-label{
+  font-weight:700;
+}
+
+.tabs{
+  display:flex;
+  overflow-x:auto;
+  margin:15px;
+  align-items:center;
+  gap:10px;
+}
+
 .tab{
- padding:10px 15px;
- margin-right:8px;
- background:#e0e0e0;
- border-radius:6px;
- font-weight:bold;
- text-decoration:none;
- color:black;
- display:inline-block;
+  padding:10px 16px;
+  background:#f1f5f9;
+  border-radius:999px;
+  font-weight:700;
+  text-decoration:none;
+  color:#000;
+  display:inline-block;
+  white-space:nowrap;
 }
-.tab.active{background:#2e7d32;color:#fff}
-.date-bar{margin:15px;background:#2e7d32;color:#fff;text-align:center;padding:12px;border-radius:6px;font-weight:bold}
-.pavti-img{width:100%;border-radius:6px}
 
-.up{color:green;font-weight:bold}
-.down{color:red;font-weight:bold}
+.tab.active{
+  background:#2e7d32;
+  color:#fff;
+}
+
+.date-bar{
+  margin:15px;
+  background:#2e7d32;
+  color:#fff;
+  text-align:center;
+  padding:12px;
+  border-radius:14px;
+  font-weight:700;
+}
+
+.up{color:green;font-weight:700}
+.down{color:red;font-weight:700}
+
+.graph-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
 
 .graph-buttons button{
- padding:6px 12px;margin:4px;background:#2e7d32;
- color:white;border:none;border-radius:5px;
+  padding:10px 14px;
+  background:#f1f5f9;
+  color:#111827;
+  border:none;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.graph-buttons button:hover{
+  background:#e8eef5;
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:.6s;
+  pointer-events:none;
+}
+
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  position:relative;
+  z-index:2;
+  display:block;
+}
+
+.slide.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+#pavtiImg{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:10px;
+  box-sizing:border-box;
+}
+
+.slide-text{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  z-index:3;
+  background:rgba(31,41,55,.78);
+  color:#fff;
+  padding:8px 14px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:15px;
+  backdrop-filter:blur(4px);
 }
 
 .skeleton{
-  background: linear-gradient(90deg,#eeeeee 25%,#dddddd 37%,#eeeeee 63%);
+  background:linear-gradient(90deg,#eeeeee 25%,#dddddd 37%,#eeeeee 63%);
   background-size:400% 100%;
-  animation: shimmer 1.4s infinite;
-  border-radius:8px;
+  animation:shimmer 1.4s infinite;
+  border-radius:16px;
 }
+
 @keyframes shimmer{
   0%{background-position:100% 0}
   100%{background-position:-100% 0}
 }
-.skel-img{height:220px;width:100%;margin-bottom:10px}
+
+.skel-img{
+  height:360px;
+  width:100%;
+  margin-bottom:10px;
+}
+
 .skel-text{height:14px;margin:8px 0}
 .skel-title{height:22px;width:60%;margin-bottom:10px}
 .skel-graph{height:200px;width:100%;margin-top:10px}
 
-.footer{
- background:#1b5e20;color:#fff;text-align:center;
- padding:18px 10px;margin-top:25px;font-size:14px;
+#imgSkeleton,
+#graphSkeleton{
+  transition:opacity .3s ease;
 }
-.footer a{color:#fff;text-decoration:none;margin:0 10px;font-weight:bold}
-.footer a:hover{text-decoration:underline}
+
+canvas{
+  display:block;
+  width:100% !important;
+  max-width:100%;
+  margin-top:18px;
+}
+
+#aavakChart,
+#vikriChart{
+  margin-top:24px;
+}
+
+.footer{
+  background:#1b5e20;
+  color:#fff;
+  text-align:center;
+  padding:18px 10px;
+  margin-top:25px;
+  font-size:14px;
+}
+
+.footer a{
+  color:#fff;
+  text-decoration:none;
+  margin:0 10px;
+  font-weight:700;
+}
+
+.footer a:hover{
+  text-decoration:underline;
+}
+
+.logout-popup-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s ease;
+  z-index:99999;
+}
+
+.logout-popup-overlay.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.logout-popup-box{
+  width:min(92%,420px);
+  background:#fff;
+  border-radius:24px;
+  padding:28px 22px;
+  text-align:center;
+  position:relative;
+  box-shadow:0 25px 60px rgba(0,0,0,.25);
+  animation:popupScale .25s ease;
+}
+
+@keyframes popupScale{
+  from{transform:scale(.85);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+.logout-popup-close{
+  position:absolute;
+  top:14px;
+  left:14px;
+  border:none;
+  background:#f1f5f9;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.logout-popup-icon{
+  font-size:54px;
+  margin-bottom:12px;
+}
+
+.logout-popup-title{
+  margin:0 0 10px;
+  font-size:24px;
+}
+
+.logout-popup-text{
+  color:#475569;
+  line-height:1.6;
+  font-size:15px;
+}
+
+.logout-popup-actions{
+  display:flex;
+  gap:12px;
+  margin-top:20px;
+}
+
+.popup-back-btn,
+.popup-confirm-btn{
+  flex:1;
+  border:none;
+  padding:14px;
+  border-radius:14px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.popup-back-btn{
+  background:#e2e8f0;
+}
+
+.popup-confirm-btn{
+  background:#dc2626;
+  color:#fff;
+}
+
+@media (max-width:768px){
+  .header-inner{
+    padding:10px;
+    min-height:66px;
+  }
+
+  .logo{
+    width:46px;
+    height:46px;
+    border-radius:13px;
+  }
+
+  .brand{
+    max-width:170px;
+  }
+
+  .brand b{
+    font-size:18px;
+  }
+
+  .brand span{
+    font-size:11px;
+  }
+
+  .status-pill{
+    padding:10px 11px;
+    font-size:13px;
+  }
+
+  .icon-circle{
+    width:40px;
+    height:40px;
+  }
+
+  .sticky-shell{
+    top:66px;
+  }
+
+  .ticker{
+    font-size:15px;
+  }
+
+  .box{
+    margin:12px;
+  }
+
+  .receipt-slider{
+    height:300px;
+  }
+
+  .skel-img{
+    height:300px;
+  }
+
+  #marketData{
+    scroll-margin-top:180px;
+  }
+
+  .notification-dropdown{
+    width:min(340px,calc(100vw - 24px));
+  }
+}
+
+@media (max-width:560px){
+  .header-inner{
+    gap:8px;
+    padding:8px 10px;
+  }
+
+  .header-left{
+    gap:8px;
+  }
+
+  .header-right{
+    gap:6px;
+  }
+
+  .menu-btn{
+    width:38px;
+    height:38px;
+    font-size:22px;
+  }
+
+  .logo{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+  }
+
+  .brand{
+    max-width:130px;
+  }
+
+  .brand b{
+    font-size:16px;
+  }
+
+  .brand span{
+    display:block;
+    font-size:10px;
+  }
+
+  .status-pill{
+    padding:8px 8px;
+    font-size:10px;
+    gap:5px;
+    min-height:38px;
+  }
+
+  .icon-circle{
+    width:36px;
+    height:36px;
+  }
+
+  .whatsapp-btn img{
+    width:17px;
+    height:17px;
+  }
+
+  .nav-chip{
+    padding:10px 13px;
+    font-size:13px;
+  }
+
+  .receipt-slider{
+    height:270px;
+  }
+
+  .skel-img{
+    height:270px;
+  }
+
+  .slide-text{
+    font-size:13px;
+    padding:7px 12px;
+  }
+
+  .notification-dropdown{
+    right:-52px;
+    width:min(320px,calc(100vw - 16px));
+  }
+}
+
+@media (max-width:390px){
+  .brand{
+    max-width:112px;
+  }
+
+  .brand b{
+    font-size:15px;
+  }
+
+  .brand span{
+    display:block;
+    font-size:9px;
+  }
+
+  .status-pill{
+    padding:7px 7px;
+    font-size:9px;
+  }
+
+  .menu-btn,
+  .icon-circle{
+    width:34px;
+    height:34px;
+  }
+
+  .notification-dropdown{
+    right:-84px;
+    width:calc(100vw - 14px);
+  }
+}
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="left">
-    <div class="logo"><img src="logo_1.png"></div>
-    <div class="brand">
-      <b>BanaNetwork</b>
-      <span>केळी बाजार भाव Live Updates</span>
+<header class="yt-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <button class="menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
+
+      <a class="brand-link" href="index.html">
+        <div class="logo"><img src="logo_1.png" alt="BanaNetwork Logo"></div>
+        <div class="brand">
+          <b>BanaNetwork</b>
+          <span id="brandSubtitle">रावेर केळी बाजार भाव</span>
+        </div>
+      </a>
     </div>
-  </div>
 
-  <div class="live">LIVE</div>
+    <div class="header-right">
+      <a class="status-pill" id="loginStatusBtn" href="login.html">
+        <span id="loginStatusIcon">🔑</span>
+        <span id="loginStatusText">Login</span>
+      </a>
 
-  <div class="right">
-    <a class="join" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="16">
-      Join
-    </a>
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-  </div>
+      <div class="lang-wrap">
+        <button class="icon-circle lang-btn" id="langToggle" type="button" aria-label="Change language" aria-expanded="false">म</button>
+        <div class="lang-menu" id="langMenu">
+          <button class="lang-option" type="button" data-lang="mr">मराठी</button>
+          <button class="lang-option" type="button" data-lang="hi">हिंदी</button>
+          <button class="lang-option" type="button" data-lang="en">English</button>
+        </div>
+      </div>
 
-  <div class="menu" id="menu">
-    <a href="index.html">🏠 Home</a>
-    <a href="about.html">ℹ️ About Us</a>
-    <a href="contact.html">📞 Contact</a>
-    <a href="privacy.html">🔒 Privacy</a>
+      <div class="notification-wrap hidden" id="notificationWrap">
+        <button id="notificationBtn" class="icon-circle notification-btn" type="button" aria-label="Notifications" aria-expanded="false">
+          <span>🔔</span>
+          <span id="notificationCount" class="notification-count hidden">0</span>
+        </button>
+        <div id="notificationDropdown" class="notification-dropdown">
+          <div class="notification-head" id="notificationTitle">Notifications</div>
+          <div class="notification-list" id="notificationList">
+            <div class="notification-empty">No notifications</div>
+          </div>
+        </div>
+      </div>
+
+      <a class="icon-circle whatsapp-btn" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </a>
+
+      <a class="icon-circle account-btn" id="accountBtn" href="login.html" title="My Account">👤</a>
+    </div>
   </div>
 </header>
 
-<!-- AUTO SCROLL HEADLINE -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<aside class="sidebar-drawer" id="sidebarDrawer">
+  <div class="sidebar-head">
+    <button class="menu-btn" id="drawerClose" aria-label="Close menu">☰</button>
+    <div class="sidebar-brand">
+      <b>BanaNetwork</b>
+      <span id="drawerSubtitle">केळी संबंधित सर्व सेवा</span>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelMain">मुख्य</div>
+    <a class="drawer-link" data-route="home" href="index.html"><span class="drawer-icon">🏠</span><span id="drawerHome">Home</span></a>
+    <a class="drawer-link" data-route="plant-buy" href="buy.html"><span class="drawer-icon">🌱</span><span id="drawerBuy">केळी रोप खरेदी</span></a>
+    <a class="drawer-link" data-route="plant-sell" href="sell.html"><span class="drawer-icon">🌱</span><span id="drawerSell">केळी रोप विक्री</span></a>
+    <a class="drawer-link" data-route="khodwa-buy" href="buy.html"><span class="drawer-icon">🪴</span><span id="drawerKhatBuy">केळी खोडवा खरेदी</span></a>
+    <a class="drawer-link" data-route="khodwa-sell" href="sell.html"><span class="drawer-icon">🪴</span><span id="drawerKhatSell">केळी खोडवा विक्री</span></a>
+    <a class="drawer-link" data-route="burhanpur" href="index.html"><span class="drawer-icon">₹</span><span id="drawerBurhanpur">बुरहानपूर केळी भाव</span></a>
+    <a class="drawer-link" data-route="jalgaon" href="jalgaon.html"><span class="drawer-icon">₹</span><span id="drawerJalgaon">जळगाव केळी भाव</span></a>
+    <a class="drawer-link" data-route="chopda" href="chopda.html"><span class="drawer-icon">₹</span><span id="drawerChopda">चोपडा केळी भाव</span></a>
+    <a class="drawer-link" data-route="raver" href="raver.html"><span class="drawer-icon">₹</span><span id="drawerRaver">रावेर केळी भाव</span></a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelAccount">खाते</div>
+    <a class="drawer-link" id="drawerAccountLink" href="account.html" onclick="protectRoute('account.html'); return false;"><span class="drawer-icon">👤</span><span id="drawerAccount">My Account</span></a>
+    <a class="drawer-link" id="drawerChatLink" href="chat.html" onclick="protectRoute('chat.html'); return false;"><span class="drawer-icon">💬</span><span id="drawerChat">My Chat</span></a>
+    <a class="drawer-link" id="drawerListingHistoryLink" href="mylistings.html" onclick="protectRoute('mylistings.html'); return false;"><span class="drawer-icon">📜</span><span id="drawerListingHistory">My Listing History</span></a>
+    <a class="drawer-link" id="drawerInboxLink" href="inbox.html" onclick="protectRoute('inbox.html'); return false;"><span class="drawer-icon">📥</span><span id="drawerInbox">My Inbox</span></a>
+    <a class="drawer-link" id="drawerSignupLink" href="login.html?mode=signup">
+      <span class="drawer-icon">📝</span>
+      <span id="drawerSignup">Signup</span>
+    </a>
+    <a class="drawer-link" id="drawerAuthLink" href="login.html">
+      <span class="drawer-icon" id="drawerAuthIcon">🔑</span>
+      <span id="drawerLoginText">Login</span>
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label" id="labelInfo">माहिती</div>
+    <a class="drawer-link" href="about.html"><span class="drawer-icon">ℹ️</span><span id="drawerAbout">About Us</span></a>
+    <a class="drawer-link" href="privacy.html"><span class="drawer-icon">🔒</span><span id="drawerPrivacy">Privacy Policy</span></a>
+    <a class="drawer-link" href="terms.html"><span class="drawer-icon">📄</span><span id="drawerTerms">Terms & Conditions</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">📞</span><span id="drawerContact">Contact Us</span></a>
+    <a class="drawer-link" href="contact.html"><span class="drawer-icon">🤝</span><span id="drawerAgentHelp">प्रतिनिधी मदत</span></a>
+    <a class="drawer-link" href="https://chat.whatsapp.com/CeOn6JY7EGvK0TZs4t5AGm" target="_blank" rel="noopener noreferrer">
+      <span class="drawer-icon whatsapp-drawer-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </span>
+      <span id="drawerWhatsapp">WhatsApp Group</span>
+    </a>
+  </div>
+</aside>
+
+<div class="sticky-shell">
+  <div class="quick-nav-shell">
+    <div class="quick-nav-row">
+      <a class="nav-chip" data-page="index.html" href="index.html" id="chipRates">भाव</a>
+      <a class="nav-chip" data-page="buy.html" href="buy.html" id="chipBuy">केळी रोप-खोडवा खरेदी विक्री</a>
+      <a class="nav-chip" data-page="contact.html" href="contact.html" id="chipServices">🛠Services</a>
+    </div>
+  </div>
+</div>
+
 <div class="ticker-wrap">
-  <div class="ticker">
-    🚨 आजचे केळी भाव Live अपडेट | 📍 बुरहानपूर - जळगाव - रावेर - चोपडा आजचे केळी बाजार भाव | 📈 भाव वाढ-घट माहिती | ⚡ दररोज संध्याकाळी जलद भाव पाहा | 🏬 मंडीबद्दल संपूर्ण माहिती व इतिहास | 🟢📱 दररोज केळीचे भाव पाहण्यासाठी वरील WhatsApp ग्रुपला जॉइन व्हा
+  <div class="ticker" id="marketTicker">🚨 रावेर आजचे केळी भाव Live अपडेट | 📍 रावेर मंडी नवती 1 आणि नवती 2 भाव | 📈 भाव वाढ-घट माहिती | ⚡ दररोज जलद अपडेट | 🟢📱 दररोज केळीचे भाव पाहण्यासाठी वरील WhatsApp ग्रुपला जॉइन व्हा</div>
+</div>
+
+<div class="page-content">
+  <div class="box receipt-box">
+    <div id="imgSkeleton" class="skeleton skel-img"></div>
+
+    <div class="receipt-slider">
+      <a href="raver.html" class="slide active">
+        <img id="pavtiImg" style="display:none" alt="बुरहानपूर मंडी प्रमाणित पावती">
+        <div class="slide-text" id="slideReceiptText">📸 बुरहानपूर मंडी प्रमाणित पावती</div>
+      </a>
+
+      <a href="buy.html" class="slide">
+        <img src="ropphoto.jpeg" alt="केळी रोप-खोडवा खरेदी विक्री">
+        <div class="slide-text" id="slideBuyText">🌱 केळी रोप-खोडवा खरेदी विक्री</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <a class="tab" href="index.html#marketData" id="tabBurhanpur">बुरहानपूर</a>
+    <a class="tab" href="jalgaon.html#marketData" id="tabJalgaon">जळगाव</a>
+    <a class="tab" href="chopda.html#marketData" id="tabChopda">चोपडा</a>
+    <a class="tab active" href="raver.html" id="tabRaver">रावेर</a>
+  </div>
+
+  <div class="date-bar" id="dateBar"></div>
+
+  <div class="box" id="marketData">
+    <div class="skeleton skel-title"></div>
+    <div class="skeleton skel-text"></div>
+    <div class="skeleton skel-text"></div>
+    <div class="skeleton skel-text"></div>
+    <div class="skeleton skel-text"></div>
+  </div>
+
+  <div class="box">
+    <h3 id="analysisTitle">📊 भाव विश्लेषण</h3>
+
+    <div class="graph-buttons">
+      <button id="graphBtn7" onclick="loadGraph(7)">7 दिवस</button>
+      <button id="graphBtn30" onclick="loadGraph(30)">30 दिवस</button>
+      <button id="graphBtn365" onclick="loadGraph(365)">365 दिवस</button>
+    </div>
+
+    <div id="graphSkeleton" class="skeleton skel-graph"></div>
+
+    <canvas id="rateChart"></canvas>
+    <canvas id="aavakChart" style="display:none"></canvas>
+    <canvas id="vikriChart" style="display:none"></canvas>
+  </div>
+
+  <div class="footer">
+    <div>© 2026 BanaNetwork</div>
+    <div id="footerMade">Made for Banana Farmers 🍌</div>
+    <div style="margin-top:8px;">
+      <a href="privacy.html" id="footerPrivacy">Privacy</a> |
+      <a href="terms.html" id="footerTerms">T&C</a> |
+      <a href="contact.html" id="footerContact">Contact</a> |
+      <a href="about.html" id="footerAbout">About</a>
+    </div>
   </div>
 </div>
 
-<div class="box">
-  <h3>📸 मंडी प्रमाणित पावती</h3>
-
-  <div id="imgSkeleton" class="skeleton skel-img"></div>
-  <img class="pavti-img" id="pavtiImg" style="display:none">
-</div>
-
-<div class="tabs">
-  <a class="tab" href="index.html#marketData">बुरहानपूर</a>
-  <a class="tab" href="jalgaon.html#marketData">जळगाव</a>
-  <a class="tab" href="chopda.html#marketData">चोपडा</a>
-  <a class="tab active" href="raver.html">रावेर</a>
-</div>
-
-
-<div class="date-bar" id="dateBar"></div>
-
-<div class="box" id="marketData">
-  <div class="skeleton skel-title"></div>
-  <div class="skeleton skel-text"></div>
-  <div class="skeleton skel-text"></div>
-  <div class="skeleton skel-text"></div>
-  <div class="skeleton skel-text"></div>
-</div>
-
-<div class="box">
-<h3>📊 भाव विश्लेषण</h3>
-
-<div class="graph-buttons">
-<button onclick="loadGraph(7)">7 दिवस</button>
-<button onclick="loadGraph(30)">30 दिवस</button>
-<button onclick="loadGraph(365)">365 दिवस</button>
-</div>
-
-<div id="graphSkeleton" class="skeleton skel-graph"></div>
-
-<canvas id="rateChart"></canvas>
-<canvas id="aavakChart"></canvas>
-<canvas id="vikriChart"></canvas>
-</div>
-
-<div class="footer">
-  <div>© 2026 BanaNetwork</div>
-  <div>Made for Banana Farmers 🍌</div>
-  <div style="margin-top:8px;">
-    <a href="privacy.html">Privacy</a> |
-    <a href="contact.html">Contact</a> |
-    <a href="about.html">About</a>
+<div class="logout-popup-overlay" id="logoutPopup">
+  <div class="logout-popup-box">
+    <button class="logout-popup-close" id="logoutBackTop" type="button">←</button>
+    <div class="logout-popup-icon">🚪</div>
+    <h2 class="logout-popup-title" id="logoutPopupTitle">Logout Confirmation</h2>
+    <p class="logout-popup-text" id="logoutPopupText">
+      तुम्हाला खात्री आहे का की तुम्ही logout करू इच्छिता?<br>
+      Logout केल्यावर या device वरील stored account data remove होईल.
+    </p>
+    <div class="logout-popup-actions">
+      <button class="popup-back-btn" id="logoutCancelBtn" type="button">Back Page</button>
+      <button class="popup-confirm-btn" id="logoutConfirmBtn" type="button">Logout</button>
+    </div>
   </div>
 </div>
 
-<script>
-function toggleMenu(){
- const m=document.getElementById("menu");
- m.style.display=(m.style.display==="block")?"none":"block";
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-auth.js";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  onSnapshot,
+  doc,
+  updateDoc,
+  arrayUnion
+} from "https://www.gstatic.com/firebasejs/12.2.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBACccl0d8dMcssyF7Z1ol8vgOxsCJwYmE",
+  authDomain: "bananetwork-f8e1f.firebaseapp.com",
+  projectId: "bananetwork-f8e1f",
+  storageBucket: "bananetwork-f8e1f.firebasestorage.app",
+  messagingSenderId: "382838460721",
+  appId: "1:382838460721:web:f6a4a902786d4a8d5fe010",
+  measurementId: "G-85BR8H32TC"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const metaDescription = document.getElementById("metaDescription");
+const metaKeywords = document.getElementById("metaKeywords");
+const ogDescription = document.getElementById("ogDescription");
+
+const brandSubtitle = document.getElementById("brandSubtitle");
+const drawerSubtitle = document.getElementById("drawerSubtitle");
+const labelMain = document.getElementById("labelMain");
+const labelAccount = document.getElementById("labelAccount");
+const labelInfo = document.getElementById("labelInfo");
+
+const notificationWrap = document.getElementById("notificationWrap");
+const notificationBtn = document.getElementById("notificationBtn");
+const notificationCount = document.getElementById("notificationCount");
+const notificationDropdown = document.getElementById("notificationDropdown");
+const notificationTitle = document.getElementById("notificationTitle");
+const notificationList = document.getElementById("notificationList");
+
+const drawerHome = document.getElementById("drawerHome");
+const drawerBuy = document.getElementById("drawerBuy");
+const drawerSell = document.getElementById("drawerSell");
+const drawerKhatBuy = document.getElementById("drawerKhatBuy");
+const drawerKhatSell = document.getElementById("drawerKhatSell");
+const drawerBurhanpur = document.getElementById("drawerBurhanpur");
+const drawerJalgaon = document.getElementById("drawerJalgaon");
+const drawerChopda = document.getElementById("drawerChopda");
+const drawerRaver = document.getElementById("drawerRaver");
+const drawerAccount = document.getElementById("drawerAccount");
+const drawerChat = document.getElementById("drawerChat");
+const drawerListingHistory = document.getElementById("drawerListingHistory");
+const drawerInbox = document.getElementById("drawerInbox");
+const drawerSignup = document.getElementById("drawerSignup");
+const drawerAbout = document.getElementById("drawerAbout");
+const drawerPrivacy = document.getElementById("drawerPrivacy");
+const drawerTerms = document.getElementById("drawerTerms");
+const drawerContact = document.getElementById("drawerContact");
+const drawerAgentHelp = document.getElementById("drawerAgentHelp");
+const drawerWhatsapp = document.getElementById("drawerWhatsapp");
+
+const chipRates = document.getElementById("chipRates");
+const chipBuy = document.getElementById("chipBuy");
+const chipServices = document.getElementById("chipServices");
+const marketTicker = document.getElementById("marketTicker");
+
+const slideReceiptText = document.getElementById("slideReceiptText");
+const slideBuyText = document.getElementById("slideBuyText");
+
+const tabBurhanpur = document.getElementById("tabBurhanpur");
+const tabJalgaon = document.getElementById("tabJalgaon");
+const tabChopda = document.getElementById("tabChopda");
+const tabRaver = document.getElementById("tabRaver");
+
+const analysisTitle = document.getElementById("analysisTitle");
+const graphBtn7 = document.getElementById("graphBtn7");
+const graphBtn30 = document.getElementById("graphBtn30");
+const graphBtn365 = document.getElementById("graphBtn365");
+
+const footerMade = document.getElementById("footerMade");
+const footerPrivacy = document.getElementById("footerPrivacy");
+const footerContact = document.getElementById("footerContact");
+const footerAbout = document.getElementById("footerAbout");
+const footerTerms = document.getElementById("footerTerms");
+
+const dateBar = document.getElementById("dateBar");
+const marketData = document.getElementById("marketData");
+const pavtiImg = document.getElementById("pavtiImg");
+const imgSkeleton = document.getElementById("imgSkeleton");
+const graphSkeleton = document.getElementById("graphSkeleton");
+const rateChartCanvas = document.getElementById("rateChart");
+const aavakChartCanvas = document.getElementById("aavakChart");
+const vikriChartCanvas = document.getElementById("vikriChart");
+
+const menuToggle = document.getElementById("menuToggle");
+const sidebarDrawer = document.getElementById("sidebarDrawer");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+const drawerClose = document.getElementById("drawerClose");
+
+const loginStatusBtn = document.getElementById("loginStatusBtn");
+const loginStatusIcon = document.getElementById("loginStatusIcon");
+const loginStatusText = document.getElementById("loginStatusText");
+const accountBtn = document.getElementById("accountBtn");
+const drawerAccountLink = document.getElementById("drawerAccountLink");
+const drawerChatLink = document.getElementById("drawerChatLink");
+const drawerListingHistoryLink = document.getElementById("drawerListingHistoryLink");
+const drawerInboxLink = document.getElementById("drawerInboxLink");
+const drawerSignupLink = document.getElementById("drawerSignupLink");
+const drawerAuthLink = document.getElementById("drawerAuthLink");
+const drawerAuthIcon = document.getElementById("drawerAuthIcon");
+const drawerLoginText = document.getElementById("drawerLoginText");
+
+const langToggle = document.getElementById("langToggle");
+const langMenu = document.getElementById("langMenu");
+const langOptions = [...document.querySelectorAll(".lang-option")];
+
+const logoutPopup = document.getElementById("logoutPopup");
+const logoutPopupTitle = document.getElementById("logoutPopupTitle");
+const logoutPopupText = document.getElementById("logoutPopupText");
+const logoutCancelBtn = document.getElementById("logoutCancelBtn");
+const logoutConfirmBtn = document.getElementById("logoutConfirmBtn");
+const logoutBackTop = document.getElementById("logoutBackTop");
+
+const pageOrder = [
+  "index.html",
+  "buy.html",
+  "sell.html",
+  "jalgaon.html",
+  "chopda.html",
+  "raver.html"
+];
+
+const marketPages = ["index.html", "jalgaon.html", "chopda.html", "raver.html"];
+const LANG_SHORT = { mr:"म", hi:"हि", en:"E" };
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT3B4g7toMMWKrRoUl282tnA2E5AY-vWIPETz7RRmKRpTNnvVkN-PuRk4S7YoERbTPa2-TuOGDJAAkR/pub?output=csv";
+const slides = document.querySelectorAll(".slide");
+
+const translations = {
+  mr:{
+    page_title:"रावेर आजचा केळी भाव | केळी बाजार भाव Live | BanaNetwork",
+    meta_description:"रावेर आजचा केळी बाजार भाव, नवती 1 आणि नवती 2 दररोज Live अपडेट BanaNetwork वर पहा.",
+    meta_keywords:"Raver banana rate, Raver mandi bhav, रावेर बाजार केळी भाव",
+    og_description:"केळी बाजार भाव, मंडी अपडेट्स, शेती माहिती",
+    brand_subtitle:"रावेर केळी बाजार भाव",
+    drawer_subtitle:"केळी संबंधित सर्व सेवा",
+    label_main:"मुख्य",
+    label_account:"खाते",
+    label_info:"माहिती",
+    nav_home:"Home",
+    nav_buy:"केळी रोप खरेदी",
+    nav_sell:"केळी रोप विक्री",
+    nav_khat_buy:"केळी खोडवा खरेदी",
+    nav_khat_sell:"केळी खोडवा विक्री",
+    nav_burhanpur_rates:"बुरहानपूर केळी भाव",
+    nav_jalgaon_rates:"जळगाव केळी भाव",
+    nav_chopda_rates:"चोपडा केळी भाव",
+    nav_raver_rates:"रावेर केळी भाव",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"T&C",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधी मदत",
+    info_whatsapp_group:"WhatsApp Group",
+    chip_rates:"भाव",
+    chip_buy:"केळी रोप-खोडवा खरेदी विक्री",
+    chip_services:"🛠Services",
+    ticker_text:"🚨 रावेर आजचे केळी भाव Live अपडेट | 📍 रावेर मंडी नवती 1 आणि नवती 2 भाव | 📈 भाव वाढ-घट माहिती | ⚡ दररोज जलद अपडेट | 🟢📱 दररोज केळीचे भाव पाहण्यासाठी वरील WhatsApp ग्रुपला जॉइन व्हा",
+    slide_receipt:"📸 बुरहानपूर मंडी प्रमाणित पावती",
+    slide_buy:"🌱 केळी रोप-खोडवा खरेदी विक्री",
+    tab_burhanpur:"बुरहानपूर",
+    tab_jalgaon:"जळगाव",
+    tab_chopda:"चोपडा",
+    tab_raver:"रावेर",
+    analysis_title:"📊 भाव विश्लेषण",
+    graph_7:"7 दिवस",
+    graph_30:"30 दिवस",
+    graph_365:"365 दिवस",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_about:"About",
+    footer_terms:"T&C",
+    status_login:"Login",
+    status_account:"खाते",
+    notification_title:"सूचना",
+    notification_empty:"सूचना नाहीत",
+    notification_new_order:"नवीन Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"नवीन Message",
+    notification_today:"आज",
+    notification_earlier:"आधीच्या",
+    date_prefix:"दि.",
+    weekdays:{
+      Sunday:"रविवार",
+      Monday:"सोमवार",
+      Tuesday:"मंगळवार",
+      Wednesday:"बुधवार",
+      Thursday:"गुरुवार",
+      Friday:"शुक्रवार",
+      Saturday:"शनिवार"
+    },
+    months:["जाने","फेब","मार्च","एप्रिल","मे","जून","जुल","ऑग","सप्टें","ऑक्टो","नोव्हे","डिसे"],
+    market_raver:"रावेर",
+    market_today:"आजचा भाव",
+    market_yesterday:"कालचा भाव",
+    market_diff:"फरक",
+    label_navti1:"नवती 1",
+    label_navti2:"नवती 2",
+    diff_up:"वाढ",
+    diff_down:"घट",
+    diff_same:"फरक नाही",
+    chart_navti1:"नवती1",
+    chart_navti2:"नवती2",
+    data_unavailable:"डेटा सध्या उपलब्ध नाही.",
+    logout_title:"Logout Confirmation",
+    logout_text:"तुम्हाला खात्री आहे का की तुम्ही logout करू इच्छिता?\nLogout केल्यावर या device वरील stored account data remove होईल.",
+    logout_back:"Back Page",
+    logout_confirm:"Logout"
+  },
+  hi:{
+    page_title:"रावेर आज का केला भाव | केला बाजार भाव Live | BanaNetwork",
+    meta_description:"रावेर का आज का केला बाजार भाव, नवती 1 और नवती 2 के Live अपडेट BanaNetwork पर देखें.",
+    meta_keywords:"Raver banana rate, Raver mandi bhav, रावेर केला भाव",
+    og_description:"केला बाजार भाव, मंडी अपडेट्स, खेती जानकारी",
+    brand_subtitle:"रावेर केला बाजार भाव",
+    drawer_subtitle:"केले से जुड़ी सभी सेवाएं",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"केला रोप खरीद",
+    nav_sell:"केला रोप बिक्री",
+    nav_khat_buy:"केला खोडवा खरीद",
+    nav_khat_sell:"केला खोडवा बिक्री",
+    nav_burhanpur_rates:"बुरहानपुर केला भाव",
+    nav_jalgaon_rates:"जलगांव केला भाव",
+    nav_chopda_rates:"चोपडा केला भाव",
+    nav_raver_rates:"रावेर केला भाव",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"T&C",
+    info_contact:"Contact Us",
+    info_agent_help:"प्रतिनिधि सहायता",
+    info_whatsapp_group:"WhatsApp Group",
+    chip_rates:"भाव",
+    chip_buy:"केला रोप-खोडवा खरीद बिक्री",
+    chip_services:"🛠Services",
+    ticker_text:"🚨 रावेर आज के केला भाव Live अपडेट | 📍 रावेर मंडी नवती 1 और नवती 2 भाव | 📈 भाव बढ़त-घटत जानकारी | ⚡ रोज़ तेज़ अपडेट | 🟢📱 रोज़ केला भाव देखने के लिए ऊपर वाले WhatsApp ग्रुप से जुड़ें",
+    slide_receipt:"📸 बुरहानपुर मंडी प्रमाणित रसीद",
+    slide_buy:"🌱 केला रोप-खोडवा खरीद बिक्री",
+    tab_burhanpur:"बुरहानपुर",
+    tab_jalgaon:"जलगांव",
+    tab_chopda:"चोपडा",
+    tab_raver:"रावेर",
+    analysis_title:"📊 भाव विश्लेषण",
+    graph_7:"7 दिन",
+    graph_30:"30 दिन",
+    graph_365:"365 दिन",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_about:"About",
+    footer_terms:"T&C",
+    status_login:"Login",
+    status_account:"खाता",
+    notification_title:"सूचनाएं",
+    notification_empty:"कोई सूचना नहीं",
+    notification_new_order:"नया Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"नया Message",
+    notification_today:"आज",
+    notification_earlier:"पहले की",
+    date_prefix:"दिनांक",
+    weekdays:{
+      Sunday:"रविवार",
+      Monday:"सोमवार",
+      Tuesday:"मंगलवार",
+      Wednesday:"बुधवार",
+      Thursday:"गुरुवार",
+      Friday:"शुक्रवार",
+      Saturday:"शनिवार"
+    },
+    months:["जन","फर","मार्च","अप्रै","मई","जून","जुल","अग","सित","अक्टू","नव","दिस"],
+    market_raver:"रावेर",
+    market_today:"आज का भाव",
+    market_yesterday:"कल का भाव",
+    market_diff:"अंतर",
+    label_navti1:"नवती 1",
+    label_navti2:"नवती 2",
+    diff_up:"बढ़त",
+    diff_down:"गिरावट",
+    diff_same:"कोई बदलाव नहीं",
+    chart_navti1:"नवती1",
+    chart_navti2:"नवती2",
+    data_unavailable:"डेटा अभी उपलब्ध नहीं है.",
+    logout_title:"Logout Confirmation",
+    logout_text:"क्या आप वाकई logout करना चाहते हैं?\nLogout के बाद इस device का stored account data हट जाएगा.",
+    logout_back:"Back Page",
+    logout_confirm:"Logout"
+  },
+  en:{
+    page_title:"Raver Banana Rate Today | Live Market Rates | BanaNetwork",
+    meta_description:"Check today's Raver banana market rates, including Navti 1 and Navti 2 live updates on BanaNetwork.",
+    meta_keywords:"Raver banana rate, Raver mandi bhav, banana market Raver",
+    og_description:"Banana market prices, mandi updates, farming information",
+    brand_subtitle:"Raver Banana Market Rate",
+    drawer_subtitle:"All Banana Related Services",
+    label_main:"Main",
+    label_account:"Account",
+    label_info:"Info",
+    nav_home:"Home",
+    nav_buy:"Banana Plant Buy",
+    nav_sell:"Banana Plant Sell",
+    nav_khat_buy:"Banana Khodwa Buy",
+    nav_khat_sell:"Banana Khodwa Sell",
+    nav_burhanpur_rates:"Burhanpur Banana Rate",
+    nav_jalgaon_rates:"Jalgaon Banana Rate",
+    nav_chopda_rates:"Chopda Banana Rate",
+    nav_raver_rates:"Raver Banana Rate",
+    nav_account:"My Account",
+    nav_my_chat:"My Chat",
+    nav_listing_history:"My Listing History",
+    nav_inbox:"My Inbox",
+    nav_signup:"Signup",
+    nav_login:"Login",
+    nav_logout:"Logout",
+    info_about:"About Us",
+    info_privacy:"Privacy Policy",
+    info_terms:"T&C",
+    info_contact:"Contact Us",
+    info_agent_help:"Agent Help",
+    info_whatsapp_group:"WhatsApp Group",
+    chip_rates:"Rates",
+    chip_buy:"Banana Plant & Khodwa Market",
+    chip_services:"🛠Services",
+    ticker_text:"🚨 Raver live banana rate updates today | 📍 Raver mandi Navti 1 and Navti 2 rates | 📈 Price rise and fall info | ⚡ Daily quick updates | 🟢📱 Join the WhatsApp group above for daily banana market rates",
+    slide_receipt:"📸 Certified Burhanpur mandi receipt",
+    slide_buy:"🌱 Banana Plant & Khodwa Market",
+    tab_burhanpur:"Burhanpur",
+    tab_jalgaon:"Jalgaon",
+    tab_chopda:"Chopda",
+    tab_raver:"Raver",
+    analysis_title:"📊 Price Analysis",
+    graph_7:"7 Days",
+    graph_30:"30 Days",
+    graph_365:"365 Days",
+    footer_made:"Made for Banana Farmers 🍌",
+    footer_privacy:"Privacy",
+    footer_contact:"Contact",
+    footer_about:"About",
+    footer_terms:"T&C",
+    status_login:"Login",
+    status_account:"Account",
+    notification_title:"Notifications",
+    notification_empty:"No notifications",
+    notification_new_order:"New Order Request",
+    notification_order_accept:"Order Accepted",
+    notification_order_reject:"Order Rejected",
+    notification_new_message:"New Message",
+    notification_today:"Today",
+    notification_earlier:"Earlier",
+    date_prefix:"Date",
+    weekdays:{
+      Sunday:"Sunday",
+      Monday:"Monday",
+      Tuesday:"Tuesday",
+      Wednesday:"Wednesday",
+      Thursday:"Thursday",
+      Friday:"Friday",
+      Saturday:"Saturday"
+    },
+    months:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+    market_raver:"Raver",
+    market_today:"Today's Rate",
+    market_yesterday:"Yesterday's Rate",
+    market_diff:"Difference",
+    label_navti1:"Navti 1",
+    label_navti2:"Navti 2",
+    diff_up:"increase",
+    diff_down:"decrease",
+    diff_same:"No change",
+    chart_navti1:"Navti1",
+    chart_navti2:"Navti2",
+    data_unavailable:"Data is unavailable right now.",
+    logout_title:"Logout Confirmation",
+    logout_text:"Are you sure you want to logout?\nStored account data on this device will be removed after logout.",
+    logout_back:"Back Page",
+    logout_confirm:"Logout"
+  }
+};
+
+let currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+let rows = [];
+let currentMarket = "रावेर";
+let chart = null;
+let aavakGraph = null;
+let vikriGraph = null;
+let currentUser = null;
+let notificationUnsubscribe = null;
+let notificationsCache = [];
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let currentSlide = 0;
+
+function t(key){
+  return translations[currentLanguage]?.[key] || translations.mr[key] || key;
 }
 
-document.addEventListener("click",function(e){
- const menu=document.getElementById("menu");
- const btn=document.querySelector(".menu-btn");
- if(menu && btn){
-   if(!menu.contains(e.target) && !btn.contains(e.target)){
-     menu.style.display="none";
-   }
- }
-});
+function langPack(){
+  return translations[currentLanguage] || translations.mr;
+}
 
-const weekdays={Sunday:"रविवार",Monday:"सोमवार",Tuesday:"मंगळवार",
-Wednesday:"बुधवार",Thursday:"गुरुवार",Friday:"शुक्रवार",Saturday:"शनिवार"};
+function clearLocalUser(){
+  [
+    "userName",
+    "userEmail",
+    "userPhoto",
+    "userId",
+    "userMobile",
+    "userPhone",
+    "userLoginType",
+    "userData"
+  ].forEach(key => localStorage.removeItem(key));
+}
+
+function escapeHtml(value){
+  return String(value ?? "").replace(/[&<>"']/g, char => {
+    return {
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      "\"":"&quot;",
+      "'":"&#39;"
+    }[char];
+  });
+}
+
+function clearNode(node){
+  while(node.firstChild){
+    node.removeChild(node.firstChild);
+  }
+}
+
+function hideSkeleton(el){
+  if(!el || el.style.display === "none") return;
+  el.style.opacity = "0";
+  setTimeout(() => {
+    el.style.display = "none";
+  }, 300);
+}
+
+function getCurrentPage(){
+  const page = window.location.pathname.split("/").pop();
+  return page || "raver.html";
+}
+
+function protectRoute(page){
+  const user = currentUser || localStorage.getItem("userId");
+  if(!user){
+    window.location.href = `login.html?redirect=${encodeURIComponent(page)}`;
+    return;
+  }
+  window.location.href = page;
+}
+
+async function logoutUser(){
+  try{
+    await signOut(auth);
+  }catch(error){}
+  clearLocalUser();
+  currentUser = null;
+  window.location.href = "login.html";
+}
+
+window.protectRoute = protectRoute;
+window.logoutUser = logoutUser;
+
+function openLogoutPopup(){
+  closeLangMenu();
+  closeNotificationDropdown();
+  logoutPopup.classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLogoutPopup(){
+  logoutPopup.classList.remove("show");
+  document.body.style.overflow = sidebarDrawer.classList.contains("open") ? "hidden" : "";
+}
+
+function toggleSidebar(show){
+  if(show){
+    closeLangMenu();
+    closeNotificationDropdown();
+    sidebarDrawer.classList.add("open");
+    sidebarOverlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }else{
+    sidebarDrawer.classList.remove("open");
+    sidebarOverlay.classList.remove("open");
+    document.body.style.overflow = logoutPopup.classList.contains("show") ? "hidden" : "";
+  }
+}
+
+function openLangMenu(){
+  closeNotificationDropdown();
+  langMenu.classList.add("open");
+  langToggle.setAttribute("aria-expanded", "true");
+}
+
+function closeLangMenu(){
+  langMenu.classList.remove("open");
+  langToggle.setAttribute("aria-expanded", "false");
+}
+
+function openNotificationDropdown(){
+  closeLangMenu();
+  notificationDropdown.classList.add("open");
+  notificationBtn.setAttribute("aria-expanded", "true");
+}
+
+function closeNotificationDropdown(){
+  notificationDropdown.classList.remove("open");
+  notificationBtn.setAttribute("aria-expanded", "false");
+}
+
+function toggleNotificationDropdown(){
+  if(notificationDropdown.classList.contains("open")){
+    closeNotificationDropdown();
+  }else{
+    openNotificationDropdown();
+  }
+}
+
+function getTimestampValue(value){
+  if(!value) return 0;
+  if(typeof value.toMillis === "function") return value.toMillis();
+  if(typeof value.seconds === "number") return value.seconds * 1000;
+  const ms = new Date(value).getTime();
+  return Number.isFinite(ms) ? ms : 0;
+}
+
+function formatDateTime(value){
+  const ms = getTimestampValue(value);
+  if(!ms) return "";
+  const diff = Date.now() - ms;
+
+  if(diff > 0 && diff < 60000) return "now";
+  if(diff > 0 && diff < 3600000) return `${Math.max(1, Math.floor(diff / 60000))}m ago`;
+  if(diff > 0 && diff < 86400000) return `${Math.max(1, Math.floor(diff / 3600000))}h ago`;
+
+  const locale = currentLanguage === "mr" ? "mr-IN" : currentLanguage === "hi" ? "hi-IN" : "en-IN";
+  return new Intl.DateTimeFormat(locale, {
+    day:"numeric",
+    month:"short"
+  }).format(new Date(ms));
+}
+
+function normalizeNotification(docSnap){
+  const data = docSnap.data() || {};
+  let message = String(data.message || "");
+
+  if(data.type === "order_request"){
+    message = t("notification_new_order");
+  }else if(data.type === "order_accept"){
+    message = t("notification_order_accept");
+  }else if(data.type === "order_reject"){
+    message = t("notification_order_reject");
+  }else{
+    message = message || t("notification_new_message");
+  }
+
+  const hiddenFor = Array.isArray(data.hiddenFor)
+    ? data.hiddenFor.map(String)
+    : [];
+
+  return {
+    id:docSnap.id,
+    type:String(data.type || ""),
+    roomId:String(data.roomId || ""),
+    senderId:String(data.senderId || ""),
+    userName:String(data.userName || data.senderName || "User"),
+    photoURL:String(data.photoURL || data.senderPhoto || ""),
+    productName:String(data.productName || data.productTitle || ""),
+    userPhone:String(data.userPhone || data.senderPhone || ""),
+    message,
+    read:!!data.read,
+    hiddenFor,
+    createdMs:getTimestampValue(data.createdAt),
+    timeLabel:formatDateTime(data.createdAt)
+  };
+}
+
+function getVisibleNotifications(){
+  const uid = currentUser?.uid || localStorage.getItem("userId") || "";
+  return notificationsCache
+    .filter(item => !item.hiddenFor.includes(uid))
+    .sort((a, b) => b.createdMs - a.createdMs);
+}
+
+function updateNotificationBadge(){
+  const unread = getVisibleNotifications().filter(item => !item.read).length;
+  notificationCount.textContent = unread > 99 ? "99+" : String(unread);
+  notificationCount.classList.toggle("hidden", unread === 0);
+}
+
+function enableSwipeToDelete(){
+  document.querySelectorAll(".notification-card").forEach(card => {
+    if(card.dataset.swipeAttached) return;
+    card.dataset.swipeAttached = "true";
+
+    let startX = 0;
+    let currentX = 0;
+    let isSwiping = false;
+    let isMoved = false;
+
+    card.addEventListener("touchstart", event => {
+      startX = event.touches[0].clientX;
+      currentX = startX;
+      isSwiping = true;
+      isMoved = false;
+      card.style.transition = "none";
+    }, { passive:true });
+
+    card.addEventListener("touchmove", event => {
+      if(!isSwiping) return;
+      currentX = event.touches[0].clientX;
+      const diff = currentX - startX;
+
+      if(diff < 0){
+        isMoved = true;
+        card.style.transform = `translateX(${diff}px)`;
+        if(Math.abs(diff) > 70){
+          card.classList.add("show-delete");
+        }else{
+          card.classList.remove("show-delete");
+        }
+      }
+    }, { passive:true });
+
+    card.addEventListener("touchend", async event => {
+      isSwiping = false;
+      const diff = currentX - startX;
+      card.style.transition = "transform .25s ease";
+
+      if(isMoved){
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      if(Math.abs(diff) > 120){
+        card.style.transform = "translateX(-100%)";
+
+        setTimeout(async () => {
+          const id = card.dataset.id;
+          const uid = currentUser?.uid || localStorage.getItem("userId") || "";
+          if(!id || !uid) return;
+
+          try{
+            await updateDoc(doc(db, "notifications", id), {
+              hiddenFor: arrayUnion(uid)
+            });
+          }catch(error){
+            console.error(error);
+          }
+        }, 200);
+      }else{
+        card.style.transform = "translateX(0)";
+        card.classList.remove("show-delete");
+      }
+    }, { passive:false });
+  });
+}
+
+function renderNotifications(){
+  const items = getVisibleNotifications();
+
+  if(!items.length){
+    notificationList.innerHTML = `<div class="notification-empty">${escapeHtml(t("notification_empty"))}</div>`;
+    updateNotificationBadge();
+    return;
+  }
+
+  const today = [];
+  const older = [];
+
+  items.forEach(item => {
+    const diff = Date.now() - item.createdMs;
+    if(diff < 86400000){
+      today.push(item);
+    }else{
+      older.push(item);
+    }
+  });
+
+  function renderGroup(title, list){
+    if(!list.length) return "";
+
+    return `
+      <div style="font-weight:800; padding:8px 12px; color:#64748b;">
+        ${escapeHtml(title)}
+      </div>
+      ${list.map(item => {
+        const avatar = item.photoURL
+          ? escapeHtml(item.photoURL)
+          : `https://ui-avatars.com/api/?name=${encodeURIComponent(item.userName || "U")}`;
+
+        const phoneLine = item.userPhone
+          ? `<div class="notification-phone">☎ ${escapeHtml(item.userPhone)}</div>`
+          : "";
+
+        return `
+          <div class="notification-card ${item.read ? "" : "unread"}" data-id="${escapeHtml(item.id)}">
+            <img class="notification-avatar" src="${avatar}" alt="${escapeHtml(item.userName || "User")}">
+            <div class="notification-body">
+              <div class="notification-top">
+                <div class="notification-user">${escapeHtml(item.userName || "User")}</div>
+                <div class="notification-time">${escapeHtml(item.timeLabel)}</div>
+              </div>
+              <div class="notification-message">${escapeHtml(item.message)}</div>
+              ${phoneLine}
+              <div class="notification-meta">
+                <div class="notification-product">${escapeHtml(item.productName || "")}</div>
+                ${!item.read ? `<div class="notification-dot"></div>` : ""}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("")}
+    `;
+  }
+
+  notificationList.innerHTML =
+    renderGroup(t("notification_today"), today) +
+    renderGroup(t("notification_earlier"), older);
+
+  notificationList.onclick = async event => {
+    const card = event.target.closest(".notification-card");
+    if(!card) return;
+
+    const id = card.dataset.id;
+    const item = notificationsCache.find(notification => notification.id === id);
+    if(!item) return;
+
+    if(!item.read){
+      try{
+        await updateDoc(doc(db, "notifications", id), { read:true });
+      }catch(error){
+        console.error(error);
+      }
+    }
+
+    const queryString = item.roomId ? `?room=${encodeURIComponent(item.roomId)}` : "";
+    window.location.href = `chat.html${queryString}`;
+  };
+
+  updateNotificationBadge();
+  enableSwipeToDelete();
+}
+
+function subscribeNotifications(user){
+  if(notificationUnsubscribe){
+    notificationUnsubscribe();
+    notificationUnsubscribe = null;
+  }
+
+  notificationsCache = [];
+  renderNotifications();
+
+  if(!user?.uid) return;
+
+  const notificationsQuery = query(
+    collection(db, "notifications"),
+    where("receiverId", "==", user.uid)
+  );
+
+  const unsubscribe = onSnapshot(notificationsQuery, snapshot => {
+    notificationsCache = snapshot.docs
+      .map(docSnap => normalizeNotification(docSnap))
+      .filter(item => item.senderId !== user.uid);
+
+    renderNotifications();
+  });
+
+  notificationUnsubscribe = () => {
+    unsubscribe();
+  };
+}
+
+function setActiveNav(){
+  const currentPage = getCurrentPage();
+
+  document.querySelectorAll(".nav-chip[data-page]").forEach(btn => {
+    const shouldBeActive = marketPages.includes(currentPage)
+      ? btn.dataset.page === "index.html"
+      : btn.dataset.page === currentPage;
+    btn.classList.toggle("active", shouldBeActive);
+  });
+
+  document.querySelectorAll(".drawer-link[data-route]").forEach(link => {
+    let active = false;
+
+    if(currentPage === "index.html"){
+      active = link.dataset.route === "home";
+    }else if(currentPage === "buy.html"){
+      active = link.dataset.route === "plant-buy" || link.dataset.route === "khodwa-buy";
+    }else if(currentPage === "sell.html"){
+      active = link.dataset.route === "plant-sell" || link.dataset.route === "khodwa-sell";
+    }else if(currentPage === "jalgaon.html"){
+      active = link.dataset.route === "jalgaon";
+    }else if(currentPage === "chopda.html"){
+      active = link.dataset.route === "chopda";
+    }else if(currentPage === "raver.html"){
+      active = link.dataset.route === "raver";
+    }
+
+    link.classList.toggle("active", active);
+  });
+}
+
+function updateHeaderAuthState(){
+  const storedName = localStorage.getItem("userName");
+  const isLoggedIn = !!(currentUser || localStorage.getItem("userId"));
+  const userName = currentUser?.displayName || storedName || "";
+
+  if(isLoggedIn){
+    loginStatusBtn.href = "account.html";
+    loginStatusIcon.textContent = "👤";
+    loginStatusText.textContent = t("status_account");
+    accountBtn.href = "account.html";
+    accountBtn.textContent = userName ? userName.trim().charAt(0).toUpperCase() : "U";
+    notificationWrap.classList.remove("hidden");
+
+    drawerSignupLink.style.display = "none";
+    drawerAuthLink.href = "index.html";
+    drawerAuthLink.onclick = event => {
+      event.preventDefault();
+      toggleSidebar(false);
+      openLogoutPopup();
+    };
+    drawerAuthIcon.textContent = "🚪";
+    drawerLoginText.textContent = t("nav_logout");
+  }else{
+    loginStatusBtn.href = "login.html";
+    loginStatusIcon.textContent = "🔑";
+    loginStatusText.textContent = t("status_login");
+    accountBtn.href = "login.html";
+    accountBtn.textContent = "👤";
+    notificationWrap.classList.add("hidden");
+    closeNotificationDropdown();
+    notificationCount.classList.add("hidden");
+
+    drawerSignupLink.style.display = "";
+    drawerAuthLink.href = "login.html";
+    drawerAuthLink.onclick = null;
+    drawerAuthIcon.textContent = "🔑";
+    drawerLoginText.textContent = t("nav_login");
+  }
+}
+
+function initPageSwipe(){
+  const swipeArea = document.querySelector(".page-content");
+  if(!swipeArea) return;
+
+  swipeArea.addEventListener("touchstart", event => {
+    const touch = event.changedTouches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  }, { passive:true });
+
+  swipeArea.addEventListener("touchend", event => {
+    const touch = event.changedTouches[0];
+    touchEndX = touch.clientX;
+    touchEndY = touch.clientY;
+    handlePageSwipe();
+  }, { passive:true });
+}
+
+function handlePageSwipe(){
+  const diffX = touchStartX - touchEndX;
+  const diffY = Math.abs(touchStartY - touchEndY);
+
+  if(Math.abs(diffX) < 70) return;
+  if(Math.abs(diffX) <= diffY) return;
+
+  const currentPage = getCurrentPage();
+  const currentIndex = pageOrder.indexOf(currentPage);
+
+  if(currentIndex === -1) return;
+
+  if(diffX > 0 && currentIndex < pageOrder.length - 1){
+    window.location.href = pageOrder[currentIndex + 1];
+  }else if(diffX < 0 && currentIndex > 0){
+    window.location.href = pageOrder[currentIndex - 1];
+  }
+}
+
+function marketLabel(market){
+  if(market === "रावेर") return t("market_raver");
+  return market;
+}
 
 function setDateFromSheet(dateStr){
- const parts = dateStr.split("/");
- const d = new Date(parts[2], parts[1]-1, parts[0]);
- const dayName = d.toLocaleString('en',{weekday:'long'});
- dateBar.innerText = `दि. ${dateStr} (${weekdays[dayName]})`;
+  const parts = String(dateStr || "").split("/");
+  const d = new Date(parts[2], parts[1] - 1, parts[0]);
+  const dayName = d.toLocaleString("en", { weekday:"long" });
+  const weekdayText = langPack().weekdays[dayName] || dayName;
+  dateBar.innerText = `${t("date_prefix")} ${dateStr} (${weekdayText})`;
 }
 
-const sheetURL="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3B4g7toMMWKrRoUl282tnA2E5AY-vWIPETz7RRmKRpTNnvVkN-PuRk4S7YoERbTPa2-TuOGDJAAkR/pub?output=csv";
+function createDiffNode(diff){
+  const span = document.createElement("span");
+  if(diff > 0){
+    span.className = "up";
+    span.textContent = `${diff} ${t("diff_up")}`;
+  }else if(diff < 0){
+    span.className = "down";
+    span.textContent = `${Math.abs(diff)} ${t("diff_down")}`;
+  }else{
+    span.textContent = t("diff_same");
+  }
+  return span;
+}
 
-let rows=[];
-let currentMarket="रावेर";
+function createMarketSection(title, rowsData){
+  const block = document.createElement("div");
+  block.className = "market-block";
 
+  const titleEl = document.createElement("b");
+  titleEl.textContent = title;
+  block.appendChild(titleEl);
 
-fetch(sheetURL)
-.then(r=>r.text())
-.then(t=>{
- rows=t.split("\n").map(r=>r.split(","));
- showMarket("रावेर");
- loadGraph(7);
-});
+  rowsData.forEach(item => {
+    const row = document.createElement("div");
+    row.className = "market-row";
 
-function diffText(diff){
- if(diff>0) return `<span class="up">${diff} वाढ</span>`;
- if(diff<0) return `<span class="down">${Math.abs(diff)} घट</span>`;
- return "फरक नाही";
+    const label = document.createElement("span");
+    label.className = "market-label";
+    label.textContent = `${item.label} : `;
+    row.appendChild(label);
+
+    if(item.value instanceof Node){
+      row.appendChild(item.value);
+    }else{
+      row.appendChild(document.createTextNode(String(item.value)));
+    }
+
+    block.appendChild(row);
+  });
+
+  return block;
+}
+
+function renderMarketData(market, today, yesterday){
+  clearNode(marketData);
+
+  const title = document.createElement("h3");
+  title.textContent = marketLabel(market);
+  marketData.appendChild(title);
+
+  const navti1Today = parseInt(today[4] || 0, 10) || 0;
+  const navti2Today = parseInt(today[5] || 0, 10) || 0;
+  const navti1Yesterday = yesterday ? (parseInt(yesterday[4] || 0, 10) || 0) : 0;
+  const navti2Yesterday = yesterday ? (parseInt(yesterday[5] || 0, 10) || 0) : 0;
+
+  marketData.appendChild(createMarketSection(t("market_today"), [
+    { label:t("label_navti1"), value:String(navti1Today) },
+    { label:t("label_navti2"), value:String(navti2Today) }
+  ]));
+
+  marketData.appendChild(createMarketSection(t("market_yesterday"), [
+    { label:t("label_navti1"), value:String(navti1Yesterday) },
+    { label:t("label_navti2"), value:String(navti2Yesterday) }
+  ]));
+
+  marketData.appendChild(createMarketSection(t("market_diff"), [
+    { label:t("label_navti1"), value:createDiffNode(navti1Today - navti1Yesterday) },
+    { label:t("label_navti2"), value:createDiffNode(navti2Today - navti2Yesterday) }
+  ]));
 }
 
 function showMarket(market){
- currentMarket=market;
+  currentMarket = market;
 
- const filtered = rows.filter(r => r[1] && r[1].trim()===market);
- const today = filtered[filtered.length-1];
- const yesterday = filtered[filtered.length-2];
+  const filtered = rows.filter(row => row[1] && row[1].trim() === market);
+  const today = filtered[filtered.length - 1];
+  const yesterday = filtered[filtered.length - 2];
 
- setDateFromSheet(today[0]);
+  if(!today){
+    dateBar.innerText = t("data_unavailable");
+    clearNode(marketData);
+    marketData.textContent = t("data_unavailable");
+    hideSkeleton(imgSkeleton);
+    hideSkeleton(graphSkeleton);
+    return;
+  }
 
- let photoLink="";
- today.forEach(cell=>{
-   if(cell && cell.includes("http")) photoLink=cell.trim();
- });
+  setDateFromSheet(today[0]);
 
- if(photoLink){
-   pavtiImg.onload=function(){
-     document.getElementById("imgSkeleton").style.display="none";
-     pavtiImg.style.display="block";
-   }
-   pavtiImg.src=photoLink;
- }
+  let photoLink = "";
+  today.forEach(cell => {
+    const trimmed = String(cell || "").trim();
+    if(trimmed && trimmed.startsWith("http")){
+      photoLink = trimmed;
+    }
+  });
 
- if(market==="बुरहानपूर"){
-  const aajRates = today[2].split("/");
-  const kalRates = yesterday?yesterday[2].split("/"):[0,0,0];
-  const aavak = parseInt(today[6]||0);
-  const kalAavak = yesterday?parseInt(yesterday[6]||0):0;
-  const vikri = parseInt(today[7]||0);
-  const kalVikri = yesterday?parseInt(yesterday[7]||0):0;
+  if(photoLink){
+    pavtiImg.onload = () => {
+      hideSkeleton(imgSkeleton);
+      pavtiImg.style.display = "block";
+    };
 
-  marketData.innerHTML=`
-  <h3>बुरहानपूर</h3>
-  <b>आजचा भाव</b><br>
-  नवती : ${today[2]}<br>
-  गाडी आवक : ${aavak}<br>
-  गाडी विक्री : ${vikri}<br><br>
-  <b>कालचा भाव</b><br>
-  नवती : ${yesterday?yesterday[2]:"-"}<br>
-  गाडी आवक : ${kalAavak}<br>
-  गाडी विक्री : ${kalVikri}<br><br>
-  <b>फरक</b><br>
-  नवती :
-  ${diffText(aajRates[0]-kalRates[0])} /
-  ${diffText(aajRates[1]-kalRates[1])} /
-  ${diffText(aajRates[2]-kalRates[2])}<br>
-  गाडी आवक : ${diffText(aavak-kalAavak)}<br>
-  गाडी विक्री : ${diffText(vikri-kalVikri)}
-  `;
- }
+    pavtiImg.onerror = () => {
+      hideSkeleton(imgSkeleton);
+      pavtiImg.style.display = "none";
+    };
 
- if(market==="जळगाव" || market==="चोपडा"){
-  const navtiAaj=parseInt(today[2]||0);
-  const navtiKal=yesterday?parseInt(yesterday[2]||0):0;
-  const bagAaj=parseInt(today[3]||0);
-  const bagKal=yesterday?parseInt(yesterday[3]||0):0;
+    pavtiImg.src = photoLink;
+  }else{
+    hideSkeleton(imgSkeleton);
+    pavtiImg.style.display = "none";
+  }
 
-  marketData.innerHTML=`
-  <h3>${market}</h3>
-  <b>आजचा भाव</b><br>
-  नवती : ${navtiAaj}<br>
-  कांदे बाग : ${bagAaj}<br><br>
-  <b>कालचा भाव</b><br>
-  नवती : ${navtiKal}<br>
-  कांदे बाग : ${bagKal}<br><br>
-  <b>फरक</b><br>
-  नवती : ${diffText(navtiAaj-navtiKal)}<br>
-  कांदे बाग : ${diffText(bagAaj-bagKal)}
-  `;
- }
-
- if(market==="रावेर"){
-  const a1=parseInt(today[4]||0);
-  const a2=parseInt(today[5]||0);
-  const k1=yesterday?parseInt(yesterday[4]||0):0;
-  const k2=yesterday?parseInt(yesterday[5]||0):0;
-
-  marketData.innerHTML=`
-  <h3>रावेर</h3>
-  <b>आजचा भाव</b><br>
-  नवती 1 : ${a1}<br>
-  नवती 2 : ${a2}<br><br>
-  <b>कालचा भाव</b><br>
-  नवती 1 : ${k1}<br>
-  नवती 2 : ${k2}<br><br>
-  <b>फरक</b><br>
-  नवती 1 : ${diffText(a1-k1)}<br>
-  नवती 2 : ${diffText(a2-k2)}
-  `;
- }
-
- loadGraph(7);
+  renderMarketData(market, today, yesterday);
+  loadGraph(30);
 }
-
-let chart,aavakGraph,vikriGraph;
 
 function loadGraph(days){
- const data = rows.filter(r=>r[1] && r[1].trim()===currentMarket).slice(-days);
+  const data = rows.filter(row => row[1] && row[1].trim() === currentMarket).slice(-days);
+  const months = langPack().months;
 
- const labels = data.map(r=>{
-   const d=r[0].split("/");
-   const m=["जाने","फेब","मार्च","एप्रिल","मे","जून","जुलै","ऑग","सप्टें","ऑक्टो","नोव्हे","डिसे"];
-   return d[0]+" "+m[parseInt(d[1])-1];
- });
-
- if(chart) chart.destroy();
- if(aavakGraph) aavakGraph.destroy();
- if(vikriGraph) vikriGraph.destroy();
-
- document.getElementById("graphSkeleton").style.display="none";
-
- if(currentMarket==="बुरहानपूर"){
-  const low=data.map(r=>parseInt((r[2]||"0/0/0").split("/")[0]));
-  const high=data.map(r=>parseInt((r[2]||"0/0/0").split("/")[1]));
-  const avg=data.map(r=>parseInt((r[2]||"0/0/0").split("/")[2]));
-
-  chart=new Chart(rateChart,{type:'line',
-   data:{labels,datasets:[
-     {label:'न्यूनतम',data:low},
-     {label:'उच्चतम',data:high},
-     {label:'प्रचलित',data:avg}
-   ]}
+  const labels = data.map(row => {
+    const d = String(row[0] || "").split("/");
+    return `${d[0]} ${months[(parseInt(d[1], 10) || 1) - 1]}`;
   });
 
-  const aavak=data.map(r=>parseInt(r[6]||0));
-  const vikri=data.map(r=>parseInt(r[7]||0));
+  if(chart) chart.destroy();
+  if(aavakGraph) aavakGraph.destroy();
+  if(vikriGraph) vikriGraph.destroy();
 
-  aavakGraph=new Chart(aavakChart,{type:'bar',
-   data:{labels,datasets:[{label:'गाडी आवक',data:aavak}]}
+  hideSkeleton(graphSkeleton);
+  aavakChartCanvas.style.display = "none";
+  vikriChartCanvas.style.display = "none";
+
+  const navti1 = data.map(row => parseInt(row[4] || 0, 10) || 0);
+  const navti2 = data.map(row => parseInt(row[5] || 0, 10) || 0);
+
+  chart = new Chart(rateChartCanvas, {
+    type:"line",
+    data:{
+      labels,
+      datasets:[
+        {
+          label:t("chart_navti1"),
+          data:navti1,
+          borderColor:"#111827",
+          backgroundColor:"rgba(17,24,39,.1)",
+          tension:.35
+        },
+        {
+          label:t("chart_navti2"),
+          data:navti2,
+          borderColor:"#22c55e",
+          backgroundColor:"rgba(34,197,94,.15)",
+          tension:.35
+        }
+      ]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:true
+    }
   });
-
-  vikriGraph=new Chart(vikriChart,{type:'bar',
-   data:{labels,datasets:[{label:'गाडी विक्री',data:vikri}]}
-  });
-
- } else if(currentMarket==="जळगाव"||currentMarket==="चोपडा"){
-  const navti=data.map(r=>parseInt(r[2]||0));
-  const bag=data.map(r=>parseInt(r[3]||0));
-
-  chart=new Chart(rateChart,{type:'line',
-   data:{labels,datasets:[
-     {label:'नवती',data:navti},
-     {label:'कांदे बाग',data:bag}
-   ]}
-  });
-
- } else if(currentMarket==="रावेर"){
-  const n1=data.map(r=>parseInt(r[4]||0));
-  const n2=data.map(r=>parseInt(r[5]||0));
-
-  chart=new Chart(rateChart,{type:'line',
-   data:{labels,datasets:[
-     {label:'नवती1',data:n1},
-     {label:'नवती2',data:n2}
-   ]}
-  });
- }
 }
 
+function applyLanguage(){
+  document.documentElement.lang = currentLanguage;
+  document.title = t("page_title");
+  metaDescription.content = t("meta_description");
+  metaKeywords.content = t("meta_keywords");
+  ogDescription.content = t("og_description");
+
+  brandSubtitle.textContent = t("brand_subtitle");
+  drawerSubtitle.textContent = t("drawer_subtitle");
+  labelMain.textContent = t("label_main");
+  labelAccount.textContent = t("label_account");
+  labelInfo.textContent = t("label_info");
+
+  drawerHome.textContent = t("nav_home");
+  drawerBuy.textContent = t("nav_buy");
+  drawerSell.textContent = t("nav_sell");
+  drawerKhatBuy.textContent = t("nav_khat_buy");
+  drawerKhatSell.textContent = t("nav_khat_sell");
+  drawerBurhanpur.textContent = t("nav_burhanpur_rates");
+  drawerJalgaon.textContent = t("nav_jalgaon_rates");
+  drawerChopda.textContent = t("nav_chopda_rates");
+  drawerRaver.textContent = t("nav_raver_rates");
+
+  drawerAccount.textContent = t("nav_account");
+  drawerChat.textContent = t("nav_my_chat");
+  drawerListingHistory.textContent = t("nav_listing_history");
+  drawerInbox.textContent = t("nav_inbox");
+  drawerSignup.textContent = t("nav_signup");
+
+  drawerAbout.textContent = t("info_about");
+  drawerPrivacy.textContent = t("info_privacy");
+  drawerTerms.textContent = t("info_terms");
+  drawerContact.textContent = t("info_contact");
+  drawerAgentHelp.textContent = t("info_agent_help");
+  drawerWhatsapp.textContent = t("info_whatsapp_group");
+
+  chipRates.textContent = t("chip_rates");
+  chipBuy.textContent = t("chip_buy");
+  chipServices.textContent = t("chip_services");
+  marketTicker.textContent = t("ticker_text");
+
+  slideReceiptText.textContent = t("slide_receipt");
+  slideBuyText.textContent = t("slide_buy");
+
+  tabBurhanpur.textContent = t("tab_burhanpur");
+  tabJalgaon.textContent = t("tab_jalgaon");
+  tabChopda.textContent = t("tab_chopda");
+  tabRaver.textContent = t("tab_raver");
+
+  analysisTitle.textContent = t("analysis_title");
+  graphBtn7.textContent = t("graph_7");
+  graphBtn30.textContent = t("graph_30");
+  graphBtn365.textContent = t("graph_365");
+
+  footerMade.textContent = t("footer_made");
+  footerPrivacy.textContent = t("footer_privacy");
+  footerContact.textContent = t("footer_contact");
+  footerAbout.textContent = t("footer_about");
+  footerTerms.textContent = t("footer_terms");
+
+  notificationTitle.textContent = t("notification_title");
+  notificationBtn.setAttribute("aria-label", t("notification_title"));
+
+  logoutPopupTitle.textContent = t("logout_title");
+  logoutPopupText.innerHTML = escapeHtml(t("logout_text")).replace(/\n/g, "<br>");
+  logoutCancelBtn.textContent = t("logout_back");
+  logoutConfirmBtn.textContent = t("logout_confirm");
+
+  langToggle.textContent = LANG_SHORT[currentLanguage] || "म";
+
+  langOptions.forEach(option => {
+    option.classList.toggle("active", option.dataset.lang === currentLanguage);
+  });
+
+  updateHeaderAuthState();
+  setActiveNav();
+  renderNotifications();
+
+  if(rows.length){
+    showMarket(currentMarket);
+  }
+}
+
+menuToggle.addEventListener("click", () => toggleSidebar(true));
+drawerClose.addEventListener("click", () => toggleSidebar(false));
+sidebarOverlay.addEventListener("click", () => toggleSidebar(false));
+
+langToggle.addEventListener("click", event => {
+  event.stopPropagation();
+  if(langMenu.classList.contains("open")){
+    closeLangMenu();
+  }else{
+    openLangMenu();
+  }
+});
+
+notificationBtn.addEventListener("click", event => {
+  event.stopPropagation();
+  toggleNotificationDropdown();
+});
+
+notificationDropdown.addEventListener("click", event => {
+  event.stopPropagation();
+});
+
+logoutCancelBtn.addEventListener("click", closeLogoutPopup);
+logoutBackTop.addEventListener("click", closeLogoutPopup);
+
+logoutPopup.addEventListener("click", event => {
+  if(event.target === logoutPopup){
+    closeLogoutPopup();
+  }
+});
+
+logoutConfirmBtn.addEventListener("click", async () => {
+  closeLogoutPopup();
+  await logoutUser();
+});
+
+document.addEventListener("click", event => {
+  if(!event.target.closest(".lang-wrap")){
+    closeLangMenu();
+  }
+  if(!event.target.closest(".notification-wrap")){
+    closeNotificationDropdown();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if(event.key === "Escape"){
+    toggleSidebar(false);
+    closeLangMenu();
+    closeNotificationDropdown();
+    closeLogoutPopup();
+  }
+});
+
+langOptions.forEach(button => {
+  button.addEventListener("click", () => {
+    currentLanguage = button.dataset.lang;
+    localStorage.setItem("siteLanguage", currentLanguage);
+    applyLanguage();
+    closeLangMenu();
+  });
+});
+
+window.addEventListener("load", () => {
+  updateHeaderAuthState();
+  setActiveNav();
+  initPageSwipe();
+  applyLanguage();
+});
+
+window.addEventListener("focus", updateHeaderAuthState);
+window.addEventListener("storage", () => {
+  currentLanguage = localStorage.getItem("siteLanguage") || "mr";
+  updateHeaderAuthState();
+  applyLanguage();
+});
+
+onAuthStateChanged(auth, user => {
+  currentUser = user || null;
+
+  if(user){
+    localStorage.setItem("userId", user.uid);
+    localStorage.setItem("userName", user.displayName || localStorage.getItem("userName") || "User");
+    if(user.photoURL){
+      localStorage.setItem("userPhoto", user.photoURL);
+    }
+    if(user.email){
+      localStorage.setItem("userEmail", user.email);
+    }
+  }else{
+    clearLocalUser();
+  }
+
+  updateHeaderAuthState();
+  setActiveNav();
+  subscribeNotifications(user);
+});
+
+fetch(sheetURL)
+  .then(response => response.text())
+  .then(text => {
+    rows = text.split(/\r?\n/).filter(Boolean).map(line => line.split(","));
+    showMarket("रावेर");
+  })
+  .catch(() => {
+    dateBar.innerText = t("data_unavailable");
+    clearNode(marketData);
+    marketData.textContent = t("data_unavailable");
+    hideSkeleton(imgSkeleton);
+    hideSkeleton(graphSkeleton);
+  });
+
+if(slides.length > 1){
+  setInterval(() => {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add("active");
+  }, 3000);
+}
+
+window.loadGraph = loadGraph;
 </script>
 
 </body>
