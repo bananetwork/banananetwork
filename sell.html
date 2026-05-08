@@ -2231,6 +2231,10 @@ const translations = {
     fill_all:"कृपया सर्व required fields भरा.",
     select_photo:"किमान 1 image add करा.",
     need_login:"Listing post करण्यासाठी login करा.",
+    notification_call_attempt:"Buyer ने तुमच्या product वर call करण्याचा प्रयत्न केला",
+    seller_number_missing:"Buyer number उपलब्ध नाही.",
+    notification_today:"आज",
+    notification_earlier:"मागील",
     saving:"Saving...",
     upload_failed:"Image upload झाला नाही.",
     saved_ok:"Listing successfully added"
@@ -2275,6 +2279,10 @@ const translations = {
     ticker_text:"🌱 अपनी केला रोप और खोडवा listing अभी पोस्ट करें | 📸 Multiple image upload preview | 🔔 Realtime notification system active | 📱 Mobile responsive BanaNetwork sell page",
     slide_1:"🌱 केला रोप बिक्री करें",
     slide_2:"🌿 Sell Banana Plants & Khodwa",
+    notification_call_attempt:"Buyer ने आपके product पर call करने की कोशिश की",
+    seller_number_missing:"Buyer number उपलब्ध नहीं है.",
+    notification_today:"Today",
+    notification_earlier:"Earlier",
     mode_switch_title:"आप क्या बेचेंगे?",
     mode_switch_desc:"रोप या खोडवा mode चुनें. वही BanaNetwork UI में listing post करें.",
     mode_rop_sell:"रोप बिक्री",
@@ -2395,6 +2403,10 @@ const translations = {
     form_desc_rop:"Fill title, location, company, phone, and images to publish your plant listing.",
     form_desc_khodwa:"Fill title, location, company, phone, and images to publish your khodwa listing.",
     product_type:"Product Type",
+    notification_call_attempt:"Buyer tried to call on your product",
+    seller_number_missing:"Buyer number is not available.",
+    notification_today:"Today",
+    notification_earlier:"Earlier",
     option_rop:"Plant",
     option_khodwa:"Khodwa",
     title_label:"Title",
@@ -2930,6 +2942,26 @@ function escapeHtml(value){
 function tv(value){
   return String(value ?? "").trim();
 }
+function normalizePhone(phone){
+  const raw = String(phone || "").trim();
+
+  if(raw.startsWith("+")){
+    return raw.replace(/[^\d+]/g, "");
+  }
+
+  const digits = raw.replace(/\D/g, "");
+  if(!digits) return "";
+
+  if(digits.length === 10){
+    return `+91${digits}`;
+  }
+
+  if(digits.length === 12 && digits.startsWith("91")){
+    return `+${digits}`;
+  }
+
+  return `+${digits}`;
+}
 
 function clampHour(value){
   const digits = String(value || "").replace(/[^\d]/g, "");
@@ -3024,11 +3056,14 @@ function normalizeNotification(docSnap){
     message = i18n.t("notification_order_accept");
   }else if(data.type === "order_reject"){
     message = i18n.t("notification_order_reject");
+  }else if(data.type === "call_attempt"){
+    message = i18n.t("notification_call_attempt");
   }else if(data.type === "chat"){
     message = tv(data.message) || i18n.t("notification_new_message");
   }else{
     message = tv(data.message) || i18n.t("notification_new_message");
   }
+
 
   const userName = tv(data.userName) || tv(data.senderName) || "User";
   const photoURL = tv(data.photoURL) || tv(data.senderPhoto) || "";
@@ -3119,8 +3154,8 @@ function renderNotifications(){
   }
 
   notificationListEl.innerHTML =
-    renderGroup("Today", today) +
-    renderGroup("Earlier", older);
+    renderGroup(i18n.t("notification_today"), today) +
+    renderGroup(i18n.t("notification_earlier"), older);
 
   notificationListEl.onclick = async (e) => {
     const card = e.target.closest(".notification-card");
@@ -3131,17 +3166,36 @@ function renderNotifications(){
     if(!item) return;
 
     if(!item.read){
-      try{
-        await updateDoc(doc(db,"notifications",id),{ read:true });
-      }catch(err){
-        console.error(err);
+      updateDoc(doc(db, "notifications", id), { read:true }).catch(console.error);
+    }
+
+    if(item.type === "call_attempt"){
+      const normalizedPhone = normalizePhone(item.userPhone || "");
+
+      if(!normalizedPhone){
+        showToast(i18n.t("seller_number_missing"));
+        return;
       }
+
+      if(typeof window.closeSellNotificationDropdown === "function"){
+        window.closeSellNotificationDropdown();
+      }
+
+      const callLink = document.createElement("a");
+      callLink.href = `tel:${normalizedPhone}`;
+      callLink.style.display = "none";
+      document.body.appendChild(callLink);
+      callLink.click();
+      callLink.remove();
+
+      return;
     }
 
     const roomId = item.roomId;
     const qs = roomId ? `?room=${encodeURIComponent(roomId)}` : "";
     window.location.href = `chat.html${qs}`;
   };
+
 
   updateNotificationBadge();
 }
