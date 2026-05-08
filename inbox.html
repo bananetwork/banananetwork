@@ -452,6 +452,12 @@ a{color:inherit}
   margin-top:4px;
   gap:10px;
 }
+.notification-phone{
+  font-size:13px;
+  font-weight:700;
+  color:#0f766e;
+  margin-top:3px;
+}
 
 .notification-product{
   font-size:13px;
@@ -1733,6 +1739,8 @@ const translations = {
     login_first:"कृपया आधी login करा.",
     product_id:"Product ID",
     product_missing:"Product माहिती उपलब्ध नाही",
+    notification_call_attempt:"Buyer ने तुमच्या product वर call करण्याचा प्रयत्न केला",
+    seller_number_missing:"Buyer number उपलब्ध नाही.",
     buyer_unknown:"Buyer",
     message_none:"अजून संदेश नाही",
     message_mine_prefix:"तुम्ही",
@@ -1812,6 +1820,8 @@ const translations = {
     product_missing:"Product जानकारी उपलब्ध नहीं है",
     buyer_unknown:"Buyer",
     message_none:"अभी कोई संदेश नहीं",
+    notification_call_attempt:"Buyer ने आपके product पर call करने की कोशिश की",
+    seller_number_missing:"Buyer number उपलब्ध नहीं है.",
     message_mine_prefix:"आप",
     order_request:"Order Request",
     listing_rop:"केला रोप",
@@ -1888,6 +1898,8 @@ const translations = {
     product_missing:"Product information is not available",
     buyer_unknown:"Buyer",
     message_none:"No messages yet",
+    notification_call_attempt:"Buyer tried to call on your product",
+    seller_number_missing:"Buyer number is not available.",
     message_mine_prefix:"You",
     order_request:"Order Request",
     listing_rop:"Banana Plant",
@@ -1957,6 +1969,26 @@ function escapeHtml(value){
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+function normalizePhone(phone){
+  const raw = String(phone || "").trim();
+
+  if(raw.startsWith("+")){
+    return raw.replace(/[^\d+]/g, "");
+  }
+
+  const digits = raw.replace(/\D/g, "");
+  if(!digits) return "";
+
+  if(digits.length === 10){
+    return `+91${digits}`;
+  }
+
+  if(digits.length === 12 && digits.startsWith("91")){
+    return `+${digits}`;
+  }
+
+  return `+${digits}`;
 }
 
 function preserveLanguageAndClearStorage(){
@@ -2873,7 +2905,6 @@ function subscribeToRooms(){
 
 function normalizeNotification(docSnap){
   const data = docSnap.data() || {};
-
   let message = String(data.message || "").trim();
 
   if(data.type === "order_request"){
@@ -2882,6 +2913,8 @@ function normalizeNotification(docSnap){
     message = tr("notification_order_accept");
   }else if(data.type === "order_reject"){
     message = tr("notification_order_reject");
+  }else if(data.type === "call_attempt"){
+    message = tr("notification_call_attempt");
   }else{
     message = message || tr("notification_new_message");
   }
@@ -2896,6 +2929,7 @@ function normalizeNotification(docSnap){
     userName:String(data.userName || data.senderName || "User"),
     photoURL:String(data.photoURL || data.senderPhoto || ""),
     productName:String(data.productName || data.productTitle || ""),
+    userPhone:String(data.userPhone || data.senderPhone || ""),
     message,
     read:!!data.read,
     hiddenFor,
@@ -3014,25 +3048,33 @@ function renderNotifications(){
         ${escapeHtml(title)}
       </div>
 
-      ${list.map(item => `
-        <div class="notification-card ${item.read ? "" : "unread"}" data-id="${escapeHtml(item.id)}">
-          <img class="notification-avatar" src="${escapeHtml(item.photoURL || ("https://ui-avatars.com/api/?name=" + encodeURIComponent(item.userName || "U")))}" alt="${escapeHtml(item.userName || "User")}">
+      ${list.map(item => {
+        const phoneLine = item.userPhone
+          ? `<div class="notification-phone">☎ ${escapeHtml(item.userPhone)}</div>`
+          : "";
 
-          <div class="notification-body">
-            <div class="notification-top">
-              <div class="notification-user">${escapeHtml(item.userName || "User")}</div>
-              <div class="notification-time">${escapeHtml(item.timeLabel)}</div>
-            </div>
+        return `
+          <div class="notification-card ${item.read ? "" : "unread"}" data-id="${escapeHtml(item.id)}">
+            <img class="notification-avatar" src="${escapeHtml(item.photoURL || ("https://ui-avatars.com/api/?name=" + encodeURIComponent(item.userName || "U")))}" alt="${escapeHtml(item.userName || "User")}">
 
-            <div class="notification-message">${escapeHtml(item.message)}</div>
+            <div class="notification-body">
+              <div class="notification-top">
+                <div class="notification-user">${escapeHtml(item.userName || "User")}</div>
+                <div class="notification-time">${escapeHtml(item.timeLabel)}</div>
+              </div>
 
-            <div class="notification-meta">
-              <div class="notification-product">${escapeHtml(item.productName || "")}</div>
-              ${!item.read ? `<div class="notification-dot"></div>` : ""}
+              ${phoneLine}
+              <div class="notification-message">${escapeHtml(item.message)}</div>
+
+              <div class="notification-meta">
+                <div class="notification-product">${escapeHtml(item.productName || "")}</div>
+                ${!item.read ? `<div class="notification-dot"></div>` : ""}
+              </div>
             </div>
           </div>
-        </div>
-      `).join("")}
+        `;
+      }).join("")}
+
     `;
   }
 
@@ -3049,16 +3091,33 @@ function renderNotifications(){
     if(!item) return;
 
     if(!item.read){
-      try{
-        await updateDoc(doc(db, "notifications", id), { read:true });
-      }catch(err){
-        console.error(err);
-      }
+      updateDoc(doc(db, "notifications", id), { read:true }).catch(console.error);
     }
 
-    const qs = item.roomId ? `?room=${item.roomId}` : "";
+    if(item.type === "call_attempt"){
+      const normalizedPhone = normalizePhone(item.userPhone || "");
+
+      if(!normalizedPhone){
+        alert(tr("seller_number_missing"));
+        return;
+      }
+
+      closeNotificationDropdown();
+
+      const callLink = document.createElement("a");
+      callLink.href = `tel:${normalizedPhone}`;
+      callLink.style.display = "none";
+      document.body.appendChild(callLink);
+      callLink.click();
+      callLink.remove();
+
+      return;
+    }
+
+    const qs = item.roomId ? `?room=${encodeURIComponent(item.roomId)}` : "";
     window.location.href = `chat.html${qs}`;
   };
+
 
   updateNotificationBadge();
   enableSwipeToDelete();
