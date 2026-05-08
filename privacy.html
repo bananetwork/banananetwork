@@ -1831,6 +1831,8 @@ const translations = {
     page_heading:"Privacy Policy – BanaNetwork",
     page_lead:"BanaNetwork वर तुमची माहिती कशी collect, use, display आणि protect केली जाते हे या Privacy Policy मध्ये स्पष्ट केले आहे.",
     updated_text:"Last Updated: 26 April 2026",
+    notification_call_attempt:"Buyer ने तुमच्या product वर call करण्याचा प्रयत्न केला",
+    seller_number_missing:"Buyer number उपलब्ध नाही.",
     platform_role_chip:"User Data & Privacy Rules",
     notice_title:"Important Privacy Notice",
     notice_text:"BanaNetwork user experience, safety आणि marketplace communication साठी काही माहिती वापरते. पण users ने public information share करताना स्वतःची safety आणि privacy देखील लक्षात ठेवावी.",
@@ -1889,6 +1891,8 @@ const translations = {
     updated_text:"Last Updated: 26 April 2026",
     platform_role_chip:"User Data & Privacy Rules",
     notice_title:"Important Privacy Notice",
+    notification_call_attempt:"Buyer ने आपके product पर call करने की कोशिश की",
+    seller_number_missing:"Buyer number उपलब्ध नहीं है.",
     notice_text:"BanaNetwork user experience, safety और marketplace communication के लिए कुछ information use करता है. लेकिन users को public information share करते समय अपनी safety और privacy का ध्यान रखना चाहिए.",
     privacy_banner_title:"Privacy Reminder",
     privacy_banner_text:"Public marketplace पर shared information दूसरे users देख सकते हैं. Users should use BanaNetwork carefully and share only necessary information.",
@@ -1945,6 +1949,8 @@ const translations = {
     updated_text:"Last Updated: 26 April 2026",
     platform_role_chip:"User Data & Privacy Rules",
     notice_title:"Important Privacy Notice",
+    notification_call_attempt:"Buyer tried to call on your product",
+    seller_number_missing:"Buyer number is not available.",
     notice_text:"BanaNetwork uses some information to provide user experience, safety, and marketplace communication. Users should also protect their own safety and privacy while sharing public information.",
     privacy_banner_title:"Privacy Reminder",
     privacy_banner_text:"Information shared on a public marketplace may be visible to other users. Users should use BanaNetwork carefully and share only necessary information.",
@@ -2283,6 +2289,26 @@ let notificationsCache = [];
 function tv(value){
   return String(value ?? "").trim();
 }
+function normalizePhone(phone){
+  const raw = String(phone || "").trim();
+
+  if(raw.startsWith("+")){
+    return raw.replace(/[^\d+]/g, "");
+  }
+
+  const digits = raw.replace(/\D/g, "");
+  if(!digits) return "";
+
+  if(digits.length === 10){
+    return `+91${digits}`;
+  }
+
+  if(digits.length === 12 && digits.startsWith("91")){
+    return `+${digits}`;
+  }
+
+  return `+${digits}`;
+}
 
 function escapeHtml(value){
   return String(value ?? "")
@@ -2352,9 +2378,12 @@ function normalizeNotification(docSnap){
     message = i18n.t("notification_order_accept");
   }else if(data.type === "order_reject"){
     message = i18n.t("notification_order_reject");
+  }else if(data.type === "call_attempt"){
+    message = i18n.t("notification_call_attempt");
   }else{
     message = tv(data.message) || i18n.t("notification_new_message");
   }
+
 
   return {
     id: docSnap.id,
@@ -2533,11 +2562,29 @@ notificationListEl.addEventListener("click", async e => {
   if(!item) return;
 
   if(!item.read){
-    try{
-      await updateDoc(doc(db, "notifications", id), { read:true });
-    }catch(err){
-      console.error(err);
+    updateDoc(doc(db, "notifications", id), { read:true }).catch(console.error);
+  }
+
+  if(item.type === "call_attempt"){
+    const normalizedPhone = normalizePhone(item.userPhone || "");
+
+    if(!normalizedPhone){
+      alert(i18n.t("seller_number_missing"));
+      return;
     }
+
+    if(typeof window.closePrivacyNotificationDropdown === "function"){
+      window.closePrivacyNotificationDropdown();
+    }
+
+    const callLink = document.createElement("a");
+    callLink.href = `tel:${normalizedPhone}`;
+    callLink.style.display = "none";
+    document.body.appendChild(callLink);
+    callLink.click();
+    callLink.remove();
+
+    return;
   }
 
   if(typeof window.closePrivacyNotificationDropdown === "function"){
@@ -2548,6 +2595,7 @@ notificationListEl.addEventListener("click", async e => {
   const qs = roomId ? `?room=${encodeURIComponent(roomId)}` : "";
   window.location.href = `chat.html${qs}`;
 });
+
 
 function subscribeNotifications(user){
   if(notificationUnsubscribe){
