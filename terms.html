@@ -1832,6 +1832,8 @@ const translations = {
     updated_text:"Last Updated: 26 April 2026",
     platform_role_chip:"Marketplace Legal Policy",
     notice_title:"Important Legal Notice",
+    notification_call_attempt:"Buyer ने तुमच्या product वर call करण्याचा प्रयत्न केला",
+    seller_number_missing:"Buyer number उपलब्ध नाही.",
     notice_text:"BanaNetwork फक्त users connect करणारे digital platform आहे. कोणताही deal final करण्यापूर्वी buyer आणि seller यांनी independent verification करणे आवश्यक आहे.",
     legal_banner_title:"Strong Liability Disclaimer",
     legal_banner_text:"BanaNetwork is not responsible for fraud, loss, damage, or disputes between users. Users interact at their own risk.",
@@ -1888,6 +1890,8 @@ const translations = {
     updated_text:"Last Updated: 26 April 2026",
     platform_role_chip:"Marketplace Legal Policy",
     notice_title:"Important Legal Notice",
+    notification_call_attempt:"Buyer ने आपके product पर call करने की कोशिश की",
+    seller_number_missing:"Buyer number उपलब्ध नहीं है.",
     notice_text:"BanaNetwork केवल users को connect करने वाला digital platform है. कोई भी deal final करने से पहले buyer और seller दोनों को independent verification करना जरूरी है.",
     legal_banner_title:"Strong Liability Disclaimer",
     legal_banner_text:"BanaNetwork is not responsible for fraud, loss, damage, or disputes between users. Users interact at their own risk.",
@@ -1944,6 +1948,8 @@ const translations = {
     updated_text:"Last Updated: 26 April 2026",
     platform_role_chip:"Marketplace Legal Policy",
     notice_title:"Important Legal Notice",
+    notification_call_attempt:"Buyer tried to call on your product",
+    seller_number_missing:"Buyer number is not available.",
     notice_text:"BanaNetwork is only a digital platform connecting users. Buyers and sellers must independently verify all details before finalizing any deal.",
     legal_banner_title:"Strong Liability Disclaimer",
     legal_banner_text:"BanaNetwork is not responsible for fraud, loss, damage, or disputes between users. Users interact at their own risk.",
@@ -2282,6 +2288,26 @@ let notificationsCache = [];
 function tv(value){
   return String(value ?? "").trim();
 }
+function normalizePhone(phone){
+  const raw = String(phone || "").trim();
+
+  if(raw.startsWith("+")){
+    return raw.replace(/[^\d+]/g, "");
+  }
+
+  const digits = raw.replace(/\D/g, "");
+  if(!digits) return "";
+
+  if(digits.length === 10){
+    return `+91${digits}`;
+  }
+
+  if(digits.length === 12 && digits.startsWith("91")){
+    return `+${digits}`;
+  }
+
+  return `+${digits}`;
+}
 
 function escapeHtml(value){
   return String(value ?? "")
@@ -2351,9 +2377,12 @@ function normalizeNotification(docSnap){
     message = i18n.t("notification_order_accept");
   }else if(data.type === "order_reject"){
     message = i18n.t("notification_order_reject");
+  }else if(data.type === "call_attempt"){
+    message = i18n.t("notification_call_attempt");
   }else{
     message = tv(data.message) || i18n.t("notification_new_message");
   }
+
 
   return {
     id: docSnap.id,
@@ -2532,11 +2561,29 @@ notificationListEl.addEventListener("click", async e => {
   if(!item) return;
 
   if(!item.read){
-    try{
-      await updateDoc(doc(db, "notifications", id), { read:true });
-    }catch(err){
-      console.error(err);
+    updateDoc(doc(db, "notifications", id), { read:true }).catch(console.error);
+  }
+
+  if(item.type === "call_attempt"){
+    const normalizedPhone = normalizePhone(item.userPhone || "");
+
+    if(!normalizedPhone){
+      alert(i18n.t("seller_number_missing"));
+      return;
     }
+
+    if(typeof window.closeTermsNotificationDropdown === "function"){
+      window.closeTermsNotificationDropdown();
+    }
+
+    const callLink = document.createElement("a");
+    callLink.href = `tel:${normalizedPhone}`;
+    callLink.style.display = "none";
+    document.body.appendChild(callLink);
+    callLink.click();
+    callLink.remove();
+
+    return;
   }
 
   if(typeof window.closeTermsNotificationDropdown === "function"){
@@ -2547,6 +2594,7 @@ notificationListEl.addEventListener("click", async e => {
   const qs = roomId ? `?room=${encodeURIComponent(roomId)}` : "";
   window.location.href = `chat.html${qs}`;
 });
+
 
 function subscribeNotifications(user){
   if(notificationUnsubscribe){
