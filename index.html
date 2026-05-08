@@ -1557,6 +1557,8 @@ const translations = {
     logout_title:"Logout Confirmation",
     logout_text:"तुम्हाला खात्री आहे का की तुम्ही logout करू इच्छिता?\nLogout केल्यावर या device वरील stored account data remove होईल.",
     logout_back:"Back Page",
+    notification_call_attempt:"Buyer ने तुमच्या product वर call करण्याचा प्रयत्न केला",
+    seller_number_missing:"Buyer number उपलब्ध नाही.",
     logout_confirm:"Logout",
     date_prefix:"दि.",
     weekdays:{
@@ -1630,6 +1632,8 @@ const translations = {
     info_whatsapp_group:"WhatsApp Group",
     chip_rates:"भाव",
     chip_buy:"केला रोप-खोडवा खरीद बिक्री",
+    notification_call_attempt:"Buyer ने आपके product पर call करने की कोशिश की",
+    seller_number_missing:"Buyer number उपलब्ध नहीं है.",
     chip_services:"🛠Services",
     top_ticker:"🚨 आज के केला भाव Live अपडेट | 📍 बुरहानपुर - जलगांव - रावेर - चोपडा आज के बाजार भाव | 📈 भाव बढ़त-घटत जानकारी | ⚡ रोज़ शाम जल्दी भाव देखें | 🏬 मंडी की पूरी जानकारी और इतिहास | 🟢📱 रोज़ केला भाव देखने के लिए ऊपर वाले WhatsApp ग्रुप से जुड़ें",
     slide_receipt:"📸 बुरहानपुर मंडी प्रमाणित रसीद",
@@ -1731,6 +1735,8 @@ const translations = {
     info_contact:"Contact Us",
     info_agent_help:"Agent Help",
     info_whatsapp_group:"WhatsApp Group",
+    notification_call_attempt:"Buyer tried to call on your product",
+    seller_number_missing:"Buyer number is not available.",
     chip_rates:"Rates",
     chip_buy:"Banana Plant & Khodwa Market",
     chip_services:"🛠Services",
@@ -1838,6 +1844,26 @@ function escapeHtml(value){
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+function normalizePhone(phone){
+  const raw = String(phone || "").trim();
+
+  if(raw.startsWith("+")){
+    return raw.replace(/[^\d+]/g, "");
+  }
+
+  const digits = raw.replace(/\D/g, "");
+  if(!digits) return "";
+
+  if(digits.length === 10){
+    return `+91${digits}`;
+  }
+
+  if(digits.length === 12 && digits.startsWith("91")){
+    return `+${digits}`;
+  }
+
+  return `+${digits}`;
 }
 
 function clearNode(node){
@@ -2192,6 +2218,8 @@ function normalizeNotification(docSnap){
     message = t("notification_order_accept");
   }else if(data.type === "order_reject"){
     message = t("notification_order_reject");
+  }else if(data.type === "call_attempt"){
+    message = t("notification_call_attempt");
   }else{
     message = message || t("notification_new_message");
   }
@@ -2216,6 +2244,7 @@ function normalizeNotification(docSnap){
     timeLabel:formatDateTime(data.createdAt)
   };
 }
+
 
 function getVisibleNotifications(){
   const uid = currentUser?.uid || localStorage.getItem("userId") || "";
@@ -2368,16 +2397,33 @@ function renderNotifications(){
     if(!item) return;
 
     if(!item.read){
-      try{
-        await updateDoc(doc(db, "notifications", id), { read:true });
-      }catch(error){
-        console.error(error);
-      }
+      updateDoc(doc(db, "notifications", id), { read:true }).catch(console.error);
     }
 
-    const queryString = item.roomId ? `?room=${item.roomId}` : "";
+    if(item.type === "call_attempt"){
+      const normalizedPhone = normalizePhone(item.userPhone || "");
+
+      if(!normalizedPhone){
+        alert(t("seller_number_missing"));
+        return;
+      }
+
+      closeNotificationDropdown();
+
+      const callLink = document.createElement("a");
+      callLink.href = `tel:${normalizedPhone}`;
+      callLink.style.display = "none";
+      document.body.appendChild(callLink);
+      callLink.click();
+      callLink.remove();
+
+      return;
+    }
+
+    const queryString = item.roomId ? `?room=${encodeURIComponent(item.roomId)}` : "";
     window.location.href = `chat.html${queryString}`;
   };
+
 
   updateNotificationBadge();
   enableSwipeToDelete();
