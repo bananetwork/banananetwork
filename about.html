@@ -1632,6 +1632,8 @@ const translations = {
     earlier:"Earlier",
     hero_badge:"🌿 About BanaNetwork",
     page_heading:"About Us – BanaNetwork",
+    notification_call_attempt:"Buyer ने तुमच्या product वर call करण्याचा प्रयत्न केला",
+    seller_number_missing:"Buyer number उपलब्ध नाही.",
     page_lead:"BanaNetwork हा banana farming, market rates, buyer-seller connection आणि useful field information एकाच ठिकाणी आणण्याचा प्रयत्न करणारा independent digital platform आहे.",
     updated_text:"Last Updated: 26 April 2026",
     platform_role_chip:"Independent Banana Platform",
@@ -1692,6 +1694,8 @@ const translations = {
     updated_text:"Last Updated: 26 April 2026",
     platform_role_chip:"Independent Banana Platform",
     notice_title:"Independent Platform Notice",
+    notification_call_attempt:"Buyer ने आपके product पर call करने की कोशिश की",
+    seller_number_missing:"Buyer number उपलब्ध नहीं है.",
     notice_text:"BanaNetwork एक independent platform initiative है. यह किसी सरकारी संस्था या बड़ी private company की official website नहीं है. यहां दी गई information reference और practical support के लिए है.",
     vision_banner_title:"Banana Ecosystem Vision",
     vision_banner_text:"BanaNetwork का goal सिर्फ information देना नहीं, बल्कि banana farming और trade ecosystem के लिए एक useful, trusted और easy-to-access digital space बनाना है.",
@@ -1752,6 +1756,8 @@ const translations = {
     vision_banner_title:"Banana Ecosystem Vision",
     vision_banner_text:"BanaNetwork aims not only to share information, but to build a useful, trusted, and easy-to-access digital space for the banana farming and trade ecosystem.",
     footer_made:"Made for Banana Farmers 🍌",
+    notification_call_attempt:"Buyer tried to call on your product",
+    seller_number_missing:"Buyer number is not available.",
     footer_privacy:"Privacy",
     footer_contact:"Contact",
     footer_terms:"Terms"
@@ -2086,6 +2092,26 @@ let notificationsCache = [];
 function tv(value){
   return String(value ?? "").trim();
 }
+function normalizePhone(phone){
+  const raw = String(phone || "").trim();
+
+  if(raw.startsWith("+")){
+    return raw.replace(/[^\d+]/g, "");
+  }
+
+  const digits = raw.replace(/\D/g, "");
+  if(!digits) return "";
+
+  if(digits.length === 10){
+    return `+91${digits}`;
+  }
+
+  if(digits.length === 12 && digits.startsWith("91")){
+    return `+${digits}`;
+  }
+
+  return `+${digits}`;
+}
 
 function escapeHtml(value){
   return String(value ?? "")
@@ -2153,9 +2179,12 @@ function normalizeNotification(docSnap){
     message = i18n.t("notification_order_accept");
   }else if(data.type === "order_reject"){
     message = i18n.t("notification_order_reject");
+  }else if(data.type === "call_attempt"){
+    message = i18n.t("notification_call_attempt");
   }else{
     message = String(data.message || "").trim() || i18n.t("notification_new_message");
   }
+
 
   return {
     id: docSnap.id,
@@ -2333,11 +2362,29 @@ notificationListEl.addEventListener("click", async e => {
   if(!item) return;
 
   if(!item.read){
-    try{
-      await updateDoc(doc(db, "notifications", id), { read:true });
-    }catch(err){
-      console.error(err);
+    updateDoc(doc(db, "notifications", id), { read:true }).catch(console.error);
+  }
+
+  if(item.type === "call_attempt"){
+    const normalizedPhone = normalizePhone(item.userPhone || "");
+
+    if(!normalizedPhone){
+      alert(i18n.t("seller_number_missing"));
+      return;
     }
+
+    if(typeof window.closeAboutNotificationDropdown === "function"){
+      window.closeAboutNotificationDropdown();
+    }
+
+    const callLink = document.createElement("a");
+    callLink.href = `tel:${normalizedPhone}`;
+    callLink.style.display = "none";
+    document.body.appendChild(callLink);
+    callLink.click();
+    callLink.remove();
+
+    return;
   }
 
   if(typeof window.closeAboutNotificationDropdown === "function"){
@@ -2348,6 +2395,7 @@ notificationListEl.addEventListener("click", async e => {
   const qs = roomId ? `?room=${encodeURIComponent(roomId)}` : "";
   window.location.href = `chat.html${qs}`;
 });
+
 
 function subscribeNotifications(user){
   if(notificationUnsubscribe){
