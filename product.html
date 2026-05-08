@@ -3431,12 +3431,26 @@ function getField(data, keys, fallback = ""){
 }
 
 function normalizePhone(phone){
-  const digits = String(phone || "").replace(/\D/g, "");
+  const raw = String(phone || "").trim();
+
+  if(raw.startsWith("+")){
+    return raw.replace(/[^\d+]/g, "");
+  }
+
+  const digits = raw.replace(/\D/g, "");
   if(!digits) return "";
-  if(digits.length === 10) return `91${digits}`;
-  if(digits.length === 12 && digits.startsWith("91")) return digits;
-  return digits;
+
+  if(digits.length === 10){
+    return `+91${digits}`;
+  }
+
+  if(digits.length === 12 && digits.startsWith("91")){
+    return `+${digits}`;
+  }
+
+  return `+${digits}`;
 }
+
 
 function getSellerInitials(name){
   const clean = String(name || "B").trim().split(" ").filter(Boolean);
@@ -4186,7 +4200,13 @@ async function performCallAction() {
     return;
   }
 
-  window.location.href = `tel:${normalizedPhone}`;
+  const callLink = document.createElement("a");
+  callLink.href = `tel:${normalizedPhone}`;
+  callLink.style.display = "none";
+  document.body.appendChild(callLink);
+  callLink.click();
+  callLink.remove();
+
 }
 
 function getShareText(){
@@ -4291,19 +4311,22 @@ function drawCoverImage(ctx, img, x, y, w, h){
   let drawWidth, drawHeight, offsetX, offsetY;
 
   if(imgRatio > boxRatio){
-    drawHeight = h;
-    drawWidth = img.width * (h / img.height);
-    offsetX = x - (drawWidth - w) / 2;
-    offsetY = y;
-  }else{
     drawWidth = w;
-    drawHeight = img.height * (w / img.width);
+    drawHeight = w / imgRatio;
     offsetX = x;
-    offsetY = y - (drawHeight - h) / 2;
+    offsetY = y + (h - drawHeight) / 2;
+  }else{
+    drawHeight = h;
+    drawWidth = h * imgRatio;
+    offsetX = x + (w - drawWidth) / 2;
+    offsetY = y;
   }
 
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(x, y, w, h);
   ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
 }
+
 
 async function downloadPoster(){
   if(!product) return;
@@ -4331,7 +4354,9 @@ async function downloadPoster(){
 
   ctx.fillStyle = "#6b7280";
   ctx.font = "28px Arial";
-  ctx.fillText("Direct Product Share Poster", 95, 172);
+
+  const posterSubtitle = `${product.companyName || product.sellerDisplayName || "BanaNetwork"} Digital Details Profile`;
+  drawWrappedText(ctx, posterSubtitle, 95, 172, 890, 34, 2);
 
   roundedRect(ctx, 95, 220, 890, 520, 32);
   ctx.save();
@@ -4349,6 +4374,7 @@ async function downloadPoster(){
     ctx.fillStyle = "#e7f2ea";
     ctx.fillRect(95, 220, 890, 520);
   }
+
   ctx.restore();
 
   ctx.fillStyle = "#111827";
@@ -4359,10 +4385,35 @@ async function downloadPoster(){
   ctx.font = "bold 78px Arial";
   ctx.fillText(`₹${formatPrice(product.price)}`, 95, 990);
 
+  const locationLine = [product.village, product.taluka, product.district]
+    .filter(Boolean)
+    .join(", ");
+
+  // 📍 Custom Red Location Icon
+  ctx.beginPath();
+  ctx.fillStyle = "#e11d48";
+  ctx.arc(108, 1038, 10, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(108, 1056);
+  ctx.lineTo(100, 1042);
+  ctx.lineTo(116, 1042);
+  ctx.closePath();
+  ctx.fill();
+
+  // White center
+  ctx.beginPath();
+  ctx.fillStyle = "#ffffff";
+  ctx.arc(108, 1038, 4, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Location text
   ctx.fillStyle = "#475569";
   ctx.font = "30px Arial";
-  const locationLine = [product.village, product.taluka, product.district].filter(Boolean).join(", ");
-  ctx.fillText(`📍 ${locationLine || tr("location_unavailable")}`, 95, 1045);
+  ctx.fillText(`${locationLine || tr("location_unavailable")}`, 135, 1048);
+
+  // Phone
   ctx.fillText(`📞 ${getPhoneDisplay(product.phone, product.callingTime)}`, 95, 1092);
 
   ctx.fillStyle = "#f7fafc";
@@ -4372,6 +4423,7 @@ async function downloadPoster(){
   ctx.fillStyle = "#111827";
   ctx.font = "bold 32px Arial";
   ctx.fillText("पूर्ण माहिती आणि direct संपर्कासाठी", 125, 1190);
+
   ctx.fillStyle = "#2e7d32";
   ctx.font = "bold 34px Arial";
   ctx.fillText("BanaNetwork वर पाहा", 125, 1235);
@@ -4385,9 +4437,11 @@ async function downloadPoster(){
   });
 
   const qrImg = await loadImage(qr.toDataURL());
+
   ctx.fillStyle = "#ffffff";
   roundedRect(ctx, 780, 1085, 205, 205, 22);
   ctx.fill();
+
   ctx.drawImage(qrImg, 792, 1097, 180, 180);
 
   ctx.fillStyle = "#6b7280";
@@ -4395,6 +4449,7 @@ async function downloadPoster(){
   ctx.fillText("Scan / Open", 815, 1318);
 
   const safeName = (product.title || "product").replace(/[^\w\-]+/g, "-");
+
   const link = document.createElement("a");
   link.download = `${safeName}-poster.png`;
   link.href = canvas.toDataURL("image/png");
