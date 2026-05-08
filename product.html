@@ -4659,7 +4659,7 @@ function renderNotifications(){
     renderGroup(tr("notification_today"), today) +
     renderGroup(tr("notification_earlier"), older);
 
-  notificationList.onclick = async event=>{
+  notificationList.onclick = event=>{
     const card = event.target.closest(".notification-card");
     if(!card) return;
 
@@ -4668,16 +4668,33 @@ function renderNotifications(){
     if(!item) return;
 
     if(!item.read){
-      try{
-        await updateDoc(doc(db, "notifications", id), { read:true });
-      }catch(error){
-        console.error(error);
+      updateDoc(doc(db, "notifications", id), { read:true }).catch(console.error);
+    }
+
+    if(item.type === "call_attempt"){
+      const normalizedPhone = normalizePhone(item.userPhone || "");
+
+      if(!normalizedPhone){
+        showToast(tr("seller_number_missing"));
+        return;
       }
+
+      closeNotificationDropdown();
+
+      const callLink = document.createElement("a");
+      callLink.href = `tel:${normalizedPhone}`;
+      callLink.style.display = "none";
+      document.body.appendChild(callLink);
+      callLink.click();
+      callLink.remove();
+
+      return;
     }
 
     const qs = item.roomId ? `?room=${item.roomId}` : "";
     window.location.href = `chat.html${qs}`;
   };
+
 
   updateNotificationBadge();
   enableSwipeToDelete();
