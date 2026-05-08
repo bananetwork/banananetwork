@@ -462,6 +462,37 @@ body{
   background:#ef4444;
   border-radius:50%;
 }
+.notification-phone{
+  font-size:13px;
+  font-weight:700;
+  color:#0f766e;
+  margin-top:3px;
+}
+
+@media (max-width:560px){
+  .notification-dropdown{
+    position:fixed;
+    top:58px;
+    left:8px;
+    right:8px;
+    width:auto;
+    max-height:calc(100vh - 76px);
+    overflow:hidden;
+    z-index:8200;
+  }
+
+  .notification-list{
+    max-height:calc(100vh - 138px);
+  }
+}
+
+@media (max-width:390px){
+  .notification-dropdown{
+    left:7px;
+    right:7px;
+    width:auto;
+  }
+}
 
 /* DRAWER - BUY STYLE */
 .sidebar-overlay{
@@ -1552,6 +1583,8 @@ const translations = {
     notification_new_message:"New message",
     notification_today:"आज",
     notification_earlier:"मागील",
+    notification_call_attempt:"Buyer ने तुमच्या product वर call करण्याचा प्रयत्न केला",
+    seller_number_missing:"Buyer number उपलब्ध नाही.",
     ticker_text:"👤 My Account मधून profile, notifications, listings आणि deal points पाहा | 💬 Quick Actions मधून chat उघडा | 📤 Sell page वरून नवीन listing टाका | 🔒 Logout केल्यावर device वरील stored data remove होईल",
     back_home:"⬅ Home",
     account_loading:"Account loading...",
@@ -1636,6 +1669,8 @@ const translations = {
     deal_points:"Success Deal Points",
     quick_actions:"Quick Actions",
     sell_title:"बेचें",
+    notification_call_attempt:"Buyer ने आपके product पर call करने की कोशिश की",
+    seller_number_missing:"Buyer number उपलब्ध नहीं है.",
     sell_desc:"नई product listing डालें और share करें",
     buy_title:"खरीदें",
     buy_desc:"सभी live listings देखें और buyer flow शुरू करें",
@@ -1712,6 +1747,8 @@ const translations = {
     deal_points:"Success Deal Points",
     quick_actions:"Quick Actions",
     sell_title:"Sell",
+    notification_call_attempt:"Buyer tried to call on your product",
+    seller_number_missing:"Buyer number is not available.",
     sell_desc:"Create a new product listing and share it",
     buy_title:"Buy",
     buy_desc:"Browse all live listings and start the buyer flow",
@@ -1786,6 +1823,37 @@ let notificationsCache = [];
 function t(key){
   return translations[currentLanguage]?.[key] || translations.mr[key] || key;
 }
+
+function escapeHtml(value){
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function normalizePhone(phone){
+  const raw = String(phone || "").trim();
+
+  if(raw.startsWith("+")){
+    return raw.replace(/[^\d+]/g, "");
+  }
+
+  const digits = raw.replace(/\D/g, "");
+  if(!digits) return "";
+
+  if(digits.length === 10){
+    return `+91${digits}`;
+  }
+
+  if(digits.length === 12 && digits.startsWith("91")){
+    return `+${digits}`;
+  }
+
+  return `+${digits}`;
+}
+
 
 function mobileFromInternalEmail(email){
   const value = String(email || "");
@@ -2097,7 +2165,6 @@ function getTimestampValue(value){
 
 function normalizeNotification(docSnap){
   const data = docSnap.data() || {};
-
   let message = String(data.message || "").trim();
 
   if(data.type === "order_request"){
@@ -2106,6 +2173,8 @@ function normalizeNotification(docSnap){
     message = t("notification_order_accept");
   }else if(data.type === "order_reject"){
     message = t("notification_order_reject");
+  }else if(data.type === "call_attempt"){
+    message = t("notification_call_attempt");
   }else{
     message = message || t("notification_new_message");
   }
@@ -2120,6 +2189,7 @@ function normalizeNotification(docSnap){
     userName:String(data.userName || data.senderName || "User"),
     photoURL:String(data.photoURL || data.senderPhoto || ""),
     productName:String(data.productName || data.productTitle || ""),
+    userPhone:String(data.userPhone || data.senderPhone || ""),
     message,
     read:!!data.read,
     hiddenFor,
@@ -2127,6 +2197,7 @@ function normalizeNotification(docSnap){
     timeLabel:formatDateTime(data.createdAt)
   };
 }
+
 
 function getVisibleNotifications(){
   const uid = currentUser?.uid || localStorage.getItem("userId") || "";
@@ -2213,7 +2284,7 @@ function renderNotifications(){
   const items = getVisibleNotifications();
 
   if(!items.length){
-    notificationList.innerHTML = `<div class="notification-empty">${t("notification_empty")}</div>`;
+    notificationList.innerHTML = `<div class="notification-empty">${escapeHtml(t("notification_empty"))}</div>`;
     updateNotificationBadge();
     return;
   }
@@ -2223,35 +2294,44 @@ function renderNotifications(){
 
   items.forEach(item=>{
     const diff = Date.now() - item.createdMs;
-    if(diff < 86400000){
-      today.push(item);
-    }else{
-      older.push(item);
-    }
+    if(diff < 86400000) today.push(item);
+    else older.push(item);
   });
 
   function renderGroup(title, list){
     if(!list.length) return "";
+
     return `
       <div style="font-weight:800; padding:8px 12px; color:#64748b;">
-        ${title}
+        ${escapeHtml(title)}
       </div>
-      ${list.map(item => `
-        <div class="notification-card ${item.read ? "" : "unread"}" data-id="${item.id}">
-          <img class="notification-avatar" src="${item.photoURL || ("https://ui-avatars.com/api/?name=" + encodeURIComponent(item.userName || "U"))}" alt="${item.userName || "User"}">
-          <div class="notification-body">
-            <div class="notification-top">
-              <div class="notification-user">${item.userName || "User"}</div>
-              <div class="notification-time">${item.timeLabel}</div>
-            </div>
-            <div class="notification-message">${item.message}</div>
-            <div class="notification-meta">
-              <div class="notification-product">${item.productName || ""}</div>
-              ${!item.read ? `<div class="notification-dot"></div>` : ""}
+      ${list.map(item=>{
+        const avatar = item.photoURL
+          ? escapeHtml(item.photoURL)
+          : `https://ui-avatars.com/api/?name=${encodeURIComponent(item.userName || "U")}`;
+
+        const phoneLine = item.userPhone
+          ? `<div class="notification-phone">☎ ${escapeHtml(item.userPhone)}</div>`
+          : "";
+
+        return `
+          <div class="notification-card ${item.read ? "" : "unread"}" data-id="${escapeHtml(item.id)}">
+            <img class="notification-avatar" src="${avatar}" alt="${escapeHtml(item.userName || "User")}">
+            <div class="notification-body">
+              <div class="notification-top">
+                <div class="notification-user">${escapeHtml(item.userName || "User")}</div>
+                <div class="notification-time">${escapeHtml(item.timeLabel)}</div>
+              </div>
+              ${phoneLine}
+              <div class="notification-message">${escapeHtml(item.message)}</div>
+              <div class="notification-meta">
+                <div class="notification-product">${escapeHtml(item.productName || "")}</div>
+                ${!item.read ? `<div class="notification-dot"></div>` : ""}
+              </div>
             </div>
           </div>
-        </div>
-      `).join("")}
+        `;
+      }).join("")}
     `;
   }
 
@@ -2268,20 +2348,37 @@ function renderNotifications(){
     if(!item) return;
 
     if(!item.read){
-      try{
-        await updateDoc(doc(db, "notifications", id), { read:true });
-      }catch(error){
-        console.error(error);
-      }
+      updateDoc(doc(db, "notifications", id), { read:true }).catch(console.error);
     }
 
-    const qs = item.roomId ? `?room=${item.roomId}` : "";
+    if(item.type === "call_attempt"){
+      const normalizedPhone = normalizePhone(item.userPhone || "");
+
+      if(!normalizedPhone){
+        showToast(t("seller_number_missing"));
+        return;
+      }
+
+      closeNotificationDropdown();
+
+      const callLink = document.createElement("a");
+      callLink.href = `tel:${normalizedPhone}`;
+      callLink.style.display = "none";
+      document.body.appendChild(callLink);
+      callLink.click();
+      callLink.remove();
+
+      return;
+    }
+
+    const qs = item.roomId ? `?room=${encodeURIComponent(item.roomId)}` : "";
     window.location.href = `chat.html${qs}`;
   };
 
   updateNotificationBadge();
   enableSwipeToDelete();
 }
+
 
 function subscribeNotifications(user){
   if(notificationUnsubscribe){
