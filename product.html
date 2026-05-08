@@ -4358,24 +4358,48 @@ async function downloadPoster(){
   const posterSubtitle = `${product.companyName || product.sellerDisplayName || "BanaNetwork"} Digital Details Profile`;
   drawWrappedText(ctx, posterSubtitle, 95, 172, 890, 34, 2);
 
-  roundedRect(ctx, 95, 220, 890, 520, 32);
+  const photoX = 150;
+  const photoY = 220;
+  const photoW = 780;
+  const photoH = 520;
+  const photoR = 34;
+
+  // soft shadow like product slider
   ctx.save();
+  ctx.shadowColor = "rgba(15,23,42,.32)";
+  ctx.shadowBlur = 42;
+  ctx.shadowOffsetY = 24;
+  roundedRect(ctx, photoX, photoY, photoW, photoH, photoR);
+  ctx.fillStyle = "#ffffff";
+  ctx.fill();
+  ctx.restore();
+
+  // subtle border
+  roundedRect(ctx, photoX, photoY, photoW, photoH, photoR);
+  ctx.strokeStyle = "rgba(15,23,42,.08)";
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // image inside rounded frame
+  ctx.save();
+  roundedRect(ctx, photoX, photoY, photoW, photoH, photoR);
   ctx.clip();
 
   if(slideImages[0]){
     try{
       const img = await loadImage(slideImages[0]);
-      drawCoverImage(ctx, img, 95, 220, 890, 520);
+      drawCoverImage(ctx, img, photoX, photoY, photoW, photoH);
     }catch(error){
       ctx.fillStyle = "#e7f2ea";
-      ctx.fillRect(95, 220, 890, 520);
+      ctx.fillRect(photoX, photoY, photoW, photoH);
     }
   }else{
     ctx.fillStyle = "#e7f2ea";
-    ctx.fillRect(95, 220, 890, 520);
+    ctx.fillRect(photoX, photoY, photoW, photoH);
   }
 
   ctx.restore();
+
 
   ctx.fillStyle = "#111827";
   ctx.font = "bold 60px Arial";
