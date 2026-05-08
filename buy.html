@@ -3105,6 +3105,28 @@ function formatPrice(value){
   return Number(value || 0).toLocaleString("en-IN");
 }
 
+function normalizePhone(phone){
+  const raw = String(phone || "").trim();
+
+  if(raw.startsWith("+")){
+    return raw.replace(/[^\d+]/g, "");
+  }
+
+  const digits = raw.replace(/\D/g, "");
+  if(!digits) return "";
+
+  if(digits.length === 10){
+    return `+91${digits}`;
+  }
+
+  if(digits.length === 12 && digits.startsWith("91")){
+    return `+${digits}`;
+  }
+
+  return `+${digits}`;
+}
+
+
 function formatDate(value){
   if(!value) return "New";
   try{
@@ -3442,7 +3464,7 @@ function renderNotifications(){
     renderGroup("Earlier", older);
 
   /* 🚀 EVENT (SINGLE LISTENER) */
-  notificationListEl.onclick = async (e) => {
+  notificationListEl.onclick = (e) => {
     const card = e.target.closest(".notification-card");
     if(!card) return;
 
@@ -3451,17 +3473,36 @@ function renderNotifications(){
     if(!item) return;
 
     if(!item.read){
-      try{
-        await updateDoc(doc(db,"notifications",id),{ read:true });
-      }catch(err){
-        console.error(err);
+      updateDoc(doc(db, "notifications", id), { read:true }).catch(console.error);
+    }
+
+    if(item.type === "call_attempt"){
+      const normalizedPhone = normalizePhone(item.userPhone || "");
+
+      if(!normalizedPhone){
+        showToast("Buyer number उपलब्ध नाही.");
+        return;
       }
+
+      if(typeof window.closeBuyNotificationDropdown === "function"){
+        window.closeBuyNotificationDropdown();
+      }
+
+      const callLink = document.createElement("a");
+      callLink.href = `tel:${normalizedPhone}`;
+      callLink.style.display = "none";
+      document.body.appendChild(callLink);
+      callLink.click();
+      callLink.remove();
+
+      return;
     }
 
     const roomId = item.roomId;
     const qs = roomId ? `?room=${roomId}` : "";
     window.location.href = `chat.html${qs}`;
   };
+
 
   updateNotificationBadge();
   enableSwipeToDelete();
