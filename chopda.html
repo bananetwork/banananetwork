@@ -1537,6 +1537,8 @@ const translations = {
     ticker_text:"🚨 चोपडा आजचे केळी भाव Live अपडेट | 📍 चोपडा मंडी नवती आणि कांदे बाग भाव | 📈 भाव वाढ-घट माहिती | ⚡ दररोज जलद अपडेट | 🟢📱 दररोज केळीचे भाव पाहण्यासाठी वरील WhatsApp ग्रुपला जॉइन व्हा",
     slide_receipt:"📸 बुरहानपूर मंडी प्रमाणित पावती",
     slide_buy:"🌱 केळी रोप-खोडवा खरेदी विक्री",
+    notification_call_attempt:"Buyer ने तुमच्या product वर call करण्याचा प्रयत्न केला",
+    seller_number_missing:"Buyer number उपलब्ध नाही.",
     tab_burhanpur:"बुरहानपूर",
     tab_jalgaon:"जळगाव",
     tab_chopda:"चोपडा",
@@ -1626,6 +1628,8 @@ const translations = {
     ticker_text:"🚨 चोपडा आज के केला भाव Live अपडेट | 📍 चोपडा मंडी नवती और कांदे बाग भाव | 📈 भाव बढ़त-घटत जानकारी | ⚡ रोज़ तेज़ अपडेट | 🟢📱 रोज़ केला भाव देखने के लिए ऊपर वाले WhatsApp ग्रुप से जुड़ें",
     slide_receipt:"📸 बुरहानपूर मंडी प्रमाणित रसीद",
     slide_buy:"🌱 केला रोप-खोडवा खरीद बिक्री",
+    notification_call_attempt:"Buyer ने आपके product पर call करने की कोशिश की",
+    seller_number_missing:"Buyer number उपलब्ध नहीं है.",
     tab_burhanpur:"बुरहानपुर",
     tab_jalgaon:"जलगांव",
     tab_chopda:"चोपडा",
@@ -1724,6 +1728,8 @@ const translations = {
     graph_30:"30 Days",
     graph_365:"365 Days",
     footer_made:"Made for Banana Farmers 🍌",
+    notification_call_attempt:"Buyer tried to call on your product",
+    seller_number_missing:"Buyer number is not available.",
     footer_privacy:"Privacy",
     footer_contact:"Contact",
     footer_about:"About",
@@ -1814,6 +1820,26 @@ function escapeHtml(value){
       "'":"&#39;"
     }[char];
   });
+}
+function normalizePhone(phone){
+  const raw = String(phone || "").trim();
+
+  if(raw.startsWith("+")){
+    return raw.replace(/[^\d+]/g, "");
+  }
+
+  const digits = raw.replace(/\D/g, "");
+  if(!digits) return "";
+
+  if(digits.length === 10){
+    return `+91${digits}`;
+  }
+
+  if(digits.length === 12 && digits.startsWith("91")){
+    return `+${digits}`;
+  }
+
+  return `+${digits}`;
 }
 
 function clearNode(node){
@@ -1938,7 +1964,7 @@ function formatDateTime(value){
 
 function normalizeNotification(docSnap){
   const data = docSnap.data() || {};
-  let message = String(data.message || "");
+  let message = String(data.message || "").trim();
 
   if(data.type === "order_request"){
     message = t("notification_new_order");
@@ -1946,6 +1972,8 @@ function normalizeNotification(docSnap){
     message = t("notification_order_accept");
   }else if(data.type === "order_reject"){
     message = t("notification_order_reject");
+  }else if(data.type === "call_attempt"){
+    message = t("notification_call_attempt");
   }else{
     message = message || t("notification_new_message");
   }
@@ -1970,6 +1998,7 @@ function normalizeNotification(docSnap){
     timeLabel:formatDateTime(data.createdAt)
   };
 }
+
 
 function getVisibleNotifications(){
   const uid = currentUser?.uid || localStorage.getItem("userId") || "";
@@ -2123,16 +2152,33 @@ function renderNotifications(){
     if(!item) return;
 
     if(!item.read){
-      try{
-        await updateDoc(doc(db, "notifications", id), { read:true });
-      }catch(error){
-        console.error(error);
+      updateDoc(doc(db, "notifications", id), { read:true }).catch(console.error);
+    }
+
+    if(item.type === "call_attempt"){
+      const normalizedPhone = normalizePhone(item.userPhone || "");
+
+      if(!normalizedPhone){
+        alert(t("seller_number_missing"));
+        return;
       }
+
+      closeNotificationDropdown();
+
+      const callLink = document.createElement("a");
+      callLink.href = `tel:${normalizedPhone}`;
+      callLink.style.display = "none";
+      document.body.appendChild(callLink);
+      callLink.click();
+      callLink.remove();
+
+      return;
     }
 
     const queryString = item.roomId ? `?room=${encodeURIComponent(item.roomId)}` : "";
     window.location.href = `chat.html${queryString}`;
   };
+
 
   updateNotificationBadge();
   enableSwipeToDelete();
