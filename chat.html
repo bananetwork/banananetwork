@@ -3058,6 +3058,26 @@ function tv(value){
 function lv(value){
   return tv(value).toLowerCase();
 }
+function normalizePhone(phone){
+  const raw = String(phone || "").trim();
+
+  if(raw.startsWith("+")){
+    return raw.replace(/[^\d+]/g, "");
+  }
+
+  const digits = raw.replace(/\D/g, "");
+  if(!digits) return "";
+
+  if(digits.length === 10){
+    return `+91${digits}`;
+  }
+
+  if(digits.length === 12 && digits.startsWith("91")){
+    return `+${digits}`;
+  }
+
+  return `+${digits}`;
+}
 
 function showToast(message){
   dom.toast.textContent = message;
@@ -3868,6 +3888,24 @@ const notificationService = {
     this.closePanel();
     await this.markAsRead(notificationId);
 
+    if(notification.type === "call_attempt"){
+      const normalizedPhone = normalizePhone(notification.userPhone || "");
+
+      if(!normalizedPhone){
+        showToast("Buyer number उपलब्ध नाही.");
+        return;
+      }
+
+      const callLink = document.createElement("a");
+      callLink.href = `tel:${normalizedPhone}`;
+      callLink.style.display = "none";
+      document.body.appendChild(callLink);
+      callLink.click();
+      callLink.remove();
+
+      return;
+    }
+
     if(!notification.roomId){
       showToast(t("notificationRoomMissing"));
       return;
@@ -3883,6 +3921,7 @@ const notificationService = {
       window.location.href = `chat.html?room=${encodeURIComponent(notification.roomId)}`;
     }
   },
+
   unsubscribe(){
     if(notificationUnsubscribe){
       notificationUnsubscribe();
@@ -5706,20 +5745,29 @@ async function notifySellerCallAttemptFromChat(room){
 }
 
 dom.callBtn.addEventListener("click", async () => {
-  if(dom.callBtn.classList.contains("disabled")) return;
   if(!activeRoom) return;
+
+  const target = getCallTarget(activeRoom);
+  const normalizedPhone = normalizePhone(target.phone || "");
+
+  if(!normalizedPhone){
+    showToast("Mobile number उपलब्ध नाही.");
+    return;
+  }
 
   await notifySellerCallAttemptFromChat(activeRoom);
 
-  const target = getCallTarget(activeRoom);
-
-  if(!target.phone) return;
   if(target.locked){
     openCallLockPopup(target.range || "");
     return;
   }
 
-  window.location.href = `tel:${target.phone}`;
+  const callLink = document.createElement("a");
+  callLink.href = `tel:${normalizedPhone}`;
+  callLink.style.display = "none";
+  document.body.appendChild(callLink);
+  callLink.click();
+  callLink.remove();
 });
 
 
