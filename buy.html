@@ -2212,7 +2212,12 @@ const translations = {
     notification_new_message:"New message",
     notification_open_failed:"Notification उघडता आली नाही.",
     notification_hide_failed:"Notification hide करता आली नाही.",
-    notification_hide_label:"Hide notification"
+    notification_hide_label:"Hide notification",
+    notification_call_attempt:"Buyer ने तुमच्या product वर call करण्याचा प्रयत्न केला",
+    seller_number_missing:"Buyer number उपलब्ध नाही.",
+    notification_today:"आज",
+    notification_earlier:"मागील",
+
   },
   hi:{
     page_title:"🌱 केला रोप खोडवा खरीद बिक्री | BanaNetwork",
@@ -2237,6 +2242,10 @@ const translations = {
     nav_my_chat:"My Chat",
     nav_listing_history:"My Listing History",
     nav_inbox:"My Inbox",
+    notification_call_attempt:"Buyer ने आपके product पर call करने की कोशिश की",
+    seller_number_missing:"Buyer number उपलब्ध नहीं है.",
+    notification_today:"Today",
+    notification_earlier:"Earlier",
     nav_signup:"Signup",
     nav_login:"Login",
     nav_logout:"Logout",
@@ -2337,6 +2346,10 @@ const translations = {
     nav_logout:"Logout",
     info_about:"About Us",
     info_privacy:"Privacy Policy",
+    notification_call_attempt:"Buyer tried to call on your product",
+    seller_number_missing:"Buyer number is not available.",
+    notification_today:"Today",
+    notification_earlier:"Earlier",
     info_terms:"Terms & Conditions",
     footer_terms:"T&C",
     info_contact:"Contact Us",
@@ -3294,11 +3307,14 @@ function normalizeNotification(docSnap){
     message = i18n.t("notification_order_accept");
   }else if(data.type === "order_reject"){
     message = i18n.t("notification_order_reject");
+  }else if(data.type === "call_attempt"){
+    message = i18n.t("notification_call_attempt");
   }else if(data.type === "chat"){
     message = tv(data.message) || i18n.t("notification_new_message");
   }else{
     message = tv(data.message) || i18n.t("notification_new_message");
   }
+
 
   // 🔥 IMPORTANT: FIELD FALLBACK SYSTEM
   const userName =
@@ -3460,8 +3476,9 @@ function renderNotifications(){
 
   /* 🔥 FINAL HTML */
   notificationListEl.innerHTML =
-    renderGroup("Today", today) +
-    renderGroup("Earlier", older);
+    renderGroup(i18n.t("notification_today"), today) +
+    renderGroup(i18n.t("notification_earlier"), older);
+
 
   /* 🚀 EVENT (SINGLE LISTENER) */
   notificationListEl.onclick = (e) => {
@@ -3480,7 +3497,7 @@ function renderNotifications(){
       const normalizedPhone = normalizePhone(item.userPhone || "");
 
       if(!normalizedPhone){
-        showToast("Buyer number उपलब्ध नाही.");
+        showToast(i18n.t("seller_number_missing"));
         return;
       }
 
@@ -3499,7 +3516,7 @@ function renderNotifications(){
     }
 
     const roomId = item.roomId;
-    const qs = roomId ? `?room=${roomId}` : "";
+    const qs = roomId ? `?room=${encodeURIComponent(roomId)}` : "";
     window.location.href = `chat.html${qs}`;
   };
 
