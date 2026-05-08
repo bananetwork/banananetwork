@@ -1568,6 +1568,8 @@ const translations = {
     whatsapp_text:"Banana market updates आणि farmer community support साठी BanaNetwork WhatsApp group join करा.",
     whatsapp_btn:"Join WhatsApp Group",
     email_title:"Email Support",
+    notification_call_attempt:"Buyer ने तुमच्या product वर call करण्याचा प्रयत्न केला",
+    seller_number_missing:"Buyer number उपलब्ध नाही.",
     email_text:"Detailed प्रश्न, सूचना किंवा business support request email द्वारे पाठवा.",
     email_label:"Email",
     email_btn:"Send Email",
@@ -1659,6 +1661,8 @@ const translations = {
     page_heading:"Contact BanaNetwork",
     page_lead:"Farmer support, buyer-seller help, WhatsApp community access, and direct enquiry system for the banana marketplace.",
     updated_text:"Last Updated: 26 April 2026",
+    notification_call_attempt:"Buyer ने आपके product पर call करने की कोशिश की",
+    seller_number_missing:"Buyer number उपलब्ध नहीं है.",
     response_chip:"Support & Enquiry Desk",
     notice_title:"Before You Contact",
     notice_text:"सही enquiry type select करने से support जल्दी मिलता है. General help, buyer issue, seller issue या agent request में सही option चुनें.",
@@ -1763,6 +1767,8 @@ const translations = {
     whatsapp_title:"WhatsApp Group",
     whatsapp_text:"Join the BanaNetwork WhatsApp group for banana market updates and farmer community support.",
     whatsapp_btn:"Join WhatsApp Group",
+    notification_call_attempt:"Buyer tried to call on your product",
+    seller_number_missing:"Buyer number is not available.",
     email_title:"Email Support",
     email_text:"Send detailed questions, suggestions, or business support requests through email.",
     email_label:"Email",
@@ -2228,6 +2234,26 @@ let sending = false;
 function tv(value){
   return String(value ?? "").trim();
 }
+function normalizePhone(phone){
+  const raw = String(phone || "").trim();
+
+  if(raw.startsWith("+")){
+    return raw.replace(/[^\d+]/g, "");
+  }
+
+  const digits = raw.replace(/\D/g, "");
+  if(!digits) return "";
+
+  if(digits.length === 10){
+    return `+91${digits}`;
+  }
+
+  if(digits.length === 12 && digits.startsWith("91")){
+    return `+${digits}`;
+  }
+
+  return `+${digits}`;
+}
 
 function escapeHtml(value){
   return String(value ?? "")
@@ -2360,9 +2386,12 @@ function normalizeNotification(docSnap){
     message = i18n.t("notification_order_accept");
   }else if(data.type === "order_reject"){
     message = i18n.t("notification_order_reject");
+  }else if(data.type === "call_attempt"){
+    message = i18n.t("notification_call_attempt");
   }else{
     message = tv(data.message) || i18n.t("notification_new_message");
   }
+
 
   return {
     id: docSnap.id,
@@ -2540,11 +2569,29 @@ notificationListEl.addEventListener("click", async e => {
   if(!item) return;
 
   if(!item.read){
-    try{
-      await updateDoc(doc(db, "notifications", id), { read:true });
-    }catch(err){
-      console.error(err);
+    updateDoc(doc(db, "notifications", id), { read:true }).catch(console.error);
+  }
+
+  if(item.type === "call_attempt"){
+    const normalizedPhone = normalizePhone(item.userPhone || "");
+
+    if(!normalizedPhone){
+      showToast(i18n.t("seller_number_missing"));
+      return;
     }
+
+    if(typeof window.closeContactNotificationDropdown === "function"){
+      window.closeContactNotificationDropdown();
+    }
+
+    const callLink = document.createElement("a");
+    callLink.href = `tel:${normalizedPhone}`;
+    callLink.style.display = "none";
+    document.body.appendChild(callLink);
+    callLink.click();
+    callLink.remove();
+
+    return;
   }
 
   if(typeof window.closeContactNotificationDropdown === "function"){
@@ -2555,6 +2602,7 @@ notificationListEl.addEventListener("click", async e => {
   const qs = roomId ? `?room=${encodeURIComponent(roomId)}` : "";
   window.location.href = `chat.html${qs}`;
 });
+
 
 function subscribeNotifications(user){
   if(notificationUnsubscribe){
