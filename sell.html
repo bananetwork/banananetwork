@@ -1702,6 +1702,23 @@ body{
               <option value="no">नाही</option>
             </select>
           </div>
+          <div>
+            <label class="field-label" id="homeDeliveryLabel" for="homeDeliveryOption">Home Delivery</label>
+            <select class="form-control" id="homeDeliveryOption">
+              <option value="">निवडा</option>
+              <option value="yes">हो</option>
+              <option value="no">नाही</option>
+            </select>
+          </div>
+
+          <div class="form-row-full hidden" id="deliveryChargeBlock">
+            <label class="field-label" id="deliveryChargeLabel" for="deliveryChargeMessage">Delivery Charge Details</label>
+            <textarea
+              class="form-control form-textarea"
+              id="deliveryChargeMessage"
+              placeholder="उदा. location नुसार delivery charge, per km price, transport details..."
+           ></textarea>
+          </div>
 
           <div>
             <label class="field-label">Stock Type *</label>
@@ -2031,6 +2048,11 @@ const listingTalukaLabel = document.getElementById("listingTalukaLabel");
 const listingVillageLabel = document.getElementById("listingVillageLabel");
 const listingAllAreaLabel = document.getElementById("listingAllAreaLabel");
 const listingAllArea = document.getElementById("listingAllArea");
+const homeDeliveryLabel = document.getElementById("homeDeliveryLabel");
+const homeDeliveryOption = document.getElementById("homeDeliveryOption");
+const deliveryChargeBlock = document.getElementById("deliveryChargeBlock");
+const deliveryChargeLabel = document.getElementById("deliveryChargeLabel");
+const deliveryChargeMessage = document.getElementById("deliveryChargeMessage");
 const phone1 = document.getElementById("phone1");
 const phone2 = document.getElementById("phone2");
 const phone3 = document.getElementById("phone3");
@@ -2168,6 +2190,11 @@ const translations = {
     form_desc_rop:"Title, location, company, phone आणि images भरून रोप listing publish करा.",
     form_desc_khodwa:"Title, location, company, phone आणि images भरून खोडवा listing publish करा.",
     product_type:"Product Type",
+    home_delivery_label:"Home Delivery",
+    delivery_charge_label:"Delivery Charge Details",
+    delivery_charge_placeholder:"उदा. location नुसार delivery charge, per km price, transport details...",
+    preview_home_delivery:"Home Delivery",
+    delivery_details_required:"Home delivery yes असेल तर delivery charge details लिहा.",
     option_rop:"रोप",
     option_khodwa:"खोडवा",
     title_label:"Title",
@@ -2292,6 +2319,11 @@ const translations = {
     form_desc_rop:"Title, location, company, phone और images भरकर plant listing publish करें.",
     form_desc_khodwa:"Title, location, company, phone और images भरकर khodwa listing publish करें.",
     product_type:"Product Type",
+    home_delivery_label:"Home Delivery",
+    delivery_charge_label:"Delivery Charge Details",
+    delivery_charge_placeholder:"जैसे location के अनुसार delivery charge, per km price, transport details...",
+    preview_home_delivery:"Home Delivery",
+    delivery_details_required:"Home delivery yes है तो delivery charge details लिखें.",
     option_rop:"रोप",
     option_khodwa:"खोडवा",
     title_label:"Title",
@@ -2403,6 +2435,11 @@ const translations = {
     form_desc_rop:"Fill title, location, company, phone, and images to publish your plant listing.",
     form_desc_khodwa:"Fill title, location, company, phone, and images to publish your khodwa listing.",
     product_type:"Product Type",
+    home_delivery_label:"Home Delivery",
+    delivery_charge_label:"Delivery Charge Details",
+    delivery_charge_placeholder:"Example: delivery charge by location, per km price, transport details...",
+    preview_home_delivery:"Home Delivery",
+    delivery_details_required:"Please enter delivery charge details when home delivery is yes.",
     notification_call_attempt:"Buyer tried to call on your product",
     seller_number_missing:"Buyer number is not available.",
     notification_today:"Today",
@@ -2814,7 +2851,12 @@ function applyLanguage(){
   submitListingBtn.textContent = t("submit_btn");
   previewTitle.textContent = t("preview_title");
   previewDesc.textContent = t("preview_desc");
-
+  homeDeliveryLabel.textContent = t("home_delivery_label");
+  homeDeliveryOption.options[0].text = t("select_option");
+  homeDeliveryOption.options[1].text = t("yes");
+  homeDeliveryOption.options[2].text = t("no");
+  deliveryChargeLabel.textContent = t("delivery_charge_label");
+  deliveryChargeMessage.placeholder = t("delivery_charge_placeholder");
   footerMade.textContent = t("footer_made");
   footerPrivacy.textContent = t("footer_privacy");
   footerContact.textContent = t("footer_contact");
@@ -3301,6 +3343,12 @@ function updatePreviewCard(){
   const title = tv(listingTitle.value) || i18n.t("preview_no_title");
   const price = tv(listingPrice.value) ? `₹${Number(listingPrice.value).toLocaleString("en-IN")}` : "₹0";
   const company = tv(listingCompany.value);
+  const homeDeliveryValue = tv(homeDeliveryOption.value);
+  const homeDeliveryText =
+    homeDeliveryValue === "yes" ? i18n.t("yes") :
+    homeDeliveryValue === "no" ? i18n.t("no") : "-";
+  const deliveryChargeText = tv(deliveryChargeMessage.value);
+
   const location = [tv(listingVillage.value), tv(listingTaluka.value), tv(listingDistrict.value), tv(listingState.value)]
     .filter(Boolean)
     .join(", ") || i18n.t("location_none");
@@ -3353,6 +3401,7 @@ function updatePreviewCard(){
         <div class="product-meta">
           <span>🕒 Preview</span>
           <span>📦 ${escapeHtml(i18n.t("preview_stock"))}: ${escapeHtml(stock)}</span>
+          <span>🚚 ${escapeHtml(i18n.t("preview_home_delivery"))}: ${escapeHtml(homeDeliveryText)}</span>
           <span>🌍 ${escapeHtml(i18n.t("preview_all_area"))}: ${escapeHtml(allAreaText)}</span>
           <span>📸 ${escapeHtml(count ? `${count} ${i18n.t("photos_label")}` : i18n.t("no_photo_added"))}</span>
         </div>
@@ -3431,6 +3480,18 @@ listingCamera.addEventListener("change", () => {
 });
 
 listingAllArea.addEventListener("change", updatePreviewCard);
+homeDeliveryOption.addEventListener("change", () => {
+  if(homeDeliveryOption.value === "yes"){
+    deliveryChargeBlock.classList.remove("hidden");
+  }else{
+    deliveryChargeBlock.classList.add("hidden");
+    deliveryChargeMessage.value = "";
+  }
+
+  updatePreviewCard();
+});
+
+deliveryChargeMessage.addEventListener("input", updatePreviewCard);
 
 listingProductType.addEventListener("change", () => {
   setSellKind(listingProductType.value);
@@ -3513,6 +3574,12 @@ function buildPayload(imageUrls){
     isAllAreaAvailable: allAreaAvailable,
     availableEverywhere: allAreaAvailable,
     allArea: allAreaAvailable ? "yes" : "no",
+    homeDeliveryAvailable: homeDeliveryOption.value === "yes",
+    isHomeDeliveryAvailable: homeDeliveryOption.value === "yes",
+    homeDelivery: homeDeliveryOption.value || "no",
+    deliveryChargeMessage: tv(deliveryChargeMessage.value),
+    deliveryChargeDetails: tv(deliveryChargeMessage.value),
+    deliveryMessage: tv(deliveryChargeMessage.value),
     description: tv(listingDescription.value),
     phone: tv(phone1.value),
     mobile: tv(phone1.value),
@@ -3566,7 +3633,12 @@ function validateForm(){
     tv(stockType.value),
     tv(listingDescription.value),
     tv(phone1.value),
+    tv(homeDeliveryOption.value),
   ];
+  if(homeDeliveryOption.value === "yes" && !tv(deliveryChargeMessage.value)){
+    showToast(i18n.t("delivery_details_required"));
+    return false;
+  }
 
   return values.every(Boolean);
 }
