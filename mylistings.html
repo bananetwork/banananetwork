@@ -1884,6 +1884,71 @@ a{color:inherit}
           <label class="field-label" id="fieldDistrictLabel" for="editDistrict">District</label>
           <input class="input" id="editDistrict" type="text">
         </div>
+        <div>
+          <label class="field-label" for="editState">State</label>
+          <input class="input" id="editState" type="text">
+        </div>
+
+        <div>
+          <label class="field-label" for="editAllArea">All Area Service</label>
+          <select class="select" id="editAllArea">
+            <option value="">निवडा</option>
+            <option value="yes">हो</option>
+            <option value="no">नाही</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="field-label" for="editHomeDelivery">Home Delivery</label>
+          <select class="select" id="editHomeDelivery">
+            <option value="">निवडा</option>
+            <option value="yes">हो</option>
+            <option value="no">नाही</option>
+          </select>
+        </div>
+
+        <div class="form-full hidden" id="editDeliveryChargeBlock">
+          <label class="field-label" for="editDeliveryChargeMessage">Delivery Charge Details</label>
+          <textarea class="textarea" id="editDeliveryChargeMessage" placeholder="location नुसार delivery charge, per km price..."></textarea>
+        </div>
+
+        <div>
+          <label class="field-label" for="editPhone1">Primary Phone</label>
+          <input class="input" id="editPhone1" type="tel">
+        </div>
+
+        <div>
+          <label class="field-label" for="editPhone1Any">Primary Calling Time</label>
+          <select class="select" id="editPhone1Any">
+            <option value="yes">Any Time</option>
+            <option value="no">Custom Time</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="field-label" for="editPhone1Time">Primary Time</label>
+          <input class="input" id="editPhone1Time" type="text" placeholder="10 AM to 10 PM">
+        </div>
+
+        <div>
+          <label class="field-label" for="editPhone2">Optional Phone 2</label>
+          <input class="input" id="editPhone2" type="tel">
+        </div>
+
+        <div>
+          <label class="field-label" for="editPhone2Time">Phone 2 Time</label>
+          <input class="input" id="editPhone2Time" type="text" placeholder="Any Time">
+        </div>
+
+        <div>
+          <label class="field-label" for="editPhone3">Optional Phone 3</label>
+          <input class="input" id="editPhone3" type="tel">
+        </div>
+
+        <div>
+          <label class="field-label" for="editPhone3Time">Phone 3 Time</label>
+          <input class="input" id="editPhone3Time" type="text" placeholder="Any Time">
+        </div>
 
         <div>
           <label class="field-label" id="fieldStatusLabel" for="editStatus">Status</label>
@@ -1925,7 +1990,7 @@ a{color:inherit}
     </div>
 
     <form id="stockForm">
-      <label class="field-label" for="stockTypeUpdate">Stock Type</label>
+      <label class="field-label" id="stockFieldLabel" for="stockTypeUpdate">Stock Type</label>
       <select class="select" id="stockTypeUpdate">
         <option value="unlimited">Unlimited</option>
         <option value="limited">Limited</option>
@@ -2437,6 +2502,18 @@ const editStockNumber = document.getElementById("editStockNumber");
 const editVillage = document.getElementById("editVillage");
 const editTaluka = document.getElementById("editTaluka");
 const editDistrict = document.getElementById("editDistrict");
+const editState = document.getElementById("editState");
+const editAllArea = document.getElementById("editAllArea");
+const editHomeDelivery = document.getElementById("editHomeDelivery");
+const editDeliveryChargeBlock = document.getElementById("editDeliveryChargeBlock");
+const editDeliveryChargeMessage = document.getElementById("editDeliveryChargeMessage");
+const editPhone1 = document.getElementById("editPhone1");
+const editPhone1Any = document.getElementById("editPhone1Any");
+const editPhone1Time = document.getElementById("editPhone1Time");
+const editPhone2 = document.getElementById("editPhone2");
+const editPhone2Time = document.getElementById("editPhone2Time");
+const editPhone3 = document.getElementById("editPhone3");
+const editPhone3Time = document.getElementById("editPhone3Time");
 const editStatus = document.getElementById("editStatus");
 const editDescription = document.getElementById("editDescription");
 const editImages = document.getElementById("editImages");
@@ -3081,6 +3158,29 @@ function openEditModal(item){
   editDescription.value = item.description || "";
   editImages.value = item.images.join("\n");
   editModal.classList.remove("hidden");
+  editState.value = item.raw.state || "";
+  editAllArea.value = item.raw.allArea || (item.raw.allAreaAvailable ? "yes" : "no");
+  editHomeDelivery.value = item.raw.homeDelivery || (item.raw.homeDeliveryAvailable ? "yes" : "no");
+  editDeliveryChargeMessage.value =
+    item.raw.deliveryChargeMessage ||
+    item.raw.deliveryChargeDetails ||
+    item.raw.deliveryMessage ||
+    "";
+
+  editDeliveryChargeBlock.classList.toggle("hidden", editHomeDelivery.value !== "yes");
+
+  const phones = Array.isArray(item.raw.phones) ? item.raw.phones : [];
+
+  editPhone1.value = item.raw.phone || item.raw.mobile || item.raw.sellerMobile || phones[0]?.number || "";
+  editPhone1Time.value = item.raw.callingTime || phones[0]?.time || "Any Time";
+  editPhone1Any.value = editPhone1Time.value === "Any Time" ? "yes" : "no";
+
+  editPhone2.value = phones[1]?.number || "";
+  editPhone2Time.value = phones[1]?.time || "";
+
+  editPhone3.value = phones[2]?.number || "";
+  editPhone3Time.value = phones[2]?.time || "";
+
   syncBodyLock();
 }
 
@@ -3469,6 +3569,7 @@ function applyLanguage(){
   document.getElementById("drawerContact").textContent = t("info_contact");
   document.getElementById("drawerAgentHelp").textContent = t("info_agent_help");
   document.getElementById("drawerWhatsapp").textContent = t("info_whatsapp_group");
+  document.getElementById("stockFieldLabel").textContent = t("field_stock");
 
   notificationTitle.textContent = t("notification_title");
   notificationBtn.setAttribute("aria-label", t("notification_title"));
@@ -3511,7 +3612,6 @@ function applyLanguage(){
   document.getElementById("fieldDescriptionLabel").textContent = t("field_description");
   document.getElementById("fieldImagesLabel").textContent = t("field_images");
   document.getElementById("imagesHelp").textContent = t("images_help");
-  document.getElementById("stockFieldLabel").textContent = t("field_stock");
   document.getElementById("editSaveBtn").textContent = t("save_changes");
   document.getElementById("stockSaveBtn").textContent = t("update_stock");
   document.getElementById("editBackBtn").textContent = t("back");
@@ -3596,6 +3696,14 @@ langToggle.addEventListener("click", event=>{
     openLangMenu();
   }
 });
+editHomeDelivery.addEventListener("change", () => {
+  if(editHomeDelivery.value === "yes"){
+    editDeliveryChargeBlock.classList.remove("hidden");
+  }else{
+    editDeliveryChargeBlock.classList.add("hidden");
+    editDeliveryChargeMessage.value = "";
+  }
+});
 
 notificationBtn.addEventListener("click", event=>{
   event.stopPropagation();
@@ -3666,36 +3774,122 @@ editForm.addEventListener("submit", async event=>{
   const item = allListings.find(listing=>listing.id === currentEditId);
   if(!item) return;
 
-  const category = editCategory.value;
+  const category = editCategory.value === "khodwa" ? "khodwa" : "rop";
   const listingMode = category === "khodwa" ? "khodwa_sell" : "rop_sell";
-  const images = editImages.value.split(/\n|,/).map(url=>url.trim()).filter(Boolean);
+  const title = editTitle.value.trim();
+  const price = Number(editPrice.value || 0);
+  const company = editCompany.value.trim();
+  const stockValue = editStockType.value === "limited"
+    ? Number(editStockNumber.value || 0)
+    : 0;
+  const stockDisplay = editStockType.value === "unlimited"
+    ? "Unlimited"
+    : stockValue;
+
+  const deliveryMessage = editDeliveryChargeMessage.value.trim();
+  const phone1 = editPhone1.value.trim();
+  const phone2 = editPhone2.value.trim();
+  const phone3 = editPhone3.value.trim();
+
+  const phone1Time = editPhone1Any.value === "yes"
+    ? "Any Time"
+    : (editPhone1Time.value.trim() || "Any Time");
+
+  const images = editImages.value
+    .split(/\n|,/)
+    .map(url=>url.trim())
+    .filter(Boolean);
+
+  if(!title){
+    showToast("Product title required आहे.");
+    return;
+  }
+
+  if(!phone1){
+    showToast("Primary phone number required आहे.");
+    return;
+  }
+
+  if(editHomeDelivery.value === "yes" && !deliveryMessage){
+    showToast("Home delivery yes असेल तर delivery charge details लिहा.");
+    return;
+  }
 
   await updateDoc(doc(db, "listings", item.id), {
-    title:editTitle.value.trim(),
-    productName:editTitle.value.trim(),
-    name:editTitle.value.trim(),
-    price:Number(editPrice.value || 0),
-    stockType:editStockType.value,
-    stockNumber:editStockType.value === "limited"
-      ? Number(editStockNumber.value || 0)
-      : "",
-    amount:Number(editPrice.value || 0),
-    companyName:editCompany.value.trim(),
-    company:editCompany.value.trim(),
-    brand:editCompany.value.trim(),
+    title,
+    productName:title,
+    name:title,
+
+    price,
+    amount:price,
+
+    companyName:company,
+    company,
+    nurseryName:company,
+    brand:company,
+
+    state:editState.value.trim(),
     village:editVillage.value.trim(),
     taluka:editTaluka.value.trim(),
     district:editDistrict.value.trim(),
+
     status:editStatus.value,
+
     description:editDescription.value.trim(),
     desc:editDescription.value.trim(),
+    details:editDescription.value.trim(),
+
+    stockType:editStockType.value,
+    stockNumber:editStockType.value === "limited" ? stockValue : "",
+    stockAvailable:stockDisplay,
+    stock:stockDisplay,
+    runningStock:stockDisplay,
+
+    allArea:editAllArea.value || "no",
+    allAreaAvailable:editAllArea.value === "yes",
+    isAllAreaAvailable:editAllArea.value === "yes",
+    availableEverywhere:editAllArea.value === "yes",
+
+    homeDelivery:editHomeDelivery.value || "no",
+    homeDeliveryAvailable:editHomeDelivery.value === "yes",
+    isHomeDeliveryAvailable:editHomeDelivery.value === "yes",
+    deliveryChargeMessage:deliveryMessage,
+    deliveryChargeDetails:deliveryMessage,
+    deliveryMessage,
+
+    phone:phone1,
+    mobile:phone1,
+    sellerMobile:phone1,
+    contactNumber:phone1,
+    callingTime:phone1Time,
+    contactTime:phone1Time,
+
+    phones:[
+      phone1 ? {
+        number:phone1,
+        time:phone1Time
+      } : null,
+      phone2 ? {
+        number:phone2,
+        time:editPhone2Time.value.trim() || "Any Time"
+      } : null,
+      phone3 ? {
+        number:phone3,
+        time:editPhone3Time.value.trim() || "Any Time"
+      } : null
+    ].filter(Boolean),
+
     category,
     type:category,
+    itemType:category,
+    productType:category,
     listingMode,
-    productType:editTitle.value.trim(),
+
     images,
     image:images[0] || "",
-    imageUrl:images[0] || ""
+    imageUrl:images[0] || "",
+
+    updatedAt:new Date()
   });
 
   closeEditModal();
