@@ -836,6 +836,10 @@ body{
 .popup-actions{
   margin-top:10px;
 }
+.google-profile-fields{
+  margin-top:18px;
+  margin-bottom:14px;
+}
 
 .agree-btn{
   width:100%;
@@ -1115,6 +1119,17 @@ body{
         </div>
 
         <div class="status-box" id="statusBox"></div>
+        <div class="form-grid google-profile-fields" id="googleProfileFields">
+          <div class="field">
+            <label for="googleFullName" id="googleFullNameLabel">पूर्ण नाव</label>
+            <input class="input" id="googleFullName" type="text" placeholder="तुमचे नाव" autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="googleMobile" id="googleMobileLabel">मोबाइल नंबर</label>
+            <input class="input" id="googleMobile" type="tel" inputmode="numeric" maxlength="10" placeholder="उदा. 9876543210">
+          </div>
+        </div>
 
         <button class="google-btn" type="button" id="googleBtn">
           <img src="https://developers.google.com/identity/images/g-logo.png" width="20" height="20" alt="Google">
@@ -1318,6 +1333,10 @@ const drawerAuthLink = document.getElementById("drawerAuthLink");
 const drawerAuthIcon = document.getElementById("drawerAuthIcon");
 const drawerLoginText = document.getElementById("drawerLoginText");
 const topTicker = document.getElementById("topTicker");
+const googleFullNameLabel = document.getElementById("googleFullNameLabel");
+const googleFullNameInput = document.getElementById("googleFullName");
+const googleMobileLabel = document.getElementById("googleMobileLabel");
+const googleMobileInput = document.getElementById("googleMobile");
 
 const footerMade = document.getElementById("footerMade");
 const footerPrivacy = document.getElementById("footerPrivacy");
@@ -1727,6 +1746,9 @@ let mode = urlMode === "login" ? "login" : "signup";
 let isSubmitting = false;
 let currentUser = null;
 let hasHandledInitialAuthState = false;
+let googleAuthInProgress = false;
+let mobilePopupFocusTarget = mobileInput;
+let namePopupFocusTarget = googleFullNameInput;
 
 function t(key){
   return translations[currentLanguage]?.[key] || translations.mr[key] || key;
@@ -1825,10 +1847,12 @@ function showPasswordPopup(message){
   showOverlay(passwordPopup);
 }
 
-function showMobilePopup(message){
+function showMobilePopup(message, focusTarget = mobileInput){
+  mobilePopupFocusTarget = focusTarget;
   mobilePopupMessage.textContent = message;
   showOverlay(mobilePopup);
 }
+
 
 function setActiveNav(){
   const currentPage = getCurrentPage();
@@ -1960,6 +1984,10 @@ function applyLanguage(){
   drawerContact.textContent = t("info_contact");
   drawerAgentHelp.textContent = t("info_agent_help");
   drawerWhatsapp.textContent = t("info_whatsapp_group");
+  googleFullNameLabel.textContent = t("name_label");
+  googleFullNameInput.placeholder = t("placeholder_name");
+  googleMobileLabel.textContent = t("mobile_label");
+  googleMobileInput.placeholder = t("placeholder_mobile");
 
   topTicker.textContent = t("top_ticker");
 
@@ -2033,10 +2061,10 @@ function setLoading(loading){
   renderMode();
 }
 
-function normalizeMobile(raw){
+function normalizeMobile(raw, focusTarget = mobileInput){
   const digits = String(raw || "").replace(/\D/g, "");
   if(digits.length !== 10){
-    showMobilePopup(t("mobile_popup_invalid"));
+    showMobilePopup(t("mobile_popup_invalid"), focusTarget);
     throw new Error(t("error_invalid_mobile"));
   }
   return digits;
@@ -2227,7 +2255,7 @@ passwordPopup.addEventListener("click", event => {
 focusMobileBtn.addEventListener("click", () => {
   hideOverlay(mobilePopup);
   hideStatus();
-  mobileInput.focus();
+  mobilePopupFocusTarget.focus();
 });
 
 closeMobilePopup.addEventListener("click", () => {
@@ -2290,15 +2318,39 @@ googleBtn.addEventListener("click", async () => {
     return;
   }
 
+  const googleName = googleFullNameInput.value.trim();
+
+  if(!googleName){
+    showStatus(t("error_full_name"), "error");
+    showMobilePopup(t("error_full_name"), googleFullNameInput);
+    return;
+  }
+
+
+  let googleMobile = "";
   try{
+    googleMobile = normalizeMobile(googleMobileInput.value.trim(), googleMobileInput);
+  }catch(error){
+    showStatus(error.message || t("error_invalid_mobile"), "error");
+    googleMobileInput.focus();
+    return;
+  }
+
+  try{
+    googleAuthInProgress = true;
     setLoading(true);
 
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
 
+    await updateProfile(user, {
+      displayName: googleName,
+      photoURL: user.photoURL || DEFAULT_PHOTO
+    });
+
     const userDocData = await upsertUserDoc(user, {
-      name: user.displayName || "Google User",
-      phone: "",
+      name: googleName,
+      phone: googleMobile,
       photo: user.photoURL || DEFAULT_PHOTO,
       provider: "google"
     });
@@ -2309,9 +2361,11 @@ googleBtn.addEventListener("click", async () => {
   }catch(error){
     showStatus(firebaseErrorMessage(error), "error");
   }finally{
+    googleAuthInProgress = false;
     setLoading(false);
   }
 });
+
 
 authForm.addEventListener("submit", async event => {
   event.preventDefault();
@@ -2401,6 +2455,9 @@ authForm.addEventListener("submit", async event => {
 
 onAuthStateChanged(auth, async user => {
   currentUser = user || null;
+  if(googleAuthInProgress){
+    return;
+  }
 
   if(user){
     try{
@@ -2420,6 +2477,18 @@ onAuthStateChanged(auth, async user => {
       }
 
       saveUserToLocalStorage(user, userDocData);
+      const isGoogleUser =
+        user.providerData?.[0]?.providerId === "google.com" ||
+        userDocData.provider === "google";
+
+      if(isGoogleUser && !userDocData.phone){
+        googleFullNameInput.value = userDocData.name || user.displayName || "";
+        showStatus("Google login साठी mobile number भरून Continue with Google पुन्हा click करा.", "error");
+        hasHandledInitialAuthState = true;
+        updateHeaderAuthState();
+        setActiveNav();
+        return;
+      }
 
       if(!hasHandledInitialAuthState){
         hasHandledInitialAuthState = true;
