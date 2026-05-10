@@ -2727,7 +2727,7 @@ const auth = getAuth(app);
 
 const CANONICAL_BASE = "https://bananetwork.in";
 const params = new URLSearchParams(window.location.search);
-const listingId = params.get("id");
+const listingId = params.get("id") || params.get("productId");
 
 const localeMap = { mr:"mr-IN", hi:"hi-IN", en:"en-IN" };
 const LANG_SHORT = { mr:"म", hi:"हि", en:"E" };
@@ -2775,6 +2775,10 @@ const translations = {
     notification_new_message:"New message",
     notification_today:"आज",
     notification_earlier:"मागील",
+    home_delivery:"Home Delivery",
+    delivery_charge_details:"Delivery Charge Details",
+    delivery_available:"उपलब्ध",
+    pickup_only:"Pickup / seller location",
     call_login_required:"Call करण्यासाठी login करा.",
     chat_login_required:"Chat करण्यासाठी login करा.",
     order_login_required:"Order request साठी login करा.",
@@ -2926,6 +2930,10 @@ const translations = {
     not_found_title:"Product नहीं मिला",
     not_found_text:"यह listing delete हो चुकी हो सकती है या link गलत हो सकता है.",
     back_buy:"वापस जाएं",
+    home_delivery:"Home Delivery",
+    delivery_charge_details:"Delivery Charge Details",
+    delivery_available:"उपलब्ध",
+    pickup_only:"Pickup / seller location",
     location_unavailable:"Location उपलब्ध नहीं",
     call_login_required:"Call करने के लिए login करें.",
     chat_login_required:"Chat करने के लिए login करें.",
@@ -3089,6 +3097,10 @@ const translations = {
     seller_default:"BanaNetwork Seller",
     seller_note:"This product page already includes the link, WhatsApp share, poster download, calling-time lock, and direct seller chat.",
     details_title:"Product Details",
+    home_delivery:"Home Delivery",
+    delivery_charge_details:"Delivery Charge Details",
+    delivery_available:"Available",
+    pickup_only:"Pickup / seller location",
     mobile_hidden_until:(range)=>`Mobile number will be visible during ${range}`,
     description_title:"Description",
     share_title:"Share Product",
@@ -3491,6 +3503,41 @@ function inferAllAreaAvailable(data){
   ].map(value => String(value || "").toLowerCase()).join(" ");
 
   return raw.includes("all area") || raw.includes("everywhere") || raw.includes("सर्व") || raw.includes("पूर्ण");
+}
+function inferHomeDeliveryAvailable(data){
+  const boolCandidates = [
+    data.homeDeliveryAvailable,
+    data.isHomeDeliveryAvailable,
+    data.deliveryAvailable,
+    data.isDeliveryAvailable,
+    data.homeDelivery
+  ];
+
+  if(boolCandidates.some(value =>
+    value === true || ["true","yes","home","available"].includes(String(value || "").toLowerCase())
+  )){
+    return true;
+  }
+
+  const raw = [
+    data.deliveryType,
+    data.deliveryOption,
+    data.deliveryMode,
+    data.transportOption
+  ].map(value => String(value || "").toLowerCase()).join(" ");
+
+  return raw.includes("home delivery") || raw.includes("घरपोच") || raw.includes("delivery available");
+}
+
+function getDeliveryChargeText(data){
+  return getField(data, [
+    "deliveryChargeMessage",
+    "deliveryChargeDetails",
+    "deliveryMessage",
+    "deliveryCharge",
+    "transportCharge",
+    "deliveryInfo"
+  ], "");
 }
 
 function extractImageList(data){
@@ -4007,7 +4054,9 @@ async function performOrderRequestAction(){
   closeShareSheetUI();
   await goToOrderRequest(listingId, sellerId);
 }
-
+function requireLoginForOrderRequest(){
+  return requireLoginForAction("order");
+}
 
 
 function getOrderRoomId(productId, sellerId, buyerId){
@@ -5031,6 +5080,8 @@ function renderProduct(data){
   const createdAt = getField(data, ["createdAt","postedAt","timestamp","date"], "");
   const images = extractImageList(data);
   const allAreaAvailable = inferAllAreaAvailable(data);
+  const homeDeliveryAvailable = inferHomeDeliveryAvailable(data);
+  const deliveryChargeText = getDeliveryChargeText(data);
   const callingTime = phonesData[0]?.time || getField(data, ["callingTime","contactTime","callTime","availableTime"], "");
   const stockType = String(
     getField(data, ["stockType","stocktype","stockMode","stock_mode","stock_status"], "")
@@ -5085,12 +5136,14 @@ function renderProduct(data){
     createdAt,
     images,
     allAreaAvailable,
+    homeDeliveryAvailable,
+    deliveryChargeText,
     callingTime,
     stockAvailable
   };
 
   sellerId = getField(data, ["sellerId","userId","uid","ownerId","createdBy","sellerUid","userUID"], "");
-  shareUrl = `${CANONICAL_BASE}/product.html?id=${encodeURIComponent(listingId)}`;
+  shareUrl = `${CANONICAL_BASE}/product.html?id=${encodeURIComponent(listingId)}&productId=${encodeURIComponent(listingId)}`;
 
   const locationText = [village, taluka, district, state].filter(Boolean).join(", ");
   document.title = `${title} | BanaNetwork`;
@@ -5122,7 +5175,10 @@ function renderProduct(data){
       }).join("<br>")
     : tr("inquiry_line");
 
-  sellerNote.textContent = tr("seller_note");
+  sellerNote.textContent = homeDeliveryAvailable
+    ? `${tr("home_delivery")}: ${tr("yes")}${deliveryChargeText ? " | " + deliveryChargeText : ""}`
+    : tr("seller_note");
+
 
   detailsGrid.innerHTML = `
     ${companyName ? detailItem(tr("company"), companyName) : ""}
@@ -5149,6 +5205,8 @@ function renderProduct(data){
     ${detailItem(tr("listing_id"), listingId || "-")}
     ${detailItem(tr("posted"), formatDate(createdAt))}
     ${detailItem(tr("all_area"), allAreaAvailable ? tr("yes") : tr("no"))}
+    ${detailItem(tr("home_delivery"), homeDeliveryAvailable ? tr("yes") : tr("no"))}
+    ${homeDeliveryAvailable && deliveryChargeText ? detailItem(tr("delivery_charge_details"), deliveryChargeText) : ""}
   `;
 
   descriptionBox.textContent = description || "-";
