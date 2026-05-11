@@ -1594,6 +1594,53 @@ a{color:inherit}
     width:calc(100vw - 14px);
   }
 }
+.analytics-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+  margin-top:4px;
+}
+
+.analytics-box{
+  background:#f8fafc;
+  border:1px solid #edf2f7;
+  border-radius:14px;
+  padding:10px;
+}
+
+.analytics-box span{
+  display:block;
+  font-size:11px;
+  color:#64748b;
+  margin-bottom:5px;
+  font-weight:800;
+}
+
+.analytics-box strong{
+  display:block;
+  color:#111827;
+  font-size:15px;
+}
+
+.analytics-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:2px;
+}
+
+.analytics-badge{
+  display:inline-flex;
+  align-items:center;
+  min-height:26px;
+  padding:0 9px;
+  border-radius:999px;
+  background:#fff7dc;
+  color:#8a5a00;
+  font-size:12px;
+  font-weight:800;
+}
+
 </style>
 </head>
 
@@ -2801,6 +2848,91 @@ function formatPrice(value){
   if(!num) return t("price_na");
   return `₹${num.toLocaleString("en-IN")}`;
 }
+function formatMetric(value){
+  return Number(value || 0).toLocaleString("en-IN");
+}
+
+function getCtr(item){
+  const views = Number(item.views || 0);
+  const clicks = Number(item.clickViews || 0);
+  if(!views) return 0;
+  return (clicks / views) * 100;
+}
+
+function getAnalyticsBadges(item){
+  const badges = [];
+
+  if(Number(item.trendingScore || 0) >= 100 || Number(item.productViews || 0) >= 50){
+    badges.push("🔥 Trending");
+  }
+
+  if(Number(item.views || 0) >= 100 || Number(item.clickViews || 0) >= 20){
+    badges.push("⭐ Popular");
+  }
+
+  if((Number(item.whatsappClicks || 0) + Number(item.callClicks || 0)) >= 10){
+    badges.push("🚀 High Demand");
+  }
+
+  return badges;
+}
+
+function renderAnalyticsBadges(item){
+  const badges = getAnalyticsBadges(item);
+  if(!badges.length) return "";
+
+  return `
+    <div class="analytics-badges">
+      ${badges.map(badge=>`<span class="analytics-badge">${escapeHtml(badge)}</span>`).join("")}
+    </div>
+  `;
+}
+
+function renderAnalyticsGrid(item){
+  return `
+    <div class="analytics-grid">
+      <div class="analytics-box">
+        <span>👀 Card Views</span>
+        <strong>${formatMetric(item.views)}</strong>
+      </div>
+
+      <div class="analytics-box">
+        <span>🔥 Product Clicks</span>
+        <strong>${formatMetric(item.clickViews)}</strong>
+      </div>
+
+      <div class="analytics-box">
+        <span>📄 Page Views</span>
+        <strong>${formatMetric(item.productViews)}</strong>
+      </div>
+
+      <div class="analytics-box">
+        <span>🟢 WhatsApp</span>
+        <strong>${formatMetric(item.whatsappClicks)}</strong>
+      </div>
+
+      <div class="analytics-box">
+        <span>📞 Calls</span>
+        <strong>${formatMetric(item.callClicks)}</strong>
+      </div>
+
+      <div class="analytics-box">
+        <span>📤 Shares</span>
+        <strong>${formatMetric(item.shareClicks)}</strong>
+      </div>
+
+      <div class="analytics-box">
+        <span>📊 CTR</span>
+        <strong>${getCtr(item).toFixed(1)}%</strong>
+      </div>
+
+      <div class="analytics-box">
+        <span>⚡ Score</span>
+        <strong>${formatMetric(item.trendingScore)}</strong>
+      </div>
+    </div>
+  `;
+}
 
 function shortText(value, max = 110){
   const text = String(value || "").trim();
@@ -2859,13 +2991,22 @@ function normalizeListing(docData){
     deleted:!!docData.deleted,
     deletedAtMs:getDeletedAtMs(docData),
     images:extractImages(docData),
+    views:Number(docData.views || 0),
+    clickViews:Number(docData.clickViews || 0),
+    productViews:Number(docData.productViews || 0),
+    whatsappClicks:Number(docData.whatsappClicks || 0),
+    callClicks:Number(docData.callClicks || 0),
+    shareClicks:Number(docData.shareClicks || 0),
+    uniqueViews:Number(docData.uniqueViews || 0),
+    trendingScore:Number(docData.trendingScore || 0),
+
     raw:docData
   };
 }
 
 async function fetchUserListings(userId){
   const merged = new Map();
-  const fields = ["userId","uid","sellerId","ownerId"];
+  const fields = ["userId","uid","sellerId","ownerId","createdBy","sellerUid","userUID"];
 
   await Promise.all(fields.map(async field=>{
     try{
@@ -3096,6 +3237,9 @@ function renderListings(){
               <strong>${escapeHtml(item.deleted ? statusLabel("deleted") : statusLabel(item.status))}</strong>
             </div>
           </div>
+          
+          ${renderAnalyticsBadges(item)}
+          ${renderAnalyticsGrid(item)}
 
           <div class="card-actions">
             <a class="action-btn view" href="product.html?id=${encodeURIComponent(item.id)}">👁 ${escapeHtml(t("view"))}</a>
