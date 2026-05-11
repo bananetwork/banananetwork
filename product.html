@@ -2702,6 +2702,7 @@ import {
   where,
   updateDoc,
   arrayUnion,
+  increment,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-firestore.js";
 import {
@@ -3367,6 +3368,91 @@ function showToast(message){
   clearTimeout(showToast.timer);
   showToast.timer = setTimeout(()=>toast.classList.remove("show"), 2200);
 }
+function getAnalyticsGuestId(){
+  let guestId = localStorage.getItem("bnAnalyticsGuestId");
+
+  if(!guestId){
+    guestId = `guest_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+    localStorage.setItem("bnAnalyticsGuestId", guestId);
+  }
+
+  return guestId;
+}
+
+function hasTrackedProduct(metric, productId){
+  return localStorage.getItem(`bn_${metric}_${productId}`) === "1";
+}
+
+function rememberTrackedProduct(metric, productId){
+  localStorage.setItem(`bn_${metric}_${productId}`, "1");
+}
+
+async function trackProductAnalytics(productId, metric){
+
+  if(!productId || hasTrackedProduct(metric, productId))
+    return false;
+
+  const userId =
+    currentUser?.uid ||
+    localStorage.getItem("userId") ||
+    "";
+
+  const guestId = getAnalyticsGuestId();
+
+  const metricMap = {
+    product_page:{
+      field:"productViews",
+      score:5
+    },
+    whatsapp_click:{
+      field:"whatsappClicks",
+      score:8
+    },
+    call_click:{
+      field:"callClicks",
+      score:10
+    },
+    share_click:{
+      field:"shareClicks",
+      score:3
+    }
+  };
+
+  const config = metricMap[metric];
+
+  if(!config) return false;
+
+  try{
+
+    await updateDoc(
+      doc(db, "listings", productId),
+      {
+        [config.field]:increment(1),
+        trendingScore:increment(config.score),
+        lastViewedAt:serverTimestamp(),
+        lastAnalyticsAt:serverTimestamp(),
+        lastAnalyticsUserId:userId || "",
+        lastAnalyticsGuestId:guestId
+      }
+    );
+
+    // ✅ SUCCESS नंतर save कर
+    rememberTrackedProduct(metric, productId);
+
+    return true;
+
+  }catch(error){
+
+    console.error(
+      "Product analytics failed:",
+      metric,
+      productId,
+      error
+    );
+
+    return false;
+  }
+}
 
 function formatPrice(value){
   return Number(value || 0).toLocaleString("en-IN");
@@ -3905,6 +3991,7 @@ function closeImageModalUI(){
 }
 
 function openShareSheet(){
+  trackProductAnalytics(listingId, "share_click");
   shareSheetBackdrop.classList.remove("hidden");
   syncBodyLock();
 }
@@ -4233,6 +4320,8 @@ async function notifySellerCallAttempt(){
 async function performCallAction() {
   const buyerId = currentUser?.uid || localStorage.getItem("userId") || "";
 
+  await trackProductAnalytics(listingId, "call_click");
+
   if(!requireLoginForAction("call")) return;
 
   await notifySellerCallAttempt();
@@ -4272,6 +4361,8 @@ function getShareText(){
 async function systemShare(){
   if(!product) return;
 
+  await trackProductAnalytics(listingId, "share_click");
+
   if(navigator.share){
     try{
       await navigator.share({
@@ -4290,15 +4381,19 @@ async function systemShare(){
 }
 
 function openFacebookShare(){
+  trackProductAnalytics(listingId, "share_click");
   window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, "_blank");
 }
 
 function openWhatsAppShare(){
+  trackProductAnalytics(listingId, "whatsapp_click");
   const message = `${getShareText()}\n${shareUrl}`;
   window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, "_blank");
 }
 
 async function copyLink(){
+  await trackProductAnalytics(listingId, "share_click");
+
   try{
     await navigator.clipboard.writeText(shareUrl);
     showToast(tr("link_copied"));
@@ -5239,6 +5334,7 @@ async function loadProduct(){
     }
 
     renderProduct(snap.data());
+    await trackProductAnalytics(listingId, "product_page");
   }catch(error){
     console.error(error);
     showNotFound();
