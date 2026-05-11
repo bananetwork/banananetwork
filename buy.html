@@ -2843,7 +2843,9 @@ import {
   onSnapshot,
   doc,
   updateDoc,
-  arrayUnion
+  arrayUnion,
+  increment,
+  serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-firestore.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.2.0/firebase-auth.js";
 
@@ -2926,6 +2928,7 @@ let sliderCleanupFns = [];
 let currentUser = null;
 let notificationUnsubscribe = null;
 let notificationsCache = [];
+let cardViewObserver = null;
 
 const filterState = {
   company:"",
@@ -4046,10 +4049,102 @@ function getSellerSublineText(product){
 }
 
 function getShareUrl(id){
-  return `https://bananetwork.in/product.html?id=${encodeURIComponent(id)}`;
+  return `https://bananetwork.in/product.html?id=${encodeURIComponent(id)}&productId=${encodeURIComponent(id)}`;
+}
+function getAnalyticsGuestId(){
+  let guestId = localStorage.getItem("bnAnalyticsGuestId");
+
+  if(!guestId){
+    guestId = `guest_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+    localStorage.setItem("bnAnalyticsGuestId", guestId);
+  }
+
+  return guestId;
 }
 
+function getAnalyticsDayKey(){
+  return new Date().toISOString().slice(0, 10).replaceAll("-", "_");
+}
+
+function getAnalyticsWeekKey(){
+  const now = new Date();
+  const firstDay = new Date(now.getFullYear(), 0, 1);
+  const dayMs = 24 * 60 * 60 * 1000;
+  const week = Math.ceil((((now - firstDay) / dayMs) + firstDay.getDay() + 1) / 7);
+  return `${now.getFullYear()}-W${String(week).padStart(2, "0")}`;
+}
+
+function hasTrackedListing(metric, listingId){
+  return localStorage.getItem(`bn_${metric}_${listingId}`) === "1";
+}
+
+function rememberTrackedListing(metric, listingId){
+  localStorage.setItem(`bn_${metric}_${listingId}`, "1");
+}
+
+async function trackListingAnalytics(listingId, metric){
+
+  if(!listingId || hasTrackedListing(metric, listingId)){
+    return false;
+  }
+
+  const userId =
+    currentUser?.uid ||
+    localStorage.getItem("userId") ||
+    "";
+
+  const guestId = getAnalyticsGuestId();
+
+  const metricMap = {
+    card_view:{
+      field:"views",
+      score:1,
+      extra:{
+        uniqueViews:increment(1)
+      }
+    },
+
+    product_click:{
+      field:"clickViews",
+      score:4,
+      extra:{}
+    },
+
+    share_click:{
+      field:"shareClicks",
+      score:3,
+      extra:{}
+    }
+  };
+
+  const config = metricMap[metric];
+  if(!config) return false;
+
+  try{
+    await updateDoc(doc(db, "listings", listingId), {
+      [config.field]:increment(1),
+      trendingScore:increment(config.score),
+      lastViewedAt:serverTimestamp(),
+      lastAnalyticsAt:serverTimestamp(),
+      lastAnalyticsUserId:userId || "",
+      lastAnalyticsGuestId:guestId,
+      ...(config.extra || {})
+    });
+
+    rememberTrackedListing(metric, listingId);
+
+    console.log("Analytics success:", metric, listingId);
+    return true;
+
+  }catch(error){
+    console.error("Analytics update failed:", metric, listingId, error);
+    return false;
+  }
+}
+
+
 async function quickShareProduct(id, title){
+  await trackListingAnalytics(id, "share_click");
   const url = getShareUrl(id);
   const text = `${title} | BanaNetwork`;
 
@@ -4250,7 +4345,7 @@ function buildSliderMarkup(product){
 function renderProductCards(products){
   productsGrid.innerHTML = products.map(product=>{
     return `
-      <article class="product-card">
+      <article class="product-card" data-id="${escapeHtml(product.id)}">
         ${buildSliderMarkup(product)}
 
         <div class="product-body">
@@ -4278,7 +4373,12 @@ function renderProductCards(products){
           </div>
 
           <div class="product-actions">
-            <a class="action-btn details" href="product.html?id=${encodeURIComponent(product.id)}">${escapeHtml(i18n.t("more_info"))}</a>
+            <a
+              class="action-btn details"
+              href="product.html?id=${encodeURIComponent(product.id)}&productId=${encodeURIComponent(product.id)}"
+              data-product-click="${escapeHtml(product.id)}">
+              ${escapeHtml(i18n.t("more_info"))}
+            </a>
             <button
               class="action-btn order"
               type="button"
@@ -4295,6 +4395,32 @@ function renderProductCards(products){
       </article>
     `;
   }).join("");
+  setTimeout(async ()=>{
+
+    const cards =
+      document.querySelectorAll(".product-card[data-id]");
+
+    for(const card of cards){
+
+      const productId = card.dataset.id;
+
+      if(productId){
+
+        console.log(
+          "CARD VIEW:",
+          productId
+        );
+
+        await trackListingAnalytics(
+          productId,
+          "card_view"
+        );
+
+      }
+
+    }
+
+  }, 800);
 }
 
 function destroySliders(){
@@ -4413,35 +4539,136 @@ function initCardSliders(){
   });
 }
 
-productsGrid.addEventListener("click", function(event){
+productsGrid.addEventListener("click", async function(event){
 
   let el = event.target;
 
-  // 🔥 Loop until button
   while(el && el !== productsGrid){
 
-    if(el.hasAttribute("data-order-product")){
-      const productId = el.getAttribute("data-order-product");
-      const sellerId = el.getAttribute("data-order-seller");
-      const productTitle = el.getAttribute("data-order-title") || "Product";
+    // 🔥 PRODUCT CLICK
+    if(el.hasAttribute("data-product-click")){
 
-      goToOrderRequest(productId, sellerId, productTitle);
+      event.preventDefault();
+
+      const productId =
+        el.getAttribute("data-product-click");
+
+      try{
+
+        console.log(
+          "PRODUCT CLICK:",
+          productId
+        );
+
+        await trackListingAnalytics(
+          productId,
+          "product_click"
+        );
+
+      }catch(error){
+
+        console.error(
+          "Product click tracking failed:",
+          error
+        );
+
+      }
+
+      // 🔥 small delay for firestore save
+      setTimeout(()=>{
+
+        window.location.href =
+          `product.html?id=${encodeURIComponent(productId)}&productId=${encodeURIComponent(productId)}`;
+
+      }, 120);
+
       return;
     }
 
+    // 🛒 ORDER REQUEST
+    if(el.hasAttribute("data-order-product")){
 
+      const productId =
+        el.getAttribute("data-order-product");
+
+      const sellerId =
+        el.getAttribute("data-order-seller");
+
+      const productTitle =
+        el.getAttribute("data-order-title")
+        || "Product";
+
+      goToOrderRequest(
+        productId,
+        sellerId,
+        productTitle
+      );
+
+      return;
+    }
+
+    // 📤 SHARE
     if(el.hasAttribute("data-share-product")){
+
       quickShareProduct(
         el.getAttribute("data-share-product"),
         el.getAttribute("data-share-title")
       );
+
       return;
     }
 
     el = el.parentElement;
   }
 
+  // 🔥 CARD CLICK
+  const card =
+    event.target.closest(".product-card[data-id]");
+
+  if(!card) return;
+
+  // ❌ ignore buttons/links/slider clicks
+  if(
+    event.target.closest(
+      "button, a, input, textarea, select, [data-slider-root]"
+    )
+  ){
+    return;
+  }
+
+  const productId = card.dataset.id;
+
+  try{
+
+    console.log(
+      "CARD CLICK:",
+      productId
+    );
+
+    await trackListingAnalytics(
+      productId,
+      "product_click"
+    );
+
+  }catch(error){
+
+    console.error(
+      "Card click tracking failed:",
+      error
+    );
+
+  }
+
+  // 🔥 delay for firestore update
+  setTimeout(()=>{
+
+    window.location.href =
+      `product.html?id=${encodeURIComponent(productId)}&productId=${encodeURIComponent(productId)}`;
+
+  }, 120);
+
 });
+
 
 function showResults(products, modeData){
   loadingGrid.classList.add("hidden");
