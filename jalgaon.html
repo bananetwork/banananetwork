@@ -1152,6 +1152,100 @@ canvas{
     width:calc(100vw - 14px);
   }
 }
+
+.hero-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:54px;
+  height:54px;
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,.55), transparent 28%),
+    linear-gradient(145deg, rgba(17,24,39,.86), rgba(15,23,42,.68));
+  color:#fff;
+  font-size:0;
+  font-weight:900;
+  z-index:8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  box-shadow:
+    0 16px 34px rgba(15,23,42,.28),
+    inset 0 1px 0 rgba(255,255,255,.35),
+    inset 0 -10px 18px rgba(0,0,0,.18);
+  transition:transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+
+.hero-nav::before{
+  content:"";
+  width:13px;
+  height:13px;
+  border-top:4px solid #fff;
+  border-right:4px solid #fff;
+  display:block;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.28));
+}
+
+.hero-nav.prev{
+  left:18px;
+}
+
+.hero-nav.next{
+  right:18px;
+}
+
+.hero-nav.prev::before{
+  transform:rotate(-135deg);
+  margin-left:5px;
+}
+
+.hero-nav.next::before{
+  transform:rotate(45deg);
+  margin-right:5px;
+}
+
+.hero-nav:hover{
+  transform:translateY(-50%) scale(1.08);
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,.62), transparent 28%),
+    linear-gradient(145deg, rgba(46,125,50,.95), rgba(15,23,42,.78));
+  box-shadow:
+    0 18px 38px rgba(15,23,42,.34),
+    0 0 0 5px rgba(46,125,50,.12),
+    inset 0 1px 0 rgba(255,255,255,.4);
+}
+
+.hero-nav:active{
+  transform:translateY(-50%) scale(.96);
+}
+
+@media (max-width:560px){
+  .hero-nav{
+    width:42px;
+    height:42px;
+  }
+
+  .hero-nav::before{
+    width:10px;
+    height:10px;
+    border-top-width:3px;
+    border-right-width:3px;
+  }
+
+  .hero-nav.prev{
+    left:10px;
+  }
+
+  .hero-nav.next{
+    right:10px;
+  }
+}
+
 </style>
 </head>
 
@@ -1279,66 +1373,161 @@ canvas{
 </div>
 
 <div class="page-content">
+
+  <!-- Receipt / Hero Slider -->
   <div class="box receipt-box">
-    <div id="imgSkeleton" class="skeleton skel-img"></div>
 
     <div class="receipt-slider">
+
+      <!-- Skeleton INSIDE slider -->
+      <div id="imgSkeleton" class="skeleton skel-img"></div>
+
+      <!-- Slide 1 -->
       <a href="jalgaon.html" class="slide active">
         <img id="pavtiImg" style="display:none" alt="बुरहानपूर मंडी प्रमाणित पावती">
-        <div class="slide-text" id="slideReceiptText">📸 बुरहानपूर मंडी प्रमाणित पावती</div>
+
+        <div class="slide-text" id="slideReceiptText">
+          📸 बुरहानपूर मंडी प्रमाणित पावती
+        </div>
       </a>
 
+      <!-- Slide 2 -->
       <a href="buy.html" class="slide">
         <img src="ropphoto.jpeg" alt="केळी रोप-खोडवा खरेदी विक्री">
-        <div class="slide-text" id="slideBuyText">🌱 केळी रोप-खोडवा खरेदी विक्री</div>
+
+        <div class="slide-text" id="slideBuyText">
+          🌱 केळी रोप-खोडवा खरेदी विक्री
+        </div>
       </a>
+
+      <!-- Navigation Buttons -->
+      <button
+        class="hero-nav prev"
+        id="heroPrevBtn"
+        type="button"
+        aria-label="Previous slide"
+      >
+        ‹
+      </button>
+
+      <button
+        class="hero-nav next"
+        id="heroNextBtn"
+        type="button"
+        aria-label="Next slide"
+      >
+        ›
+      </button>
+
     </div>
   </div>
 
+  <!-- Market Tabs -->
   <div class="tabs">
-    <a class="tab" href="index.html#marketData" id="tabBurhanpur">बुरहानपूर</a>
-    <a class="tab active" href="jalgaon.html" id="tabJalgaon">जळगाव</a>
-    <a class="tab" href="chopda.html#marketData" id="tabChopda">चोपडा</a>
-    <a class="tab" href="raver.html#marketData" id="tabRaver">रावेर</a>
+    <a class="tab" href="index.html#marketData" id="tabBurhanpur">
+      बुरहानपूर
+    </a>
+
+    <a class="tab active" href="jalgaon.html" id="tabJalgaon">
+      जळगाव
+    </a>
+
+    <a class="tab" href="chopda.html#marketData" id="tabChopda">
+      चोपडा
+    </a>
+
+    <a class="tab" href="raver.html#marketData" id="tabRaver">
+      रावेर
+    </a>
   </div>
 
+  <!-- Date Bar -->
   <div class="date-bar" id="dateBar"></div>
 
+  <!-- Market Data -->
   <div class="box" id="marketData">
+
     <div class="skeleton skel-title"></div>
+
     <div class="skeleton skel-text"></div>
     <div class="skeleton skel-text"></div>
     <div class="skeleton skel-text"></div>
     <div class="skeleton skel-text"></div>
+
   </div>
 
+  <!-- Analysis Graph -->
   <div class="box">
-    <h3 id="analysisTitle">📊 भाव विश्लेषण</h3>
+
+    <h3 id="analysisTitle">
+      📊 भाव विश्लेषण
+    </h3>
 
     <div class="graph-buttons">
-      <button id="graphBtn7" onclick="loadGraph(7)">7 दिवस</button>
-      <button id="graphBtn30" onclick="loadGraph(30)">30 दिवस</button>
-      <button id="graphBtn365" onclick="loadGraph(365)">365 दिवस</button>
+      <button id="graphBtn7" onclick="loadGraph(7)">
+        7 दिवस
+      </button>
+
+      <button id="graphBtn30" onclick="loadGraph(30)">
+        30 दिवस
+      </button>
+
+      <button id="graphBtn365" onclick="loadGraph(365)">
+        365 दिवस
+      </button>
     </div>
 
+    <!-- Graph Skeleton -->
     <div id="graphSkeleton" class="skeleton skel-graph"></div>
 
+    <!-- Charts -->
     <canvas id="rateChart"></canvas>
+
     <canvas id="aavakChart" style="display:none"></canvas>
+
     <canvas id="vikriChart" style="display:none"></canvas>
+
   </div>
 
+  <!-- Footer -->
   <div class="footer">
+
     <div>© 2026 BanaNetwork</div>
-    <div id="footerMade">Made for Banana Farmers 🍌</div>
-    <div style="margin-top:8px;">
-      <a href="privacy.html" id="footerPrivacy">Privacy</a> |
-      <a href="terms.html" id="footerTerms">T&C</a> |
-      <a href="contact.html" id="footerContact">Contact</a> |
-      <a href="about.html" id="footerAbout">About</a>
+
+    <div id="footerMade">
+      Made for Banana Farmers 🍌
     </div>
+
+    <div style="margin-top:8px;">
+
+      <a href="privacy.html" id="footerPrivacy">
+        Privacy
+      </a>
+
+      |
+
+      <a href="terms.html" id="footerTerms">
+        T&C
+      </a>
+
+      |
+
+      <a href="contact.html" id="footerContact">
+        Contact
+      </a>
+
+      |
+
+      <a href="about.html" id="footerAbout">
+        About
+      </a>
+
+    </div>
+
   </div>
+
 </div>
+
 
 <div class="logout-popup-overlay" id="logoutPopup">
   <div class="logout-popup-box">
@@ -1579,6 +1768,10 @@ const translations = {
     market_diff:"फरक",
     label_navti:"नवती",
     label_kandebag:"कांदे बाग",
+    label_navti1:"नवती 1",
+    label_navti2:"नवती 2",
+    chart_navti1:"नवती1",
+    chart_navti2:"नवती2",
     diff_up:"वाढ",
     diff_down:"घट",
     diff_same:"फरक नाही",
@@ -1670,6 +1863,10 @@ const translations = {
     market_diff:"अंतर",
     label_navti:"नवती",
     label_kandebag:"कांदे बाग",
+    label_navti1:"नवती 1",
+    label_navti2:"नवती 2",
+    chart_navti1:"नवती1",
+    chart_navti2:"नवती2",
     diff_up:"बढ़त",
     diff_down:"गिरावट",
     diff_same:"कोई बदलाव नहीं",
@@ -1761,6 +1958,10 @@ const translations = {
     market_diff:"Difference",
     label_navti:"Navti",
     label_kandebag:"Kande Bag",
+    label_navti1:"Navti 1",
+    label_navti2:"Navti 2",
+    chart_navti1:"Navti1",
+    chart_navti2:"Navti2",
     diff_up:"increase",
     diff_down:"decrease",
     diff_same:"No change",
@@ -2384,24 +2585,27 @@ function renderMarketData(market, today, yesterday){
   title.textContent = marketLabel(market);
   marketData.appendChild(title);
 
-  const navtiToday = parseInt(today[2] || 0, 10) || 0;
-  const navtiYesterday = yesterday ? (parseInt(yesterday[2] || 0, 10) || 0) : 0;
-  const bagToday = parseInt(today[3] || 0, 10) || 0;
-  const bagYesterday = yesterday ? (parseInt(yesterday[3] || 0, 10) || 0) : 0;
+  // Jalgaon old Google Sheet data same ठेवला आहे:
+  // today[2] = जुना नवती data = आता नवती 1 म्हणून दाखवतो
+  // today[3] = जुना कांदे बाग data = आता नवती 2 म्हणून दाखवतो
+  const navti1Today = parseInt(today[2] || 0, 10) || 0;
+  const navti1Yesterday = yesterday ? (parseInt(yesterday[2] || 0, 10) || 0) : 0;
+  const navti2Today = parseInt(today[3] || 0, 10) || 0;
+  const navti2Yesterday = yesterday ? (parseInt(yesterday[3] || 0, 10) || 0) : 0;
 
   marketData.appendChild(createMarketSection(t("market_today"), [
-    { label:t("label_navti"), value:String(navtiToday) },
-    { label:t("label_kandebag"), value:String(bagToday) }
+    { label:t("label_navti1"), value:String(navti1Today) },
+    { label:t("label_navti2"), value:String(navti2Today) }
   ]));
 
   marketData.appendChild(createMarketSection(t("market_yesterday"), [
-    { label:t("label_navti"), value:String(navtiYesterday) },
-    { label:t("label_kandebag"), value:String(bagYesterday) }
+    { label:t("label_navti1"), value:String(navti1Yesterday) },
+    { label:t("label_navti2"), value:String(navti2Yesterday) }
   ]));
 
   marketData.appendChild(createMarketSection(t("market_diff"), [
-    { label:t("label_navti"), value:createDiffNode(navtiToday - navtiYesterday) },
-    { label:t("label_kandebag"), value:createDiffNode(bagToday - bagYesterday) }
+    { label:t("label_navti1"), value:createDiffNode(navti1Today - navti1Yesterday) },
+    { label:t("label_navti2"), value:createDiffNode(navti2Today - navti2Yesterday) }
   ]));
 }
 
@@ -2469,8 +2673,8 @@ function loadGraph(days){
   aavakChartCanvas.style.display = "none";
   vikriChartCanvas.style.display = "none";
 
-  const navti = data.map(row => parseInt(row[2] || 0, 10) || 0);
-  const bag = data.map(row => parseInt(row[3] || 0, 10) || 0);
+  const navti1 = data.map(row => parseInt(row[2] || 0, 10) || 0);
+  const navti2 = data.map(row => parseInt(row[3] || 0, 10) || 0);
 
   chart = new Chart(rateChartCanvas, {
     type:"line",
@@ -2478,15 +2682,15 @@ function loadGraph(days){
       labels,
       datasets:[
         {
-          label:t("chart_navti"),
-          data:navti,
+          label:t("chart_navti1"),
+          data:navti1,
           borderColor:"#111827",
           backgroundColor:"rgba(17,24,39,.1)",
           tension:.35
         },
         {
-          label:t("chart_kandebag"),
-          data:bag,
+          label:t("chart_navti2"),
+          data:navti2,
           borderColor:"#22c55e",
           backgroundColor:"rgba(34,197,94,.15)",
           tension:.35
@@ -2695,13 +2899,55 @@ fetch(sheetURL)
     hideSkeleton(graphSkeleton);
   });
 
-if(slides.length > 1){
-  setInterval(() => {
-    slides[currentSlide].classList.remove("active");
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add("active");
+const heroPrevBtn = document.getElementById("heroPrevBtn");
+const heroNextBtn = document.getElementById("heroNextBtn");
+let heroAutoTimer = null;
+
+function showHeroSlide(index){
+  if(!slides.length) return;
+
+  slides[currentSlide].classList.remove("active");
+  currentSlide = (index + slides.length) % slides.length;
+  slides[currentSlide].classList.add("active");
+}
+
+function startHeroSlider(){
+  stopHeroSlider();
+
+  if(slides.length <= 1) return;
+
+  heroAutoTimer = setInterval(() => {
+    showHeroSlide(currentSlide + 1);
   }, 3000);
 }
+
+function stopHeroSlider(){
+  if(heroAutoTimer){
+    clearInterval(heroAutoTimer);
+    heroAutoTimer = null;
+  }
+}
+
+function restartHeroSlider(){
+  stopHeroSlider();
+  startHeroSlider();
+}
+
+heroPrevBtn?.addEventListener("click", event => {
+  event.preventDefault();
+  event.stopPropagation();
+  showHeroSlide(currentSlide - 1);
+  restartHeroSlider();
+});
+
+heroNextBtn?.addEventListener("click", event => {
+  event.preventDefault();
+  event.stopPropagation();
+  showHeroSlide(currentSlide + 1);
+  restartHeroSlider();
+});
+
+startHeroSlider();
 
 window.loadGraph = loadGraph;
 </script>
