@@ -817,7 +817,98 @@ body{
   font-size:15px;
   backdrop-filter:blur(4px);
 }
+.hero-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:54px;
+  height:54px;
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,.55), transparent 28%),
+    linear-gradient(145deg, rgba(17,24,39,.86), rgba(15,23,42,.68));
+  color:#fff;
+  font-size:0;
+  font-weight:900;
+  z-index:8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  box-shadow:
+    0 16px 34px rgba(15,23,42,.28),
+    inset 0 1px 0 rgba(255,255,255,.35),
+    inset 0 -10px 18px rgba(0,0,0,.18);
+  transition:transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
 
+.hero-nav::before{
+  content:"";
+  width:13px;
+  height:13px;
+  border-top:4px solid #fff;
+  border-right:4px solid #fff;
+  display:block;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.28));
+}
+
+.hero-nav.prev{
+  left:18px;
+}
+
+.hero-nav.next{
+  right:18px;
+}
+
+.hero-nav.prev::before{
+  transform:rotate(-135deg);
+  margin-left:5px;
+}
+
+.hero-nav.next::before{
+  transform:rotate(45deg);
+  margin-right:5px;
+}
+
+.hero-nav:hover{
+  transform:translateY(-50%) scale(1.08);
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,.62), transparent 28%),
+    linear-gradient(145deg, rgba(46,125,50,.95), rgba(15,23,42,.78));
+  box-shadow:
+    0 18px 38px rgba(15,23,42,.34),
+    0 0 0 5px rgba(46,125,50,.12),
+    inset 0 1px 0 rgba(255,255,255,.4);
+}
+
+.hero-nav:active{
+  transform:translateY(-50%) scale(.96);
+}
+
+@media (max-width:560px){
+  .hero-nav{
+    width:42px;
+    height:42px;
+  }
+
+  .hero-nav::before{
+    width:10px;
+    height:10px;
+    border-top-width:3px;
+    border-right-width:3px;
+  }
+
+  .hero-nav.prev{
+    left:10px;
+  }
+
+  .hero-nav.next{
+    right:10px;
+  }
+}
 .skeleton{
   background:linear-gradient(90deg,#eeeeee 25%,#dddddd 37%,#eeeeee 63%);
   background-size:400% 100%;
@@ -1279,9 +1370,11 @@ canvas{
 
 <div class="page-content">
   <div class="box receipt-box">
-    <div id="imgSkeleton" class="skeleton skel-img"></div>
 
     <div class="receipt-slider">
+
+      <div id="imgSkeleton" class="skeleton skel-img"></div>
+
       <a href="index.html" class="slide active">
         <img id="pavtiImg" style="display:none" alt="बुरहानपूर मंडी प्रमाणित पावती">
         <div class="slide-text" id="slideReceiptText">📸 बुरहानपूर मंडी प्रमाणित पावती</div>
@@ -1289,9 +1382,15 @@ canvas{
 
       <a href="buy.html" class="slide">
         <img src="ropphoto.jpeg" alt="केळी रोप-खोडवा खरेदी विक्री">
-        <div class="slide-text" id="slideBuyText">🌱 केळी रोप-खोडवा खरेदी विक्री</div>
+        <div class="slide-text" id="slideBuyText">🌱 keLi rop-khodva kharedi vikri</div>
       </a>
+
+      <button class="hero-nav prev" id="heroPrevBtn" type="button" aria-label="Previous slide">‹</button>
+
+      <button class="hero-nav next" id="heroNextBtn" type="button" aria-label="Next slide">›</button>
+
     </div>
+
   </div>
 
   <div class="tabs">
@@ -2746,13 +2845,55 @@ fetch(sheetURL)
     hideSkeleton(graphSkeleton);
   });
 
-if(slides.length > 1){
-  setInterval(() => {
-    slides[currentSlide].classList.remove("active");
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add("active");
+const heroPrevBtn = document.getElementById("heroPrevBtn");
+const heroNextBtn = document.getElementById("heroNextBtn");
+let heroAutoTimer = null;
+
+function showHeroSlide(index){
+  if(!slides.length) return;
+
+  slides[currentSlide].classList.remove("active");
+  currentSlide = (index + slides.length) % slides.length;
+  slides[currentSlide].classList.add("active");
+}
+
+function startHeroSlider(){
+  stopHeroSlider();
+
+  if(slides.length <= 1) return;
+
+  heroAutoTimer = setInterval(()=>{
+    showHeroSlide(currentSlide + 1);
   }, 3000);
 }
+
+function stopHeroSlider(){
+  if(heroAutoTimer){
+    clearInterval(heroAutoTimer);
+    heroAutoTimer = null;
+  }
+}
+
+function restartHeroSlider(){
+  stopHeroSlider();
+  startHeroSlider();
+}
+
+heroPrevBtn?.addEventListener("click", event=>{
+  event.preventDefault();
+  event.stopPropagation();
+  showHeroSlide(currentSlide - 1);
+  restartHeroSlider();
+});
+
+heroNextBtn?.addEventListener("click", event=>{
+  event.preventDefault();
+  event.stopPropagation();
+  showHeroSlide(currentSlide + 1);
+  restartHeroSlider();
+});
+
+startHeroSlider();
 
 function showMarket(market){
   currentMarket = market;
