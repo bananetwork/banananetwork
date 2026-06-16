@@ -3513,9 +3513,9 @@ async function uploadSelectedImages(){
   for(const file of selectedFiles){
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "bananetwork");
+    formData.append("upload_preset", "banana_upload");
 
-    const response = await fetch("https://api.cloudinary.com/v1_1/dmwpnhsni/image/upload", {
+    const response = await fetch("https://api.cloudinary.com/v1_1/dnyh4puqv/image/upload", {
       method:"POST",
       body:formData
     });
